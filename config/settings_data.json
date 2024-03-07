@@ -260,48 +260,10 @@
       },
       "header__top-bar": {
         "type": "header__top-bar",
-        "blocks": {
-          "header__top-bar-1": {
-            "type": "social_media",
-            "settings": {
-              "hide_on_mobile": true,
-              "width": "4",
-              "mobile_width": "one-whole",
-              "alignment": "center"
-            }
-          },
-          "44d41cb8-2c32-4d50-b9db-8aa57135a153": {
-            "type": "text",
-            "settings": {
-              "hide_on_mobile": false,
-              "width": "8",
-              "mobile_width": "one-whole",
-              "text": "123 Main Street, Pleasantville USA",
-              "text_preset": "is-text",
-              "alignment": "center"
-            }
-          },
-          "3339279c-9399-4c5b-ab0e-e4bda2b207e0": {
-            "type": "header_icons",
-            "settings": {
-              "hide_on_mobile": true,
-              "width": "4",
-              "mobile_width": "one-whole",
-              "display_search": true,
-              "icon_style": "icons",
-              "alignment": "right"
-            }
-          }
-        },
-        "block_order": [
-          "header__top-bar-1",
-          "44d41cb8-2c32-4d50-b9db-8aa57135a153",
-          "3339279c-9399-4c5b-ab0e-e4bda2b207e0"
-        ],
         "settings": {
           "color_scheme": "",
           "show_top_bar": false,
-          "hide_on_mobile": true,
+          "hide_on_mobile": false,
           "width": "standard",
           "padding_top": 10,
           "padding_bottom": 10,
