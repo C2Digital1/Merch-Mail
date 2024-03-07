@@ -29,20 +29,22 @@
             "button_2": "",
             "button_2_link": "",
             "button_2_style": "button--secondary",
-            "color_scheme_mobile": "",
+            "color_scheme_mobile": "scheme-27f0274f-ec98-4921-9bec-179906da6ceb",
             "mobile_image_crop": "none"
           }
         },
         "image_FmgcLX": {
           "type": "image",
           "settings": {
-            "color_scheme": "",
+            "color_scheme": "scheme-27f0274f-ec98-4921-9bec-179906da6ceb",
             "link": "",
-            "preheading": "<p>Preheading<\/p>",
-            "heading": "Classic slideshow",
-            "subheading": "<p>Additional info in the subheading<\/p>",
-            "preheading_preset": "is-h6",
-            "heading_preset": "is-h2",
+            "image": "shopify:\/\/shop_images\/Desktop_3.png",
+            "mobile_image": "shopify:\/\/shop_images\/Desktop_3.png",
+            "preheading": "<p>BANDS<\/p>",
+            "heading": "MODERNIZE YOUR MERCH TABLE",
+            "subheading": "",
+            "preheading_preset": "is-h5",
+            "heading_preset": "is-h1",
             "subheading_preset": "is-text",
             "text_alignment": "center",
             "text_horizontal_position": "center",
@@ -50,14 +52,14 @@
             "background_color": "",
             "border_color": "#FFFFFF",
             "border_width": 0,
-            "text_width": 40,
-            "button_1": "Button 1",
+            "text_width": 60,
+            "button_1": "Get Started",
             "button_1_link": "",
             "button_1_style": "button--secondary",
-            "button_2": "Button 2",
+            "button_2": "",
             "button_2_link": "",
             "button_2_style": "button--secondary",
-            "color_scheme_mobile": "",
+            "color_scheme_mobile": "scheme-27f0274f-ec98-4921-9bec-179906da6ceb",
             "mobile_image_crop": "none"
           }
         }
