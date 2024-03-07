@@ -293,7 +293,7 @@
           "color_scheme": "default",
           "main_linklist": "main-menu",
           "main_linklist_preset": "is-h6",
-          "menu_alignment": "start",
+          "menu_alignment": "center",
           "dropdown_click": false,
           "display_search": false,
           "icon_style": "icons",
