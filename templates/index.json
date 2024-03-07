@@ -1,35 +1,78 @@
 {
   "sections": {
-    "index_image_with_text_overlay_DF8zXN": {
-      "type": "index__image-with-text-overlay",
+    "index_slideshow_classic_jax3mX": {
+      "type": "index__slideshow-classic",
+      "blocks": {
+        "image_qBeCdQ": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "",
+            "link": "",
+            "preheading": "<p>bands<\/p>",
+            "heading": "MODERNIZE YOUR MERCH TABLE",
+            "subheading": "",
+            "preheading_preset": "is-h5",
+            "heading_preset": "is-h1",
+            "subheading_preset": "is-text",
+            "text_alignment": "center",
+            "text_horizontal_position": "center",
+            "text_vertical_position": "center",
+            "background_color": "",
+            "border_color": "#FFFFFF",
+            "border_width": 0,
+            "text_width": 40,
+            "button_1": "Get Started",
+            "button_1_link": "",
+            "button_1_style": "button--primary",
+            "button_2": "",
+            "button_2_link": "",
+            "button_2_style": "button--secondary",
+            "color_scheme_mobile": "",
+            "mobile_image_crop": "none"
+          }
+        },
+        "image_FmgcLX": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "",
+            "link": "",
+            "preheading": "<p>Preheading<\/p>",
+            "heading": "Classic slideshow",
+            "subheading": "<p>Additional info in the subheading<\/p>",
+            "preheading_preset": "is-h6",
+            "heading_preset": "is-h2",
+            "subheading_preset": "is-text",
+            "text_alignment": "center",
+            "text_horizontal_position": "center",
+            "text_vertical_position": "center",
+            "background_color": "",
+            "border_color": "#FFFFFF",
+            "border_width": 0,
+            "text_width": 40,
+            "button_1": "Button 1",
+            "button_1_link": "",
+            "button_1_style": "button--secondary",
+            "button_2": "Button 2",
+            "button_2_link": "",
+            "button_2_style": "button--secondary",
+            "color_scheme_mobile": "",
+            "mobile_image_crop": "none"
+          }
+        }
+      },
+      "block_order": [
+        "image_qBeCdQ",
+        "image_FmgcLX"
+      ],
       "settings": {
-        "color_scheme": "",
-        "link": "",
+        "image_transition": "slide",
+        "image_slideshow_speed": 0,
         "desktop_height": 0,
         "mobile_height": 0,
-        "preheading": "<p>BRANDS<\/p>",
-        "heading": "MODERNIZE YOUR MERCH TABLE",
-        "subheading": "",
-        "preheading_preset": "is-h6",
-        "heading_preset": "is-h2",
-        "subheading_preset": "is-text",
-        "text_alignment": "center",
-        "text_horizontal_position": "center",
-        "text_vertical_position": "center",
-        "background_color": "",
-        "border_color": "#FFFFFF",
-        "border_width": 0,
-        "text_width": 40,
-        "button_1": "Get Started",
-        "button_1_link": "",
-        "button_1_style": "button--secondary",
-        "button_2": "",
-        "button_2_link": "",
-        "button_2_style": "button--secondary",
-        "color_scheme_mobile": "",
-        "mobile_image_crop": "none",
-        "mobile_text_below_image": true,
-        "width": "wide",
+        "show_arrows": false,
+        "show_nav_buttons": true,
+        "mobile_text_below_image": false,
+        "width": "standard",
         "padding_top": 0,
         "padding_bottom": 0,
         "padding_left": 0,
@@ -42,6 +85,7 @@
         "padding_right_m": 0,
         "margin_top_m": 0,
         "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
         "animation": "none",
         "css_class": "",
         "custom_css": ""
@@ -49,6 +93,6 @@
     }
   },
   "order": [
-    "index_image_with_text_overlay_DF8zXN"
+    "index_slideshow_classic_jax3mX"
   ]
 }
