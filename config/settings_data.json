@@ -193,32 +193,6 @@
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
-        "blocks": {
-          "a6c78f19-b70c-4be2-872c-a3ee5914bda9": {
-            "type": "text",
-            "settings": {
-              "icon_label": "tag",
-              "text": "<p>Draw attention to promos + sales!<\/p>",
-              "button_label": "",
-              "link": "",
-              "button_style": "button--secondary"
-            }
-          },
-          "6e76b122-4c19-4138-8dd2-3a823a5ca84a": {
-            "type": "text",
-            "settings": {
-              "icon_label": "phone",
-              "text": "<p>Provide contact info<\/p>",
-              "button_label": "",
-              "link": "",
-              "button_style": "button--primary"
-            }
-          }
-        },
-        "block_order": [
-          "a6c78f19-b70c-4be2-872c-a3ee5914bda9",
-          "6e76b122-4c19-4138-8dd2-3a823a5ca84a"
-        ],
         "settings": {
           "color_scheme": "default",
           "add_slider": true,
