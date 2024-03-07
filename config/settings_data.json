@@ -1155,23 +1155,23 @@
       },
       "scheme-27f0274f-ec98-4921-9bec-179906da6ceb": {
         "settings": {
-          "scheme_background": "#02ba9d",
+          "scheme_background": "rgba(0,0,0,0)",
           "scheme_background_gradient": "",
-          "scheme_heading": "#7d2f2f",
-          "scheme_text": "#121212",
-          "scheme_pre_text": "#121212",
-          "scheme_button": "#ffffff",
-          "scheme_button_hover": "#121212",
-          "scheme_button_border": "#121212",
-          "scheme_button_label": "#000000",
-          "scheme_button_label_hover": "#ffffff",
-          "scheme_s_button": "#121212",
-          "scheme_s_button_hover": "#7d2f2f",
-          "scheme_s_button_border": "#212426",
+          "scheme_heading": "#ffffff",
+          "scheme_text": "#ffffff",
+          "scheme_pre_text": "#FFF",
+          "scheme_button": "#a12b2f",
+          "scheme_button_hover": "#ffffff",
+          "scheme_button_border": "#a12b2f",
+          "scheme_button_label": "#ffffff",
+          "scheme_button_label_hover": "#a12b2f",
+          "scheme_s_button": "#2b5597",
+          "scheme_s_button_hover": "#ffffff",
+          "scheme_s_button_border": "#2b5597",
           "scheme_secondary_button_label": "#ffffff",
-          "scheme_secondary_button_label_hover": "#ffffff",
-          "scheme_link": "#7d2f2f",
-          "scheme_link_hover": "#cccccc"
+          "scheme_secondary_button_label_hover": "#2b5597",
+          "scheme_link": "#0c0c0c",
+          "scheme_link_hover": "#2b5597"
         }
       },
       "scheme-8a16c616-abc9-4c2a-b48a-c26d30fdeddf": {
