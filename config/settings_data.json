@@ -209,10 +209,10 @@
           "text_dqiUFB"
         ],
         "settings": {
-          "color_scheme": "default",
-          "add_slider": true,
+          "color_scheme": "background-1",
+          "add_slider": false,
           "slider_arrows": false,
-          "auto_slider": true,
+          "auto_slider": false,
           "text_preset": "is-text",
           "alignment": "center",
           "size": "large",
@@ -1149,11 +1149,11 @@
       },
       "background-1": {
         "settings": {
-          "scheme_background": "rgba(0,0,0,0)",
-          "scheme_background_gradient": "linear-gradient(358deg, rgba(82, 82, 82, 1) 37%, rgba(152, 105, 20, 1) 68%, rgba(203, 68, 194, 1) 100%)",
+          "scheme_background": "#a12b2f",
+          "scheme_background_gradient": "",
           "scheme_heading": "#ffffff",
           "scheme_text": "#ffffff",
-          "scheme_pre_text": "#121212",
+          "scheme_pre_text": "#ffffff",
           "scheme_button": "#121212",
           "scheme_button_hover": "#7d2f2f",
           "scheme_button_border": "#121212",
