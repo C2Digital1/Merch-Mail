@@ -411,14 +411,15 @@
       "footer-classic": {
         "type": "footer-classic",
         "blocks": {
-          "footer-classic-1": {
-            "type": "link_list",
+          "logo_jif3fd": {
+            "type": "logo",
             "settings": {
               "width": "4",
-              "mobile_width": "one-half",
-              "menu": "main-menu",
-              "menu_preset": "is-text",
-              "social_icons_footer": true
+              "mobile_width": "one-whole",
+              "size": "small",
+              "text": "",
+              "text_preset": "is-text",
+              "social_icons_footer": false
             }
           },
           "e988baed-a3b3-4491-8a49-f5dae727b207": {
@@ -455,7 +456,7 @@
           }
         },
         "block_order": [
-          "footer-classic-1",
+          "logo_jif3fd",
           "e988baed-a3b3-4491-8a49-f5dae727b207",
           "946a7f59-5a97-4ff6-ba90-19c1dbb7b8a0",
           "f33f3fdd-2f4a-4237-9a42-fc3a4639ab28"
