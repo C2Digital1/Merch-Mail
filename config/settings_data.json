@@ -463,7 +463,7 @@
         ],
         "settings": {
           "color_scheme": "scheme-0b404fdd-f99c-41cc-9c5f-dbc473405c91",
-          "show_icon_bar": true,
+          "show_icon_bar": false,
           "alignment": "center",
           "icon_position": "column",
           "size": "medium",
