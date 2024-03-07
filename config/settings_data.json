@@ -220,9 +220,9 @@
           "alignment": "center",
           "size": "large",
           "width": "wide",
-          "homepage_only": true,
-          "enable_sticky": true,
-          "show_close_icon": true,
+          "homepage_only": false,
+          "enable_sticky": false,
+          "show_close_icon": false,
           "css_class": "",
           "custom_css": ""
         }
