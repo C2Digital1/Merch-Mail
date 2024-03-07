@@ -11,9 +11,16 @@
   assign button2Text = section.settings.button2Text
   assign button2Url = section.settings.button2Url
 
-  
   assign heading_color = section.settings.color_scheme.settings.scheme_heading
 
+  assign bgImg = section.settings.bgImg
+  assign logoImg = section.settings.logoImg
+  assign bottomRightIcon = section.settings.bottomRightIcon
+  assign bottomLeftIcon = section.settings.bottomLeftIcon
+
+  assign button1Style = section.settings.button1Style
+  assign button2Style = section.settings.button2Style
+   
 -%}
 {% comment %}Spacing{% endcomment %}
 {%- liquid
@@ -32,13 +39,13 @@
 -%}
 {% comment %}Layout{% endcomment %}
 {%- liquid
-    assign width = section.settings.width
-    assign section_bg = section.settings.color_scheme.settings.scheme_background
-    if section.settings.color_scheme.settings.scheme_background_gradient != empty
-      assign section_bg = section.settings.color_scheme.settings.scheme_background_gradient
-    endif
-    assign animation = section.settings.animation | default: 'none'
-  -%}
+  assign width = section.settings.width
+  assign section_bg = section.settings.color_scheme.settings.scheme_background
+  if section.settings.color_scheme.settings.scheme_background_gradient != empty
+    assign section_bg = section.settings.color_scheme.settings.scheme_background_gradient
+  endif
+  assign animation = section.settings.animation | default: 'none'
+-%}
 {% comment %}Advanced{% endcomment %}
 {%- liquid
   assign css_class = section.settings.css_class
@@ -82,6 +89,9 @@ h1.popupHeadingTxt{
   .button--link-style:hover{
     color: {{ section.settings.color_scheme.settings.scheme_link_hover }};
   }
+.customOpeningPopupSec{
+    background: {{ section_bg }};
+}
 {%- endcapture -%}
 {% style %}
   #shopify-section-{{ id }}{
@@ -89,7 +99,13 @@ h1.popupHeadingTxt{
     padding-bottom: {{ padding_bottom }}px;
     padding-left: {{ padding_left }}px;
     padding-right: {{ padding_right }}px;
-    background: {{ section_bg }};
+    {% if bgImg != blank %}
+        background: url("{{ bgImg | img_url:'master'  }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+     {% else %}
+        background: {{ section_bg }};
+    {% endif %}
     margin-top: {{ margin_top }}px;
     margin-bottom: {{ margin_bottom }}px;
     {% if width == 'wide' %}
@@ -128,23 +144,62 @@ h1.popupHeadingTxt{
   {% endif %}
 >
   <div class="openingPopupContainer">
-    {% if heading != blank %}
-      <h1 class="popupHeadingTxt {{ headingPreset }}">
-        {{ heading }}
-      </h1>
+    {% if logoImg != blank %}
+      <a href="/" class="popupLogoLink">
+        <img
+          class="boxImg lazyload"
+          src="{{ logoImg | img_url:'master' }}"
+          alt="img"
+          width="200"
+          height="200"
+          loading="lazy"
+        >
+      </a>
     {% endif %}
-    <div class="popupBtnsContainer">
-      {% if button1Text != blank %}
-        <a href="{{ button1Url }}" class="popupBtn button">
-          {{ button1Text }}
-        </a>
+    <div class="openingPopupTxtAndBtns">
+      {% if heading != blank %}
+        <h1 class="popupHeadingTxt {{ headingPreset }}">
+          {{ heading }}
+        </h1>
       {% endif %}
-      {% if button2Text != blank %}
-        <a href="{{  button2Url }}" class="popupBtn button">
-          {{ button2Text }}
-        </a>
-      {% endif %}
+      <div class="popupBtnsContainer">
+        {% if button1Text != blank %}
+          <a href="{{ button1Url }}" class="popupBtn button {{ button1Style }}">
+            {{ button1Text }}
+          </a>
+        {% endif %}
+        {% if button2Text != blank %}
+          <a href="{{  button2Url }}" class="popupBtn button {{ button2Style }}">
+            {{ button2Text }}
+          </a>
+        {% endif %}
+      </div>
     </div>
+
+    {% if bottomLeftIcon != blank %}
+      <div class="bottomLeftFloatingIcon">
+        <img
+          class="boxImg lazyload"
+          src="{{ bottomLeftIcon | img_url:'master' }}"
+          alt="img"
+          width="200"
+          height="200"
+          loading="lazy"
+        >
+      </div>
+    {% endif %}
+    {% if bottomRightIcon != blank %}
+      <div class="bottomLeftFloatingIcon">
+        <img
+          class="boxImg lazyload"
+          src="{{ bottomRightIcon | img_url:'master' }}"
+          alt="img"
+          width="200"
+          height="200"
+          loading="lazy"
+        >
+      </div>
+    {% endif %}
   </div>
 </section>
 
@@ -153,6 +208,26 @@ h1.popupHeadingTxt{
   "name": "Bands And Fans Popup",
   "class": "customOpeningPopup",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "bgImg",
+      "label": "Bg Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "logoImg",
+      "label": "Logo Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottomRightIcon",
+      "label": "Bottom Right Icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottomLeftIcon",
+      "label": "Bottom Left Icon"
+    },
     {
       "type": "text",
       "id": "heading",
@@ -218,6 +293,46 @@ h1.popupHeadingTxt{
       ],
       "default": "is-h1"
     },
+    {
+      "type": "select", 
+      "id": "button1Style",
+      "label": "Button 1 style",
+      "options": [
+        {
+          "value": "button--primary",
+          "label": "Primary"
+        },
+        {
+          "value": "button--secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "button--link-style",
+          "label": "Link style"
+        }
+      ],
+      "default": "button--primary"
+    },
+    {
+        "type": "select",
+        "id": "button2Style",
+        "label": "Button 2 style",
+        "options": [
+          {
+            "value": "button--primary",
+            "label": "Primary"
+          },
+          {
+            "value": "button--secondary",
+            "label": "Secondary"
+          },
+          {
+            "value": "button--link-style",
+            "label": "Link style"
+          }
+        ],
+        "default": "button--secondary"
+      },
     {
       "type": "header",
       "content": "Layout"
