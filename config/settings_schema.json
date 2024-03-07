@@ -2475,7 +2475,7 @@
         "id": "color_scheme_article",
         "label": "Color Scheme",
         "default": "default"
-      }, 
+      },
       {
         "type": "header",
         "content": "Title"
