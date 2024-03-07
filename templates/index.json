@@ -55,7 +55,7 @@
             "text_width": 50,
             "button_1": "Get Started",
             "button_1_link": "",
-            "button_1_style": "button--secondary",
+            "button_1_style": "button--primary",
             "button_2": "",
             "button_2_link": "",
             "button_2_style": "button--secondary",
