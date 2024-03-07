@@ -193,6 +193,21 @@
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
+        "blocks": {
+          "text_dqiUFB": {
+            "type": "text",
+            "settings": {
+              "icon_label": "",
+              "text": "<p>Free Shipping on Orders over $75+<\/p>",
+              "button_label": "",
+              "link": "",
+              "button_style": "button--primary"
+            }
+          }
+        },
+        "block_order": [
+          "text_dqiUFB"
+        ],
         "settings": {
           "color_scheme": "default",
           "add_slider": true,
