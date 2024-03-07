@@ -1,0 +1,12 @@
+/* common css code start  */
+.hideScroll,
+body.hideScroll {
+    overflow: hidden !important;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+/* common css code end  */
