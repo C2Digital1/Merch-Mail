@@ -1058,21 +1058,21 @@
         "settings": {
           "scheme_background": "#ffffff",
           "scheme_background_gradient": "",
-          "scheme_heading": "#121212",
-          "scheme_text": "#121212",
-          "scheme_pre_text": "#121212",
-          "scheme_button": "#121212",
+          "scheme_heading": "#0c0c0c",
+          "scheme_text": "#0c0c0c",
+          "scheme_pre_text": "#0c0c0c",
+          "scheme_button": "#a12b2f",
           "scheme_button_hover": "#ffffff",
-          "scheme_button_border": "#121212",
+          "scheme_button_border": "#a12b2f",
           "scheme_button_label": "#ffffff",
-          "scheme_button_label_hover": "#000000",
-          "scheme_s_button": "#121212",
+          "scheme_button_label_hover": "#a12b2f",
+          "scheme_s_button": "#2b5597",
           "scheme_s_button_hover": "#ffffff",
-          "scheme_s_button_border": "#121212",
+          "scheme_s_button_border": "#2b5597",
           "scheme_secondary_button_label": "#ffffff",
-          "scheme_secondary_button_label_hover": "#121212",
-          "scheme_link": "#121212",
-          "scheme_link_hover": "#121212"
+          "scheme_secondary_button_label_hover": "#2b5597",
+          "scheme_link": "#1c1c1c",
+          "scheme_link_hover": "#2b5597"
         }
       },
       "background-1": {
