@@ -316,13 +316,6 @@
     "name": "Buttons",
     "settings": [
       {
-        "type": "url",
-        "id": "button_default_url",
-        "label": "Button Default Url",
-        "info": "This Url will be added to button if no url is assigned to it",
-        "default": "\/collections\/all"
-      },
-      {
         "type": "header",
         "content": "Primary"
       },
@@ -347,7 +340,7 @@
         "default": "regular"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_primary_bg_color",
         "label": "Background",
         "default": "#000000"
@@ -362,7 +355,7 @@
         "unit": "%"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_primary_border_color",
         "label": "Border",
         "default": "rgba(0,0,0,0)"
@@ -374,7 +367,7 @@
         "default": "#ffffff"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_primary_bg_color--highlight",
         "label": "Background hover",
         "default": "#606060"
@@ -389,7 +382,7 @@
         "unit": "%"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_primary_border_color--highlight",
         "label": "Border hover",
         "default": "rgba(0,0,0,0)"
@@ -407,6 +400,59 @@
         "min": 0,
         "max": 35,
         "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "font_picker",
+        "id": "primaryFont",
+        "label": "Font",
+        "default": "helvetica_n4"
+      },
+      {
+        "type": "text",
+        "id": "primaryCustomFont",
+        "label": "Custom Font"
+      },
+      {
+        "type": "checkbox",
+        "id": "primaryUpperCase",
+        "label": "Show Primay text Upper Case",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "primarySize",
+        "label": "Font Size Primary",
+        "min": 0,
+        "max": 100,
+        "default": 18,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "primarySizeMob",
+        "label": "Font Size Primary Mobile",
+        "min": 0,
+        "max": 100,
+        "default": 16,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "primaryLineHeight",
+        "label": "Primary Button Line Height",
+        "min": 0,
+        "max": 100,
+        "default": 18,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "primaryLineHeightMob",
+        "label": "Primary Button Line Height Mobile",
+        "min": 0,
+        "max": 100,
+        "default": 24,
         "unit": "px"
       },
       {
@@ -434,7 +480,7 @@
         "default": "regular"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_secondary_bg_color",
         "label": "Background",
         "default": "rgba(0,0,0,0)"
@@ -449,7 +495,7 @@
         "unit": "%"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_secondary_border_color",
         "label": "Border",
         "default": "#000000"
@@ -461,7 +507,7 @@
         "default": "#000000"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_secondary_bg_color--highlight",
         "label": "Background hover",
         "default": "#000000"
@@ -476,7 +522,7 @@
         "unit": "%"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_secondary_border_color--highlight",
         "label": "Border hover",
         "default": "#000000"
@@ -497,8 +543,114 @@
         "unit": "px"
       },
       {
+        "type": "font_picker",
+        "id": "secondaryFont",
+        "label": "Font",
+        "default": "helvetica_n4"
+      },
+      {
+        "type": "checkbox",
+        "id": "secondaryUpperCase",
+        "label": "Show Secondary text Upper Case",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "secondaryCustomFont",
+        "label": "Custom Font"
+      },
+      {
+        "type": "range",
+        "id": "secondarySize",
+        "label": "Font Size secondary",
+        "min": 0,
+        "max": 100,
+        "default": 18,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "secondarySizeMob",
+        "label": "Font Size secondary Mobile",
+        "min": 0,
+        "max": 100,
+        "default": 16,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "secondaryLineHeight",
+        "label": "secondary Button Line Height",
+        "min": 0,
+        "max": 100,
+        "default": 18,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "secondaryLineHeightMob",
+        "label": "secondary Button Line Height Mobile",
+        "min": 0,
+        "max": 100,
+        "default": 24,
+        "unit": "px"
+      },
+      {
         "type": "header",
         "content": "Link style"
+      },
+      {
+        "type": "font_picker",
+        "id": "linkStyleFont",
+        "label": "Font",
+        "default": "helvetica_n4"
+      },
+      {
+        "type": "text",
+        "id": "linkStyleCustomFont",
+        "label": "Custom Font"
+      },
+      {
+        "type": "checkbox",
+        "id": "linkStyleUpperCase",
+        "label": "Show Link Style Button Upper Case",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "linkStyleSize",
+        "label": "Font Size Primary",
+        "min": 0,
+        "max": 100,
+        "default": 18,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "linkStyleSizeMob",
+        "label": "Font Size Primary Mobile",
+        "min": 0,
+        "max": 100,
+        "default": 16,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "linkStyleLineHeight",
+        "label": "Primary Button Line Height",
+        "min": 0,
+        "max": 100,
+        "default": 18,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "linkStyleLineHeightMob",
+        "label": "Primary Button Line Height Mobile",
+        "min": 0,
+        "max": 100,
+        "default": 24,
+        "unit": "px"
       },
       {
         "type": "select",
@@ -521,13 +673,13 @@
         "default": "regular"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_link_text_color",
         "label": "Text",
         "default": "#000000"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_link_text_color--highlight",
         "label": "Text hover",
         "default": "#ccc"
@@ -563,6 +715,73 @@
       },
       {
         "type": "header",
+        "content": "Extra Button"
+      },
+      {
+        "type": "color_background",
+        "id": "btnExtra_bg_color",
+        "label": "Background",
+        "default": "#000000"
+      },
+      {
+        "type": "range",
+        "id": "btnExtra_bg_color_transparency",
+        "label": "Background opacity",
+        "min": 0,
+        "max": 100,
+        "default": 100,
+        "unit": "%"
+      },
+      {
+        "type": "color_background",
+        "id": "btnExtra_border_color",
+        "label": "Border",
+        "default": "rgba(0,0,0,0)"
+      },
+      {
+        "type": "color",
+        "id": "btnExtra_text_color",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color_background",
+        "id": "btnExtra_bg_color--highlight",
+        "label": "Background hover",
+        "default": "#606060"
+      },
+      {
+        "type": "range",
+        "id": "btnExtra_bg_color_transparency--highlight",
+        "label": "Background hover opacity",
+        "min": 0,
+        "max": 100,
+        "default": 100,
+        "unit": "%"
+      },
+      {
+        "type": "color_background",
+        "id": "btnExtra_border_color--highlight",
+        "label": "Border hover",
+        "default": "rgba(0,0,0,0)"
+      },
+      {
+        "type": "color",
+        "id": "btnExtra_text_color--highlight",
+        "label": "Text hover",
+        "default": "#ffffff"
+      },
+      {
+        "type": "range",
+        "id": "btnExtra_border_radius",
+        "label": "Border radius",
+        "min": 0,
+        "max": 35,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "header",
         "content": "\"Add to cart\" button"
       },
       {
@@ -586,16 +805,16 @@
         "default": "regular"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_cart_bg_color",
         "label": "Background",
-        "default": "#c70000"
+        "default": "linear-gradient(135deg, #0ABEDA 0%, #006A62 100%)"
       },
       {
-        "type": "color",
+        "type": "color_background",
         "id": "button_cart_bg_color--highlight",
         "label": "Background hover",
-        "default": "#de1313"
+        "default": "#171D3E"
       },
       {
         "type": "color",

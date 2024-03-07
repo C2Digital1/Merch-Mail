@@ -14175,3 +14175,59 @@ ul.faceted-filter-group-display__list {
   font-weight: normal;
   font-style: normal; 
 }
+
+
+
+/* buttons css code start  */
+
+{% assign primBtnFont = settings.primaryFont %}
+{{ primBtnFont | font_face }}
+button.button,
+button.ajax-submit.action_button.button--add-to-cart.button--primary,
+.button.button--primary{
+    {% if settings.primaryCustomFont != blank %}  
+      font-family: {{ settings.primaryCustomFont }}  !important;
+    {% else %}         
+      font-family: {{ primBtnFont.family }},{{ primBtnFont.fallback_families }} !important;         
+    {% endif %}
+    font-size: {{ settings.primarySize }}px  !important;
+    line-height: {{ settings.primaryLineHeight }}px  !important;
+  font-weight: {{ primBtnFont.weight }}!important;   
+  {% if settings.primaryUpperCase %}
+    text-transform: uppercase;
+  {% endif %}  
+}
+
+  {% assign secBtnFont = settings.secondaryFont %}
+     {{ secBtnFont | font_face }}    
+button.ajax-submit.action_button.button--add-to-cart.button--secondary,
+.button.button--secondary{
+    {% if settings.secondaryCustomFont != blank %}  
+       font-family: {{ settings.secondaryCustomFont }}  !important;
+     {% else %}       
+       font-family: {{ secBtnFont.family }},{{ secBtnFont.fallback_families }} !important;         
+     {% endif %}
+     font-size: {{ settings.secondarySize }}px  !important;
+     line-height: {{ settings.secondaryLineHeight }}px  !important;  
+       font-weight: {{ secBtnFont.weight }}!important;  
+   {% if settings.secondaryUpperCase %}
+    text-transform: uppercase;
+  {% endif %}  
+ }
+
+ {% assign linkStyleFont = settings.linkStyleFont %}
+ {{ linkStyleFont | font_face }}
+ .button--link-style{
+     {% if settings.linkStyleCustomFont != blank %}  
+       font-family: {{ settings.linkStyleCustomFont }}  !important;
+     {% else %}         
+       font-family: {{ linkStyleFont.family }},{{ linkStyleFont.fallback_families }} !important;         
+     {% endif %}
+     font-size: {{ settings.linkStyleSize }}px  !important;
+     line-height: {{ settings.linkStyleLineHeight }}px  !important;
+   font-weight: {{ linkStyleFont.weight }}!important;   
+   {% if settings.linkStyleUpperCase %}
+     text-transform: uppercase;
+   {% endif %}      
+ }
+/* buttons css code end  */ 
