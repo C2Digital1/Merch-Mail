@@ -1,0 +1,216 @@
+{%- liquid
+  assign id = object.id
+  assign image = object.settings.image
+  assign link = object.settings.link
+
+  assign preheading = object.settings.preheading
+  assign heading = object.settings.heading
+  assign subheading = object.settings.subheading
+
+  assign heading_preset = object.settings.heading_preset
+  assign subheading_preset = object.settings.subheading_preset
+  assign preheading_preset = object.settings.preheading_preset
+
+  assign preheading_color = object.settings.color_scheme.settings.scheme_pre_text
+  assign heading_color = object.settings.color_scheme.settings.scheme_heading
+  assign subheading_color = object.settings.color_scheme.settings.scheme_text
+
+  assign text_alignment = object.settings.text_alignment
+  assign text_horizontal_position = object.settings.text_horizontal_position
+  assign text_vertical_position = object.settings.text_vertical_position
+
+  assign background_color = object.settings.background_color
+  assign border_color = object.settings.border_color
+  assign border_width = object.settings.border_width
+  assign text_width = object.settings.text_width
+
+  assign button_1 = object.settings.button_1
+  assign button_1_link = object.settings.button_1_link
+  assign button_1_style = object.settings.button_1_style
+  assign button_2 = object.settings.button_2
+  assign button_2_link = object.settings.button_2_link
+  assign button_2_style = object.settings.button_2_style
+
+  assign mobile_image = object.settings.mobile_image
+  assign mobile_image_crop = object.settings.mobile_image_crop
+  assign preheading_color_mobile = object.settings.color_scheme_mobile.settings.scheme_pre_text
+  assign heading_color_mobile = object.settings.color_scheme_mobile.settings.scheme_heading
+  assign subheading_color_mobile = object.settings.color_scheme_mobile.settings.scheme_text
+-%}
+
+{%- liquid
+  if button_1 != blank or button_2 != blank
+    assign buttons = true
+  else
+    assign buttons = false
+  endif
+
+  if border_width != 0 or background_color != null
+    assign allow_padding = true
+  else
+    assign allow_padding = false
+  endif
+-%}
+
+<div
+  {% if type == 'block' %}
+    id="shopify-section-{{ id }}"
+    {{ block.shopify_attributes }}
+  {% endif %}
+  class="
+    {{ context }}__banner columns
+    one-whole {{ class }}
+    {% if mobile_image_crop != 'none'%} has-image-crop image-crop-{{ mobile_image_crop }}{% endif %}
+  "
+>
+  {% style -%}
+    #shopify-section-{{ id }} .caption-content {
+      background:  {{ background_color }} ;
+      border: {{ border_width }}px solid {{ border_color }};
+    }
+
+    #shopify-section-{{ id }} .{{ context }}__heading {
+      color: {{ heading_color }};
+    }
+
+    #shopify-section-{{ id }} .{{ context }}__preheading {
+      color: {{ preheading_color }};
+    }
+
+    #shopify-section-{{ id }} .{{ context }}__subheading {
+      color: {{ subheading_color }};
+    }
+
+
+    #shopify-section-{{ id }} .button--primary{
+      background-color: {{ object.settings.color_scheme.settings.scheme_button }};
+      color: {{ object.settings.color_scheme.settings.scheme_button_label }};
+      border: 1px solid {{ object.settings.color_scheme.settings.scheme_button_border }};
+    }
+
+    #shopify-section-{{ id }} .button--primary:hover{
+      background-color: {{ object.settings.color_scheme.settings.scheme_button_hover }};
+      color: {{ object.settings.color_scheme.settings.scheme_button_label_hover }};
+    }
+
+    #shopify-section-{{ id }} .button--secondary{
+      background-color: {{ object.settings.color_scheme.settings.scheme_s_button }};
+      color: {{ object.settings.color_scheme.settings.scheme_secondary_button_label }};
+      border: 1px solid {{ object.settings.color_scheme.settings.scheme_s_button_border }};
+    }
+
+    #shopify-section-{{ id }} .button--secondary:hover{
+      background-color: {{ object.settings.color_scheme.settings.scheme_s_button_hover }};
+      color: {{ object.settings.color_scheme.settings.scheme_secondary_button_label_hover }};
+    }
+
+    #shopify-section-{{ id }} .button--link-style{
+      color: {{ object.settings.color_scheme.settings.scheme_link }};
+    }
+
+    #shopify-section-{{ id }} .button--link-style:hover{
+      color: {{ object.settings.color_scheme.settings.scheme_link_hover }};
+    }
+
+
+    @media only screen and (min-width: 480px) {
+      #shopify-section-{{id }} .caption-content {
+        width: {{ text_width }}%;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      #shopify-section-{{ id }}  .{{ context }}__heading {
+        color: {{ heading_color_mobile }};
+      }
+      #shopify-section-{{ id }}  .{{ context }}__preheading {
+        color: {{ preheading_color_mobile }};
+      }
+      #shopify-section-{{ id }}  .{{ context }}__subheading {
+        color: {{ subheading_color_mobile }};
+      }
+
+      #shopify-section-{{ id }} .button--primary{
+        background-color: {{ object.settings.color_scheme_mobile.settings.scheme_button }};
+        color: {{ object.settings.color_scheme_mobile.settings.scheme_button_label }};
+        border: 1px solid {{ object.settings.color_scheme_mobile.settings.scheme_button_border }};
+      }
+
+      #shopify-section-{{ id }} .button--primary:hover{
+        background-color: {{ object.settings.color_scheme_mobile.settings.scheme_button_hover }};
+        color: {{ object.settings.color_scheme_mobile.settings.scheme_button_label_hover }};
+      }
+
+      #shopify-section-{{ id }} .button--secondary{
+        background-color: {{ object.settings.color_scheme_mobile.settings.scheme_s_button }};
+        color: {{ object.settings.color_scheme_mobile.settings.scheme_secondary_button_label }};
+        border: 1px solid {{ object.settings.color_scheme_mobile.settings.scheme_s_button_border }};
+      }
+
+      #shopify-section-{{ id }} .button--secondary:hover{
+        background-color: {{ object.settings.color_scheme_mobile.settings.scheme_s_button_hover }};
+        color: {{ object.settings.color_scheme_mobile.settings.scheme_secondary_button_label_hover }};
+      }
+
+      #shopify-section-{{ id }} .button--link-style{
+        color: {{ object.settings.color_scheme_mobile.settings.scheme_link }};
+      }
+
+      #shopify-section-{{ id }} .button--link-style:hover{
+        color: {{ object.settings.color_scheme_mobile.settings.scheme_link_hover }};
+      }
+    }
+  {% endstyle -%}
+
+  {% if mobile_image != blank %}
+    {%- assign hide_mobile = 'is-hidden-mobile-only' -%}
+  {% endif %}
+
+  {% if image != blank %}
+    {% render 'image-element', image: image, alt: image.alt, stretch_width: true, additional_classes: hide_mobile %}
+  {% else %}
+    {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+  {% endif %}
+
+  {% if mobile_image != blank %}
+    <div class="is-hidden-desktop-only">
+      {% render 'image-element', image: mobile_image, alt: mobile_image.alt, stretch_width: true %}
+    </div>
+  {% endif %}
+
+  {% if link != blank %}
+    <a href="{{ link }}" class="banner--full-link"></a>
+  {% endif %}
+
+  {% if preheading != blank or heading != blank or subheading != blank or button_1 != blank or button_2 != blank %}
+    <div class="caption is-justify-{{ text_horizontal_position }} is-align-{{ text_vertical_position }}">
+      <div class="caption-content text-align-{{ text_alignment }} {% if allow_padding %}has-padding{% endif %}">
+        {% if preheading != blank %}
+          <div class="{{ context }}__preheading banner__subheading {{ preheading_preset }} subheading">
+            {{ preheading }}
+          </div>
+        {% endif %}
+        {% if heading != blank %}
+          <h2 class="{{ context }}__heading banner__heading title {{ heading_preset }}">
+            <span>{{ heading }}</span>
+          </h2>
+        {% endif %}
+        {% if subheading != blank %}
+          <div class="{{ context }}__subheading banner__subheading subtitle {{ subheading_preset }}">
+            {{ subheading }}
+          </div>
+        {% endif %}
+        {% if buttons %}
+          <div class="{{ context }}__buttons buttons is-{{ text_alignment }}">
+            {% if button_1 != blank %}
+              {% render 'button', label: button_1, href: button_1_link, type: 'link', style: button_1_style %}
+            {% endif %}
+            {% if button_2 != blank %}
+              {% render 'button', label: button_2, href: button_2_link, type: 'link', style: button_2_style %}
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>

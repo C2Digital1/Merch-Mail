@@ -1,0 +1,14 @@
+{% if context == 'header' %}
+  {% assign search_results = settings.search_option %}
+{% else %}
+  {% assign search_results = block.settings.search_results %}
+{% endif %}
+
+{% if block.settings.title != blank %}
+  <h3 class="sidebar-block__heading {{ sidebar_heading_preset }}">
+    {{ block.settings.title }}
+  </h3>
+{% endif %}
+<div data-autocomplete-{{ settings.enable_autocomplete }}>
+  {% render 'search-bar' %}
+</div>

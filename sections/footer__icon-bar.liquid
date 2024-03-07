@@ -1,0 +1,505 @@
+{% comment %}
+  ** Icon bar for footer - static **
+{% endcomment %}
+
+{%- liquid
+  assign id = section.id
+  assign show_icon_bar = section.settings.show_icon_bar
+  assign alignment = section.settings.alignment
+  assign icon_position = section.settings.icon_position
+  assign size = section.settings.size
+  assign text_preset = section.settings.text_preset
+-%}
+{% comment %}Colors{% endcomment %}
+{%- liquid
+  assign link = section.settings.color_scheme.settings.scheme_link
+  assign link_hover = section.settings.color_scheme.settings.scheme_link_hover
+  assign text = section.settings.color_scheme.settings.scheme_text
+  assign text_preset = section.settings.text_preset
+-%}
+{% comment %}Spacing{% endcomment %}
+{%- liquid
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign padding_left = section.settings.padding_left
+  assign padding_right = section.settings.padding_right
+  assign margin_top = section.settings.margin_top
+  assign margin_bottom = section.settings.margin_bottom
+  assign padding_top_m = section.settings.padding_top_m
+  assign padding_bottom_m = section.settings.padding_bottom_m
+  assign padding_left_m = section.settings.padding_left_m
+  assign padding_right_m = section.settings.padding_right_m
+  assign margin_top_m = section.settings.margin_top_m
+  assign margin_bottom_m = section.settings.margin_bottom_m
+-%}
+{% comment %}Layout{% endcomment %}
+{%- liquid
+  assign width = section.settings.width
+  assign section_bg = section.settings.color_scheme.settings.scheme_background
+  if section.settings.color_scheme.settings.scheme_background_gradient != empty
+    assign section_bg = section.settings.color_scheme.settings.scheme_background_gradient
+  endif
+  assign animation = section.settings.animation | default: 'none'
+-%}
+{% comment %}Advanced{% endcomment %}
+{%- liquid
+  assign css_class = section.settings.css_class
+  assign custom_css = section.settings.custom_css
+-%}
+
+{% comment %} Section specific CSS {% endcomment %}
+{% capture section_css -%}
+
+  a.icon-bar__block {
+    color: {{ link }};
+  }
+
+  a.icon-bar__block:hover {
+    color:{{ link_hover }};
+  }
+
+  .icon-bar__block {
+    color: {{ text }};
+  }
+
+  .button--primary{
+    background-color: {{ section.settings.color_scheme.settings.scheme_button }};
+    color: {{ section.settings.color_scheme.settings.scheme_button_label }};
+    border: 1px solid {{ section.settings.color_scheme.settings.scheme_button_border }};
+  }
+
+  .button--primary:hover{
+    background-color: {{ section.settings.color_scheme.settings.scheme_button_hover }};
+    color: {{ section.settings.color_scheme.settings.scheme_button_label_hover }};
+  }
+
+  .button--secondary{
+    background-color: {{ section.settings.color_scheme.settings.scheme_s_button }};
+    color: {{ section.settings.color_scheme.settings.scheme_secondary_button_label }};
+    border: 1px solid {{ section.settings.color_scheme.settings.scheme_s_button_border }};
+  }
+
+  .button--secondary:hover{
+    background-color: {{ section.settings.color_scheme.settings.scheme_s_button_hover }};
+    color: {{ section.settings.color_scheme.settings.scheme_secondary_button_label_hover }};
+  }
+
+  .button--link-style{
+    color: {{ section.settings.color_scheme.settings.scheme_link }};
+  }
+
+  .button--link-style:hover{
+    color: {{ section.settings.color_scheme.settings.scheme_link_hover }};
+  }
+
+{%- endcapture -%}
+
+{% style %}
+  #shopify-section-{{ id }} {
+    padding-top: {{ padding_top }}px;
+    padding-bottom: {{ padding_bottom }}px;
+    padding-left:{{ padding_left }}px;
+    padding-right:{{ padding_right }}px;
+    background: {{ section_bg }};
+    margin-top: {{ margin_top }}px;
+    margin-bottom: {{ margin_bottom }}px;
+    {% if width == 'wide' %}
+      width: 100%;
+    {% endif %}
+  }
+  @media screen and (max-width:798px){
+    #shopify-section-{{ id }} {
+      padding-top: {{ padding_top_m }}px;
+      padding-bottom: {{ padding_bottom_m }}px;
+      padding-left:{{ padding_left_m }}px;
+      padding-right:{{ padding_right_m }}px;
+      margin-top: {{ margin_top_m }}px;
+      margin-bottom: {{ margin_bottom_m }}px;
+    }
+  }
+  {% render 'css-loop',
+          css: section_css,
+          id: id
+  %}
+  {% render 'css-loop',
+          css: custom_css,
+          id: id
+  %}
+{% endstyle %}
+
+{% comment %} HTML markup {% endcomment %}
+{% if show_icon_bar and section.blocks.size > 0 %}
+  <section
+    class="section is-width-{{ width }} {{ css_class }} scheme_color-{{section.settings.color_scheme}}"
+    {% if animation != 'none' %}
+      data-scroll-class="{{ animation }}"
+    {% endif %}
+  >
+    <div class="container is-justify-{{ alignment }}">
+      {% for block in section.blocks %}
+        {% assign icon = block.settings.icon | downcase %}
+
+        {% if block.settings.link %}
+          <a
+            href="{{ block.settings.link }}"
+            class="icon-bar__block is-{{ size }} is-flex is-align-center is-flex-{{ icon_position }}"
+            {{ block.shopify_attributes }}
+          >
+        {% else %}
+          <div
+            class="icon-bar__block is-{{ size }} is-flex is-align-center is-flex-{{ icon_position }}"
+            {{ block.shopify_attributes }}
+          >
+        {% endif %}
+        {% if icon != blank %}
+          {% render 'icon', name: icon %}
+        {% endif %}
+        {% if block.settings.text != blank %}
+          <p class="icon-bar__text {{ text_preset }} {% if icon_position == 'column' %} text-align-center {% endif %}">
+            {{ block.settings.text }}
+          </p>
+        {% endif %}
+        {% if block.settings.link %}
+          </a>
+        {% else %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Icon bar",
+  "class": "icon-bar",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "default"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon_bar",
+      "label": "Show icon bar",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "icon_position",
+      "label": "Icon position",
+      "options": [
+        {
+          "value": "row",
+          "label": "Left"
+        },
+        {
+          "value": "column",
+          "label": "Center"
+        }
+      ],
+      "default": "row"
+    },
+    {
+      "type": "select",
+      "id": "size",
+      "label": "Base size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Regular"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "text_preset",
+      "label": "Text Preset",
+      "options": [
+        {
+          "value": "is-h1",
+          "label": "H1"
+        },
+        {
+          "value": "is-h2",
+          "label": "H2"
+        },
+        {
+          "value": "is-h3",
+          "label": "H3"
+        },
+        {
+          "value": "is-h4",
+          "label": "H4"
+        },
+        {
+          "value": "is-h5",
+          "label": "H5"
+        },
+        {
+          "value": "is-h6",
+          "label": "H6"
+        },
+        {
+          "value": "is-text",
+          "label": "Regular"
+        },
+        {
+          "value": "is-text-small",
+          "label": "Small"
+        }
+      ],
+      "default": "is-h6"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "standard",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Spacing Desktop"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing Mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_m",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_m",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left_m",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right_m",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top_m",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_m",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "animation",
+      "label": "Animation",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "fadeIn",
+          "label": "Fade in"
+        },
+        {
+          "value": "fadeInDown",
+          "label": "Fade in down"
+        },
+        {
+          "value": "fadeInLeft",
+          "label": "Fade in left"
+        },
+        {
+          "value": "fadeInRight",
+          "label": "Fade in right"
+        },
+        {
+          "value": "slideInLeft",
+          "label": "Slide in left"
+        },
+        {
+          "value": "slideInRight",
+          "label": "Slide in right"
+        },
+        {
+          "value": "zoomIn",
+          "label": "Zoom in"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Icon and text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "default": "chat",
+          "info": "[Icon list](https://help.outofthesandbox.com/hc/en-us/articles/360021570294)"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Descriptive text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Optional"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "text",
+        "settings": {
+          "icon": "leaf",
+          "text": "100% Organic"
+        }
+      },
+      {
+        "type": "text",
+        "settings": {
+          "icon": "bunny",
+          "text": "Cruelty free"
+        }
+      },
+      {
+        "type": "text",
+        "settings": {
+          "icon": "chat",
+          "text": "24/7 support"
+        }
+      },
+      {
+        "type": "text",
+        "settings": {
+          "icon": "truck",
+          "text": "Free shipping"
+        }
+      }
+    ]
+  }
+}
+{% endschema %}

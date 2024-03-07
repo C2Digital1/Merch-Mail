@@ -1,0 +1,46 @@
+{% comment %} Related Products Settings {% endcomment %}
+{%- liquid
+  if related_products == true
+    assign related_items = true
+    assign hover_enabled = block.settings.show_related_products_title_on_hover
+  else
+    assign related_items = false
+    assign hover_enabled = settings.thumbnail_hover_enabled
+  endif
+-%}
+{% comment %} Loop through product list to separate skipped {% endcomment %}
+{%- liquid
+  assign for_limit = limit
+  for product in products limit: limit
+    if product.id == skip_product.id
+      assign for_limit = limit | plus: 1
+    endif
+  endfor
+-%}
+
+{% style %}
+  .product__thumbnail .product-thumbnail .product-thumbnail__vendor{
+    color: {{ settings.color_scheme_product.settings.scheme_pre_text }};
+  }
+  .product__thumbnail .product-thumbnail .product-thumbnail__title{
+    color: {{ settings.color_scheme_product.settings.scheme_heading }};
+  }
+  .product__thumbnail .product-thumbnail .product-thumbnail__price{
+    color: {{ settings.color_scheme_product.settings.scheme_text }};
+  }
+{% endstyle %}
+
+{% comment %}  Loop over products and Skip product if we're on its product page {% endcomment %}
+{% for product in products limit: for_limit %}
+  {% if product.id != skip_product.id %}
+    {% render 'product-thumbnail',
+      product: product,
+      limit: limit,
+      items_per_row: items_per_row,
+      mobile_items_per_row: mobile_items_per_row,
+      hover_enabled: hover_enabled,
+      related_products: related_items,
+      pagination_type: pagination_type
+    %}
+  {% endif %}
+{% endfor %}

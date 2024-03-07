@@ -1,0 +1,33 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-content__main",
+      "disabled": true,
+      "settings": {
+        "show_heading": true,
+        "heading_preset": "is-h1",
+        "heading_alignment": "left",
+        "width": "standard",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(#ffffff, #ffffff)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

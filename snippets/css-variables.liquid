@@ -1,0 +1,255 @@
+{% liquid 
+    assign h1_font_family = settings.h1_font.family 
+    if settings.h1_font_custom != blank
+        assign h1_font_family = settings.h1_font_custom
+    endif
+    assign h1_font_family = h1_font_family |append:','|append: settings.h1_font.fallback_families
+    assign h1_font_size_max = settings.h1_font_size_max
+    assign h1_font_size_min = settings.h1_font_size_min
+    assign h1_font_weight = settings.h1_font.weight
+    assign h1_font_style  = settings.h1_font.style
+    assign h1_font_transform  = 'none'
+    if settings.h1_font_transform == true
+        assign h1_font_transform  = 'uppercase'
+    endif
+    assign h1_font_spacing  = settings.h1_font_spacing
+
+
+    assign h2_font_family = settings.h2_font.family 
+    if settings.h2_font_custom != blank
+        assign h2_font_family = settings.h2_font_custom
+    endif
+    assign h2_font_family = h2_font_family |append:','|append: settings.h2_font.fallback_families
+    assign h2_font_size_max = settings.h2_font_size_max
+    assign h2_font_size_min = settings.h2_font_size_min
+    assign h2_font_weight = settings.h2_font.weight
+    assign h2_font_style = settings.h2_font.style
+    assign h2_font_transform  = 'none'
+    if settings.h2_font_transform
+        assign h2_font_transform  = 'uppercase'
+    endif
+    assign h2_font_spacing  = settings.h2_spacing
+    
+
+    assign h3_font_family = settings.h3_font.family 
+    if settings.h3_font_custom != blank
+        assign h3_font_family = settings.h3_font_custom
+    endif
+    assign h3_font_family = h3_font_family |append:','|append: settings.h3_font.fallback_families
+    assign h3_font_size_max = settings.h3_font_size_max
+    assign h3_font_size_min = settings.h3_font_size_min
+    assign h3_font_weight = settings.h3_font.weight
+    assign h3_font_style = settings.h3_font.style
+    assign h3_font_transform  = 'none'
+    if settings.h3_font_transform
+        assign h3_font_transform  = 'uppercase'
+    endif
+    assign h3_font_spacing  = settings.h3_font_spacing
+    
+
+    assign h4_font_family = settings.h4_font.family 
+    if settings.h4_font_custom != blank
+        assign h4_font_family = settings.h4_font_custom
+    endif
+    assign h4_font_family = h4_font_family |append:','|append: settings.h4_font.fallback_families
+    assign h4_font_size_max = settings.h4_font_size_max
+    assign h4_font_size_min = settings.h4_font_size_min
+    assign h4_font_weight = settings.h4_font.weight
+    assign h4_font_style = settings.h4_font.style
+    assign h4_font_transform  = 'none'
+    if settings.h4_font_transform
+        assign h4_font_transform  = 'uppercase'
+    endif
+    assign h4_font_spacing  = settings.h4_font_spacing
+    
+
+    assign h5_font_family = settings.h5_font.family 
+    if settings.h5_font_custom != blank
+        assign h5_font_family = settings.h5_font_custom
+    endif
+    assign h5_font_family = h5_font_family |append:','|append: settings.h5_font.fallback_families
+    assign h5_font_size_max = settings.h5_font_size_max
+    assign h5_font_size_min = settings.h5_font_size_min
+    assign h5_font_weight = settings.h5_font.weight
+    assign h5_font_style = settings.h5_font.style 
+    assign h5_font_transform  = 'none'
+    if settings.h5_font_transform
+        assign h5_font_transform  = 'uppercase'
+    endif
+    assign h5_font_spacing  = settings.h5_font_spacing
+    
+
+    assign h6_font_family = settings.h6_font.family 
+    if settings.h6_font_custom != blank
+        assign h6_font_family = settings.h6_font_custom
+    endif
+    assign h6_font_family = h6_font_family |append:','|append: settings.h6_font.fallback_families
+    assign h6_font_size_max = settings.h6_font_size_max
+    assign h6_font_size_min = settings.h6_font_size_min
+    assign h6_font_weight = settings.h6_font.weight
+    assign h6_font_style = settings.h6_font.style
+    assign h6_font_transform  = 'none'
+    if settings.h6_font_transform
+        assign h6_font_transform  = 'uppercase'
+    endif
+    assign h6_font_spacing  = settings.h6_font_spacing
+
+
+    assign text_font_family = settings.text_font.family 
+    if settings.text_font_custom != blank
+        assign text_font_family = settings.text_font_custom
+    endif
+    assign text_font_family = text_font_family |append:','|append: settings.text_font.fallback_families
+    assign text_font_size_max = settings.text_font_size_max
+    assign text_font_size_min = settings.text_font_size_min
+    assign text_font_weight = settings.text_font.weight
+    assign text_font_style  = settings.text_font.style
+    assign text_font_transform  = 'none'
+    if settings.text_font_transform
+        assign text_font_transform  = 'uppercase'
+    endif
+    assign text_font_spacing  = settings.text_font_spacing
+
+    assign text_small_font_family = settings.text_small_font.family 
+    if settings.text_small_font_custom != blank
+        assign text_small_font_family = settings.text_small_font_custom
+    endif
+    assign text_small_font_family = text_font_family |append:','|append: settings.text_small_font.fallback_families
+    assign text_small_font_size_max = settings.text_small_font_size_max
+    assign text_small_font_size_min = settings.text_small_font_size_min
+    assign text_small_font_weight = settings.text_small_font.weight
+    assign text_small_font_style  = settings.text_small_font.style
+    assign text_small_font_transform  = 'none'
+    if settings.text_small_font_transform
+        assign text_small_font_transform  = 'uppercase'
+    endif
+    assign text_small_font_spacing  = settings.text_small_font_spacing
+    
+
+%}
+
+<style>
+    :root{
+        --gutter:20px;
+        --max-width:1280px;
+        --max-width-small:900px;
+    }
+    html{
+      font-size:16px;
+    }
+    span, a, button, input, textarea, p {
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+    }
+    .is-h1,h1:not([class*="is-"]){
+        {% render 'generate-font-styles',
+            max:h1_font_size_max,
+            min:h1_font_size_min
+        %}
+        font-family: {{ h1_font_family }};
+        font-weight: {{ h1_font_weight }};
+        font-style: {{ h1_font_style }};
+        text-transform:{{ h1_font_transform }};
+        line-height: 1.3;
+        letter-spacing:{{ h1_font_spacing }}px;
+    }
+
+    .is-h2,h2:not([class*="is-"]){
+        {% render 'generate-font-styles',
+            max: h2_font_size_max,
+            min: h2_font_size_min
+        %}
+        font-family: {{ h2_font_family }};
+        font-weight: {{ h2_font_weight }};
+        font-style: {{ h2_font_style }};
+        text-transform:{{ h2_font_transform }};
+        line-height: 1.3;
+        letter-spacing:{{ h2_font_spacing }}px;
+    }
+
+    .is-h3,h3:not([class*="is-"]){
+        {% render 'generate-font-styles',
+            max:h3_font_size_max,
+            min:h3_font_size_min
+        %}
+        font-family: {{ h3_font_family }};
+        font-weight: {{ h3_font_weight }};
+        font-style: {{ h3_font_style }};
+        text-transform:{{ h3_font_transform }};
+        line-height: 1.3;
+        letter-spacing:{{ h3_font_spacing }}px;
+    }
+
+    .is-h4,h4:not([class*="is-"]){
+        {% render 'generate-font-styles',
+            max : h4_font_size_max,
+            min : h4_font_size_min
+        %}
+        font-family: {{ h4_font_family }};
+        font-weight: {{ h4_font_weight }};
+        font-style: {{ h4_font_style }};
+        text-transform:{{ h4_font_transform }};
+        line-height: 1.3;
+        letter-spacing:{{ h4_font_spacing }}px;
+    }
+
+    .is-h5,h5:not([class*="is-"]){
+        {% render 'generate-font-styles',
+            max : h5_font_size_max,
+            min : h5_font_size_min
+        %}
+        font-family: {{ h5_font_family }};
+        font-weight: {{ h5_font_weight }};
+        font-style: {{ h5_font_style }};
+        text-transform:{{ h5_font_transform }};
+        line-height: 1.3;
+        letter-spacing:{{ h5_font_spacing }}px;
+    }
+    
+    .is-h6,h6:not([class*="is-"]){
+        {% render 'generate-font-styles',
+            max : h6_font_size_max,
+            min : h6_font_size_min
+        %}
+        font-family: {{ h6_font_family }};
+        font-weight: {{ h6_font_weight }};
+        font-style: {{ h6_font_style }};
+        text-transform:{{ h6_font_transform }};
+        line-height: 1.3;
+        letter-spacing:{{ h6_font_spacing }}px;
+    }
+
+    .is-text,body{
+        {% render 'generate-font-styles',
+            max : text_font_size_max,
+            min : text_font_size_min
+        %}
+        font-family: {{ text_font_family }};
+        font-weight: {{ text_font_weight }};
+        font-style: {{ text_font_style }};
+        text-transform:{{ text_font_transform }};
+        letter-spacing:{{ text_font_spacing }}px;
+    }
+
+    .is-text-small,small{
+        {% render 'generate-font-styles',
+            max : text_small_font_size_max,
+            min : text_small_font_size_min
+        %}
+        font-family: {{ text_small_font_family }};
+        font-weight: {{ text_small_font_weight }};
+        font-style: {{ text_small_font_style }};
+        text-transform:{{ text_small_font_transform }};
+        letter-spacing:{{ text_small_font_spacing }}px;
+    }
+    {{ settings.h1_font | font_face: font_display: 'fallback' }}
+    {{ settings.h2_font | font_face: font_display: 'fallback' }}
+    {{ settings.h3_font | font_face: font_display: 'fallback' }}
+    {{ settings.h4_font | font_face: font_display: 'fallback' }}
+    {{ settings.h5_font | font_face: font_display: 'fallback' }}
+    {{ settings.h6_font | font_face: font_display: 'fallback' }}
+    
+    {{ settings.text_small_font | font_face: font_display: 'fallback' }}
+    {{ settings.text_font | font_face: font_display: 'fallback' }}
+</style>

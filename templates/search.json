@@ -1,0 +1,40 @@
+{
+  "sections": {
+    "main": {
+      "type": "search__main",
+      "settings": {
+        "show_heading": true,
+        "heading_preset": "is-h1",
+        "heading_alignment": "left",
+        "search_breadcrumb": true,
+        "items_per_row": 3,
+        "mobile_items_per_row": "2",
+        "pagination_limit": 48,
+        "pagination_type": "basic_pagination",
+        "show_sidebar": true,
+        "sidebar_heading_preset": "is-h5",
+        "sidebar_position": "left",
+        "width": "standard",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

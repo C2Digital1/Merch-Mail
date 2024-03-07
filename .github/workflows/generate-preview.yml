@@ -1,0 +1,14 @@
+run-name: Create Theme Preview by @${{ github.actor }}
+on:
+  issue_comment:      
+    types: [created]    
+jobs:                   
+  deploy:
+    name: Preview
+    runs-on: ubuntu-latest
+    if: contains(github.event.comment.body, '!preview')
+    steps:
+      - uses: Brand-Boosting-GmbH/shopify-theme-preview@v1
+        with:
+          shopify_flag_store: ${{ secrets.SHOPIFY_STORE }}
+          shopify_cli_theme_token: ${{ secrets.SHOPIFY_CLI_TOKEN }}

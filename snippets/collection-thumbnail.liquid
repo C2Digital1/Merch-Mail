@@ -1,0 +1,92 @@
+{%- liquid
+    assign align_height = section.settings.align_height
+    assign collection_height = section.settings.collection_height
+    assign enable_zoom = section.settings.enable_zoom
+
+    assign button_style = section.settings.button_style
+    assign button_label = section.settings.button_label
+
+    assign align_items = section.settings.align_items
+    assign justify_items = section.settings.justify_items
+    assign text_align = section.settings.text_align
+
+    assign heading = custom_heading | default: collection.title
+    assign subheading = custom_subheading
+    assign link = custom_link | default: collection.url
+
+    if custom_image != blank
+        assign collection_image = custom_image
+        assign collection_image_alt = custom_image.alt | escape
+    elsif collection.image != blank
+        assign collection_image = collection.image
+        assign collection_image_alt = collection.image.alt | escape
+    else collection.empty? == false
+        assign collection_image = collection.products.first.featured_image
+        assign collection_image_alt = collection.products.first.featured_image.alt | escape
+    endif
+
+    assign heading_preset = section.settings.heading_preset
+    assign subheading_preset = section.settings.subheading_preset
+
+    assign collection_heading_below_image = section.settings.collection_heading_below_image
+    assign items_per_row = section.settings.items_per_row
+-%}
+
+{% capture collection_info %}
+    {% if heading != blank %}
+        <h4 class="title {{ heading_preset }}">
+            {{ heading }}
+        </h4>
+    {% endif %}
+    {% if subheading != blank %}
+        <div class="subtitle {{ subheading_preset }}">
+            {{ subheading }}
+        </div>
+    {% endif %}
+
+    {%
+        render 'button',
+        label: button_label,
+        href: link,
+        style: button_style
+    %}
+{% endcapture %}
+
+<div
+    class="{% render 'column-width', value: items_per_row  %} column thumbnail {% if align_height %}list-collection--align-height{% endif %} list-collection__thumbnail medium-down--one-half small-down--one-whole"
+    {% if pagination_type != 'basic_pagination' %}
+        data-load-more--grid-item
+    {% endif %}
+    >
+    <div class="product-wrap enable-zoom-{{ enable_zoom }}">
+        <div class="collection-thumbnail-overlay"></div>
+
+        <div class="thumbnail image__container has-image-crop">
+            {%
+                render 'image-element',
+                image: collection_image,
+                alt: collection_image_alt,
+                image_crop: true,
+                max_height: collection_height
+            %}
+        </div>
+        {% if collection_heading_below_image == blank %}
+            <a
+                class="collection-info__caption is-align-{{ align_items }}  is-justify-{{ justify_items }} text-align-{{text_align}}"
+                href="{{ collection.url }}"
+                >
+                <div class="collection-info__caption-wrapper">
+                    {{ collection_info }}
+                </div>
+            </a>
+        {% endif %}
+    </div>
+    {% if collection_heading_below_image != blank %}
+        <a
+            class="collection-info__caption-wrapper is-align-{{ text_align }} collection-info__caption--below-image"
+            href="{{ link }}"
+            >
+                {{ collection_info }}
+        </a>
+    {% endif %}
+</div>

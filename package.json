@@ -1,0 +1,16 @@
+{
+  "name": "c2-theme",
+  "version": "1.0.0",
+  "scripts": {
+    "generate": "npx c2 generate",
+    "shopify": "shopify",
+    "dev": "shopify theme dev --store=theme-changes.myshopify.com --theme-editor-sync",
+    "list": "shopify theme list"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@c2digital1/c2": "^1.0.2"
+  }
+}

@@ -1,0 +1,696 @@
+{
+  "sections": {
+    "f25a2503-5bda-4379-8115-57a9d84b488f": {
+      "type": "index__image-with-text-overlay",
+      "settings": {
+        "color_scheme": "default",
+        "link": "",
+        "image": "shopify:\/\/shop_images\/woman-infront-of-tree-with-berries.jpeg",
+        "desktop_height": 0,
+        "mobile_image": "shopify:\/\/shop_images\/Cocoon-top_White_1024x1024_22fea735-82ba-4c74-baaf-df7ebef4f35e.jpg",
+        "mobile_height": 500,
+        "preheading": "<p>Preheading<\/p>",
+        "heading": "Image with Text Overlays",
+        "subheading": "<p>Additional info in the subheading<\/p>",
+        "preheading_preset": "is-h6",
+        "heading_preset": "is-h2",
+        "subheading_preset": "is-text",
+        "text_alignment": "center",
+        "text_horizontal_position": "center",
+        "text_vertical_position": "center",
+        "background_color": "",
+        "border_color": "#ffffff",
+        "border_width": 0,
+        "text_width": 40,
+        "button_1": "Button 1",
+        "button_1_link": "",
+        "button_1_style": "button--secondary",
+        "button_2": "Button 2",
+        "button_2_link": "",
+        "button_2_style": "button--secondary",
+        "color_scheme_mobile": "",
+        "mobile_image_crop": "none",
+        "mobile_text_below_image": true,
+        "width": "wide",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "3f589044-d5ee-4f12-b304-43a53cec8d24": {
+      "type": "index__rich-text",
+      "settings": {
+        "color_scheme": "scheme-27f0274f-ec98-4921-9bec-179906da6ceb",
+        "heading": "Rich text",
+        "heading_preset": "is-h2",
+        "heading_alignment": "center",
+        "text": "<p>Use this section to create some callout text on your page, or add more details about your shop, services, promotions, etc. If you have a large amount of text, you can opt to have it display in <strong>two columns<\/strong> instead so that it's much easier to read.<\/p><p><\/p><p>This section also includes the option to add a button in primary or secondary style, and also control the colors, including the option for a gradient background. Since this is rich text, you can also <em>format it as you wish<\/em> and <a href=\"\/collections\/all\" title=\"All Products\">include links<\/a>.<\/p>",
+        "text_preset": "is-text",
+        "text_alignment": "left",
+        "columns": 2,
+        "button_label_1": "Button 1",
+        "button_link_1": "",
+        "button_style_1": "button--primary",
+        "button_label_2": "Button 2",
+        "button_link_2": "",
+        "button_style_2": "button--secondary",
+        "button_alignment": "center",
+        "background": "",
+        "width": "wide",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 40,
+        "padding_bottom_m": 40,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "e0d30725-cfb5-4b77-af20-d9b233f18718": {
+      "type": "index__image-with-text",
+      "blocks": {
+        "template--15863119052992__e0d30725-cfb5-4b77-af20-d9b233f18718-1684955986c689f6c6-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
+            "image_crop": "none",
+            "image_link": ""
+          }
+        },
+        "template--15863119052992__e0d30725-cfb5-4b77-af20-d9b233f18718-1684955986c689f6c6-2": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "default",
+            "heading": "Heading text here",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+            "heading_preset": "is-h2",
+            "text_preset": "is-text",
+            "button_label": "View all",
+            "link": "",
+            "button_style": "button--primary",
+            "alignment": "left",
+            "vertical_position": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--15863119052992__e0d30725-cfb5-4b77-af20-d9b233f18718-1684955986c689f6c6-1",
+        "template--15863119052992__e0d30725-cfb5-4b77-af20-d9b233f18718-1684955986c689f6c6-2"
+      ],
+      "settings": {
+        "width": "standard",
+        "show_gutter": true,
+        "desktop_height": 200,
+        "mobile_height": 400,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "d4ed15d0-fd70-400b-bf63-41b28a7df33a": {
+      "type": "index__blog-posts",
+      "settings": {
+        "heading": "Blog Posts",
+        "heading_preset": "is-h1",
+        "heading_alignment": "center",
+        "blog_widget_select": "news",
+        "items_per_row": 3,
+        "mobile_items_per_row": "1",
+        "desktop_height": 0,
+        "mobile_height": 0,
+        "button_label_view": "",
+        "button_link_view": "",
+        "button_alignment_view": "center",
+        "button_style_view": "button--primary",
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "fd73224e-6ab7-475a-8632-5e9fa4ad4daf": {
+      "type": "index__collection-list",
+      "blocks": {
+        "template--15702285025472__fd73224e-6ab7-475a-8632-5e9fa4ad4daf-1671198611008fefc3-0": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "",
+            "custom_link": "",
+            "custom_heading": "",
+            "custom_subheading": ""
+          }
+        },
+        "template--15702285025472__fd73224e-6ab7-475a-8632-5e9fa4ad4daf-1671198611008fefc3-1": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "",
+            "custom_link": "",
+            "custom_heading": "",
+            "custom_subheading": ""
+          }
+        },
+        "template--15702285025472__fd73224e-6ab7-475a-8632-5e9fa4ad4daf-1671198611008fefc3-2": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "",
+            "custom_link": "",
+            "custom_heading": "",
+            "custom_subheading": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15702285025472__fd73224e-6ab7-475a-8632-5e9fa4ad4daf-1671198611008fefc3-0",
+        "template--15702285025472__fd73224e-6ab7-475a-8632-5e9fa4ad4daf-1671198611008fefc3-1",
+        "template--15702285025472__fd73224e-6ab7-475a-8632-5e9fa4ad4daf-1671198611008fefc3-2"
+      ],
+      "settings": {
+        "color_scheme": "scheme-0b404fdd-f99c-41cc-9c5f-dbc473405c91",
+        "top_heading": "Collections",
+        "top_heading_preset": "is-h1",
+        "top_heading_alignment": "center",
+        "items_per_row": 3,
+        "align_height": false,
+        "collection_height": 400,
+        "enable_zoom": true,
+        "button_label": "View products",
+        "button_style": "button--secondary",
+        "heading_preset": "is-h5",
+        "subheading_preset": "is-text",
+        "text_align": "center",
+        "align_items": "center",
+        "justify_items": "center",
+        "overlay": "",
+        "collection_heading_below_image": false,
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "a9a54332-3d10-46a3-aeeb-4adb17752e05": {
+      "type": "index__testimonial",
+      "blocks": {
+        "template--15774137057472__a9a54332-3d10-46a3-aeeb-4adb17752e05-1672928645ec3e85b1-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/woman-infront-of-tree-with-berries.jpeg",
+            "quote": "<p>Include a favorite customer quote or feedback here.<\/p>",
+            "info": "<p><strong>Customer name<\/strong><\/p><p><em>More info about them could go here.<\/em><\/p><p>customerlink.com<\/p>"
+          }
+        },
+        "template--15774137057472__a9a54332-3d10-46a3-aeeb-4adb17752e05-1672928645ec3e85b1-1": {
+          "type": "image",
+          "settings": {
+            "quote": "<p>Include a favorite customer quote or feedback here.<\/p>",
+            "info": "<p><strong>Customer name<\/strong><\/p><p><em>More info about them could go here.<\/em><\/p><p>customerlink.com<\/p>"
+          }
+        },
+        "template--15774137057472__a9a54332-3d10-46a3-aeeb-4adb17752e05-1672928645ec3e85b1-2": {
+          "type": "image",
+          "settings": {
+            "quote": "<p>Include a favorite customer quote or feedback here.<\/p>",
+            "info": "<p><strong>Customer name<\/strong><\/p><p><em>More info about them could go here.<\/em><\/p><p>customerlink.com<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--15774137057472__a9a54332-3d10-46a3-aeeb-4adb17752e05-1672928645ec3e85b1-0",
+        "template--15774137057472__a9a54332-3d10-46a3-aeeb-4adb17752e05-1672928645ec3e85b1-1",
+        "template--15774137057472__a9a54332-3d10-46a3-aeeb-4adb17752e05-1672928645ec3e85b1-2"
+      ],
+      "settings": {
+        "color_scheme": "scheme-b1b451b2-47ff-4fbf-8dec-ee58d0b98338",
+        "top_heading": "Testimonials",
+        "top_heading_preset": "is-h1",
+        "top_heading_alignment": "center",
+        "show_border": true,
+        "enable_images": true,
+        "crop_shape": "square",
+        "quote_preset": "is-text",
+        "info_preset": "is-text-small",
+        "card_background": "",
+        "card_alignment": "center",
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "5bb94697-4cdc-4dc3-b020-541753dea551": {
+      "type": "index__slideshow-classic",
+      "blocks": {
+        "template--15863119052992__5bb94697-4cdc-4dc3-b020-541753dea551-16849582374212e1a7-0": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "background-1",
+            "link": "",
+            "image": "shopify:\/\/shop_images\/Cocoon-top_White_1024x1024_d6d9bc3e-3830-4c45-958b-72d30b42da90.jpg",
+            "preheading": "<p>Preheading<\/p>",
+            "heading": "Flex Shopify Theme",
+            "subheading": "",
+            "preheading_preset": "is-h6",
+            "heading_preset": "is-h2",
+            "subheading_preset": "is-text",
+            "text_alignment": "center",
+            "text_horizontal_position": "center",
+            "text_vertical_position": "center",
+            "background_color": "",
+            "border_color": "#ffffff",
+            "border_width": 0,
+            "text_width": 40,
+            "button_1": "Button 1",
+            "button_1_link": "",
+            "button_1_style": "button--secondary",
+            "button_2": "Button 2",
+            "button_2_link": "",
+            "button_2_style": "button--secondary",
+            "color_scheme_mobile": "",
+            "mobile_image_crop": "none"
+          }
+        },
+        "template--15863119052992__5bb94697-4cdc-4dc3-b020-541753dea551-16849582374212e1a7-1": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "",
+            "link": "",
+            "image": "shopify:\/\/shop_images\/White_cocoon_web_1024x1024_7a0e59da-e50e-4c2a-b4a3-b070346ee6f6.jpg",
+            "preheading": "<p>Preheading<\/p>",
+            "heading": "Classic slideshow",
+            "subheading": "<p>Additional info in the subheading<\/p>",
+            "preheading_preset": "is-h6",
+            "heading_preset": "is-h2",
+            "subheading_preset": "is-text",
+            "text_alignment": "center",
+            "text_horizontal_position": "center",
+            "text_vertical_position": "center",
+            "background_color": "",
+            "border_color": "#ffffff",
+            "border_width": 0,
+            "text_width": 40,
+            "button_1": "Button 1",
+            "button_1_link": "",
+            "button_1_style": "button--secondary",
+            "button_2": "Button 2",
+            "button_2_link": "",
+            "button_2_style": "button--secondary",
+            "color_scheme_mobile": "",
+            "mobile_image_crop": "none"
+          }
+        }
+      },
+      "block_order": [
+        "template--15863119052992__5bb94697-4cdc-4dc3-b020-541753dea551-16849582374212e1a7-0",
+        "template--15863119052992__5bb94697-4cdc-4dc3-b020-541753dea551-16849582374212e1a7-1"
+      ],
+      "settings": {
+        "image_transition": "slide",
+        "image_slideshow_speed": 7,
+        "desktop_height": 400,
+        "mobile_height": 400,
+        "show_arrows": true,
+        "show_nav_buttons": true,
+        "mobile_text_below_image": true,
+        "width": "wide",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "a0610ee4-9c23-4d56-b54a-13fe95752d02": {
+      "type": "index__heading",
+      "settings": {
+        "color_scheme": "background-1",
+        "preheading": "<p>Add a preheading <\/p>",
+        "heading": "Section heading",
+        "subheading": "<p>Additional text or description of section<\/p>",
+        "preheading_preset": "is-h6",
+        "heading_preset": "is-h3",
+        "subheading_preset": "is-text",
+        "heading_alignment": "center",
+        "width": "standard",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "8108e11e-5cec-4354-a1f9-34a61c50a89c": {
+      "type": "index__gallery",
+      "blocks": {
+        "template--16026726465728__8108e11e-5cec-4354-a1f9-34a61c50a89c-image-1": {
+          "type": "image",
+          "settings": {
+            "heading": "TEST",
+            "heading_preset": "is-h4",
+            "subheading": "<p>TEST<\/p>",
+            "subheading_preset": "is-text",
+            "link": "",
+            "alignment": "center"
+          }
+        },
+        "template--16026726465728__8108e11e-5cec-4354-a1f9-34a61c50a89c-image-2": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "heading_preset": "is-h4",
+            "subheading": "",
+            "subheading_preset": "is-text",
+            "link": "",
+            "alignment": "center"
+          }
+        },
+        "template--16026726465728__8108e11e-5cec-4354-a1f9-34a61c50a89c-image-3": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "heading_preset": "is-h4",
+            "subheading": "",
+            "subheading_preset": "is-text",
+            "link": "",
+            "alignment": "center"
+          }
+        },
+        "template--16026726465728__8108e11e-5cec-4354-a1f9-34a61c50a89c-image-4": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "heading_preset": "is-h4",
+            "subheading": "",
+            "subheading_preset": "is-text",
+            "link": "",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--16026726465728__8108e11e-5cec-4354-a1f9-34a61c50a89c-image-1",
+        "template--16026726465728__8108e11e-5cec-4354-a1f9-34a61c50a89c-image-2",
+        "template--16026726465728__8108e11e-5cec-4354-a1f9-34a61c50a89c-image-3",
+        "template--16026726465728__8108e11e-5cec-4354-a1f9-34a61c50a89c-image-4"
+      ],
+      "settings": {
+        "color_scheme": "scheme-27f0274f-ec98-4921-9bec-179906da6ceb",
+        "top_heading": "Gallery",
+        "top_heading_preset": "is-h1",
+        "top_heading_alignment": "center",
+        "gallery_type": "classic",
+        "crop_images": false,
+        "images_per_row": 4,
+        "enable_lightbox": true,
+        "desktop_height": 0,
+        "mobile_height": 0,
+        "overlay_color": "",
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 50,
+        "padding_bottom": 20,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "e353aa7f-b364-44a8-be71-c1fdde3a0f44": {
+      "type": "index__newsletter",
+      "settings": {
+        "color_scheme": "default",
+        "display_first_name": true,
+        "display_last_name": true,
+        "heading": "Subscribe",
+        "subheading": "<p>Sign up to get the latest on sales, new releases and more …<\/p>",
+        "heading_preset": "is-h5",
+        "subheading_preset": "is-text",
+        "image_darken": false,
+        "image_cropping": "center",
+        "image_position": "left",
+        "alignment": "center",
+        "width": "wide",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "edfd39ee-1015-496c-b054-06043a468b1e": {
+      "type": "index__video",
+      "settings": {
+        "color_scheme": "default",
+        "iframe_video": "https:\/\/www.youtube.com\/watch?v=BHACKCNDMW8",
+        "html5_video": "",
+        "aspect_ratio": "16:9",
+        "autoplay": false,
+        "autoloop": true,
+        "mute_video": false,
+        "controls": true,
+        "preheading": "",
+        "heading": "Featured video",
+        "subheading": "Embed a Youtube or Vimeo video.",
+        "preheading_preset": "is-h6",
+        "heading_preset": "is-h2",
+        "subheading_preset": "is-text",
+        "horizontal_text_position": "center",
+        "vertical_text_position": "center",
+        "text_align": "center",
+        "button_label": "Play Video",
+        "button_style": "button--secondary",
+        "overlay_style": "text_only",
+        "video_overlay_color": "",
+        "text_width": 70,
+        "color_scheme_mobile": "",
+        "mobile_text_below_video": true,
+        "width": "wide",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "index_icon_with_text_column_MCgaxw": {
+      "type": "index__icon-with-text-column",
+      "blocks": {
+        "logo_image_f6U8kT": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "truck",
+            "text_image": "shopify:\/\/shop_images\/16.jpg",
+            "heading": "Icon with text",
+            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
+            "button_label": "Learn more",
+            "link": ""
+          }
+        },
+        "logo_image_7Ujz6K": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "bag",
+            "heading": "Icon with text",
+            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
+            "button_label": "Learn more",
+            "link": ""
+          }
+        },
+        "logo_image_eEqUFP": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "tag",
+            "heading": "Icon with text",
+            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
+            "button_label": "Learn more",
+            "link": ""
+          }
+        },
+        "logo_image_wypP6W": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "star",
+            "heading": "Icon with text",
+            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
+            "button_label": "Learn more",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_image_f6U8kT",
+        "logo_image_7Ujz6K",
+        "logo_image_eEqUFP",
+        "logo_image_wypP6W"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "top_heading": "Icons With Text",
+        "top_heading_preset": "is-h1",
+        "top_heading_alignment": "center",
+        "icons_per_row": 4,
+        "icon_size": "medium",
+        "image_size": 215,
+        "button_style": "button--primary",
+        "heading_preset": "is-h6",
+        "text_preset": "is-text",
+        "icon_color": "#000000",
+        "background": "#CCCCCC",
+        "align_text": "center",
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "f25a2503-5bda-4379-8115-57a9d84b488f",
+    "3f589044-d5ee-4f12-b304-43a53cec8d24",
+    "e0d30725-cfb5-4b77-af20-d9b233f18718",
+    "d4ed15d0-fd70-400b-bf63-41b28a7df33a",
+    "fd73224e-6ab7-475a-8632-5e9fa4ad4daf",
+    "a9a54332-3d10-46a3-aeeb-4adb17752e05",
+    "5bb94697-4cdc-4dc3-b020-541753dea551",
+    "a0610ee4-9c23-4d56-b54a-13fe95752d02",
+    "8108e11e-5cec-4354-a1f9-34a61c50a89c",
+    "e353aa7f-b364-44a8-be71-c1fdde3a0f44",
+    "edfd39ee-1015-496c-b054-06043a468b1e",
+    "index_icon_with_text_column_MCgaxw"
+  ]
+}

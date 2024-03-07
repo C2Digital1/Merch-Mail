@@ -1,0 +1,590 @@
+{% comment %}
+  ** Banner **
+{% endcomment %}
+{%- liquid
+  assign id = section.id
+  assign image = section.settings.image
+  assign mobile_image = section.settings.mobile_image
+  assign heading_color = section.settings.heading_color
+  assign heading_preset = section.settings.heading_preset
+  assign subheading = section.settings.subheading
+  assign subheading_color = section.settings.subheading_color
+  assign subheading_preset = section.settings.subheading_preset
+  assign image_darken = section.settings.image_darken
+-%}
+{% comment %}Spacing{% endcomment %}
+{%- liquid
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign padding_left = section.settings.padding_left
+  assign padding_right = section.settings.padding_right
+  assign margin_top = section.settings.margin_top
+  assign margin_bottom = section.settings.margin_bottom
+  assign padding_top_m = section.settings.padding_top_m
+  assign padding_bottom_m = section.settings.padding_bottom_m
+  assign padding_left_m = section.settings.padding_left_m
+  assign padding_right_m = section.settings.padding_right_m
+  assign margin_top_m = section.settings.margin_top_m
+  assign margin_bottom_m = section.settings.margin_bottom_m
+-%}
+{% comment %}Layout{% endcomment %}
+{%- liquid
+  assign alignment = section.settings.alignment
+  assign banner_height = section.settings.banner_height
+  assign width = section.settings.width
+  assign section_bg = section.settings.section_bg
+  assign animation = section.settings.animation | default: 'none'
+-%}
+{% comment %}Height{% endcomment %}
+{%- liquid
+  assign desktop_height = section.settings.desktop_height
+  assign mobile_height = section.settings.mobile_height
+-%}
+{% comment %}Advanced{% endcomment %}
+{%- liquid
+  assign css_class = section.settings.css_class
+  assign custom_css = section.settings.custom_css
+-%}
+
+{% comment %} Section specific CSS {% endcomment %}
+{% capture section_css %}
+  .title {
+    color: {{ heading_color }}
+  }
+  .subtitle {
+    color: {{ subheading_color }}
+  }
+{% endcapture %}
+
+{% style %}
+  #shopify-section-{{ id }} {
+    padding-top: {{ padding_top }}px;
+    padding-bottom: {{ padding_bottom }}px;
+    padding-left:{{ padding_left }}px;
+    padding-right:{{ padding_right }}px;
+    background: {{ section_bg }};
+    margin-top: {{ margin_top }}px;
+    margin-bottom: {{ margin_bottom }}px;
+  }
+  @media screen and (min-width:799px){
+    {% if desktop_height > 0 %}
+      #shopify-section-{{ id }} .image-element__wrap img{
+        max-height: {{ desktop_height }}px;
+        object-fit: cover;
+      }
+    {% endif %}
+  }
+  @media screen and (max-width:798px){
+    #shopify-section-{{ id }} {
+      padding-top: {{ padding_top_m }}px;
+      padding-bottom: {{ padding_bottom_m }}px;
+      padding-left:{{ padding_left_m }}px;
+      padding-right:{{ padding_right_m }}px;
+      margin-top: {{ margin_top_m }}px;
+      margin-bottom: {{ margin_bottom_m }}px;
+    }
+    {% if mobile_height > 0 %}
+      #shopify-section-{{ id }} .image-element__wrap img{
+        max-height: {{ mobile_height }}px;
+        object-fit: cover;
+      }
+    {% endif %}
+  }
+  {% render 'css-loop',
+          css: section_css,
+          id: id
+  %}
+  {% render 'css-loop',
+          css: custom_css,
+          id: id
+  %}
+{% endstyle %}
+{% comment %} Content {% endcomment %}
+{%- liquid
+  if template.name == 'cart'
+    capture heading
+      echo 'cart.general.title' | t
+    endcapture
+
+  elsif template.name == 'search'
+    capture heading
+      echo 'general.search.title' | t
+    endcapture
+
+  elsif template.name == '404'
+    capture heading
+      echo 'general.404.title' | t
+    endcapture
+
+  elsif template.name == 'blog'
+    assign heading = blog.title
+    if blog.metafields.banner.subheading != blank
+      assign subheading = blog.metafields.banner.subheading
+    endif
+
+    if blog.metafields.banner.image != blank
+      assign image = blog.metafields.banner.image
+    endif
+
+    if blog.metafields.banner.mobile_image != blank
+      assign mobile_image = blog.metafields.banner.mobile_image
+    elsif mobile_image == blank
+      assign mobile_image = image
+    endif
+
+  elsif template.name == 'article'
+    assign heading = article.title
+
+    if article.excerpt != blank
+      assign subheading = article.excerpt
+    elsif article.metafields.banner.subheading != blank
+      assign subheading = article.metafields.banner.subheading
+    endif
+
+    if article.image != blank
+      assign image = article.image
+    elsif article.metafields.banner.image != blank
+      assign image = article.metafields.banner.image
+    endif
+
+    if article.metafields.banner.mobile_image != blank
+      assign mobile_image = article.metafields.banner.mobile_image
+    elsif mobile_image == blank
+      assign mobile_image = image
+    endif
+
+  elsif template.name == 'collection'
+    assign heading = collection.title
+
+    if collection.description != blank
+      assign subheading = collection.description
+    elsif collection.metafields.banner.subheading != blank
+      assign collection = collection.metafields.banner.subheading
+    endif
+
+    if collection.featured_image != blank
+      assign image = collection.featured_image
+    elsif collection.metafields.banner.image != blank
+      assign image = collection.metafields.banner.image
+    endif
+
+    if collection.metafields.banner.mobile_image != blank
+      assign mobile_image = collection.metafields.banner.mobile_image
+    elsif mobile_image == blank
+      assign mobile_image = image
+    endif
+
+  else
+    assign heading = page.title
+  endif
+-%}
+
+{% comment %} HTML markup {% endcomment %}
+<section
+  class="
+    section
+    {{ css_class }}
+    is-width-{{ width }}
+  "
+  {% if animation != 'none' %}
+    data-scroll-class="{{ animation }}"
+  {% endif %}
+>
+  <div
+    class="
+      container
+      {% if width == 'wide' %}
+        equal-columns--outside-trim
+      {% endif %}
+    "
+  >
+    <div
+      class="
+        banner__wrapper
+        one-whole
+        column
+        dark-overlay-{{ image_darken }}
+        is-{{ banner_height }}
+      "
+    >
+      {% if mobile_image != blank %}
+        {%- assign hide_mobile = 'is-hidden-mobile-only' -%}
+      {% endif %}
+
+      {% if image != blank %}
+        {% render 'image-element', image: image, alt: image.alt, stretch_width: true, additional_classes: hide_mobile %}
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+
+      {% if mobile_image != blank %}
+        <div class="is-hidden-desktop-only">
+          {% render 'image-element', image: mobile_image, alt: mobile_image.alt, stretch_width: true %}
+        </div>
+      {% endif %}
+
+      <div class="banner__content card-content">
+        <div class="banner__text text-align-{{ alignment }}">
+          <h1 class="banner__heading title {{ heading_preset }}">{{ heading }}</h1>
+          {% if subheading != blank %}
+            <p class="banner__subheading subtitle {{ subheading_preset }}">{{ subheading }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Banner",
+  "class": "banner overlaid-header-option",
+  "templates": ["page", "collection", "blog", "article", "cart", "404", "search"],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Will be used a fallback if there is not featured image/banner.image(metafield) for current context"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image",
+      "info": "Will be used a fallback if there is no image in banner.mobile_image metafield for current context"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_darken",
+      "label": "Darken banner image",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "desktop_height",
+      "label": "Desktop image max height",
+      "default": 0,
+      "info": "Set value to 0 to disable this option"
+    },
+    {
+      "type": "number",
+      "id": "mobile_height",
+      "label": "Mobile image max height",
+      "default": 0,
+      "info": "Set value to 0 to disable this option"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_preset",
+      "label": "Preset",
+      "options": [
+        {
+          "value": "is-h1",
+          "label": "H1"
+        },
+        {
+          "value": "is-h2",
+          "label": "H2"
+        },
+        {
+          "value": "is-h3",
+          "label": "H3"
+        },
+        {
+          "value": "is-h4",
+          "label": "H4"
+        },
+        {
+          "value": "is-h5",
+          "label": "H5"
+        },
+        {
+          "value": "is-h6",
+          "label": "H6"
+        },
+        {
+          "value": "is-text",
+          "label": "Regular"
+        },
+        {
+          "value": "is-text-small",
+          "label": "Small"
+        }
+      ],
+      "default": "is-h2"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color"
+    },
+    {
+      "type": "header",
+      "content": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "info": "Will be used a fallback if there is not description/banner.subheading(metafield) for current context"
+    },
+    {
+      "type": "select",
+      "id": "subheading_preset",
+      "label": "Subheading Preset",
+      "options": [
+        {
+          "value": "is-h1",
+          "label": "H1"
+        },
+        {
+          "value": "is-h2",
+          "label": "H2"
+        },
+        {
+          "value": "is-h3",
+          "label": "H3"
+        },
+        {
+          "value": "is-h4",
+          "label": "H4"
+        },
+        {
+          "value": "is-h5",
+          "label": "H5"
+        },
+        {
+          "value": "is-h6",
+          "label": "H6"
+        },
+        {
+          "value": "is-text",
+          "label": "Regular"
+        },
+        {
+          "value": "is-text-small",
+          "label": "Small"
+        }
+      ],
+      "default": "is-h6"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Color"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "banner_height",
+      "label": "Banner height",
+      "default": "medium",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "standard",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Spacing Desktop"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing Mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_m",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_m",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left_m",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right_m",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top_m",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_m",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg",
+      "label": "Section Background",
+      "default": "linear-gradient(#ffffff, #ffffff)"
+    },
+    {
+      "type": "select",
+      "id": "animation",
+      "label": "Animation",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "fadeIn",
+          "label": "Fade in"
+        },
+        {
+          "value": "fadeInDown",
+          "label": "Fade in down"
+        },
+        {
+          "value": "fadeInLeft",
+          "label": "Fade in left"
+        },
+        {
+          "value": "fadeInRight",
+          "label": "Fade in right"
+        },
+        {
+          "value": "slideInLeft",
+          "label": "Slide in left"
+        },
+        {
+          "value": "slideInRight",
+          "label": "Slide in right"
+        },
+        {
+          "value": "zoomIn",
+          "label": "Zoom in"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    }
+  ]
+}
+{% endschema %}

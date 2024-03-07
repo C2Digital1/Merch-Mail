@@ -1,0 +1,83 @@
+{
+  "sections": {
+    "main": {
+      "type": "list-collections__main",
+      "settings": {
+        "items_per_row": 3,
+        "pagination_limit": 48,
+        "pagination_type": "basic_pagination",
+        "align_height": false,
+        "collection_height": 400,
+        "enable_zoom": true,
+        "button_label": "View products",
+        "button_style": "button--secondary",
+        "heading_preset": "is-h5",
+        "subheading_preset": "is-text",
+        "text_align": "center",
+        "align_items": "center",
+        "justify_items": "center",
+        "overlay": "",
+        "heading_color": "",
+        "subheading_color": "",
+        "collection_heading_below_image": false,
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(#ffffff, #ffffff)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1661273905e0b9663c": {
+      "type": "index__collection-list",
+      "settings": {
+        "items_per_row": 3,
+        "align_height": false,
+        "collection_height": 400,
+        "enable_zoom": true,
+        "button_label": "View products",
+        "button_style": "button--secondary",
+        "heading_preset": "is-h5",
+        "subheading_preset": "is-text",
+        "text_align": "center",
+        "align_items": "center",
+        "justify_items": "center",
+        "overlay": "",
+        "collection_heading_below_image": false,
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1661273905e0b9663c"
+  ]
+}

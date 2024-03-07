@@ -1,0 +1,95 @@
+{%- liquid
+  assign blog_title_preset = settings.blog_title_preset
+  assign blog_show_excerpt = settings.blog_show_excerpt
+  assign blog_excerpt_preset = settings.blog_excerpt_preset
+  assign blog_author = settings.blog_author
+  assign blog_date = settings.blog_date
+  assign read_time = settings.read_time
+  assign blog_comment_count = settings.blog_comment_count
+  assign blog_show_tags = settings.blog_show_tags
+  assign show_border = settings.blog_show_border
+  assign button_label = settings.blog_button_label
+  assign button_type = settings.blog_button_type
+  assign blog_text_alignment = settings.blog_text_alignment
+-%}
+
+<div
+  class="
+    featured-article blog-card 
+    {% render 'column-width', value: items_per_row %} 
+    columns article card 
+    show-border-{{ show_border }} 
+    medium-down--one-half
+    {% if mobile_items_per_row == '1' %}
+      small-down--one-whole
+    {% else %}
+      small-down--one-half
+    {% endif %}
+    has-margin-bottom 
+    {% if items_per_row == 1 %}is-horizontal{% endif %}"
+  {% if pagination_type != 'basic_pagination' %}
+    data-load-more--grid-item
+  {% endif %}
+>
+  {% if article.image %}
+    <div class="card-image blog-card__image">
+      <figure class="image">
+        <a href="{{ article.url }}" title="{{ article.title | escape }}">
+          {% render 'image-element', image: article.image, alt: article.image.alt, stretch_width: true %}
+        </a>
+      </figure>
+    </div>
+  {% endif %}
+
+  <div class="card-content blog-card__content text-align-{{ blog_text_alignment }}">
+    <h4 class="title {{ blog_title_preset }}">
+      <a class="featured-article--link" href="{{ article.url }}">{{ article.title }}</a>
+    </h4>
+
+    {% if article.excerpt != blank and blog_show_excerpt %}
+      {% assign postexcerpt = article.excerpt | size %}
+      {% if postexcerpt > 150 %}
+        {% assign excerptlength = 'lg' %}
+      {% elsif postexcerpt <= 150  %}
+        {% assign excerptlength = 'sm' %}
+      {% endif %}
+      <div class="excerpt excerpt-length-{{ excerptlength }} {{ blog_excerpt_preset }} has-margin-bottom">
+        {{ article.excerpt }}
+        <span class="truncation-fade"></span>
+      </div>
+    {% endif %}
+
+    <div class="meta-info is-text-small">
+      {% if blog_show_tags %}
+        {% if article.tags.size > 0 %}
+          <ul class="meta-tag-list tags is-{{ blog_text_alignment }}">
+            {% for tag in article.tags %}
+              <li class="tag tag--{{ settings.tag_style }}">
+                <a
+                  href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}"
+                  title="{{ blog.title | escape }} {{ 'blogs.general.tagged' | t }} {{ tag | escape }}"
+                >
+                  {{- tag -}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endif %}
+
+      {% render 'meta-info-list',
+        article: article,
+        blog_author: blog_author,
+        blog_date: blog_date,
+        blog_read_time: read_time,
+        blog_comment_count: blog_comment_count
+      %}
+    </div>
+
+    {% if button_type != 'none' %}
+      <div class="blog-card__read-more">
+        {% render 'button', label: button_label, href: article.url, type: 'link', style: button_type %}
+      </div>
+    {% endif %}
+  </div>
+</div>

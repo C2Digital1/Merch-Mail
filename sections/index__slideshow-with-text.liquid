@@ -1,0 +1,820 @@
+{% comment %}
+  ** Slideshow with text **
+{% endcomment %}
+
+{%- liquid
+  assign id = section.id
+  assign blocks = section.blocks
+  assign background_color = section.settings.background_color
+  assign preheading_color = section.settings.color_scheme.settings.scheme_pre_text
+  assign heading_color = section.settings.color_scheme.settings.scheme_heading
+  assign subheading_color = section.settings.color_scheme.settings.scheme_text
+  assign text_alignment = section.settings.text_alignment
+  assign text_transition = section.settings.text_transition
+  assign button_style = section.settings.button_style
+  assign show_nav_buttons = section.settings.show_nav_buttons
+
+  assign image_position = section.settings.image_position
+  assign image_transition = section.settings.image_transition
+  assign image_slideshow_speed = section.settings.image_slideshow_speed
+  assign show_arrows = section.settings.show_arrows
+-%}
+{% comment %}Spacing{% endcomment %}
+{%- liquid
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign padding_left = section.settings.padding_left
+  assign padding_right = section.settings.padding_right
+  assign margin_top = section.settings.margin_top
+  assign margin_bottom = section.settings.margin_bottom
+  assign padding_top_m = section.settings.padding_top_m
+  assign padding_bottom_m = section.settings.padding_bottom_m
+  assign padding_left_m = section.settings.padding_left_m
+  assign padding_right_m = section.settings.padding_right_m
+  assign margin_top_m = section.settings.margin_top_m
+  assign margin_bottom_m = section.settings.margin_bottom_m
+-%}
+{% comment %}Layout{% endcomment %}
+{%- liquid
+  assign width = section.settings.width
+  assign show_gutter = section.settings.show_gutter
+  assign section_bg = section.settings.color_scheme.settings.scheme_background
+  if section.settings.color_scheme.settings.scheme_background_gradient != empty
+    assign section_bg = section.settings.color_scheme.settings.scheme_background_gradient
+  endif
+  assign animation = section.settings.animation | default: 'none'
+-%}
+{% comment %}Height{% endcomment %}
+{%- liquid
+  assign desktop_height = section.settings.desktop_height
+  assign mobile_height = section.settings.mobile_height
+-%}
+{% comment %}Advanced{% endcomment %}
+{%- liquid
+  assign css_class = section.settings.css_class
+  assign custom_css = section.settings.custom_css
+-%}
+{% comment %} Section specific CSS {% endcomment %}
+{%- capture section_css -%}
+.text-slideshow-column {
+    background: {{ background_color }};
+}
+.title{
+  color: {{ heading_color }}
+}
+.subtitle{
+  color: {{ subheading_color }}
+}
+.pretitle{
+  color: {{ preheading_color }}
+}
+.flickity-page-dots .dot {
+    background: {{ heading_color }};
+}
+
+.button--primary{
+  background-color: {{ section.settings.color_scheme.settings.scheme_button }};
+  color: {{ section.settings.color_scheme.settings.scheme_button_label }};
+  border: 1px solid {{ section.settings.color_scheme.settings.scheme_button_border }};
+}
+
+.button--primary:hover{
+  background-color: {{ section.settings.color_scheme.settings.scheme_button_hover }};
+  color: {{ section.settings.color_scheme.settings.scheme_button_label_hover }};
+}
+
+.button--secondary{
+  background-color: {{ section.settings.color_scheme.settings.scheme_s_button }};
+  color: {{ section.settings.color_scheme.settings.scheme_secondary_button_label }};
+  border: 1px solid {{ section.settings.color_scheme.settings.scheme_s_button_border }};
+}
+
+.button--secondary:hover{
+  background-color: {{ section.settings.color_scheme.settings.scheme_s_button_hover }};
+  color: {{ section.settings.color_scheme.settings.scheme_secondary_button_label_hover }};
+}
+
+.button--link-style{
+  color: {{ section.settings.color_scheme.settings.scheme_link }};
+}
+
+.button--link-style:hover{
+  color: {{ section.settings.color_scheme.settings.scheme_link_hover }};
+}
+
+{%- endcapture -%}
+
+{% style %}
+  #shopify-section-{{ id }} {
+      padding-top: {{ padding_top }}px;
+      padding-bottom: {{ padding_bottom }}px;
+      padding-left:{{ padding_left }}px;
+      padding-right:{{ padding_right }}px;
+      background: {{ section_bg }};
+      margin-top: {{ margin_top }}px;
+      margin-bottom: {{ margin_bottom }}px;
+      {% if width == 'wide' %}
+      width: 100%;
+      {% endif %}
+  }
+  @media screen and (min-width:799px){
+    {% if desktop_height > 0 %}
+      #shopify-section-{{ id }} .image-element__wrap img{
+        max-height: {{ desktop_height }}px;
+        object-fit: cover;
+      }
+    {% endif %}
+  }
+  @media screen and (max-width:798px){
+      #shopify-section-{{ id }} {
+          padding-top: {{ padding_top_m }}px;
+          padding-bottom: {{ padding_bottom_m }}px;
+          padding-left:{{ padding_left_m }}px;
+          padding-right:{{ padding_right_m }}px;
+          margin-top: {{ margin_top_m }}px;
+          margin-bottom: {{ margin_bottom_m }}px;
+      }
+      {% if mobile_height > 0 %}
+        #shopify-section-{{ id }} .image-element__wrap img{
+          max-height: {{ mobile_height }}px;
+          object-fit: cover;
+        }
+      {% endif %}
+  }
+
+  {% render 'css-loop',
+          css: section_css,
+          id: id
+  %}
+  {% render 'css-loop',
+          css: custom_css,
+          id: id
+  %}
+{% endstyle %}
+
+{% comment %} HTML markup  {% endcomment %}
+{% if blocks.size > 0 %}
+  <section
+    class="
+      section {{ css_class }} is-width-{{ width }} scheme_color-{{section.settings.color_scheme}}
+      {% if show_gutter == false %}
+        has-no-side-gutter
+        has-background
+      {% else %}
+        has-gutter-enabled
+      {% endif %}
+      {% if width == 'wide' %}
+        equal-columns--outside-trim
+      {% endif %}
+    "
+    {% if animation != 'none' %}
+      data-scroll-class="{{ animation }}"
+    {% endif %}
+  >
+    <div class="slideshow-with-text__container container">
+      <div
+        class="
+          image-slideshow-column
+          three-fifths
+          medium-down--one-whole
+          column
+          image-slideshow-position--{{ image_position }}
+        "
+      >
+        <div class="image-slideshow image-slideshow--{{ image_transition }}" data-image-slideshow>
+          {% for block in blocks %}
+            {% comment %} Content settings {% endcomment %}
+            {%- assign image = block.settings.image -%}
+            {%- assign button_label = block.settings.button_label -%}
+            {%- assign button_link = block.settings.button_link -%}
+            {% comment %} End content settings {% endcomment %}
+            <div
+              id="shopify-section-{{ block.id }}"
+              class="image-slideshow__slide"
+              data-slide-index="{{ forloop.index0 }}"
+              {{ block.shopify_attributes }}
+            >
+              {% if button_label == blank and button_link != blank %}
+                <a href="{{ button_link }}">
+              {% endif %}
+              {% if image != blank %}
+                {% render 'image-element', image: image, alt: image.alt, stretch_width: true %}
+              {% else %}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+              {% if button_label == blank and button_link != blank %}
+                </a>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div
+        class="
+          text-slideshow-column
+          two-fifths
+          medium-down--one-whole
+          column
+          is-align-center
+          is-flex-wrap
+        "
+      >
+        <div
+          class="text-slideshow"
+          data-text-slideshow
+          data-slide-index="{{ forloop.index0 }}"
+          {{ block.shopify_attributes }}
+        >
+          {% for block in blocks %}
+            {% comment %} Content settings {% endcomment %}
+            {%- assign pretext = block.settings.pretext -%}
+            {%- assign pretext_preset = block.settings.pretext_preset -%}
+            {%- assign title = block.settings.title -%}
+            {%- assign title_preset = block.settings.title_preset -%}
+            {%- assign subtitle = block.settings.subtitle -%}
+            {%- assign subtitle_preset = block.settings.subtitle_preset -%}
+            {%- assign button_label = block.settings.button_label -%}
+            {%- assign button_link = block.settings.button_link -%}
+            {%- assign image = block.settings.image -%}
+
+            <div
+              id="shopify-section-{{ block.id }}"
+              class="text-slideshow__slide text-slideshow__slide--{{ block.id }}"
+            >
+              <div class="text-slideshow__content text-align-{{ text_alignment }}">
+                {% if pretext != blank %}
+                  <div class="text-slideshow__heading banner__subheading pretitle {{ pretext_preset }}">
+                    {{ pretext }}
+                  </div>
+                {% endif %}
+                {% if title != blank %}
+                  <h2 class="text-slideshow__heading banner__heading title {{ title_preset }}">{{ title }}</h2>
+                {% endif %}
+                {% if subtitle != blank %}
+                  <div class="text-slideshow__heading banner__subheading subtitle {{ subtitle_preset }}">
+                    {{ subtitle }}
+                  </div>
+                {% endif %}
+                {% if button_label != blank %}
+                  {% render 'button', label: button_label, href: button_link, style: button_style, type: 'link' %}
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% else %}
+  <div class="container has-padding-top has-padding-bottom text-align-center">
+    <div class="one-whole column">
+      <p>{{ 'homepage.onboarding.no_content' | t }}</p>
+    </div>
+  </div>
+{% endif %}
+
+{% comment %}JavaScript{% endcomment %}
+<script
+  type="application/json"
+  data-section-id="{{ id }}"
+  data-section-data
+>
+  {
+    "text_transition": {{ text_transition | json }},
+    "image_transition": {{ image_transition | json }},
+    "image_slideshow_speed": {{ image_slideshow_speed | json }},
+    "show_arrows": {{ show_arrows | json }},
+    "show_nav_buttons": {{ show_nav_buttons | json }},
+    "number_of_slides": {{ blocks.size | json }}
+  }
+</script>
+<script data-theme-editor-load-script src="{{ 'z__jsSlideshowWithText.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Slideshow with text",
+  "class": "jsSlideshowWithText slideshow-with-text",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "default"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "color_background",
+      "id": "background_color",
+      "label": "Background"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_transition",
+      "label": "Text transition",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "fadeIn",
+          "label": "Fade in"
+        },
+        {
+          "value": "fadeInDown",
+          "label": "Fade in down"
+        },
+        {
+          "value": "fadeInLeft",
+          "label": "Fade in left"
+        },
+        {
+          "value": "fadeInRight",
+          "label": "Fade in right"
+        },
+        {
+          "value": "zoomIn",
+          "label": "Zoom in"
+        }
+      ],
+      "default": "fadeIn"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "button--primary",
+          "label": "Primary"
+        },
+        {
+          "value": "button--secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "button--link-style",
+          "label": "Link style"
+        }
+      ],
+      "default": "button--primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_nav_buttons",
+      "label": "Show navigation dots",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "image_transition",
+      "label": "Image transition",
+      "options": [
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "slide",
+          "label": "Slide"
+        }
+      ],
+      "default": "slide"
+    },
+    {
+      "type": "range",
+      "id": "image_slideshow_speed",
+      "label": "Change image every",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "default": 8,
+      "unit": "sec"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show arrows",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "desktop_height",
+      "label": "Desktop image max height",
+      "default": 0,
+      "info": "Set value to 0 to disable this option"
+    },
+    {
+      "type": "number",
+      "id": "mobile_height",
+      "label": "Mobile image max height",
+      "default": 0,
+      "info": "Set value to 0 to disable this option"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ],
+      "default": "standard"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gutter",
+      "label": "Show gutter",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Spacing Desktop"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing Mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_m",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_m",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left_m",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right_m",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top_m",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_m",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "animation",
+      "label": "Animation",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "fadeIn",
+          "label": "Fade in"
+        },
+        {
+          "value": "fadeInDown",
+          "label": "Fade in down"
+        },
+        {
+          "value": "fadeInLeft",
+          "label": "Fade in left"
+        },
+        {
+          "value": "fadeInRight",
+          "label": "Fade in right"
+        },
+        {
+          "value": "slideInLeft",
+          "label": "Slide in left"
+        },
+        {
+          "value": "slideInRight",
+          "label": "Slide in right"
+        },
+        {
+          "value": "zoomIn",
+          "label": "Zoom in"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1600 x 1000px recommended"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "richtext",
+          "id": "pretext",
+          "label": "Preheading",
+          "default": "<p>Preheading</p>"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "subtitle",
+          "label": "Subheading",
+          "default": "<p>Each slide can have its own text and button link. Use it to describe the product, collection, page, etc. that the image depicts.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Presets"
+        },
+        {
+          "type": "select",
+          "id": "pretext_preset",
+          "label": "Preheading",
+          "options": [
+            {
+              "value": "is-h1",
+              "label": "H1"
+            },
+            {
+              "value": "is-h2",
+              "label": "H2"
+            },
+            {
+              "value": "is-h3",
+              "label": "H3"
+            },
+            {
+              "value": "is-h4",
+              "label": "H4"
+            },
+            {
+              "value": "is-h5",
+              "label": "H5"
+            },
+            {
+              "value": "is-h6",
+              "label": "H6"
+            },
+            {
+              "value": "is-text",
+              "label": "Regular"
+            },
+            {
+              "value": "is-text-small",
+              "label": "Small"
+            }
+          ],
+          "default": "is-h6"
+        },
+        {
+          "type": "select",
+          "id": "title_preset",
+          "label": "Heading",
+          "options": [
+            {
+              "value": "is-h1",
+              "label": "H1"
+            },
+            {
+              "value": "is-h2",
+              "label": "H2"
+            },
+            {
+              "value": "is-h3",
+              "label": "H3"
+            },
+            {
+              "value": "is-h4",
+              "label": "H4"
+            },
+            {
+              "value": "is-h5",
+              "label": "H5"
+            },
+            {
+              "value": "is-h6",
+              "label": "H6"
+            },
+            {
+              "value": "is-text",
+              "label": "Regular"
+            },
+            {
+              "value": "is-text-small",
+              "label": "Small"
+            }
+          ],
+          "default": "is-h2"
+        },
+        {
+          "type": "select",
+          "id": "subtitle_preset",
+          "label": "Subheading",
+          "options": [
+            {
+              "value": "is-h1",
+              "label": "H1"
+            },
+            {
+              "value": "is-h2",
+              "label": "H2"
+            },
+            {
+              "value": "is-h3",
+              "label": "H3"
+            },
+            {
+              "value": "is-h4",
+              "label": "H4"
+            },
+            {
+              "value": "is-h5",
+              "label": "H5"
+            },
+            {
+              "value": "is-h6",
+              "label": "H6"
+            },
+            {
+              "value": "is-text",
+              "label": "Regular"
+            },
+            {
+              "value": "is-text-small",
+              "label": "Small"
+            }
+          ],
+          "default": "is-text"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Slide link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slideshow with text",
+      "category": "Image",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "pretext": "<p>Add a preheader</p>",
+            "title": "Slideshow with Text",
+            "subtitle": "<p>Each slide can have its own text and button link. Use it to describe the product, collection, page, etc. that the image depicts.</p>",
+            "button_label": "Click here"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "pretext": "<p>Add a preheader</p>",
+            "title": "Second slide",
+            "subtitle": "<p>Each slide can use different text to accompany the image.</p>",
+            "button_label": "Link to product"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

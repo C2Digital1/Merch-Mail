@@ -1,0 +1,78 @@
+{
+  "sections": {
+    "banner": {
+      "type": "banner",
+      "settings": {
+        "image_darken": true,
+        "heading_preset": "is-h2",
+        "heading_color": "",
+        "subheading": "",
+        "subheading_preset": "is-h6",
+        "subheading_color": "",
+        "alignment": "center",
+        "banner_height": "medium",
+        "width": "wide",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "main": {
+      "type": "collection__main",
+      "settings": {
+        "show_heading": true,
+        "heading_preset": "is-h1",
+        "heading_alignment": "left",
+        "collection_breadcrumb": true,
+        "collection_tags": true,
+        "collection_sort": true,
+        "items_per_row": 3,
+        "mobile_items_per_row": "1",
+        "pagination_limit": 48,
+        "pagination_type": "basic_pagination",
+        "show_sidebar": false,
+        "sidebar_heading_preset": "is-h5",
+        "sidebar_position": "left",
+        "show_promo_banner": false,
+        "image_darken": true,
+        "promo_title": "Special sale on now!",
+        "promo_text": "<p>Description of promotion with lots of details.<\/p>",
+        "banner_height": "medium",
+        "width": "standard",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(#ffffff, #ffffff)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main"
+  ]
+}

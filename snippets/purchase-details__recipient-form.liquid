@@ -1,0 +1,72 @@
+{% comment %}
+  Renders gift card recipient form.
+  Accepts:
+  - product: {Object} product object.
+  - form: {Object} the product form object.
+  - section: {Object} section to which this snippet belongs.
+
+  Usage:
+  {% render 'gift_card_recipient', product: product, form: form, section: section %}
+{% endcomment %}
+
+{%- assign gift_card_recipient_control_flag = 'properties[__shopify_send_gift_card_to_recipient]' -%}
+<div class="purchase-details__recipient-form recipient_form one-whole medium-down--one-whole">
+   <label class="recipient-checkbox" for="Recipient-Checkbox-{{ section.id }}">
+      <input
+      id="Recipient-Checkbox-{{ section.id }}"
+      class ="recipient_trigger" type="checkbox"  unchecked
+      data-recipient-form-trigger 
+    />
+      <span class = "is-text">{{ 'products.general.recipient.form.checkbox' | t }}</span>
+  </label>
+</div>
+<div class=" purchase-details__recipient-form__blocks is-flex is-flex-wrap" style = "display:none;">
+  
+  {% if form.errors %}
+    <div class="custom-contact-form__errors">
+      <p>{{ 'general.forms.post_error' | t }}</p>
+    </div>
+  {% endif %}
+
+  <div class="custom-contact-form__block custom-contact-form__block--email one-whole medium-down--one-whole">
+    <label class="label is-sr-only" for="email">
+      {{ 'products.general.recipient.form.email' | t }}
+      <span class="required">*</span>
+    </label>
+    <input id="email" class="input is-primary-btn-style is-large purchase-details__recipient-form__input" type="email" 
+      placeholder="{{ 'products.general.recipient.form.email' | t }}" 
+      name = "" data-name="properties[Recipient email]"
+      autocorrect="off" autocapitalize="off" value=""
+      required
+      >
+  </div>
+  <div class="custom-contact-form__block custom-contact-form__block--textfield one-whole medium-down--one-whole">
+    <label class="label is-sr-only" for="textfield">
+       {{- 'products.general.recipient.form.name_label' | t -}}
+    </label>
+    <input id="textfield" class="input is-primary-btn-style is-large purchase-details__recipient-form__input" type="text" 
+       placeholder="{{ 'products.general.recipient.form.name' | t }}" name = "" data-name="properties[Recipient name]"
+       required>
+  </div>
+  {%- assign max_chars_message = 200 -%}
+  {%- assign max_chars_message_rendered = 'products.general.recipient.form.max_characters' | t: max_chars: max_chars_message -%}
+  {%- assign message_label_rendered = 'products.general.recipient.form.message_label' | t -%}
+      
+  <div class="custom-contact-form__block custom-contact-form__block--textarea one-whole medium-down--one-whole">
+    <label class="label is-sr-only" for="textarea">
+     {{ message_label_rendered }}
+    </label>
+    <textarea id="textarea" class="textarea is-primary-btn-style is-large purchase-details__recipient-form__input" 
+      placeholder="{{ 'products.general.recipient.form.message' | t }}"
+      name="" data-name = "properties[Message]"
+      maxlength="{{ max_chars_message }}"
+      >{%  if form.message %} {{form.message}} {% endif %}</textarea>
+      <p><small class="small">{{ max_chars_message_rendered }}</small></p>
+  </div>
+  <input
+    type="hidden" name = "" data-name="{{ gift_card_recipient_control_flag }}"
+    value="if_present" id="Recipient-Control-{{ section.id }}"
+    class = "purchase-details__recipient-form__radio-field purchase-details__recipient-form__input"
+  >
+  
+</div>

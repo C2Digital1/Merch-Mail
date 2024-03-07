@@ -1,0 +1,428 @@
+{% comment %}
+  ** Map **
+{% endcomment %}
+
+{% comment %} Content settings {% endcomment %}
+{%- liquid
+  assign id = section.id
+  assign map_address = section.settings.map_address
+  assign map_height = section.settings.map_height
+  assign zoom_level = section.settings.zoom_level
+  assign map_image = section.settings.map_image
+  assign api_key = section.settings.api_key
+  assign show_pin =  section.settings.show_pin
+  assign map_style =  section.settings.map_style
+
+  capture map_style_json
+    render 'map-styles', name: section.settings.map_style
+  endcapture
+-%}
+{% comment %}Spacing{% endcomment %}
+{%- liquid
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign padding_left = section.settings.padding_left
+  assign padding_right = section.settings.padding_right
+  assign margin_top = section.settings.margin_top
+  assign margin_bottom = section.settings.margin_bottom
+  assign padding_top_m = section.settings.padding_top_m
+  assign padding_bottom_m = section.settings.padding_bottom_m
+  assign padding_left_m = section.settings.padding_left_m
+  assign padding_right_m = section.settings.padding_right_m
+  assign margin_top_m = section.settings.margin_top_m
+  assign margin_bottom_m = section.settings.margin_bottom_m
+-%}
+{% comment %}Layout{% endcomment %}
+{%- liquid
+  assign width = section.settings.width
+  assign section_bg = section.settings.section_bg
+  assign animation = section.settings.animation | default: 'none'
+-%}
+{% comment %}Advanced{% endcomment %}
+{%- liquid
+  assign css_class = section.settings.css_class
+  assign custom_css = section.settings.custom_css
+-%}
+
+{% comment %} Section specific CSS {% endcomment %}
+{%- capture section_css -%}
+  #map--{{ id }} { height: {{ map_height }}px; width: 100%; overflow: hidden; }
+
+  .map { width: 100%; height: 100%; }
+{%- endcapture -%}
+
+{% style %}
+  #shopify-section-{{ id }} {
+    padding-top: {{ padding_top }}px;
+    padding-bottom: {{ padding_bottom }}px;
+    padding-left: {{ padding_left }}px;
+    padding-right: {{ padding_right }}px;
+    background: {{ section_bg }};
+    margin-top: {{ margin_top }}px;
+    margin-bottom: {{ margin_bottom }}px;
+    {% if width == 'wide' %}
+      width: 100%;
+    {% elsif width == 'half' %}
+      width: 50%;
+    {% endif %}
+  }
+  @media screen and (max-width:798px){
+    #shopify-section-{{ id }} {
+      padding-top: {{ padding_top_m }}px;
+      padding-bottom: {{ padding_bottom_m }}px;
+      padding-left:{{ padding_left_m }}px;
+      padding-right:{{ padding_right_m }}px;
+      margin-top: {{ margin_top_m }}px;
+      margin-bottom: {{ margin_bottom_m }}px;
+    }
+  }
+
+  {% render 'css-loop',
+          css: section_css,
+          id: id
+  %}
+  {% render 'css-loop',
+          css: custom_css,
+          id: id
+  %}
+{% endstyle %}
+
+{% comment %} HTML markup {% endcomment %}
+<section
+  class="
+    section
+    {{ css_class }}
+    is-width-{{ width }}
+  "
+  {% if animation != "none" %}
+    data-scroll-class="{{ animation }}"
+  {% endif %}
+>
+  {% if map_address != blank and api_key != blank %}
+    {% comment %} API Map {% endcomment %}
+    <div id="map--{{ id }}" class="embed-container maps">
+      {% if api_key != blank %}
+        <div
+          class="map-section__container map"
+          id="map-{{ id }}"
+          data-address="{{ map_address | strip_html }}"
+          data-zoom="{{ zoom_level }}"
+          data-pin="{{ show_pin }}"
+          data-id="map-{{ id }}"
+          data-style="{{ map_style }}"
+          data-api-key="{{ api_key }}"
+          data-directions-address="{{ map_address | strip_html | handleize | replace: '_', '+' | replace: ' ', '+'}}"
+        ></div>
+      {% endif %}
+    </div>
+  {% elsif map_address != blank and api_key == blank %}
+    {% comment %} Iframe Map {% endcomment %}
+    <div id="map--{{ id }}" class="embed-container maps">
+      <iframe
+        width="100%"
+        height="{{ map_height }}"
+        frameborder="0"
+        scrolling="no"
+        marginheight="0"
+        marginwidth="0"
+        src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if map_address != blank %}{{ map_address | strip_html | replace: ' ', '+' }}{% else %}{{ shop.address.street }}{% endif %}&amp;z={{ zoom_level }}&amp;output=embed"
+      ></iframe>
+    </div>
+  {% else %}
+    {% comment %} Image Map {% endcomment %}
+    <div id="map--{{ id }}" class="map__placeholder maps">
+      {% if map_image == blank %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--map' }}
+      {% else %}
+        {%
+          render 'image-element',
+          image: map_image,
+          alt: map_image.alt,
+          stretch_width: true
+        %}
+      {% endif %}
+    </div>
+  {% endif %}
+</section>
+
+{% if api_key %}
+  {% comment %} JavaScript {% endcomment %}
+  <script
+    type="application/json"
+    data-section-id="{{ id }}"
+    data-section-data
+  >
+    {
+      "api_key": {{ api_key | json }},
+      "directions_address": {{ map_address | strip_html | handleize | replace: '_', '+' | replace: ' ', '+' | json }},
+      "id": {{ id | prepend: 'map-' | json }},
+      "map_address": {{ map_address | json }},
+      "map_height": {{ map_height | json }},
+      "map_style": {{ map_style_json | strip | json }},
+      "show_pin": {{ show_pin | json }},
+      "zoom_level": {{ zoom_level | json }}
+    }
+  </script>
+  <script data-theme-editor-load-script src="{{ 'z__jsMap.js' | asset_url }}"></script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Map",
+  "class": "map-section jsMap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "map_address",
+      "label": "Address",
+      "info": "Google Maps will find the exact location"
+    },
+    {
+      "type": "range",
+      "id": "map_height",
+      "min": 300,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "label": "Map height",
+      "default": 400
+    },
+    {
+      "type": "range",
+      "id": "zoom_level",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "unit": "x",
+      "label": "Map zoom level",
+      "default": 16
+    },
+    {
+      "type": "image_picker",
+      "id": "map_image",
+      "label": "Image",
+      "info": "Displayed when map isn't loaded"
+    },
+    {
+      "type": "header",
+      "content": "API key"
+    },
+    {
+      "type": "text",
+      "id": "api_key",
+      "label": "Google Maps API key",
+      "info": "You’ll need to [register a Google Maps API Key](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) to display the map"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pin",
+      "label": "Show pin",
+      "info": "Requires use of API key",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "map_style",
+      "label": "Map color scheme",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "aubergine",
+          "label": "Aubergine"
+        },
+        {
+          "value": "night",
+          "label": "Night"
+        },
+        {
+          "value": "retro",
+          "label": "Retro"
+        },
+        {
+          "value": "silver",
+          "label": "Silver"
+        }
+      ],
+      "default": "default",
+      "info": "Requires use of API key"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "wide",
+      "options": [
+        {
+          "value": "half",
+          "label": "Half"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Spacing Desktop"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing Mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_m",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_m",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left_m",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right_m",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top_m",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_m",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg",
+      "label": "Section Background",
+      "default": "linear-gradient(#ffffff, #ffffff)"
+    },
+    {
+      "type": "select",
+      "id": "animation",
+      "label": "Animation",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "fadeIn",
+          "label": "Fade in"
+        },
+        {
+          "value": "fadeInDown",
+          "label": "Fade in down"
+        },
+        {
+          "value": "fadeInLeft",
+          "label": "Fade in left"
+        },
+        {
+          "value": "fadeInRight",
+          "label": "Fade in right"
+        },
+        {
+          "value": "slideInLeft",
+          "label": "Slide in left"
+        },
+        {
+          "value": "slideInRight",
+          "label": "Slide in right"
+        },
+        {
+          "value": "zoomIn",
+          "label": "Zoom in"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Map",
+      "category": "Store information"
+    }
+  ]
+}
+{% endschema %}

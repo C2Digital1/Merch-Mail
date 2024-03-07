@@ -1,0 +1,686 @@
+{% comment %}
+  ** Testimonial **
+{% endcomment %}
+
+{% comment %} Content settings {% endcomment %}
+{%- liquid
+  assign id = section.id
+  assign blocks = section.blocks
+  assign show_border = section.settings.show_border
+  assign card_alignment = section.settings.card_alignment
+
+  assign top_heading = section.settings.top_heading
+  assign top_heading_preset = section.settings.top_heading_preset
+  assign top_heading_alignment = section.settings.top_heading_alignment
+
+  assign enable_images = section.settings.enable_images
+  assign crop_shape = section.settings.crop_shape
+
+  assign quote_preset = section.settings.quote_preset
+  assign info_preset = section.settings.info_preset
+
+  assign quote_color = section.settings.color_scheme.settings.scheme_heading
+  assign info_color = section.settings.color_scheme.settings.scheme_text
+  assign card_background = section.settings.card_background
+-%}
+{% comment %}Spacing{% endcomment %}
+{%- liquid
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign padding_left = section.settings.padding_left
+  assign padding_right = section.settings.padding_right
+  assign margin_top = section.settings.margin_top
+  assign margin_bottom = section.settings.margin_bottom
+  assign padding_top_m = section.settings.padding_top_m
+  assign padding_bottom_m = section.settings.padding_bottom_m
+  assign padding_left_m = section.settings.padding_left_m
+  assign padding_right_m = section.settings.padding_right_m
+  assign margin_top_m = section.settings.margin_top_m
+  assign margin_bottom_m = section.settings.margin_bottom_m
+-%}
+{% comment %}Layout{% endcomment %}
+{%- liquid
+  assign width = section.settings.width
+  assign show_gutter = section.settings.show_gutter
+  assign section_bg = section.settings.color_scheme.settings.scheme_background
+  if section.settings.color_scheme.settings.scheme_background_gradient != empty
+    assign section_bg = section.settings.color_scheme.settings.scheme_background_gradient
+  endif
+  assign animation = section.settings.animation | default: 'none'
+-%}
+{% comment %}Advanced{% endcomment %}
+{%- liquid
+  assign css_class = section.settings.css_class
+  assign custom_css = section.settings.custom_css
+-%}
+{% comment %} End content settings {% endcomment %}
+
+{% comment %} Column width {% endcomment %}
+{%- liquid
+  if blocks.size >= 3
+    assign column_value = 3
+  else
+    assign column_value = blocks.size
+  endif
+-%}
+
+{% comment %} Section specific CSS {% endcomment %}
+{% capture section_css -%}
+.testimonial-block {
+  background:{{ card_background }};
+}
+.testimonial__quote {
+  color: {{ quote_color }};
+}
+.testimonial__info {
+  color: {{ info_color }};
+}
+
+
+.button--primary{
+  background-color: {{ section.settings.color_scheme.settings.scheme_button }};
+  color: {{ section.settings.color_scheme.settings.scheme_button_label }};
+  border: 1px solid {{ section.settings.color_scheme.settings.scheme_button_border }};
+}
+
+.button--primary:hover{
+  background-color: {{ section.settings.color_scheme.settings.scheme_button_hover }};
+  color: {{ section.settings.color_scheme.settings.scheme_button_label_hover }};
+}
+
+.button--secondary{
+  background-color: {{ section.settings.color_scheme.settings.scheme_s_button }};
+  color: {{ section.settings.color_scheme.settings.scheme_secondary_button_label }};
+  border: 1px solid {{ section.settings.color_scheme.settings.scheme_s_button_border }};
+}
+
+.button--secondary:hover{
+  background-color: {{ section.settings.color_scheme.settings.scheme_s_button_hover }};
+  color: {{ section.settings.color_scheme.settings.scheme_secondary_button_label_hover }};
+}
+
+.button--link-style{
+  color: {{ section.settings.color_scheme.settings.scheme_link }};
+}
+
+.button--link-style:hover{
+  color: {{ section.settings.color_scheme.settings.scheme_link_hover }};
+}
+
+{%- endcapture -%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ padding_top }}px;
+    padding-bottom: {{ padding_bottom }}px;
+    padding-left:{{ padding_left }}px;
+    padding-right:{{ padding_right }}px;
+    background: {{ section_bg }};
+    margin-top: {{ margin_top }}px;
+    margin-bottom: {{ margin_bottom }}px;
+    {% if width == 'wide' %}
+      width: 100%;
+    {% endif %}
+  }
+  @media screen and (max-width:798px){
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ padding_top_m }}px;
+      padding-bottom: {{ padding_bottom_m }}px;
+      padding-left:{{ padding_left_m }}px;
+      padding-right:{{ padding_right_m }}px;
+      margin-top: {{ margin_top_m }}px;
+      margin-bottom: {{ margin_bottom_m }}px;
+    }
+  }
+
+  {% render 'css-loop',
+          css: section_css,
+          id: section.id
+  %}
+  {% render 'css-loop',
+          css: custom_css,
+          id: section.id
+  %}
+{% endstyle %}
+
+<section
+  class="
+    section {{ css_class }} is-width-{{ width }} scheme_color-{{section.settings.color_scheme}}
+    {% if show_gutter == false %}
+      has-no-side-gutter
+    {% else %}
+      has-gutter-enabled
+    {% endif %}
+    {% if width == 'wide' and show_gutter == true %}
+      equal-columns--outside-trim
+    {% endif %}
+    {% if blocks.size == 3 %}mobile-slider{% endif %}
+    {% if blocks.size <= 3 %}desktop-slider--disabled{% endif %}
+  "
+  {% if animation != 'none' %}
+    data-scroll-class="{{ animation }}"
+  {% endif %}
+>
+  {% if top_heading != blank %}
+    <div class="container">
+      {% render 'heading',
+        title: top_heading,
+        heading_tag: 'h2',
+        context: 'testimonials',
+        text_alignment: top_heading_alignment,
+        preset: top_heading_preset
+      %}
+    </div>
+  {% endif %}
+
+  {% if blocks.size > 2 %}
+    <div class="container">
+      <div class="testimonial__nav-wrapper one-whole column is-flex">
+        <div class="testimonial__nav testimonial__nav--prev">
+          {% render 'icon', name: 'left-arrow' %}
+        </div>
+        <div class="testimonial__nav testimonial__nav--next ">
+          {% render 'icon', name: 'right-arrow' %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <div
+    class="testimonials container"
+    {% if blocks.size > 2 %}
+      data-slider
+    {% endif %}
+  >
+    {% for block in blocks %}
+      {% comment %} Content settings {% endcomment %}
+      {%- liquid
+        assign image = block.settings.image
+        assign quote = block.settings.quote
+        assign info = block.settings.info
+      -%}
+
+      {% comment %} End content settings {% endcomment %}
+
+      <div
+        id="shopify-section-{{ block.id }}"
+        class="
+          testimonial-block
+          column
+          has-images-enabled-{{ enable_images }}
+          testimonial-border--{{ show_border }}
+          testimonial-align--{{ card_alignment }}
+          {% render 'column-width', value: column_value %}
+          medium-down--one-whole
+        "
+        data-index=""
+        {{ forloop.index0 }}
+        {{ block.shopify_attributes }}
+      >
+        <div class="testimonial__quote {{ quote_preset }}">
+          {{ quote }}
+        </div>
+        <div class="testimonial__meta">
+          {% if enable_images == true %}
+            <div class="testimonial__image has-image-crop image-style--{{ crop_shape }}">
+              {% if image != blank %}
+                {% render 'image-element', image: image, alt: image.alt %}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+          {% endif %}
+          <div class="testimonial__info {{ info_preset }}">
+            {{ info }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% comment %}JavaScript{% endcomment %}
+<script
+  type="application/json"
+  data-section-id="{{ id }}"
+  data-section-data
+>
+  {}
+</script>
+<script data-theme-editor-load-script src="{{ 'z__jsTestimonials.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "class": "testimonials jsTestimonials",
+  "max_blocks": 21,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "default"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "top_heading",
+      "label": "Top Heading",
+      "default": "Testimonials"
+    },
+    {
+      "type": "select",
+      "id": "top_heading_preset",
+      "label": "Top Heading Preset",
+      "options": [
+        {
+          "value": "is-h1",
+          "label": "H1"
+        },
+        {
+          "value": "is-h2",
+          "label": "H2"
+        },
+        {
+          "value": "is-h3",
+          "label": "H3"
+        },
+        {
+          "value": "is-h4",
+          "label": "H4"
+        },
+        {
+          "value": "is-h5",
+          "label": "H5"
+        },
+        {
+          "value": "is-h6",
+          "label": "H6"
+        },
+        {
+          "value": "is-text",
+          "label": "Regular"
+        },
+        {
+          "value": "is-text-small",
+          "label": "Small"
+        }
+      ],
+      "default": "is-h1"
+    },
+    {
+      "type": "select",
+      "id": "top_heading_alignment",
+      "label": "Top Heading Alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_border",
+      "label": "Show border",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_images",
+      "label": "Show images",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "crop_shape",
+      "label": "Image crop shape",
+      "info": "Upload square images for best cropping results",
+      "options": [
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        }
+      ],
+      "default": "circle"
+    },
+    {
+      "type": "header",
+      "content": "Presets"
+    },
+    {
+      "type": "select",
+      "id": "quote_preset",
+      "label": "Quote",
+      "options": [
+        {
+          "value": "is-h1",
+          "label": "H1"
+        },
+        {
+          "value": "is-h2",
+          "label": "H2"
+        },
+        {
+          "value": "is-h3",
+          "label": "H3"
+        },
+        {
+          "value": "is-h4",
+          "label": "H4"
+        },
+        {
+          "value": "is-h5",
+          "label": "H5"
+        },
+        {
+          "value": "is-h6",
+          "label": "H6"
+        },
+        {
+          "value": "is-text",
+          "label": "Regular"
+        },
+        {
+          "value": "is-text-small",
+          "label": "Small"
+        }
+      ],
+      "default": "is-text"
+    },
+    {
+      "type": "select",
+      "id": "info_preset",
+      "label": "Info",
+      "options": [
+        {
+          "value": "is-h1",
+          "label": "H1"
+        },
+        {
+          "value": "is-h2",
+          "label": "H2"
+        },
+        {
+          "value": "is-h3",
+          "label": "H3"
+        },
+        {
+          "value": "is-h4",
+          "label": "H4"
+        },
+        {
+          "value": "is-h5",
+          "label": "H5"
+        },
+        {
+          "value": "is-h6",
+          "label": "H6"
+        },
+        {
+          "value": "is-text",
+          "label": "Regular"
+        },
+        {
+          "value": "is-text-small",
+          "label": "Small"
+        }
+      ],
+      "default": "is-text-small"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_background",
+      "id": "card_background",
+      "label": "Card Background"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "card_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "standard",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gutter",
+      "label": "Show gutter",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Spacing Desktop"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing Mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_m",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_m",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left_m",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right_m",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top_m",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_m",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "animation",
+      "label": "Animation",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "fadeIn",
+          "label": "Fade in"
+        },
+        {
+          "value": "fadeInDown",
+          "label": "Fade in down"
+        },
+        {
+          "value": "fadeInLeft",
+          "label": "Fade in left"
+        },
+        {
+          "value": "fadeInRight",
+          "label": "Fade in right"
+        },
+        {
+          "value": "slideInLeft",
+          "label": "Slide in left"
+        },
+        {
+          "value": "slideInRight",
+          "label": "Slide in right"
+        },
+        {
+          "value": "zoomIn",
+          "label": "Zoom in"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "500 x 500px recommended"
+        },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Quote",
+          "default": "<p>Include a favorite customer quote or feedback here.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "info",
+          "label": "Info",
+          "default": "<p><strong>Customer name</strong></p><p><em>More info about them could go here.</em></p><p>customerlink.com</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "category": "Store information",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

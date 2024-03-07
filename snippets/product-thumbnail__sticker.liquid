@@ -1,0 +1,129 @@
+{% comment %}
+  ----------------
+  Optional values
+  context: <string>
+{% endcomment %}
+
+{% comment %} Check if product is on sale {% endcomment %}
+{% if product.compare_at_price_max > product.price %}
+  {% assign product_on_sale = true %}
+{% endif %}
+{% comment %} Check if product is out of stock {% endcomment %}
+{% unless product.available %}{% assign product_not_available = true %}{% endunless %}
+
+{% assign custom_stickers_handles = false %}
+{% if settings.sticker_name_1 != blank
+  or settings.sticker_name_2 != blank
+  or settings.sticker_name_3 != blank
+  or settings.sticker_name_4 != blank
+  or settings.sticker_name_5 != blank
+%}
+  {% assign custom_stickers_handles = true %}
+{% endif %}
+
+{% comment %} Check if sticker holder should be displayed {% endcomment %}
+{% if collection_handles contains 'best-seller'
+  or collection_handles contains 'coming-soon'
+  or collection_handles contains 'new'
+  or collection_handles contains 'pre-order'
+  or product_not_available
+  or collection_handles contains 'staff-pick'
+  or product_on_sale
+  or custom_stickers_handles
+%}
+  <div
+    class="
+      sticker-holder
+      sticker-shape-{{ settings.sticker_shape }}
+      sticker-position-{{ settings.sticker_position }}
+    "
+  >
+    <div class="sticker-holder__content sticker-holder__content--{{ context }}">
+      {% if collection_handles contains 'best-seller' %}
+        <div class="best-seller-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.best_seller' | t }}</span>
+        </div>
+      {% endif %}
+
+      {% if collection_handles contains 'coming-soon' %}
+        <div class="coming-soon-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.coming_soon' | t }}</span>
+        </div>
+      {% endif %}
+
+      {% if collection_handles contains 'new' %}
+        <div class="new-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.new' | t }}</span>
+        </div>
+      {% endif %}
+
+      {% if collection_handles contains 'pre-order' %}
+        <div class="pre-order-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.pre_order' | t }}</span>
+        </div>
+      {% endif %}
+
+      {% if product.available and product_on_sale %}
+        <div class="sale-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.sale' | t }}</span>
+        </div>
+      {% endif %}
+
+      {% unless product.available %}
+        <div class="sold-out-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.sold_out' | t }}</span>
+        </div>
+      {% endunless %}
+
+      {% if collection_handles contains 'staff-pick' %}
+        <div class="staff-pick-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.staff_pick' | t }}</span>
+        </div>
+      {% endif %}
+      {% if settings.sticker_name_1 != blank %}
+        {% assign custom_sticker_handle = settings.sticker_name_1 | handleize %}
+        {% if collection_handles contains custom_sticker_handle %}
+          <div class="custom-sticker-1 thumbnail-sticker sticker-{{i}}">
+            <span class="sticker-text">{{ settings.sticker_name_1 }}</span>
+          </div>
+        {% endif %}
+      {% endif %}
+
+      {% if settings.sticker_name_2 != blank %}
+        {% assign custom_sticker_handle = settings.sticker_name_2 | handleize %}
+        {% if collection_handles contains custom_sticker_handle %}
+          <div class="custom-sticker-2 thumbnail-sticker sticker-{{i}}">
+            <span class="sticker-text">{{ settings.sticker_name_2 }}</span>
+          </div>
+        {% endif %}
+      {% endif %}
+
+      {% if settings.sticker_name_3 != blank %}
+        {% assign custom_sticker_handle = settings.sticker_name_3 | handleize %}
+        {% if collection_handles contains custom_sticker_handle %}
+          <div class="custom-sticker-3 thumbnail-sticker sticker-{{i}}">
+            <span class="sticker-text">{{ settings.sticker_name_3 }}</span>
+          </div>
+        {% endif %}
+      {% endif %}
+
+      {% if settings.sticker_name_4 != blank %}
+        {% assign custom_sticker_handle = settings.sticker_name_4 | handleize %}
+        {% if collection_handles contains custom_sticker_handle %}
+          <div class="custom-sticker-4 thumbnail-sticker sticker-{{i}}">
+            <span class="sticker-text">{{ settings.sticker_name_4 }}</span>
+          </div>
+        {% endif %}
+      {% endif %}
+
+      {% if settings.sticker_name_5 != blank %}
+        {% assign custom_sticker_handle = settings.sticker_name_5 | handleize %}
+        {% if collection_handles contains custom_sticker_handle %}
+          <div class="custom-sticker-5 thumbnail-sticker sticker-{{i}}">
+            <span class="sticker-text">{{ settings.sticker_name_5 }}</span>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

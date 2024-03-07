@@ -1,0 +1,861 @@
+{% comment %}
+  ** Header 2 Centered - static **
+{% endcomment %}
+
+{%- liquid
+  assign id = section.id
+
+  assign logo = section.settings.logo
+  assign logo_width = section.settings.logo_width
+  assign logo_position = section.settings.logo_position
+
+  assign link_color = section.settings.color_scheme.settings.scheme_link
+  assign link_hover_color = section.settings.color_scheme.settings.scheme_link_hover
+  assign background_color = section.settings.color_scheme.settings.scheme_background
+  if section.settings.color_scheme.settings.scheme_background_gradient != empty
+    assign background_color = section.settings.color_scheme.settings.scheme_background_gradient
+  endif
+
+  assign main_linklist = section.settings.main_linklist
+  assign main_linklist_preset = section.settings.main_linklist_preset
+  assign menu_spacing = section.settings.menu_spacing
+  assign dropdown_click = section.settings.dropdown_click
+
+  assign enable_overlay = section.settings.enable_overlay
+  assign overlay_link_color = section.settings.color_scheme_overlay.settings.scheme_link
+  assign overlay_link_hover_color = section.settings.color_scheme_overlay.settings.scheme_link_hover
+  assign overlay_background_color = section.settings.color_scheme_overlay.settings.scheme_background
+  if section.settings.color_scheme_overlay.settings.scheme_background_gradient != empty
+    assign overlay_background_color = section.settings.color_scheme_overlay.settings.scheme_background_gradient
+  endif
+
+  assign overlay_logo = section.settings.overlay_logo
+  assign overlay_logo_width = section.settings.overlay_logo_width
+
+  assign enable_sticky = section.settings.enable_sticky
+  assign display_search = section.settings.display_search
+  assign sticky_background_color = section.settings.sticky_background_color
+  assign sticky_logo_width = section.settings.sticky_logo_width
+-%}
+
+{% comment %}Spacing{% endcomment %}
+{%- liquid
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign padding_left = section.settings.padding_left
+  assign padding_right = section.settings.padding_right
+  assign margin_top = section.settings.margin_top
+  assign margin_bottom = section.settings.margin_bottom
+  assign padding_top_m = section.settings.padding_top_m
+  assign padding_bottom_m = section.settings.padding_bottom_m
+  assign padding_left_m = section.settings.padding_left_m
+  assign padding_right_m = section.settings.padding_right_m
+  assign margin_top_m = section.settings.margin_top_m
+  assign margin_bottom_m = section.settings.margin_bottom_m
+-%}
+
+{% comment %} Advanced {% endcomment %}
+{%- liquid
+  assign width = section.settings.width
+  assign css_class = section.settings.css_class
+  assign custom_css = section.settings.custom_css
+-%}
+
+{% comment %} Section specific CSS {% endcomment %}
+{% capture section_css -%}
+.header__logo && 
+.logo__content {
+  width: {{ logo_width }}px;
+}
+
+.is-sticky .header__logo && 
+.is-sticky #mobile-header .mobile-header__logo {
+  width: {{ sticky_logo_width }}px;
+}
+[data-enable_overlay="false"] .header{
+  background: {{ background_color }};
+}
+[data-enable_overlay="false"] .header__link &&
+[data-enable_overlay="false"] .select select {
+  color: {{ link_color }};
+  fill: {{ link_color }};
+}
+[data-enable_overlay="false"] .header__link:hover &&
+[data-enable_overlay="false"] .header__link.is-active &&
+[data-enable_overlay="false"] .select select:hover {
+  color: {{ link_hover_color }};
+  fill: {{ link_hover_color }};
+}
+{%- if enable_overlay -%}
+  [data-enable_overlay="true"] .header {
+    background:{{ overlay_background_color }};
+  }
+
+  [data-enable_overlay="true"] .header__logo &&
+  .overlay-logo__content {
+    width: {{ overlay_logo_width }}px;
+  }
+
+  [data-enable_overlay="true"] .header__link &&
+  [data-enable_overlay="true"] .select select {
+    color: {{ overlay_link_color }};
+    fill: {{ overlay_link_color }};
+  }
+
+  [data-enable_overlay="true"] .header__link:hover &&
+  [data-enable_overlay="true"] .header__link.is-active &&
+  [data-enable_overlay="true"] .select select:hover {
+    color: {{ overlay_link_hover_color }};
+    fill: {{ overlay_link_hover_color }};
+  }
+{%- endif -%}
+
+{%- if enable_sticky -%}
+  .header-sticky-wrapper.is-sticky .header {
+    background: {{ sticky_background_color }};
+  }
+
+  #mobile-header-sticky-wrapper.is-sticky .mobile-header {
+    background: {{ sticky_background_color }};
+  }
+
+  .mobile-menu--opened #mobile-header-sticky-wrapper.is-sticky .mobile-header {
+    background: {{ background_color }};
+  }
+{%- endif -%}
+{%- endcapture -%}
+
+{% style %}
+  #shopify-section-{{ id }} {
+    {% if width == 'wide' %}
+      width: 100%;
+    {% endif %}
+  }
+  #shopify-section-{{ id }} .header{
+    padding-top: {{ padding_top }}px;
+    padding-bottom: {{ padding_bottom }}px;
+    padding-left:{{ padding_left }}px;
+    padding-right:{{ padding_right }}px;
+    margin-top: {{ margin_top }}px;
+    margin-bottom: {{ margin_bottom }}px;
+  }
+  @media screen and (max-width:798px){
+    #shopify-section-{{ id }} .mobile-header .mobile-header__content{
+      padding-top: {{ padding_top_m }}px;
+      padding-bottom: {{ padding_bottom_m }}px;
+      padding-left:{{ padding_left_m }}px;
+      padding-right:{{ padding_right_m }}px;
+      margin-top: {{ margin_top_m }}px;
+      margin-bottom: {{ margin_bottom_m }}px;
+    }
+  }
+  {% render 'css-loop',
+          css: section_css,
+          id: id
+  %}
+  {% render 'css-loop',
+          css: custom_css,
+          id: id
+  %}
+{% endstyle %}
+
+{% comment %} HTML markup {% endcomment %}
+<div
+  class="is-relative {{ css_class }}"
+  data-enable_overlay="{{ section.settings.enable_overlay }}"
+  data-enable_sticky="{{ enable_sticky }}"
+>
+  <header
+    id="header"
+    class="header header--centered dropdown-style-{{ settings.dropdown_style }} box-shadow-{{ settings.show_dropdown_shadow }} scheme_color-{{section.settings.color_scheme}}"
+  >
+    <div class="header__inner-content">
+      <section
+        class="
+          section
+          is-width-{{ width }}
+        "
+      >
+        <nav
+          class="navbar dropdown-click--{{ dropdown_click }} is-align-center header-layout--{{ logo_position }}"
+          role="navigation"
+          aria-label="main navigation"
+        >
+          <div class="header__link header__menu-toggle is-medium">
+            <div class="header__open-menu">
+              {% render 'icon', name: 'menu' %}
+            </div>
+            <div class="header__close-menu">
+              {% render 'icon', name: 'x' %}
+            </div>
+          </div>
+
+          {% capture logo %}
+            {% comment %} Logo {% endcomment %}
+            <div class="header__brand is-align-center is-justify-space-between is-flex text-align-center">
+              {% if enable_overlay and overlay_logo != blank %}
+                {% if template.name == 'index' %}
+                  <h1 class="visuallyhidden">{{ shop.name }}</h1>
+                {% endif %}
+                <div class="overlay-logo__content">
+                  <a
+                    class="header__logo header__link overlay-logo"
+                    href="{{ routes.root_url }}"
+                    title="{{ shop.name }}"
+                  >
+                    {%
+                      render 'image-element',
+                      image: overlay_logo,
+                      alt: overlay_logo.alt,
+                      additional_classes: 'overlay-logo',
+                      back_to_basics: true
+                    %}
+                  </a>
+                </div>
+                <div class="logo__content">
+                  {% if logo != blank %}
+                    <a
+                      class="header__logo header__link primary-logo"
+                      href="{{ routes.root_url }}"
+                      title="{{ shop.name }}"
+                    >
+                      {%
+                        render 'image-element',
+                        image: logo,
+                        alt: logo.alt,
+                        additional_classes: 'primary-logo'
+                      %}
+                    </a>
+                  {% endif %}
+                </div>
+              {% elsif logo != blank %}
+                {% if template.name == 'index' %}
+                  <h1 class="visuallyhidden">{{ shop.name }}</h1>
+                {% endif %}
+                <a class="header__logo header__link primary-logo" href="{{ routes.root_url }}" title="{{ shop.name }}">
+                  {%
+                    render 'image-element',
+                    image: logo,
+                    alt: logo.alt,
+                    additional_classes: 'primary-logo'
+                  %}
+                </a>
+              {% else %}
+                {% if template.name == 'index' %}
+                  <h1 class="header__logo-text">
+                    <a class="header__link primary-brand" href="{{ routes.root_url }}">
+                      {{ shop.name }}
+                    </a>
+                  </h1>
+                {% else %}
+                  <a class="header__logo-text header__link primary-brand" href="{{ routes.root_url }}">
+                    {{ shop.name }}
+                  </a>
+                {% endif %}
+              {% endif %}
+            </div>
+          {% endcapture %}
+
+          {% assign main_menu = linklists[main_linklist] %}
+
+          {% if logo_position == 'above' %}
+            {{ logo }}
+
+            {% comment %} Menu {% endcomment %}
+            <div class="header__menu">
+              <div
+                class="
+                  header__menu-items
+                  header__dropdown--{{ settings.dropdown_position }}
+                  is-flex
+                  is-flex-wrap
+                  {{ main_linklist_preset }}
+                  {% if menu_spacing == 'default' %}
+                    is-justify-center
+                  {% elsif menu_spacing == 'minimum' %}
+                    is-justify-space-around
+                  {% elsif menu_spacing == 'maximum' %}
+                    is-justify-space-between
+                  {% endif %}
+                "
+              >
+                {% for link in main_menu.links %}
+                  {% if link.links == blank %}
+                    <div
+                      class="navbar-item header__item {% if link.active or link.child_active %}is-active{% endif %}"
+                      data-navlink-handle="{{ link.title | handleize }}"
+                    >
+                      <label for="mega-{{ link.title | handleize }}">
+                        <a
+                          href="{{ link.url }}"
+                          class="navbar-link header__link {% if link.active %}is-active{% endif %} is-arrowless"
+                        >
+                          {{ link.title }}
+                        </a>
+                      </label>
+                    </div>
+                  {% else %}
+                    <div
+                      class="navbar-item header__item has-dropdown has-dropdown--{{ settings.dropdown_style }} is-hoverable {% if link.active or link.child_active %}is-active{% endif %}"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      data-navlink-handle="{{ link.title | handleize }}"
+                    >
+                      <label for="dropdown-{{ link.title | handleize }}">
+                        <a
+                          class="navbar-link header__link {% if link.active or link.child_active %}is-active{% endif %}"
+                          {% unless link.url == 'http://'
+                            or link.url == ''
+                            or link.url == 'https://'
+                            or link.url == '#'
+                          %}
+                            href="{{ link.url }}"
+                          {% endunless %}
+                        >
+                          {{ link.title }}
+                        </a>
+                      </label>
+
+                      {% render 'header__dropdown-menu', link: link, index: forloop.index %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% elsif logo_position == 'between' %}
+            {% assign remainder = main_menu.links.size | modulo: 2 %}
+            {% assign menu_breakpoint = main_menu.links.size | divided_by: 2 | plus: remainder %}
+
+            {% comment %} Menu (first half) {% endcomment %}
+            <div class="header__menu header__menu--1">
+              <div
+                class="
+                  header__menu-items
+                  is-flex
+                  is-flex-wrap
+                  {{ main_linklist_preset }}
+                  {% if menu_spacing == 'default' %}
+                    is-justify-end
+                  {% elsif menu_spacing == 'minimum' %}
+                    is-justify-center
+                  {% elsif menu_spacing == 'maximum' %}
+                    is-justify-start
+                  {% endif %}
+                "
+              >
+                {% for link in main_menu.links %}
+                  {% if forloop.index0 < menu_breakpoint %}
+                    {% if link.links == blank %}
+                      <div
+                        class="navbar-item header__item {% if link.active or link.child_active %}is-active{% endif %}"
+                        data-navlink-handle="{{ link.title | handleize }}"
+                      >
+                        <label for="mega-{{ link.title | handleize }}">
+                          <a
+                            href="{{ link.url }}"
+                            class="navbar-link header__link {% if link.active %}is-active{% endif %} is-arrowless"
+                          >
+                            {{ link.title }}
+                          </a>
+                        </label>
+                      </div>
+                    {% else %}
+                      <div
+                        class="navbar-item header__item has-dropdown has-dropdown--{{ settings.dropdown_style }} is-hoverable {% if link.active or link.child_active %}is-active{% endif %}"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        data-navlink-handle="{{ link.title | handleize }}"
+                      >
+                        <label for="dropdown-{{ link.title | handleize }}">
+                          <a
+                            class="navbar-link header__link {% if link.active or link.child_active %}active{% endif %}"
+                            {% unless link.url == 'http://'
+                              or link.url == ''
+                              or link.url == 'https://'
+                              or link.url == '#'
+                            %}
+                              href="{{ link.url }}"
+                            {% endunless %}
+                          >
+                            {{ link.title }}
+                          </a>
+                        </label>
+
+                        {% render 'header__dropdown-menu', link: link, index: forloop.index %}
+                      </div>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+
+            {% comment %} Logo {% endcomment %}
+            {{ logo }}
+
+            {% comment %} Menu (second half) {% endcomment %}
+            <div class="header__menu header__menu--2">
+              <div
+                class="
+                  header__menu-items
+                  is-flex
+                  is-flex-wrap
+                  {{ main_linklist_preset }}
+                  {% if menu_spacing == 'default' %}
+                    is-justify-start
+                  {% elsif menu_spacing == 'minimum' %}
+                    is-justify-center
+                  {% elsif menu_spacing == 'maximum' %}
+                    is-justify-end
+                  {% endif %}
+                "
+              >
+                {% for link in main_menu.links %}
+                  {% if forloop.index0 >= menu_breakpoint %}
+                    {% if link.links == blank %}
+                      <div
+                        class="navbar-item header__item {% if link.active or link.child_active %}is-active{% endif %}"
+                        data-navlink-handle="{{ link.title | handleize }}"
+                      >
+                        <label for="mega-{{ link.title | handleize }}">
+                          <a
+                            href="{{ link.url }}"
+                            class="navbar-link header__link {% if link.active %}is-active{% endif %} is-arrowless"
+                          >
+                            {{ link.title }}
+                          </a>
+                        </label>
+                      </div>
+                    {% else %}
+                      <div
+                        class="navbar-item header__item has-dropdown has-dropdown--{{ settings.dropdown_style }} is-hoverable {% if link.active or link.child_active %}is-active{% endif %}"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        data-navlink-handle="{{ link.title | handleize }}"
+                      >
+                        <label for="dropdown-{{ link.title | handleize }}">
+                          <a
+                            class="navbar-link header__link {% if link.active or link.child_active %}active{% endif %}"
+                            {% unless link.url == 'http://'
+                              or link.url == ''
+                              or link.url == 'https://'
+                              or link.url == '#'
+                            %}
+                              href="{{ link.url }}"
+                            {% endunless %}
+                          >
+                            {{ link.title }}
+                          </a>
+                        </label>
+
+                        {% render 'header__dropdown-menu', link: link, index: forloop.index %}
+                      </div>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        </nav>
+
+        {% comment %} Only visible on sticky scroll {% endcomment %}
+        {% render 'header__action-icons', display_search: display_search, header_icon_class: 'header__icons--sticky' %}
+      </section>
+    </div>
+    <nav class="sticky-menu-wrapper">
+      {% comment %} Sticky menu {% endcomment %}
+      <div class="sticky-header__menu">
+        <div
+          class="
+            header__menu-items
+            is-flex
+            is-flex-wrap
+            {{ main_linklist_preset }}
+            dropdown-click--{{ dropdown_click }}
+            {% if logo_position == 'above' %}
+              {% if menu_spacing == 'default' %}
+                is-justify-center
+              {% elsif menu_spacing == 'minimum' %}
+                is-justify-space-around
+              {% elsif menu_spacing == 'maximum' %}
+                is-justify-space-between
+              {% endif %}
+            {% elsif logo_position == 'between' %}
+              is-justify-center
+            {% endif %}
+          "
+        >
+          {% for link in main_menu.links %}
+            {% if link.links == blank %}
+              <div
+                class="navbar-item header__item {% if link.active or link.child_active %}is-active{% endif %}"
+                data-navlink-handle="{{ link.title | handleize }}"
+              >
+                <label for="mega-{{ link.title | handleize }}">
+                  <a
+                    href="{{ link.url }}"
+                    class="navbar-link header__link {% if link.active %}is-active{% endif %} is-arrowless"
+                  >
+                    {{ link.title }}
+                  </a>
+                </label>
+              </div>
+            {% else %}
+              <div
+                class="navbar-item header__item has-dropdown has-dropdown--{{ settings.dropdown_style }} is-hoverable {% if link.active or link.child_active %}is-active{% endif %}"
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-navlink-handle="{{ link.title | handleize }}"
+              >
+                <label for="dropdown-{{ link.title | handleize }}">
+                  <a
+                    class="navbar-link header__link {% if link.active or link.child_active %}is-active{% endif %}"
+                    {% unless link.url == 'http://' or link.url == '' or link.url == 'https://' or link.url == '#' %}
+                      href="{{ link.url }}"
+                    {% endunless %}
+                  >
+                    {{ link.title }}
+                  </a>
+                </label>
+
+                {% render 'header__dropdown-menu', link: link, index: forloop.index, prefix: 'sticky-' %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  {% render 'mobile-header' %}
+
+  {% if settings.search_display_style == 'overlay' %}
+    {% render 'search-overlay' %}
+  {% endif %}
+</div>
+
+{% comment %}JavaScript{% endcomment %}
+<script
+  type="application/json"
+  data-section-id="{{ section.id }}"
+  data-section-data
+>
+  {
+    "enable_overlay": {{ enable_overlay | json }},
+    "enable_sticky": {{ enable_sticky | json }},
+    "header_layout": {{ settings.header_layout | json }},
+    "dropdown_click": {{ dropdown_click | json }}
+  }
+</script>
+<script src="{{ 'z__jsHeader.js' | asset_url }}" defer></script>
+
+{% comment %}Schema{% endcomment %}
+{% schema %}
+{
+  "name": "Header",
+  "class": "header--centered jsHeader header-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo",
+      "info": "600 x 200px recommended"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Width",
+      "step": 5,
+      "min": 80,
+      "max": 300,
+      "default": 200,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "logo_position",
+      "label": "Logo position",
+      "options": [
+        {
+          "value": "above",
+          "label": "Above menu"
+        },
+        {
+          "value": "between",
+          "label": "Between menu"
+        }
+      ],
+      "default": "between"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "default"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": "Main menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "select",
+      "id": "main_linklist_preset",
+      "label": "Navigation Preset",
+      "options": [
+        {
+          "value": "is-h1",
+          "label": "H1"
+        },
+        {
+          "value": "is-h2",
+          "label": "H2"
+        },
+        {
+          "value": "is-h3",
+          "label": "H3"
+        },
+        {
+          "value": "is-h4",
+          "label": "H4"
+        },
+        {
+          "value": "is-h5",
+          "label": "H5"
+        },
+        {
+          "value": "is-h6",
+          "label": "H6"
+        },
+        {
+          "value": "is-text",
+          "label": "Regular"
+        },
+        {
+          "value": "is-text-small",
+          "label": "Small"
+        }
+      ],
+      "default": "is-text"
+    },
+    {
+      "type": "select",
+      "id": "menu_spacing",
+      "label": "Menu spacing",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "minimum",
+          "label": "Minimum"
+        },
+        {
+          "value": "maximum",
+          "label": "Maximum"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "checkbox",
+      "id": "dropdown_click",
+      "label": "Open dropdowns on click instead of hover",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "paragraph",
+      "content": "Header is overlaid directly on images. [Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022225073/#header-overlay)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_overlay",
+      "label": "Enable overlay"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_overlay",
+      "label": "Overlay Color Scheme",
+      "default": "default"
+    },
+    {
+      "type": "image_picker",
+      "id": "overlay_logo",
+      "label": "Overlay logo",
+      "info": "600 x 200px recommended"
+    },
+    {
+      "type": "range",
+      "id": "overlay_logo_width",
+      "label": "Overlay logo width",
+      "step": 5,
+      "min": 30,
+      "max": 300,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Sticky header"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Enable sticky on scroll"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_search",
+      "label": "Show search",
+      "default": true
+    },
+    {
+      "type": "color_background",
+      "id": "sticky_background_color",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "sticky_logo_width",
+      "label": "Logo width",
+      "step": 5,
+      "min": 30,
+      "max": 300,
+      "default": 200,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "standard",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Spacing Desktop"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing Mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_m",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_m",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left_m",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right_m",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top_m",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_m",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Advanced",
+      "info": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    }
+  ]
+}
+{% endschema %}

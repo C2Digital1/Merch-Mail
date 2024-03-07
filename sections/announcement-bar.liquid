@@ -1,0 +1,386 @@
+{% comment %}
+  ** Announcement bar - static **
+{% endcomment %}
+
+{% assign id = section.id %}
+{% assign size = section.settings.size %}
+{% assign text_preset = section.settings.text_preset %}
+{% assign text_color = section.settings.color_scheme.settings.scheme_text %}
+{% assign show_close_icon = section.settings.show_close_icon %}
+
+{% comment %} Advanced {% endcomment %}
+{% assign width = section.settings.width %}
+{% assign css_class = section.settings.css_class %}
+{% assign custom_css = section.settings.custom_css %}
+
+{% comment %} Is the color set to transparent? {% endcomment %}
+{% assign text_alpha = text_color | color_extract: 'alpha' %}
+
+{% comment %} Background Color {% endcomment %}
+
+{% comment %}Layout{% endcomment %}
+{%- liquid
+  assign section_bg = section.settings.color_scheme.settings.scheme_background
+  if section.settings.color_scheme.settings.scheme_background_gradient != empty
+    assign section_bg = section.settings.color_scheme.settings.scheme_background_gradient
+  endif
+-%}
+
+{% comment %} Section specific CSS {% endcomment %}
+{% capture section_css -%}
+  .announcement-bar {
+    background: {{ section_bg }};
+  }
+
+  .announcement-bar__icon {
+    fill: {{ text_color }};
+  }
+
+  .announcement-bar__close {
+    fill: {{ text_color }};
+    background-color: {{ text_color | color_modify: 'alpha', 0.1 }};
+  }
+
+  .announcement-bar__close:hover {
+    background-color: {{ text_color | color_modify: 'alpha', 0.2 }};
+  }
+
+  .message-header {
+    color: {% if text_alpha != 0 %}{{ text_color }}{% else %}{{ settings.regular_color }}{% endif %};
+  }
+{%- endcapture -%}
+
+{% style %}
+  #shopify-section-{{ id }} {
+    {% if width == 'wide' %}
+      width: 100%;
+    {% endif %}
+  }
+  {% render 'css-loop',
+          css: section_css,
+          id: id
+  %}
+  {% render 'css-loop',
+          css: custom_css,
+          id: id
+  %}
+{% endstyle %}
+
+{% comment %} HTML markup {% endcomment %}
+{% if section.blocks.size > 0 %}
+  {% capture announcement %}
+  <div class="announcement-bar__container  {{ css_class }} scheme_color-{{section.settings.color_scheme}}">
+    <div class="announcement-bar is-{{ size }}"
+          id="announcement-bar">
+      <div class="section
+                  is-width-{{ width }}">
+        <div class="message-header">
+          {% if section.settings.add_slider %}
+            <div class="announcement-bar__slider" data-slider>
+          {% endif %}
+          {% for block in section.blocks %}
+            <div class="announcement-bar__content is-justify-{{ section.settings.alignment }} show-close-icon-{{ show_close_icon }}">
+              {% if block.settings.icon_label != blank %}
+                {% assign icon = block.settings.icon_label | downcase %}
+                <span class="announcement-bar__icon
+                            is-{{ size }}
+                          ">
+                  {% render 'icon', name: icon %}
+                </span>
+              {% endif %}
+
+              <div class="announcement-bar__text text-align-{{ section.settings.alignment }}">
+                <div class="{{ text_preset }}">{{ block.settings.text }}</div>
+                {% if block.settings.button_label != blank %}
+                  <p class="buttons">
+                      {% render 'button',
+                              label: block.settings.button_label,
+                              href: block.settings.link,
+                              type: "link",
+                              style: block.settings.button_style
+                      %}
+                  </p>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+          {% if section.settings.add_slider%}
+            </div>
+          {% endif %}
+          {% if show_close_icon %}
+            <button class="close announcement-bar__close js-close-announcement" aria-label="close">
+              {% render 'icon', name: 'x' %}
+            </button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="announcement-bar__shadow" id="announcement-bar__shadow" aria-visible="false"></div>
+  </div>
+  {% endcapture %}
+{% endif %}
+
+{% if section.settings.homepage_only %}
+  {% if template.name == 'index' %}
+    {{ announcement }}
+  {% endif %}
+{% else %}
+  {{ announcement }}
+{% endif %}
+
+{% comment %}Javascript{% endcomment %}
+<script
+  type="application/json"
+  data-section-id="{{ section.id }}"
+  data-section-data
+>
+  {
+    "homepage_only": {{ section.settings.homepage_only | json }},
+    "enable_sticky": {{ section.settings.enable_sticky | json }},
+    "show_close_icon": {{ section.settings.show_close_icon | json }},
+    "alignment": {{ section.settings.alignment | json }},
+    "width": {{ section.settings.width | json }},
+    "slider": {{ section.settings.add_slider | json }},
+    "slider_arrows": {{ section.settings.slider_arrows | json }},
+    "auto_slider": {{ section.settings.auto_slider | json }}
+  }
+</script>
+<script src="{{ 'z__jsAnnouncementBar.js' | asset_url }}" defer></script>
+
+{% comment %}Schema{% endcomment %}
+{% schema %}
+{
+  "name": "Announcement",
+  "class": "announcement-container jsAnnouncementBar",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "default"
+    },
+    {
+      "type": "checkbox",
+      "id": "add_slider",
+      "label": "Add Slider",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_arrows",
+      "label": "Show Slider Arrows"
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_slider",
+      "label": "Auto Slider"
+    },
+    {
+      "type": "header",
+      "content": "Text Block"
+    },
+    {
+      "type": "select",
+      "id": "text_preset",
+      "label": "Preset",
+      "options": [
+        {
+          "value": "is-h1",
+          "label": "H1"
+        },
+        {
+          "value": "is-h2",
+          "label": "H2"
+        },
+        {
+          "value": "is-h3",
+          "label": "H3"
+        },
+        {
+          "value": "is-h4",
+          "label": "H4"
+        },
+        {
+          "value": "is-h5",
+          "label": "H5"
+        },
+        {
+          "value": "is-h6",
+          "label": "H6"
+        },
+        {
+          "value": "is-text",
+          "label": "Regular"
+        },
+        {
+          "value": "is-text-small",
+          "label": "Small"
+        }
+      ],
+      "default": "is-text"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "size",
+      "label": "Base size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "regular",
+          "label": "Regular"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "regular"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "wide",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "homepage_only",
+      "label": "Home page only",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Enable sticky on scroll",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_close_icon",
+      "label": "Show close icon",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Advanced",
+      "info": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Text"
+        },
+        {
+          "type": "text",
+          "id": "icon_label",
+          "label": "Icon",
+          "placeholder": "Enter icon name",
+          "info": "[Icon list](https://help.outofthesandbox.com/hc/en-us/articles/360021570294)",
+          "default": "tag"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Draw attention to promos + sales!</p>"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Style",
+          "options": [
+            {
+              "value": "button--primary",
+              "label": "Primary"
+            },
+            {
+              "value": "button--secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "button--link-style",
+              "label": "Link style"
+            }
+          ],
+          "default": "button--primary"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "text"
+      }
+    ]
+  }
+}
+{% endschema %}

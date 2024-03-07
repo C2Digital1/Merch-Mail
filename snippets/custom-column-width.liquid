@@ -1,0 +1,48 @@
+{% comment %}
+Required values
+value: <number>
+{% endcomment %}
+{%- liquid
+  assign value = value
+  if value == '1' 
+    echo 'one'
+  elsif value == '2' 
+    echo 'two'
+  elsif value == '3' 
+    echo 'three'
+  elsif value == '4' 
+    echo 'four'
+  elsif value == '5' 
+    echo 'five'
+  elsif value == '6' 
+    echo 'six'
+  elsif value == '7' 
+    echo 'seven'
+  elsif value == '8' 
+    echo 'eight'
+  elsif value == '9' 
+    echo 'nine'
+  elsif value == '10' 
+    echo 'ten'
+  elsif value == '11' 
+    echo 'eleven'
+  elsif value == '12' 
+    echo 'twelve'
+  elsif value == '13' 
+    echo 'thirteen'
+  elsif value == '14' 
+    echo 'fourteen'
+  elsif value == '15' 
+    echo 'fifteen'
+  elsif value == '16' 
+    echo 'sixteen'
+  elsif value == '1/2' 
+    echo 'one-half'
+  elsif value == '1/3' 
+    echo 'one-third'
+  elsif value == '2/3' 
+    echo 'two-thirds'
+  elsif value == '1/4' 
+    echo 'one-fourth'
+  endif 
+-%}

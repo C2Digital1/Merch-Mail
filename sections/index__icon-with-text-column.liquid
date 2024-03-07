@@ -1,0 +1,736 @@
+{% comment %}
+  ** Icon with text column **
+{% endcomment %}
+
+{%- liquid
+  assign id = section.id
+  assign blocks = section.blocks
+  assign icons_per_row = section.settings.icons_per_row
+  assign icon_size = section.settings.icon_size | prepend: 'is-'
+  assign image_size = section.settings.image_size
+
+  assign top_heading = section.settings.top_heading
+  assign top_heading_preset = section.settings.top_heading_preset
+  assign top_heading_alignment = section.settings.top_heading_alignment
+
+  assign heading_preset = section.settings.heading_preset
+  assign text_preset = section.settings.text_preset
+
+  assign align_text = section.settings.align_text
+  assign button_style = section.settings.button_style
+
+  assign icon_color = section.settings.icon_color
+  assign text_color = section.settings.color_scheme.settings.scheme_text
+  assign background = section.settings.background
+-%}
+{% comment %}Spacing{% endcomment %}
+{%- liquid
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign padding_left = section.settings.padding_left
+  assign padding_right = section.settings.padding_right
+  assign margin_top = section.settings.margin_top
+  assign margin_bottom = section.settings.margin_bottom
+  assign padding_top_m = section.settings.padding_top_m
+  assign padding_bottom_m = section.settings.padding_bottom_m
+  assign padding_left_m = section.settings.padding_left_m
+  assign padding_right_m = section.settings.padding_right_m
+  assign margin_top_m = section.settings.margin_top_m
+  assign margin_bottom_m = section.settings.margin_bottom_m
+-%}
+{% comment %}Layout{% endcomment %}
+{%- liquid
+  assign width = section.settings.width
+  assign show_gutter = section.settings.show_gutter
+  assign section_bg = section.settings.color_scheme.settings.scheme_background
+  if section.settings.color_scheme.settings.scheme_background_gradient != empty
+    assign section_bg = section.settings.color_scheme.settings.scheme_background_gradient
+  endif
+  assign animation = section.settings.animation | default: 'none'
+-%}
+{% comment %}Advanced{% endcomment %}
+{%- liquid
+  assign css_class = section.settings.css_class
+  assign custom_css = section.settings.custom_css
+-%}
+
+{% comment %} Section specific CSS {% endcomment %}
+{% capture section_css -%}
+  .icon-with-text-column__column { background: {{ background }}; }
+
+  .icon-column__title { color: {{ text_color }}; }
+
+  .icon { fill: {{ icon_color }}; }
+
+  .icon-column__text { color: {{ text_color }}; }
+
+  .button--primary{
+    background-color: {{ section.settings.color_scheme.settings.scheme_button }};
+    color: {{ section.settings.color_scheme.settings.scheme_button_label }};
+    border: 1px solid {{ section.settings.color_scheme.settings.scheme_button_border }};
+  }
+
+  .button--primary:hover{
+    background-color: {{ section.settings.color_scheme.settings.scheme_button_hover }};
+    color: {{ section.settings.color_scheme.settings.scheme_button_label_hover }};
+  }
+
+  .button--secondary{
+    background-color: {{ section.settings.color_scheme.settings.scheme_s_button }};
+    color: {{ section.settings.color_scheme.settings.scheme_secondary_button_label }};
+    border: 1px solid {{ section.settings.color_scheme.settings.scheme_s_button_border }};
+  }
+
+  .button--secondary:hover{
+    background-color: {{ section.settings.color_scheme.settings.scheme_s_button_hover }};
+    color: {{ section.settings.color_scheme.settings.scheme_secondary_button_label_hover }};
+  }
+
+  .button--link-style{
+    color: {{ section.settings.color_scheme.settings.scheme_link }};
+  }
+
+  .button--link-style:hover{
+    color: {{ section.settings.color_scheme.settings.scheme_link_hover }};
+  }
+
+{%- endcapture -%}
+
+{% style %}
+  #shopify-section-{{ id }} {
+    padding-top: {{ padding_top }}px;
+    padding-bottom: {{ padding_bottom }}px;
+    padding-left: {{ padding_left }}px;
+    padding-right: {{ padding_right }}px;
+    background: {{ section_bg }};
+    margin-top: {{ margin_top }}px;
+    margin-bottom: {{ margin_bottom }}px;
+    {% if width == 'wide' %}
+      width: 100%;
+    {% elsif width == 'half' %}
+      width: 50%;
+    {% endif %}
+  }
+  @media screen and (max-width:798px){
+    #shopify-section-{{ id }} {
+      padding-top: {{ padding_top_m }}px;
+      padding-bottom: {{ padding_bottom_m }}px;
+      padding-left:{{ padding_left_m }}px;
+      padding-right:{{ padding_right_m }}px;
+      margin-top: {{ margin_top_m }}px;
+      margin-bottom: {{ margin_bottom_m }}px;
+    }
+  }
+
+  #shopify-section-{{ id }} .icon-text--image{
+    max-width: {{image_size}}px !important;
+    margin-bottom: 15px;
+  }
+
+  {% render 'css-loop',
+          css: section_css,
+          id: id
+  %}
+  {% render 'css-loop',
+          css: custom_css,
+          id: id
+  %}
+{% endstyle %}
+
+<section
+  class="
+    section
+    {{ css_class }}
+    is-width-{{ width }} scheme_color-{{section.settings.color_scheme}}
+    {% if show_gutter == false %}
+      has-no-side-gutter
+    {% else %}
+      has-gutter-enabled
+    {% endif %}
+    {% if width == 'wide' and show_gutter == true %}
+      equal-columns--outside-trim
+    {% endif %}
+    {% if blocks.size > icons_per_row %}
+      has-multirow-blocks
+    {% endif %}
+  "
+  {% if animation != 'none' %}
+    data-scroll-class="{{ animation }}"
+  {% endif %}
+>
+  {% if top_heading != blank %}
+    <div class="container">
+      {% render 'heading',
+        title: top_heading,
+        heading_tag: 'h2',
+        context: 'text-icons',
+        text_alignment: top_heading_alignment,
+        preset: top_heading_preset
+      %}
+    </div>
+  {% endif %}
+
+  <div class="container is-justify-center">
+    {% for block in blocks %}
+      {% comment %} Content settings {% endcomment %}
+      {%- liquid
+        assign icon = block.settings.icon_label | downcase
+        assign heading = block.settings.heading
+        assign text = block.settings.text
+        assign button_label = block.settings.button_label
+        assign link = block.settings.link
+      -%}
+
+      <div
+        class="
+          icon-with-text-column__column
+          {% if show_gutter %}
+            has-gutter
+          {% endif %}
+          column
+          has-padding
+          {% render 'column-width', value: icons_per_row %}
+          text-align-{{ align_text }}
+          medium-down--one-whole
+        "
+      >
+        {% if icon != blank %}
+          {% render 'icon', name: icon, icon_class: icon_size %}
+        {% endif %}
+
+        {% if block.settings.text_image != blank %}
+          {% render 'image-element',
+            image: block.settings.text_image,
+            alt: block.settings.text_image.alt,
+            additional_classes: 'icon-text--image'
+          %}
+        {% endif %}
+
+        {% if heading != blank or text != blank %}
+          <div class="icon-column__text ">
+            {% if heading != empty %}
+              <h3 class="icon-column__title title {{ heading_preset }}">{{ heading }}</h3>
+            {% endif %}
+            {% if text != empty %}
+              <div class="{{ text_preset }} subtitle content">{{ text }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if button_label != blank %}
+          <div class="buttons is-{{ align_text }} has-padding-top">
+            {% render 'button', label: button_label, href: link, style: button_style, type: 'link' %}
+          </div>
+        {% endif %}
+      </div>
+      {% comment %} End content settings {% endcomment %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Text columns with icons",
+  "class": "icon-with-text-column",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "default"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "top_heading",
+      "label": "Top Heading",
+      "default": "Icons With Text"
+    },
+    {
+      "type": "select",
+      "id": "top_heading_preset",
+      "label": "Top Heading Preset",
+      "options": [
+        {
+          "value": "is-h1",
+          "label": "H1"
+        },
+        {
+          "value": "is-h2",
+          "label": "H2"
+        },
+        {
+          "value": "is-h3",
+          "label": "H3"
+        },
+        {
+          "value": "is-h4",
+          "label": "H4"
+        },
+        {
+          "value": "is-h5",
+          "label": "H5"
+        },
+        {
+          "value": "is-h6",
+          "label": "H6"
+        },
+        {
+          "value": "is-text",
+          "label": "Regular"
+        },
+        {
+          "value": "is-text-small",
+          "label": "Small"
+        }
+      ],
+      "default": "is-h1"
+    },
+    {
+      "type": "select",
+      "id": "top_heading_alignment",
+      "label": "Top Heading Alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "icons_per_row",
+      "label": "Items per row",
+      "min": 1,
+      "max": 8,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "icon_size",
+      "label": "Icon size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "label": "Image Size",
+      "min": 10,
+      "max": 300,
+      "step": 5,
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "button--primary",
+          "label": "Primary"
+        },
+        {
+          "value": "button--secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "button--link-style",
+          "label": "Link style"
+        }
+      ],
+      "default": "button--primary"
+    },
+    {
+      "type": "header",
+      "content": "Presets"
+    },
+    {
+      "type": "select",
+      "id": "heading_preset",
+      "label": "Heading",
+      "options": [
+        {
+          "value": "is-h1",
+          "label": "H1"
+        },
+        {
+          "value": "is-h2",
+          "label": "H2"
+        },
+        {
+          "value": "is-h3",
+          "label": "H3"
+        },
+        {
+          "value": "is-h4",
+          "label": "H4"
+        },
+        {
+          "value": "is-h5",
+          "label": "H5"
+        },
+        {
+          "value": "is-h6",
+          "label": "H6"
+        },
+        {
+          "value": "is-text",
+          "label": "Regular"
+        },
+        {
+          "value": "is-text-small",
+          "label": "Small"
+        }
+      ],
+      "default": "is-h6"
+    },
+    {
+      "type": "select",
+      "id": "text_preset",
+      "label": "Text",
+      "options": [
+        {
+          "value": "is-h1",
+          "label": "H1"
+        },
+        {
+          "value": "is-h2",
+          "label": "H2"
+        },
+        {
+          "value": "is-h3",
+          "label": "H3"
+        },
+        {
+          "value": "is-h4",
+          "label": "H4"
+        },
+        {
+          "value": "is-h5",
+          "label": "H5"
+        },
+        {
+          "value": "is-h6",
+          "label": "H6"
+        },
+        {
+          "value": "is-text",
+          "label": "Regular"
+        },
+        {
+          "value": "is-text-small",
+          "label": "Small"
+        }
+      ],
+      "default": "is-text"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icons",
+      "default": "#000000"
+    },
+    {
+      "type": "color_background",
+      "id": "background",
+      "label": "Background",
+      "default": "#CCCCCC"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "align_text",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "standard",
+      "options": [
+        {
+          "value": "half",
+          "label": "Half"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gutter",
+      "label": "Show gutter",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Spacing Desktop"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing Mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_m",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_m",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_left_m",
+      "label": "Left spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_right_m",
+      "label": "Right spacing",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_top_m",
+      "label": "Top Gutter",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_m",
+      "label": "Bottom Gutter",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "animation",
+      "label": "Animation",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "fadeIn",
+          "label": "Fade in"
+        },
+        {
+          "value": "fadeInDown",
+          "label": "Fade in down"
+        },
+        {
+          "value": "fadeInLeft",
+          "label": "Fade in left"
+        },
+        {
+          "value": "fadeInRight",
+          "label": "Fade in right"
+        },
+        {
+          "value": "slideInLeft",
+          "label": "Slide in left"
+        },
+        {
+          "value": "slideInRight",
+          "label": "Slide in right"
+        },
+        {
+          "value": "zoomIn",
+          "label": "Zoom in"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo_image",
+      "name": "Icon column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon_label",
+          "label": "Icon",
+          "placeholder": "Enter icon name",
+          "info": "[Icon list](https://help.outofthesandbox.com/hc/en-us/articles/360021570294)",
+          "default": "truck"
+        },
+        {
+          "type": "image_picker",
+          "id": "text_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Icon with text"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Describe the feature, service or product that this icon represents.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text columns with icons",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "truck"
+          }
+        },
+        {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "bag"
+          }
+        },
+        {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "tag"
+          }
+        },
+        {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "star"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

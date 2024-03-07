@@ -1,0 +1,31 @@
+{% comment %}
+Required values
+min: <string>
+max: <string>
+______________
+Optional values
+min_breakpoint: <string>
+max_breakpoint: <string>
+{% endcomment %}
+
+{% liquid
+    
+    assign default_size = 16
+    if min_breakpoint == blank
+        assign min_breakpoint = 600
+    endif
+    if max_breakpoint == blank
+        assign max_breakpoint = 1400
+    endif
+    assign diff = max_breakpoint | minus : min_breakpoint
+    assign font_size_diff = max | minus : min
+    assign view_port_width = font_size_diff | times:100.0 | divided_by: diff
+    assign relative_size_1 = min_breakpoint |times : max
+    assign relative_size_2 = max_breakpoint |times :  min
+    assign relative_size_3 = min_breakpoint |minus : max_breakpoint
+    assign relative_size = relative_size_1 | times:1.0 |minus : relative_size_2 |divided_by : relative_size_3|divided_by:default_size
+    assign min_rem = min | times:1.0| divided_by:default_size
+    assign max_rem = max | times:1.0| divided_by:default_size
+%}
+font-size:min(max({{ min_rem}}rem , {{ view_port_width }}vw + {{ relative_size }}rem) , {{ max_rem }}rem);
+font-size:clamp({{ min_rem }}rem , {{ view_port_width }}vw + {{ relative_size }}rem , {{ max_rem }}rem);
