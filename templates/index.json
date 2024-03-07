@@ -1,15 +1,15 @@
 {
   "sections": {
-    "f25a2503-5bda-4379-8115-57a9d84b488f": {
+    "index_image_with_text_overlay_DF8zXN": {
       "type": "index__image-with-text-overlay",
       "settings": {
-        "color_scheme": "default",
+        "color_scheme": "",
         "link": "",
         "desktop_height": 0,
-        "mobile_height": 500,
-        "preheading": "<p>Preheading<\/p>",
-        "heading": "Image with Text Overlays",
-        "subheading": "<p>Additional info in the subheading<\/p>",
+        "mobile_height": 0,
+        "preheading": "<p>BRANDS<\/p>",
+        "heading": "MODERNIZE YOUR MERCH TABLE",
+        "subheading": "",
         "preheading_preset": "is-h6",
         "heading_preset": "is-h2",
         "subheading_preset": "is-text",
@@ -17,13 +17,13 @@
         "text_horizontal_position": "center",
         "text_vertical_position": "center",
         "background_color": "",
-        "border_color": "#ffffff",
+        "border_color": "#FFFFFF",
         "border_width": 0,
         "text_width": 40,
-        "button_1": "Button 1",
+        "button_1": "Get Started",
         "button_1_link": "",
         "button_1_style": "button--secondary",
-        "button_2": "Button 2",
+        "button_2": "",
         "button_2_link": "",
         "button_2_style": "button--secondary",
         "color_scheme_mobile": "",
@@ -49,6 +49,6 @@
     }
   },
   "order": [
-    "f25a2503-5bda-4379-8115-57a9d84b488f"
+    "index_image_with_text_overlay_DF8zXN"
   ]
 }
