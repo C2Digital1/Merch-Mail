@@ -1,5 +1,35 @@
 {
   "sections": {
+    "bands_and_fans_popup_4zKctw": {
+      "type": "BandsAndFansPopup",
+      "settings": {
+        "heading": "",
+        "button1Text": "",
+        "button1Url": "",
+        "button2Text": "",
+        "button2Url": "",
+        "headingPreset": "is-h1",
+        "button1Style": "button--primary",
+        "button2Style": "button--secondary",
+        "width": "wide",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
     "index_slideshow_classic_jax3mX": {
       "type": "index__slideshow-classic",
       "blocks": {
@@ -20,7 +50,7 @@
             "text_horizontal_position": "center",
             "text_vertical_position": "center",
             "background_color": "",
-            "border_color": "#FFFFFF",
+            "border_color": "#ffffff",
             "border_width": 0,
             "text_width": 50,
             "button_1": "Get Started",
@@ -50,7 +80,7 @@
             "text_horizontal_position": "center",
             "text_vertical_position": "center",
             "background_color": "",
-            "border_color": "#FFFFFF",
+            "border_color": "#ffffff",
             "border_width": 0,
             "text_width": 50,
             "button_1": "Get Started",
@@ -97,6 +127,7 @@
     }
   },
   "order": [
+    "bands_and_fans_popup_4zKctw",
     "index_slideshow_classic_jax3mX"
   ]
 }
