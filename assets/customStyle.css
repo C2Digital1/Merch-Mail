@@ -16,4 +16,10 @@ body {
     padding: 0 75px !important;
 }
 
+.caption.is-justify-center.is-align-center {
+    padding: 0 75px !important;
+    max-width: 1440px;
+    margin: 0px auto;
+}
+
 /* common css code end  */
