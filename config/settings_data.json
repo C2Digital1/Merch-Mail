@@ -383,46 +383,6 @@
       },
       "footer__icon-bar": {
         "type": "footer__icon-bar",
-        "blocks": {
-          "footer__icon-bar-0": {
-            "type": "text",
-            "settings": {
-              "icon": "leaf",
-              "text": "100% Organic",
-              "link": ""
-            }
-          },
-          "footer__icon-bar-1": {
-            "type": "text",
-            "settings": {
-              "icon": "bunny",
-              "text": "Cruelty free",
-              "link": "shopify:\/\/pages\/test"
-            }
-          },
-          "footer__icon-bar-2": {
-            "type": "text",
-            "settings": {
-              "icon": "chat",
-              "text": "24\/7 support",
-              "link": "shopify:\/\/blogs\/news"
-            }
-          },
-          "footer__icon-bar-3": {
-            "type": "text",
-            "settings": {
-              "icon": "truck",
-              "text": "Free shipping",
-              "link": "shopify:\/\/collections\/all"
-            }
-          }
-        },
-        "block_order": [
-          "footer__icon-bar-0",
-          "footer__icon-bar-1",
-          "footer__icon-bar-2",
-          "footer__icon-bar-3"
-        ],
         "settings": {
           "color_scheme": "scheme-0b404fdd-f99c-41cc-9c5f-dbc473405c91",
           "show_icon_bar": false,
