@@ -1071,7 +1071,7 @@
           "scheme_s_button_border": "#2b5597",
           "scheme_secondary_button_label": "#ffffff",
           "scheme_secondary_button_label_hover": "#2b5597",
-          "scheme_link": "#1c1c1c",
+          "scheme_link": "#0c0c0c",
           "scheme_link_hover": "#2b5597"
         }
       },
