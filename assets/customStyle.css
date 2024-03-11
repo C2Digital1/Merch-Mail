@@ -130,7 +130,8 @@ a.popupBtn.button {
     right: 88px;
     bottom: 60px;
 }
-.enableScroll .customOpeningPopup{
+
+.enableScroll .customOpeningPopup {
     transform: translateY(-200%);
 }
 
@@ -140,6 +141,45 @@ a.popupBtn.button {
 .message-header {
     padding: 4px 16px;
 }
+
+a.navbar-link.header__link {
+    padding: 0;
+    margin-right: 64px;
+}
+
+nav.header__menu-items .navbar-item.header__item:last-child a.navbar-link {
+    margin-right: 0;
+}
+
+.navbar-link:not(.is-arrowless):after {
+    opacity: 0;
+}
+
+.header__icons span.header-cart__icon,
+.header__icons a.header__link.action-area__link span.icon.header__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.header__icons span.icon.header__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+.header__icons span.header-cart__icon span.icon.header__icon {
+    width: 100%;
+    height: 100%;
+}
+
+.header__icons a.header__link.action-area__link {
+    padding-left: 0 !important;
+    padding-right: 16px !important;
+}
+
 /* header css code end  */
 
 /* media query start  */
