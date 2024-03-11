@@ -136,6 +136,12 @@ a.popupBtn.button {
 
 /* Intro popup css code end  */
 
+/* header css code start  */
+.message-header {
+    padding: 4px 16px;
+}
+/* header css code end  */
+
 /* media query start  */
 @media only screen and (max-width: 798px) {
     a.popupLogoLink {
