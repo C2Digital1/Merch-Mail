@@ -9,6 +9,11 @@ body {
     scroll-behavior: smooth;
 }
 
+html.enableScroll,
+body.enableScroll {
+    overflow: visible !important;
+}
+
 .is-width-standard {
     width: 100%;
     margin: 0px auto !important;
@@ -37,6 +42,8 @@ img.boxImg {
     z-index: 9999999;
     width: 100%;
     height: 100vh;
+    transition: all ease-out .5s;
+    transform: translateY(0);
 }
 
 .openingPopupTxtAndBtns {
@@ -122,6 +129,9 @@ a.popupBtn.button {
     position: absolute;
     right: 88px;
     bottom: 60px;
+}
+.enableScroll .customOpeningPopup{
+    transform: translateY(-200%);
 }
 
 /* Intro popup css code end  */

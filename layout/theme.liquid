@@ -371,5 +371,12 @@
     {% render 'mobile-search' %}
 
     {% render 'structured-data' %}
+        {%- comment -%}
+      custom libraries and js code start
+    {%- endcomment -%}
+    <script src="{{ 'customScript.js' | asset_url }}" defer="defer"></script>
+    {%- comment -%}
+      custom libraries and js code end
+    {%- endcomment -%}
   </body>
 </html>

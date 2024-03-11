@@ -20,6 +20,9 @@
 
   assign button1Style = section.settings.button1Style
   assign button2Style = section.settings.button2Style
+
+  assign showHomePageForBtn1 = section.settings.showHomePageForBtn1
+  assign showHomePageForBtn2 = section.settings.showHomePageForBtn2
    
 -%}
 {% comment %}Spacing{% endcomment %}
@@ -167,7 +170,7 @@ h1.popupHeadingTxt{
       {% endif %}
       <div class="popupBtnsContainer">
         {% if button1Text != blank %}
-          <a href="{{ button1Url }}" class="popupBtn button {{ button1Style }}">
+          <a href="{%- if showHomePageForBtn1 -%}javascript: void(0){%- else -%}{{ button1Url }}{%- endif -%}" class="popupBtn button {{ button1Style }} {% if showHomePageForBtn1 %} removePopup {% endif %}">
             {{ button1Text }}
           </a>
         {% endif %}
