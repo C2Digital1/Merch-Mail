@@ -10,6 +10,7 @@
   assign image_slideshow_speed = section.settings.image_slideshow_speed
   assign show_arrows = section.settings.show_arrows
   assign show_nav_buttons = section.settings.show_nav_buttons
+  assign dotsColor = section.settings.dotsColor
   assign mobile_text_below_image = section.settings.mobile_text_below_image
 -%}
 {% comment %}Spacing{% endcomment %}
@@ -48,6 +49,16 @@
 {% comment %} End content settings {% endcomment %}
 
 {% comment %} Section specific CSS {% endcomment %}
+{% capture section_css -%}
+  ol.flickity-page-dots li.dot{
+    background: transparent;
+    border: 1px solid {{ dotsColor }};
+  }
+  ol.flickity-page-dots li.dot.is-selected{
+    background: {{ dotsColor }};
+    border: 1px solid {{ dotsColor }};
+  }
+{%- endcapture -%}
 {% style %}
   #shopify-section-{{ id }} {
     padding-top: {{ padding_top }}px;
@@ -87,7 +98,10 @@
         }
       {% endif %}
   }
-
+  {% render 'css-loop',
+          css: section_css,
+          id: id
+  %}
   {%
     render 'css-loop',
     css: custom_css,
@@ -208,6 +222,12 @@
       "id": "show_nav_buttons",
       "label": "Show navigation dots",
       "default": true
+    },
+    {
+      "type": "color",
+      "id": "dotsColor",
+      "label": "Dots Color",
+      "default": "#fff"
     },
     {
       "type": "header",

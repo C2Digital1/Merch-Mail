@@ -180,6 +180,7 @@ nav.header__menu-items .navbar-item.header__item:last-child a.navbar-link {
     padding-right: 16px !important;
     flex-direction: row;
 }
+
 span.iconTxt {
     font-size: 18px;
     letter-spacing: 0;
@@ -189,6 +190,64 @@ span.iconTxt {
 }
 
 /* header css code end  */
+
+/* home page section start  */
+.slideshow-classic ol.flickity-page-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0px auto;
+    bottom: 32px;
+    right: 32px;
+    width: max-content;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+ol.flickity-page-dots li.dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 16px;
+    width: 16px;
+    border: 1px solid;
+    opacity: 1;
+    margin: 0 8px;
+}
+
+.caption-content .banner__subheading {
+    margin-bottom: 8px;
+}
+
+.caption-content h2.banner__heading.title {
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+.caption-content .buttons {
+    flex-wrap: wrap;
+    width: 100%;
+    column-gap: 15px;
+    row-gap: 15px;
+}
+
+.caption-content .buttons a.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    min-height: 48px;
+    min-width: 190px;
+    max-width: 100%;
+}
+
+.caption-content .buttons a.button {
+    line-height: 24px !important;
+}
+
+/* home page section end  */
+
 
 /* media query start  */
 @media only screen and (max-width: 798px) {
