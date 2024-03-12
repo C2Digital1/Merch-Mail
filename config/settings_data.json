@@ -470,7 +470,7 @@
             "settings": {
               "width": "4",
               "mobile_width": "one-half",
-              "menu": "footer",
+              "menu": "quick-links",
               "menu_preset": "is-text",
               "social_icons_footer": false
             }
@@ -480,7 +480,7 @@
             "settings": {
               "width": "4",
               "mobile_width": "one-whole",
-              "menu": "footer",
+              "menu": "company",
               "menu_preset": "is-text",
               "social_icons_footer": false
             }
@@ -490,8 +490,8 @@
             "settings": {
               "width": "4",
               "mobile_width": "one-whole",
-              "newsletter_title": "Subscribe",
-              "newsletter_richtext": "<p>Sign up to get the latest on sales, new releases and more …<\/p>",
+              "newsletter_title": "Newsletter",
+              "newsletter_richtext": "<p>Subscribe to our newsletter to get latest info, discounts, and much more.<\/p>",
               "newsletter_richtext_preset": "is-text",
               "display_first_name": false,
               "display_last_name": false
