@@ -83,7 +83,7 @@
     },
     "newsletter_form": {
       "name": "Name",
-      "email": "Email",
+      "email": "Enter your email address",
       "subscriber_first_name": "First Name",
       "subscriber_last_name": "Last Name",
       "success_text": "Thank you for joining our mailing list!",
