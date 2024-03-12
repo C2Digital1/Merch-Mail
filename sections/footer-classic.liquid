@@ -192,10 +192,11 @@
             {%- liquid
               assign menu = block.settings.menu
               assign menu_preset = block.settings.menu_preset
+              assign hideHeading = block.settings.hideHeading
               assign social_icons_footer = block.settings.social_icons_footer
             -%}
 
-            {% render 'footer__menu', menu_link: menu, heading_preset: heading_preset, menu_preset: menu_preset %}
+            {% render 'footer__menu', menu_link: menu, hideHeading: hideHeading, heading_preset: heading_preset, menu_preset: menu_preset %}
 
             {% if social_icons_footer %}
               <div class="has-padding-bottom has-padding-top">
@@ -251,7 +252,8 @@
             {% render 'newsletter-form',
               type: 'block',
               display_first_name: display_first_name,
-              display_last_name: display_last_name
+              display_last_name: display_last_name,
+              ftStyle: true
             %}
 
             {% if social_icons_footer %}
@@ -1175,6 +1177,12 @@
             }
           ],
           "default": "one-whole"
+        },
+        {
+          "type": "checkbox",
+          "id": "hideHeading",
+          "label": "Hide Heading",
+          "default": true
         },
         {
           "type": "link_list",

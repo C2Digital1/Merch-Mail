@@ -36,7 +36,6 @@
 {% comment %} HTML markup {% endcomment %}
 <div class="newsletter-form__wrapper {{ newsletter_class }}">
   <div class="form__success-message text-align-{{ text_alignment }}"></div>
-
   {% form 'customer', class: 'contact-form newsletter-form--newsletter-section', id: section.id %}
     {% if form.posted_successfully? %}
       <p class="quote">{{ 'general.newsletter_form.success_text' | t }}</p>
@@ -52,7 +51,7 @@
     <input type="hidden" name="contact[tags]" value="prospect,newsletter">
     <input type="hidden" name="challenge" value="false">
 
-    <div class="newsletter-form form">
+    <div class="newsletter-form form {% if ftStyle %}ftStyle{% endif %}">
       {% if display_first_name %}
         {% comment %} First name {% endcomment %}
         <div class="field is-stretched-width {% if display_last_name != true %} is-full-width {% endif %}">
@@ -69,7 +68,6 @@
           </div>
         </div>
       {% endif %}
-
       {% if display_last_name %}
         {% comment %} Last name {% endcomment %}
         <div class="field is-stretched-width {% if display_first_name != true %} is-full-width {% endif %}">
@@ -86,7 +84,6 @@
           </div>
         </div>
       {% endif %}
-
       {% comment %} Email {% endcomment %}
       <div class="field is-stretched-width">
         <label class="label newsletter__text {% if settings.use_placeholders %}is-sr-only{% endif %}">
@@ -109,17 +106,22 @@
           {% endif %}
         </div>
       </div>
-
       {% comment %} Submit button {% endcomment %}
-      <div class="field is-default-width is-align-self-end">
+      <div class="field btnField is-default-width is-align-self-end">
         <div class="control">
-          {%- assign button_label = 'general.newsletter_form.submit' | t -%}
-          {% render 'button',
-            label: button_label,
-            type: 'submit',
-            style: settings.form_button_style,
-            class: 'is-within-form'
-          %}
+          {% if ftStyle %}
+            <button class="iconBtn" type="submit">
+              {% render 'arrowIcon' %}
+            </button>
+            {% else %}
+            {%- assign button_label = 'general.newsletter_form.submit' | t -%}
+            {% render 'button',
+              label: button_label,
+              type: 'submit',
+              style: settings.form_button_style,
+              class: 'is-within-form'
+            %}
+          {% endif %}
         </div>
       </div>
     </div>
