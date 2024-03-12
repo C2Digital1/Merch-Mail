@@ -178,6 +178,14 @@ nav.header__menu-items .navbar-item.header__item:last-child a.navbar-link {
 .header__icons a.header__link.action-area__link {
     padding-left: 0 !important;
     padding-right: 16px !important;
+    flex-direction: row;
+}
+span.iconTxt {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    text-align: center;
+    margin-right: 8px;
 }
 
 /* header css code end  */
