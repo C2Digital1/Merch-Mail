@@ -246,6 +246,14 @@ ol.flickity-page-dots li.dot {
     line-height: 24px !important;
 }
 
+h2.slideshow-classic__heading.banner__heading.title.is-h1 {
+    line-height: 77px;
+}
+
+.slideshow-classic__preheading.banner__subheading.is-h5.subheading {
+    line-height: 29px;
+}
+
 /* home page section end  */
 
 
