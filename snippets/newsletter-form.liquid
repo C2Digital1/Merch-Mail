@@ -98,7 +98,7 @@
               value="{{ customer.email }}"
             {% endif %}
             name="contact[email]"
-            placeholder="{% if settings.use_placeholders %}{{ 'general.newsletter_form.email' | t }}*{% endif %}"
+            placeholder="{% if settings.use_placeholders %}{{ 'general.newsletter_form.email' | t }}{% endif %}"
             required
           >
           {% if settings.show_form_icons %}
