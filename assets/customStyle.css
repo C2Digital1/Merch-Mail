@@ -192,6 +192,17 @@ span.iconTxt {
 /* header css code end  */
 
 /* home page section start  */
+.caption {
+    width: 100% !important;
+    margin: 0px auto !important;
+    padding: 20px;
+    max-width: 100% !important;
+}
+
+.caption-content {
+    padding: 0 !important;
+}
+
 .slideshow-classic ol.flickity-page-dots {
     display: flex;
     align-items: center;
@@ -252,6 +263,12 @@ h2.slideshow-classic__heading.banner__heading.title.is-h1 {
 
 .slideshow-classic__preheading.banner__subheading.is-h5.subheading {
     line-height: 29px;
+}
+
+.caption.is-justify-center.is-align-center.text-width-50 .caption-content.text-align-center {
+    max-width: 630px !important;
+    margin: 0px auto !important;
+    width: 100% !important;
 }
 
 /* home page section end  */

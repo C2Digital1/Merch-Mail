@@ -183,7 +183,7 @@
   {% endif %}
 
   {% if preheading != blank or heading != blank or subheading != blank or button_1 != blank or button_2 != blank %}
-    <div class="caption is-justify-{{ text_horizontal_position }} is-align-{{ text_vertical_position }}">
+    <div class="caption is-justify-{{ text_horizontal_position }} is-align-{{ text_vertical_position }} text-width-{{ text_width }}">
       <div class="caption-content text-align-{{ text_alignment }} {% if allow_padding %}has-padding{% endif %}">
         {% if preheading != blank %}
           <div class="{{ context }}__preheading banner__subheading {{ preheading_preset }} subheading">
