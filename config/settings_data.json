@@ -458,10 +458,11 @@
             "settings": {
               "width": "4",
               "mobile_width": "one-whole",
+              "logo": "shopify:\/\/shop_images\/21_1030_MerchMail_Logo_Circle_White.png",
               "size": "small",
               "text": "",
               "text_preset": "is-text",
-              "social_icons_footer": false
+              "social_icons_footer": true
             }
           },
           "e988baed-a3b3-4491-8a49-f5dae727b207": {
