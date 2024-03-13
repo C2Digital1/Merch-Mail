@@ -64,7 +64,7 @@
 {% capture section_css -%}
   .icon-with-text-column__column { background: {{ background }}; }
 
-  .icon-column__title { color: {{ text_color }}; }
+  .icon-column__title { color: {{ top_heading }}; }
 
   .icon { fill: {{ icon_color }}; }
 
@@ -103,38 +103,62 @@
 {%- endcapture -%}
 
 {% style %}
-  #shopify-section-{{ id }} {
+ {% if sectionBg != blank %}
+  #shopify-section-{{ id }} .sectionInnerContainer{
     padding-top: {{ padding_top }}px;
     padding-bottom: {{ padding_bottom }}px;
     padding-left: {{ padding_left }}px;
     padding-right: {{ padding_right }}px;
-    {% if sectionBg != blank %}      
-    background: url('{{ sectionBg | img_url:'master'  }}');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-      {% else %}
-    background: {{ section_bg }};
-    {% endif %}
     margin-top: {{ margin_top }}px;
-    margin-bottom: {{ margin_bottom }}px;
+    margin-bottom: {{ margin_bottom }}px;   
+  }
+    {% else %}
+    #shopify-section-{{ id }} {   
+    padding-top: {{ padding_top }}px;
+    padding-bottom: {{ padding_bottom }}px;
+    padding-left: {{ padding_left }}px;
+    padding-right: {{ padding_right }}px;
+    margin-top: {{ margin_top }}px;
+    margin-bottom: {{ margin_bottom }}px;   
+    }
+  {% endif %}
+  #shopify-section-{{ id }} {   
+    background: {{ section_bg }};
     {% if width == 'wide' %}
       width: 100%;
     {% elsif width == 'half' %}
       width: 50%;
     {% endif %}
-  }
-  @media screen and (max-width:798px){
-    #shopify-section-{{ id }} {
-      padding-top: {{ padding_top_m }}px;
+  }  
+  @media screen and (max-width:798px){    
+    {% if sectionBg != blank %}
+      #shopify-section-{{ id }} .sectionInnerContainer{
+        padding-top: {{ padding_top_m }}px;
       padding-bottom: {{ padding_bottom_m }}px;
       padding-left:{{ padding_left_m }}px;
       padding-right:{{ padding_right_m }}px;
       margin-top: {{ margin_top_m }}px;
       margin-bottom: {{ margin_bottom_m }}px;
     }
+     {% else %}
+    #shopify-section-{{ id }} {
+     padding-top: {{ padding_top_m }}px;
+      padding-bottom: {{ padding_bottom_m }}px;
+      padding-left:{{ padding_left_m }}px;
+      padding-right:{{ padding_right_m }}px;
+      margin-top: {{ margin_top_m }}px;
+      margin-bottom: {{ margin_bottom_m }}px;
+    }    
+   {% endif %}
   }
-
+  #shopify-section-{{ id }} .sectionInnerContainer{
+    {% if sectionBg != blank %}
+      background: url('{{ sectionBg | img_url:'master'  }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+     {% endif %}
+  }
   #shopify-section-{{ id }} .icon-text--image{
     max-width: {{image_size}}px !important;
     margin-bottom: 15px;
@@ -172,76 +196,79 @@
     data-scroll-class="{{ animation }}"
   {% endif %}
 >
-  {% if top_heading != blank %}
-    <div class="container secHeadingContainer">
-      {% render 'heading',
-        title: top_heading,
-        heading_tag: 'h2',
-        context: 'text-icons',
-        text_alignment: top_heading_alignment,
-        preset: top_heading_preset
-      %}
-    </div>
-  {% endif %}
-
-  <div class="container is-justify-center contentContainer">
-    {% for block in blocks %}
-      {% comment %} Content settings {% endcomment %}
-      {%- liquid
-        assign icon = block.settings.icon_label | downcase
-        assign heading = block.settings.heading
-        assign text = block.settings.text
-        assign button_label = block.settings.button_label
-        assign link = block.settings.link
-      -%}
-
-      <div
-        class="
-          icon-with-text-column__column
-          {% if show_gutter %}
-            has-gutter
-          {% endif %}
-          column
-          has-padding
-          {% render 'column-width', value: icons_per_row %}
-          text-align-{{ align_text }}
-          medium-down--one-whole
-        "
-      >
-        {% if icon != blank %}
-          {% render 'icon', name: icon, icon_class: icon_size %}
-        {% endif %}
-
-        {% if block.settings.text_image != blank %}
-          {% render 'image-element',
-            image: block.settings.text_image,
-            alt: block.settings.text_image.alt,
-            additional_classes: 'icon-text--image'
-          %}
-        {% endif %}
-
-        {% if heading != blank or text != blank %}
-          <div class="icon-column__text ">
-            {% if heading != empty %}
-              <h3 class="icon-column__title title {{ heading_preset }}">{{ heading }}</h3>
-            {% endif %}
-            {% if text != empty %}
-              <div class="{{ text_preset }} subtitle content">{{ text }}</div>
-            {% endif %}
-          </div>
-        {% endif %}
-
-        {% if button_label != blank %}
-          <div class="buttons is-{{ align_text }} has-padding-top">
-            {% render 'button', label: button_label, href: link, style: button_style, type: 'link' %}
-          </div>
-        {% endif %}
+  <div class="sectionInnerContainer">
+    {% if top_heading != blank %}
+      <div class="container secHeadingContainer">
+        {% render 'heading',
+          title: top_heading,
+          heading_tag: 'h2',
+          context: 'text-icons',
+          text_alignment: top_heading_alignment,
+          preset: top_heading_preset
+        %}
       </div>
-      {% comment %} End content settings {% endcomment %}
-    {% endfor %}
+    {% endif %}
+
+    <div class="container is-justify-center contentContainer">
+      {% for block in blocks %}
+        {% comment %} Content settings {% endcomment %}
+        {%- liquid
+          assign icon = block.settings.icon_label | downcase
+          assign heading = block.settings.heading
+          assign text = block.settings.text
+          assign button_label = block.settings.button_label
+          assign link = block.settings.link
+        -%}
+
+        <div
+          class="
+            icon-with-text-column__column
+            {% if show_gutter %}
+              has-gutter
+            {% endif %}
+            column
+            has-padding
+            {% render 'column-width', value: icons_per_row %}
+            text-align-{{ align_text }}
+            medium-down--one-whole
+          "
+        >
+          
+          {% if heading != empty %}
+            <h3 class="icon-column__title title {{ heading_preset }}">{{ heading }}</h3>
+          {% endif %}
+          
+          {% if icon != blank %}
+            {% render 'icon', name: icon, icon_class: icon_size %}
+          {% endif %}
+          {% if block.settings.text_image != blank %}
+            {% render 'image-element',
+              image: block.settings.text_image,
+              alt: block.settings.text_image.alt,
+              additional_classes: 'icon-text--image'
+            %}
+          {% endif %}
+
+          {% if heading != blank or text != blank %}
+            <div class="icon-column__text ">             
+              {% if text != empty %}
+                <div class="{{ text_preset }} subtitle content">{{ text }}</div>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {% if button_label != blank %}
+            <div class="buttons is-{{ align_text }} has-padding-top">
+              {% render 'button', label: button_label, href: link, style: button_style, type: 'link' %}
+            </div>
+          {% endif %}
+        </div>
+        {% comment %} End content settings {% endcomment %}
+      {% endfor %}
+    </div>
 
     {% if secBtnTxt != blank %}
-      <a href="{{ secBtnUrl }}" class="secBtn Button {{ secBtnStyle  }}">
+      <a href="{{ secBtnUrl }}" class="secBtn button {{ secBtnStyle  }}">
         {{ secBtnTxt }}
       </a>
     {% endif %}

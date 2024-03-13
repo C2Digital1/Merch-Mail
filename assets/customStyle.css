@@ -20,12 +20,14 @@ body.enableScroll {
     max-width: 100% !important;
     padding: 0 75px !important;
 }
+
 .is-width-small {
     width: 100% !important;
     margin: 0px auto !important;
     max-width: 764px !important;
     padding: 0 12px !important;
 }
+
 .caption.is-justify-center.is-align-center {
     padding: 0 75px !important;
     max-width: 1440px !important;
@@ -475,12 +477,62 @@ h3.image-with-text__heading {
     display: none;
 }
 
+.sectionInnerContainer {
+    width: 100%;
+    position: relative;
+}
+
+a.secBtn.button {
+    min-height: 48px;
+    min-width: 196px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    max-width: 100%;
+    margin: 40px auto 0 auto;
+}
+
+.iconWithTextSection .icon-with-text-column__column.one-fifth.medium-down--one-whole {
+    width: calc(20% - 40px);
+    padding: 0;
+    margin-right: 48px;
+    margin-left: 0;
+    max-width: 191px;
+    margin-bottom: 20px;
+}
+
+.iconWithTextSection .icon-with-text-column__column.one-fifth.medium-down--one-whole:nth-child(5n) {
+    margin-right: 0;
+}
+
+h3.icon-column__title.title {
+    margin-bottom: 16px;
+}
+
+
+.icon-with-text-column__column img {
+    margin-bottom: 16px;
+}
+
+
+.icon-with-text-column__column .subtitle.content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.heading-wrapper--text-icons {
+    margin-bottom: 56px;
+}
+
 /* about us page css code end  */
 
 
 
 /* media query start  */
 @media only screen and (max-width: 1380px) {
+
     .is-width-standard,
     .caption.is-justify-center.is-align-center {
         width: 100% !important;
@@ -497,6 +549,7 @@ h3.image-with-text__heading {
 }
 
 @media only screen and (max-width: 798px) {
+
     .is-width-standard,
     .caption.is-justify-center.is-align-center {
         padding: 0 12px !important;
