@@ -144,10 +144,15 @@ a.popupBtn.button {
 
 a.navbar-link.header__link {
     padding: 0;
-    margin-right: 64px;
+    margin: 0;
 }
 
-nav.header__menu-items .navbar-item.header__item:last-child a.navbar-link {
+nav.header__menu-items .navbar-item.header__item {
+    margin-right: 64px;
+    position: relative;
+}
+
+nav.header__menu-items .navbar-item.header__item:last-child {
     margin-right: 0;
 }
 
@@ -187,6 +192,39 @@ span.iconTxt {
     line-height: 22px;
     text-align: center;
     margin-right: 8px;
+}
+
+.navbar-dropdown.navbar-dropdown--below-parent {
+    min-width: 208px;
+    left: -35px;
+    top: 100%;
+    padding: 30px 24px;
+}
+
+.navbar-dropdown.navbar-dropdown--below-parent::before {
+    content: "";
+    height: 14px;
+    width: 14px;
+    background-color: #A12B2F;
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 100%;
+}
+
+.navbar-dropdown.navbar-dropdown--below-parent a.navbar-item {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 18px;
+    font-family: "Arial-Narrow-Regular";
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    padding: 0;
+}
+
+.navbar-dropdown.navbar-dropdown--below-parent a.navbar-item:last-child {
+    margin-bottom: 0;
 }
 
 /* header css code end  */
@@ -340,8 +378,8 @@ p.footer__heading {
 }
 
 .newsletter-form.form.ftStyle button.iconBtn svg {
-    width: 100%;
-    height: 100%;
+    height: 20px;
+    width: 20px;
 }
 
 .newsletter-form.form.ftStyle .field .control {
@@ -378,6 +416,7 @@ p.footer__heading {
 .newsletter-form.form.ftStyle .field.is-stretched-width {
     margin: 0 !important;
 }
+
 /* footer section css code end  */
 /* media query start  */
 @media only screen and (max-width: 798px) {
