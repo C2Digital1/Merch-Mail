@@ -197,6 +197,16 @@
     "index_icon_with_text_column_Q4wytD": {
       "type": "index__icon-with-text-column",
       "blocks": {
+        "logo_image_6Dt377": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "truck",
+            "heading": "Icon with text",
+            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
+            "button_label": "Learn more",
+            "link": ""
+          }
+        },
         "logo_image_7gfrCT": {
           "type": "logo_image",
           "settings": {
@@ -239,6 +249,7 @@
         }
       },
       "block_order": [
+        "logo_image_6Dt377",
         "logo_image_7gfrCT",
         "logo_image_R8FT9H",
         "logo_image_4CTRAG",
