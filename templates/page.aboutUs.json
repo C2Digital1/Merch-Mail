@@ -83,11 +83,65 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "index_image_with_text_3RWeMb": {
+      "type": "index__image-with-text",
+      "blocks": {
+        "image_Xjz9MJ": {
+          "type": "image",
+          "settings": {
+            "image_crop": "none",
+            "image_link": ""
+          }
+        },
+        "text_HnXidb": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "scheme-8a16c616-abc9-4c2a-b48a-c26d30fdeddf",
+            "heading": "Duis aute irure dolor",
+            "text": "<p>Varius vel pharetra vel turpis nunc eget lorem. Posuere sollicitudin aliquam ultrices sagittis. Dolor morbi non arcu risus quis varius quam. Vel facilisis volutpat est velit egestas. Nunc id cursus metus aliquam eleifend mi in. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. Elementum facilisis leo vel fringilla.<\/p><p><\/p><p>Varius vel pharetra vel turpis nunc eget lorem. Posuere sollicitudin aliquam ultrices sagittis. Dolor morbi non arcu risus quis varius quam. Vel facilisis volutpat est velit egestas. Nunc id cursus metus aliquam eleifend mi in.<\/p><p><\/p><p>Varius vel pharetra vel turpis nunc eget lorem. Posuere sollicitudin aliquam ultrices sagittis. Dolor morbi non arcu risus quis varius quam. Vel facilisis volutpat est velit egestas. Nunc id cursus metus aliquam eleifend mi in.<\/p>",
+            "heading_preset": "is-h4",
+            "text_preset": "is-text",
+            "button_label": "",
+            "link": "",
+            "button_style": "button--primary",
+            "alignment": "center",
+            "vertical_position": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_Xjz9MJ",
+        "text_HnXidb"
+      ],
+      "settings": {
+        "width": "standard",
+        "show_gutter": true,
+        "desktop_height": 0,
+        "mobile_height": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
     "main",
     "index_heading_XXLMxE",
-    "index_heading_n6zTJQ"
+    "index_heading_n6zTJQ",
+    "index_image_with_text_3RWeMb"
   ]
 }
