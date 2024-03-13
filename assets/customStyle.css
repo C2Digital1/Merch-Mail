@@ -23,8 +23,9 @@ body.enableScroll {
 
 .caption.is-justify-center.is-align-center {
     padding: 0 75px !important;
-    max-width: 1440px;
-    margin: 0px auto;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    width: 98% !important;
 }
 
 img.boxImg {
@@ -232,10 +233,16 @@ span.iconTxt {
 
 /* home page section start  */
 .caption {
-    width: 100% !important;
+    width: 98% !important;
     margin: 0px auto !important;
     padding: 20px;
     max-width: 100% !important;
+    height: 100% !important;
+}
+
+.slideshow-classic__banner.columns.one-whole {
+    width: 100% !important;
+    margin: 0px auto !important;
 }
 
 .caption-content {
