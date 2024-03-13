@@ -211,10 +211,11 @@
         "logo_image_7gfrCT": {
           "type": "logo_image",
           "settings": {
-            "icon_label": "truck",
-            "heading": "Icon with text",
-            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
-            "button_label": "Learn more",
+            "icon_label": "",
+            "text_image": "shopify:\/\/shop_images\/Desktop_Icon_4.png",
+            "heading": "Step 2",
+            "text": "<p>Print traditional orders and or single Merch Mail pieces for tour<\/p>",
+            "button_label": "",
             "link": ""
           }
         },
