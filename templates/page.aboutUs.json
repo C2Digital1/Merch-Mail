@@ -90,6 +90,7 @@
         "image_Xjz9MJ": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Group_52.png",
             "image_crop": "none",
             "image_link": ""
           }
