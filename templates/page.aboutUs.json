@@ -116,6 +116,7 @@
         "text_HnXidb"
       ],
       "settings": {
+        "useCustomStyle": true,
         "width": "standard",
         "show_gutter": true,
         "desktop_height": 0,
@@ -170,6 +171,7 @@
         "image_fgrdXM"
       ],
       "settings": {
+        "useCustomStyle": true,
         "width": "standard",
         "show_gutter": true,
         "desktop_height": 0,
