@@ -292,6 +292,7 @@
         "margin_top_m": 0,
         "margin_bottom_m": 0,
         "animation": "none",
+        "sectionBg": "shopify:\/\/shop_images\/Rectangle_Copy.png",
         "css_class": "",
         "custom_css": ""
       }
