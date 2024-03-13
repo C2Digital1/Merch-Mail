@@ -200,10 +200,11 @@
         "logo_image_6Dt377": {
           "type": "logo_image",
           "settings": {
-            "icon_label": "truck",
-            "heading": "Icon with text",
-            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
-            "button_label": "Learn more",
+            "icon_label": "",
+            "text_image": "shopify:\/\/shop_images\/Desktop_Icon_3.png",
+            "heading": "Step 1",
+            "text": "<p>Design Merch \/ Create Store<\/p>",
+            "button_label": "",
             "link": ""
           }
         },
