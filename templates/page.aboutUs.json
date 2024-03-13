@@ -193,6 +193,89 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "index_icon_with_text_column_Q4wytD": {
+      "type": "index__icon-with-text-column",
+      "blocks": {
+        "logo_image_7gfrCT": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "truck",
+            "heading": "Icon with text",
+            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
+            "button_label": "Learn more",
+            "link": ""
+          }
+        },
+        "logo_image_R8FT9H": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "bag",
+            "heading": "Icon with text",
+            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
+            "button_label": "Learn more",
+            "link": ""
+          }
+        },
+        "logo_image_4CTRAG": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "tag",
+            "heading": "Icon with text",
+            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
+            "button_label": "Learn more",
+            "link": ""
+          }
+        },
+        "logo_image_7AMVqf": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "star",
+            "heading": "Icon with text",
+            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
+            "button_label": "Learn more",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_image_7gfrCT",
+        "logo_image_R8FT9H",
+        "logo_image_4CTRAG",
+        "logo_image_7AMVqf"
+      ],
+      "settings": {
+        "color_scheme": "scheme-8a16c616-abc9-4c2a-b48a-c26d30fdeddf",
+        "top_heading": "How Merch Mail works",
+        "top_heading_preset": "is-h2",
+        "top_heading_alignment": "center",
+        "icons_per_row": 4,
+        "icon_size": "medium",
+        "image_size": 100,
+        "button_style": "button--primary",
+        "heading_preset": "is-h6",
+        "text_preset": "is-text",
+        "icon_color": "#000000",
+        "background": "#CCCCCC",
+        "align_text": "center",
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
@@ -200,6 +283,7 @@
     "index_heading_XXLMxE",
     "index_heading_n6zTJQ",
     "index_image_with_text_3RWeMb",
-    "index_image_with_text_9TY4Gx"
+    "index_image_with_text_9TY4Gx",
+    "index_icon_with_text_column_Q4wytD"
   ]
 }
