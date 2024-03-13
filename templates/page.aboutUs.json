@@ -267,7 +267,7 @@
         "heading_preset": "is-h6",
         "text_preset": "is-text",
         "icon_color": "#000000",
-        "background": "#CCCCCC",
+        "background": "",
         "align_text": "center",
         "width": "standard",
         "show_gutter": true,
