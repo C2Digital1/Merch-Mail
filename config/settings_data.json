@@ -470,6 +470,7 @@
             "settings": {
               "width": "4",
               "mobile_width": "one-half",
+              "hideHeading": true,
               "menu": "quick-links",
               "menu_preset": "is-text",
               "social_icons_footer": false
@@ -480,6 +481,7 @@
             "settings": {
               "width": "4",
               "mobile_width": "one-whole",
+              "hideHeading": true,
               "menu": "company",
               "menu_preset": "is-text",
               "social_icons_footer": false
@@ -1178,11 +1180,11 @@
       },
       "scheme-8a16c616-abc9-4c2a-b48a-c26d30fdeddf": {
         "settings": {
-          "scheme_background": "rgba(0,0,0,0)",
+          "scheme_background": "#ffffff",
           "scheme_background_gradient": "",
-          "scheme_heading": "#121212",
-          "scheme_text": "#121212",
-          "scheme_pre_text": "#121212",
+          "scheme_heading": "#2b5597",
+          "scheme_text": "#0c0c0c",
+          "scheme_pre_text": "#0c0c0c",
           "scheme_button": "#121212",
           "scheme_button_hover": "#ffffff",
           "scheme_button_border": "#121212",

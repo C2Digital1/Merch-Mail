@@ -54,10 +54,40 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "index_heading_n6zTJQ": {
+      "type": "index__heading",
+      "settings": {
+        "color_scheme": "scheme-8a16c616-abc9-4c2a-b48a-c26d30fdeddf",
+        "preheading": "",
+        "heading": "",
+        "subheading": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<\/p>",
+        "preheading_preset": "is-h6",
+        "heading_preset": "is-h3",
+        "subheading_preset": "is-h4",
+        "heading_alignment": "center",
+        "width": "small",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
     "main",
-    "index_heading_XXLMxE"
+    "index_heading_XXLMxE",
+    "index_heading_n6zTJQ"
   ]
 }
