@@ -233,10 +233,11 @@
         "logo_image_4CTRAG": {
           "type": "logo_image",
           "settings": {
-            "icon_label": "tag",
-            "heading": "Icon with text",
-            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
-            "button_label": "Learn more",
+            "icon_label": "",
+            "text_image": "shopify:\/\/shop_images\/Desktop_Icon_6.png",
+            "heading": "Step 4",
+            "text": "<p>Tour with fewer boxes, more fan options and never have merch left over<\/p>",
+            "button_label": "",
             "link": ""
           }
         },
