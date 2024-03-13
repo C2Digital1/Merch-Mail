@@ -25,9 +25,39 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "index_heading_XXLMxE": {
+      "type": "index__heading",
+      "settings": {
+        "color_scheme": "background-1",
+        "preheading": "",
+        "heading": "{{ page.title }}",
+        "subheading": "",
+        "preheading_preset": "is-h6",
+        "heading_preset": "is-h2",
+        "subheading_preset": "is-text",
+        "heading_alignment": "center",
+        "width": "standard",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "index_heading_XXLMxE"
   ]
 }
