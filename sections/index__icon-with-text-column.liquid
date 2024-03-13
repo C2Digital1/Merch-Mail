@@ -22,6 +22,12 @@
   assign icon_color = section.settings.icon_color
   assign text_color = section.settings.color_scheme.settings.scheme_text
   assign background = section.settings.background
+
+  assign secBtnTxt = section.settings.secBtnTxt
+  assign secBtnUrl = section.settings.secBtnUrl
+  assign secBtnStyle = section.settings.secBtnStyle
+
+  assign sectionBg = section.settings.sectionBg
 -%}
 {% comment %}Spacing{% endcomment %}
 {%- liquid
@@ -102,7 +108,14 @@
     padding-bottom: {{ padding_bottom }}px;
     padding-left: {{ padding_left }}px;
     padding-right: {{ padding_right }}px;
+    {% if sectionBg != blank %}      
+    background: url('{{ sectionBg | img_url:'master'  }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+      {% else %}
     background: {{ section_bg }};
+    {% endif %}
     margin-top: {{ margin_top }}px;
     margin-bottom: {{ margin_bottom }}px;
     {% if width == 'wide' %}
@@ -141,6 +154,7 @@
   class="
     section
     {{ css_class }}
+    iconWithTextSection
     is-width-{{ width }} scheme_color-{{section.settings.color_scheme}}
     {% if show_gutter == false %}
       has-no-side-gutter
@@ -159,7 +173,7 @@
   {% endif %}
 >
   {% if top_heading != blank %}
-    <div class="container">
+    <div class="container secHeadingContainer">
       {% render 'heading',
         title: top_heading,
         heading_tag: 'h2',
@@ -170,7 +184,7 @@
     </div>
   {% endif %}
 
-  <div class="container is-justify-center">
+  <div class="container is-justify-center contentContainer">
     {% for block in blocks %}
       {% comment %} Content settings {% endcomment %}
       {%- liquid
@@ -225,6 +239,12 @@
       </div>
       {% comment %} End content settings {% endcomment %}
     {% endfor %}
+
+    {% if secBtnTxt != blank %}
+      <a href="{{ secBtnUrl }}" class="secBtn Button {{ secBtnStyle  }}">
+        {{ secBtnTxt }}
+      </a>
+    {% endif %}
   </div>
 </section>
 
@@ -309,6 +329,36 @@
           "label": "Right"
         }
       ]
+    },
+    {
+      "type": "text",
+      "id": "secBtnTxt",
+      "label": "Section Button Text"
+    },
+    {
+      "type": "url",
+      "id": "secBtnUrl",
+      "label": "Section Button URL"
+    },
+    {
+      "type": "select",
+      "id": "secBtnStyle",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "button--primary",
+          "label": "Primary"
+        },
+        {
+          "value": "button--secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "button--link-style",
+          "label": "Link style"
+        }
+      ],
+      "default": "button--secondary"
     },
     {
       "type": "range",
@@ -640,6 +690,11 @@
           "label": "Zoom in"
         }
       ]
+    },
+    {
+      "type": "image_picker",
+      "id": "sectionBg",
+      "label": "Section Bg Image"
     },
     {
       "type": "header",
