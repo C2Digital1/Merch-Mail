@@ -33,6 +33,35 @@
         "custom_css": ""
       }
     },
+    "index_heading_4nMzLq": {
+      "type": "index__heading",
+      "settings": {
+        "color_scheme": "background-1",
+        "preheading": "",
+        "heading": "Blog",
+        "subheading": "",
+        "preheading_preset": "is-h6",
+        "heading_preset": "is-h2",
+        "subheading_preset": "is-text",
+        "heading_alignment": "center",
+        "width": "standard",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 71,
+        "padding_bottom_m": 71,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
     "main": {
       "type": "blog__main",
       "settings": {
@@ -73,6 +102,7 @@
   },
   "order": [
     "banner",
+    "index_heading_4nMzLq",
     "main"
   ]
 }
