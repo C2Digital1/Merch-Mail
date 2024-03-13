@@ -28,6 +28,7 @@ body.enableScroll {
     width: 98% !important;
 }
 
+
 img.boxImg {
     width: 100%;
     height: auto;
@@ -431,8 +432,72 @@ p.footer__heading {
 }
 
 /* footer section css code end  */
+
+/* about us page css code start  */
+
+.container.useCustomStyle {
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.useCustomStyle .image-with-text__image-column,
+.useCustomStyle .image-with-text__text-column {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px auto;
+    padding: 0;
+}
+
+.useCustomStyle .image-with-text__text-column .image-with-text__wrapper {
+    padding: 20px;
+    width: 100%;
+    max-width: 520px;
+    margin: 0px auto;
+}
+
+h3.image-with-text__heading {
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.image-with-text__text p {
+    margin-bottom: 16px;
+}
+
+
+.image-with-text__text p:empty {
+    display: none;
+}
+
+/* about us page css code end  */
+
+
+
 /* media query start  */
+@media only screen and (max-width: 1380px) {
+
+    .is-width-standard,
+    .caption.is-justify-center.is-align-center {
+        width: 100% !important;
+        padding: 0 50px !important;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+
+    .is-width-standard,
+    .caption.is-justify-center.is-align-center {
+        padding: 0 20px !important;
+    }
+}
+
 @media only screen and (max-width: 798px) {
+    .is-width-standard,
+    .caption.is-justify-center.is-align-center {
+        padding: 0 12px !important;
+    }
+
     a.popupLogoLink {
         width: 120px;
         left: 12px;
@@ -464,6 +529,11 @@ p.footer__heading {
         right: 28px;
         bottom: 31px;
     }
+
+    .container.useCustomStyle {
+        flex-direction: column;
+    }
+
 }
 
 @media only screen and (max-width: 400px) {
