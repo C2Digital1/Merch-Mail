@@ -196,9 +196,10 @@ span.iconTxt {
 
 .navbar-dropdown.navbar-dropdown--below-parent {
     min-width: 208px;
-    left: -35px;
+    left: 50%;
     top: 100%;
     padding: 30px 24px;
+    transform: translateX(-50%);
 }
 
 .navbar-dropdown.navbar-dropdown--below-parent::before {
