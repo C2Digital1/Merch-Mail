@@ -229,6 +229,11 @@ span.iconTxt {
     margin-bottom: 0;
 }
 
+.navbar {
+    width: 100%;
+    margin: 0px auto !important;
+}
+
 /* header css code end  */
 
 /* home page section start  */

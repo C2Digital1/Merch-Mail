@@ -5,12 +5,13 @@
 {%- liquid
   assign id = section.id
   assign blocks = section.blocks
+  assign useCustomStyle = section.settings.useCustomStyle
 -%}
 {% comment %}Spacing{% endcomment %}
 {%- liquid
   assign padding_top = section.settings.padding_top
   assign padding_bottom = section.settings.padding_bottom
-  assign padding_left = section.settings.padding_left
+  assign padding_left = section.settings.padding_left 
   assign padding_right = section.settings.padding_right
   assign margin_top = section.settings.margin_top
   assign margin_bottom = section.settings.margin_bottom
@@ -90,6 +91,7 @@
   class="
     section
     {{ css_class }}
+    image-with-text-section
     is-width-{{ width }} scheme_color-{{section.settings.color_scheme}}
     {% if show_gutter == false %}
         has-no-side-gutter
@@ -104,7 +106,7 @@
     data-scroll-class="{{ animation }}"
   {% endif %}
 >
-  <div class="container">
+  <div class="container {% if useCustomStyle %}useCustomStyle{% endif %}">
     {% if blocks.size > 0 %}
       {% for block in blocks %}
         {% if block.type != 'image' %}
@@ -237,6 +239,12 @@
   "class": "image-with-text",
   "max_blocks": 3,
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "useCustomStyle",
+      "label": "Use Custom Style",
+      "default": false
+    },
     {
       "type": "header",
       "content": "Layout"
