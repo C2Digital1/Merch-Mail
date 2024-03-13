@@ -244,10 +244,11 @@
         "logo_image_7AMVqf": {
           "type": "logo_image",
           "settings": {
-            "icon_label": "star",
-            "heading": "Icon with text",
-            "text": "<p>Describe the feature, service or product that this icon represents.<\/p>",
-            "button_label": "Learn more",
+            "icon_label": "",
+            "text_image": "shopify:\/\/shop_images\/Desktop_Icon_7.png",
+            "heading": "Step 5",
+            "text": "<p>Profit on every Merch Mail item without dealing with any item<\/p>",
+            "button_label": "",
             "link": ""
           }
         }
