@@ -225,7 +225,9 @@
             {{ article.content }}
           </div>
         </div>
-        {% render 'social-share-buttons' context: article %}
+        <div class="socialShareIcons">
+          Share: {% render 'social-share-buttons' context: article %}
+        </div>
       {% endpaginate %}
     </div>
   </div>
