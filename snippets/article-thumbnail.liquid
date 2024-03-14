@@ -15,18 +15,19 @@
 
 <div
   class="
-    featured-article blog-card 
-    {% render 'column-width', value: items_per_row %} 
-    columns article card 
-    show-border-{{ show_border }} 
+    featured-article blog-card
+    {% render 'column-width', value: items_per_row %}
+    columns article card
+    show-border-{{ show_border }}
     medium-down--one-half
     {% if mobile_items_per_row == '1' %}
       small-down--one-whole
     {% else %}
       small-down--one-half
     {% endif %}
-    has-margin-bottom 
-    {% if items_per_row == 1 %}is-horizontal{% endif %}"
+    has-margin-bottom
+    {% if items_per_row == 1 %}is-horizontal{% endif %}
+  "
   {% if pagination_type != 'basic_pagination' %}
     data-load-more--grid-item
   {% endif %}
@@ -50,7 +51,7 @@
       {% assign postexcerpt = article.excerpt | size %}
       {% if postexcerpt > 150 %}
         {% assign excerptlength = 'lg' %}
-      {% elsif postexcerpt <= 150  %}
+      {% elsif postexcerpt <= 150 %}
         {% assign excerptlength = 'sm' %}
       {% endif %}
       <div class="excerpt excerpt-length-{{ excerptlength }} {{ blog_excerpt_preset }} has-margin-bottom">
@@ -59,32 +60,34 @@
       </div>
     {% endif %}
 
-    <div class="meta-info is-text-small">
-      {% if blog_show_tags %}
-        {% if article.tags.size > 0 %}
-          <ul class="meta-tag-list tags is-{{ blog_text_alignment }}">
-            {% for tag in article.tags %}
-              <li class="tag tag--{{ settings.tag_style }}">
-                <a
-                  href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}"
-                  title="{{ blog.title | escape }} {{ 'blogs.general.tagged' | t }} {{ tag | escape }}"
-                >
-                  {{- tag -}}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
+    {% if blog_author or blog_date or blog_read_time or blog_comment_count or article.comments_count > 0 %}
+      <div class="meta-info is-text-small">
+        {% if blog_show_tags %}
+          {% if article.tags.size > 0 %}
+            <ul class="meta-tag-list tags is-{{ blog_text_alignment }}">
+              {% for tag in article.tags %}
+                <li class="tag tag--{{ settings.tag_style }}">
+                  <a
+                    href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}"
+                    title="{{ blog.title | escape }} {{ 'blogs.general.tagged' | t }} {{ tag | escape }}"
+                  >
+                    {{- tag -}}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         {% endif %}
-      {% endif %}
 
-      {% render 'meta-info-list',
-        article: article,
-        blog_author: blog_author,
-        blog_date: blog_date,
-        blog_read_time: read_time,
-        blog_comment_count: blog_comment_count
-      %}
-    </div>
+        {% render 'meta-info-list',
+          article: article,
+          blog_author: blog_author,
+          blog_date: blog_date,
+          blog_read_time: read_time,
+          blog_comment_count: blog_comment_count
+        %}
+      </div>
+    {% endif %}
 
     {% if button_type != 'none' %}
       <div class="blog-card__read-more">
