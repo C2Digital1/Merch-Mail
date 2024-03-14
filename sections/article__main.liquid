@@ -225,12 +225,20 @@
             {{ article.content }}
           </div>
         </div>
-       <div class="articleFtSec">
-        <div class="socialShareIcons">
-          Share: {% render 'social-share-buttons' context: article %}
+        <div class="articleFtSec">
+          <div class="socialShareIcons">Share: {% render 'social-share-buttons', context: article %}</div>
+          {% if blog.next_article %}
+            <a class="prevNxtBtn nxtPostBtn" href="{{ blog.next_article }}">
+              See Next Post
+              {%- render 'arrowIcon' -%}
+            </a>
+            {% else %}
+            <a class="prevNxtBtn prevPostBtn" href="{{ blog.previous_article }}">
+              See Previous Post
+              {%- render 'arrowIcon' -%}
+            </a>
+          {% endif %}
         </div>
-          <a class="nxtPostBtn" href="{{ blog.next_article }}">See Next Post {%- render 'arrowIcon' -%}</a>
-       </div>
       {% endpaginate %}
     </div>
   </div>
