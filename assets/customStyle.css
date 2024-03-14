@@ -628,6 +628,30 @@ nav.pagination {
 
 /* blog post page css code end */
 
+/* article page css code start  */
+a.backBtn.button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: max-content;
+    max-width: 100%;
+    padding: 0 !important;
+    margin-bottom: 16px;
+    color: #2B5597;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    text-align: center;
+    font-family: 'Cubano-Regular';
+}
+
+a.backBtn.button svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+
+/* article page css code end  */
 /* media query start  */
 @media only screen and (max-width: 1380px) {
 
