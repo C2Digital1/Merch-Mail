@@ -120,7 +120,7 @@
 
 {% comment %} HTML markup {% endcomment %}
 <section 
-  class="section {{ css_class }} is-width-{{ width }}
+  class="section blogPostSection {{ css_class }} is-width-{{ width }}
   {% if show_gutter == false %}
     has-no-side-gutter
     has-background
@@ -274,7 +274,7 @@
           {% endfor %}
         </div>
 
-        <div class="container">
+        <div class="container paginationContainer">
           <div class="one-whole column text-align-center">
             {% assign load_more_text = 'blogs.general.pagination_button' | t %}
             {% render 'pagination',

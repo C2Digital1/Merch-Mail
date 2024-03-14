@@ -73,15 +73,13 @@ context: <string>
 
     {% else %}
       <nav class="pagination {% if paginate.previous and paginate.next %}paginate--both{% endif %}" role="navigation" aria-label="pagination">
-        {%- if paginate.previous-%}
-          <a href="{{ paginate.previous.url }}" class="pagination-previous">{{ 'general.pagination.previous' | t }}</a>
-        {% endif %}
+       
 
         <ul class="pagination-list">
           {%- for part in paginate.parts -%}
             {% if part.is_link %}
               <li>
-                <a class="pagination-link" href="{{ part.url }}">{{ part.title }}</a>
+                <a class="pagination-link button" href="{{ part.url }}">{{ part.title }}</a>
               </li>
             {% elsif part.title == '&hellip;' %}
               <li>
@@ -89,13 +87,16 @@ context: <string>
               </li>
             {% else %}
               <li>
-                <a class="pagination-link is-current">{{ part.title }}</a>
+                <a class="pagination-link button is-current">{{ part.title }}</a>
               </li>
             {% endif %}
           {% endfor %}
         </ul>
+        {%- if paginate.previous-%}
+          <a href="{{ paginate.previous.url }}" class="paginationNav pagination-previous">{{ 'general.pagination.previous' | t }}</a>
+        {% endif %}
         {%- if paginate.next-%}
-          <a href="{{ paginate.next.url }}" class="pagination-next">{{ 'general.pagination.next' | t }}</a>
+          <a href="{{ paginate.next.url }}" class="paginationNav pagination-next">{{ 'general.pagination.next' | t }}</a>
         {% endif %}
       </nav>
     {% endif %}

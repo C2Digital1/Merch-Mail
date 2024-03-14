@@ -619,7 +619,7 @@
       {
         "type": "range",
         "id": "linkStyleSize",
-        "label": "Font Size Primary",
+        "label": "Font Size For Link Style",
         "min": 0,
         "max": 100,
         "default": 18,
@@ -628,7 +628,7 @@
       {
         "type": "range",
         "id": "linkStyleSizeMob",
-        "label": "Font Size Primary Mobile",
+        "label": "Font Size For Link Style Mobile",
         "min": 0,
         "max": 100,
         "default": 16,
@@ -637,7 +637,7 @@
       {
         "type": "range",
         "id": "linkStyleLineHeight",
-        "label": "Primary Button Line Height",
+        "label": "Link Style Button Line Height",
         "min": 0,
         "max": 100,
         "default": 18,
@@ -646,7 +646,7 @@
       {
         "type": "range",
         "id": "linkStyleLineHeightMob",
-        "label": "Primary Button Line Height Mobile",
+        "label": "Link Style Button Line Height Mobile",
         "min": 0,
         "max": 100,
         "default": 24,

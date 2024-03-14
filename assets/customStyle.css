@@ -527,8 +527,106 @@ h3.icon-column__title.title {
 }
 
 /* about us page css code end  */
+/* blog post page css code start  */
+.paginate {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 0px auto;
+}
 
+.container.paginationContainer .one-whole.column {
+    width: 100%;
+    margin: 0px auto;
+}
 
+a.pagination-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    margin: 0 8px;
+    padding: 0;
+    min-width: 0;
+    min-height: 0;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: center;
+    font-family: 'Cubano-Regular';
+    color: #2B5597 !important;
+    border: 1px solid #2B5597 !important;
+    background: #fff !important;
+}
+
+a.pagination-link:hover,
+a.pagination-link.is-current {
+    color: #fff !important;
+    border: 1px solid #2B5597 !important;
+    background: #2B5597 !important;
+}
+
+.paginationNav {
+    display: none !important;
+}
+
+.featured-article.blog-card.one-third.columns.article.card.medium-down--one-half.small-down--one-whole {
+    width: calc(33.33% - 20px);
+    margin-left: 0;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.featured-article.blog-card.one-third.columns.article.card.medium-down--one-half.small-down--one-whole:nth-child(3n) {
+    margin-right: 0;
+}
+
+.featured-article .image-element__wrap {
+    max-height: none !important;
+}
+
+.featured-article .card-content.blog-card__content {
+    padding: 16px 0;
+    width: 100%;
+}
+
+.featured-article .card-content.blog-card__content h4.title {
+    margin-bottom: 8px;
+}
+
+.featured-article .card-content.blog-card__content span.truncation-fade {
+    display: none;
+}
+
+.featured-article .card-content.blog-card__content .excerpt {
+    margin-bottom: 8px;
+}
+
+.featured-article .card-content.blog-card__content a.button.button--link-style {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: center;
+    border: 0px solid !important;
+}
+
+.container.paginationContainer {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+}
+
+nav.pagination {
+    margin: 0 !important;
+}
+
+.featured-article .card-content h4.title.is-h6 {
+    line-height: 22px;
+}
+
+/* blog post page css code end */
 
 /* media query start  */
 @media only screen and (max-width: 1380px) {
