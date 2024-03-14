@@ -229,9 +229,7 @@
         <div class="socialShareIcons">
           Share: {% render 'social-share-buttons' context: article %}
         </div>
-        {%- if section.settings.blog_show_previous_and_next_buttons -%}
           <a class="nxtPostBtn" href="{{ blog.next_article }}">See Next Post {%- render 'arrowIcon' -%}</a>
-        {%- endif -%}
        </div>
       {% endpaginate %}
     </div>
