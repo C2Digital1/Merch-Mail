@@ -14,6 +14,7 @@
 
   assign article_breadcrumb = section.settings.article_breadcrumb
   assign show_featured_image = section.settings.show_featured_image
+  assign blog_show_excerpt = section.settings.blog_show_excerpt
 -%}
 {% comment %}Spacing{% endcomment %}
 {%- liquid
@@ -82,13 +83,13 @@
 
 {% comment %} HTML markup {% endcomment %}
 <section
-  class="section {{ css_class }} is-width-{{ width }}"
-  {% if animation != "none" %}
+  class="section articlContentSec {{ css_class }} is-width-{{ width }}"
+  {% if animation != 'none' %}
     data-scroll-class="{{ animation }}"
   {% endif %}
-  >
+>
   {% if article_breadcrumb %}
-    <div class="container">      
+    <div class="container">
       <div class="one-whole column has-padding-bottom">
         {% comment %} Breadcrumb {% endcomment %}
         {% render 'breadcrumb', context: 'article' %}
@@ -96,14 +97,20 @@
     </div>
   {% endif %}
 
+  <a href="{{ blog.url }}" class="backBtn button">
+    {%- render 'arrowIcon' -%}
+    Back
+  </a>
   <div class="container">
     {% if section.blocks.size > 0 and show_sidebar %}
-      <aside class="
+      <aside
+        class="
           sidebar-section
           one-fourth
           medium-down--one-whole
           column
-        ">
+        "
+      >
         {% for block in section.blocks %}
           <div
             id="shopify-section-{{ block.id }}"
@@ -118,70 +125,43 @@
           >
             {% if block.type == 'post_tags' %}
               {% comment %} Blog post tags {% endcomment %}
-              {%
-                render 'sidebar__blog-post-tags',
+              {% render 'sidebar__blog-post-tags',
                 block: block,
                 sidebar_heading_preset: sidebar_heading_preset,
                 blog_handle: block.settings.blog
               %}
             {% elsif block.type == 'featured_promo' %}
               {% comment %} Featured promo {% endcomment %}
-              {%
-                render 'sidebar__featured-promo',
-                sidebar_heading_preset: sidebar_heading_preset,
-                block: block
-              %}
+              {% render 'sidebar__featured-promo', sidebar_heading_preset: sidebar_heading_preset, block: block %}
             {% elsif block.type == 'html' %}
               {% comment %} Custom HTML {% endcomment %}
-              {%
-                render 'sidebar__html',
-                sidebar_heading_preset: sidebar_heading_preset,
-                block: block
-              %}
+              {% render 'sidebar__html', sidebar_heading_preset: sidebar_heading_preset, block: block %}
             {% elsif block.type == 'menu' %}
               {% comment %} Menu {% endcomment %}
-              {%
-                render 'sidebar__menu',
-                sidebar_heading_preset: sidebar_heading_preset,
-                menu: block.settings.menu
-              %}
+              {% render 'sidebar__menu', sidebar_heading_preset: sidebar_heading_preset, menu: block.settings.menu %}
             {% elsif block.type == 'newsletter' %}
               {% comment %} Newsletter {% endcomment %}
-              {%
-                render 'sidebar__newsletter',
-                sidebar_heading_preset: sidebar_heading_preset,
-                block: block
-              %}
+              {% render 'sidebar__newsletter', sidebar_heading_preset: sidebar_heading_preset, block: block %}
             {% elsif block.type == 'page' %}
               {% comment %} Page {% endcomment %}
-              {%
-                render 'sidebar__page',
-                sidebar_heading_preset: sidebar_heading_preset,
-                page: block.settings.page
-              %}
+              {% render 'sidebar__page', sidebar_heading_preset: sidebar_heading_preset, page: block.settings.page %}
             {% elsif block.type == 'recent_posts' %}
               {% comment %} Recent posts {% endcomment %}
-              {%
-                render 'sidebar__recent-posts',
+              {% render 'sidebar__recent-posts',
                 sidebar_heading_preset: sidebar_heading_preset,
                 block: block,
                 blog_handle: block.settings.blog
               %}
             {% elsif block.type == 'search' %}
               {% comment %} Search {% endcomment %}
-              {%
-                render 'sidebar__search',
+              {% render 'sidebar__search',
                 sidebar_heading_preset: sidebar_heading_preset,
                 block: block,
                 context: 'sidebar'
               %}
             {% elsif block.type == 'text' %}
               {% comment %} Text {% endcomment %}
-              {%
-                render 'sidebar__text',
-                sidebar_heading_preset: sidebar_heading_preset,
-                block: block
-              %}
+              {% render 'sidebar__text', sidebar_heading_preset: sidebar_heading_preset, block: block %}
             {% endif %}
           </div>
         {% endfor %}
@@ -192,8 +172,7 @@
       {% paginate article.comments by 50 %}
         {%- if show_heading != blank -%}
           <div class="container">
-            {%
-              render 'heading',
+            {% render 'heading',
               title: article.title,
               heading_tag: 'h1',
               context: 'article',
@@ -202,10 +181,16 @@
             %}
           </div>
         {% endif %}
+        {% if article.excerpt != blank and blog_show_excerpt %}
+          <div class="excerpt is-text articleExcerpt">
+            {{ article.excerpt }}
+            <span class="truncation-fade"></span>
+          </div>
+        {% endif %}
+
         <div class="blog-meta">
           <div class="one-whole column meta-info is-text-small">
-            {%
-              render 'meta-info-list',
+            {% render 'meta-info-list',
               blog_author: section.settings.blog_author,
               blog_date: section.settings.blog_date,
               blog_read_time: section.settings.read_time,
@@ -233,20 +218,16 @@
           <div class="one-whole column content">
             {% if article.image and show_featured_image %}
               <p>
-                {%
-                  render 'image-element',
-                  image: article.image,
-                  alt: article.image.alt,
-                  stretch_width: true
-                %}
+                {% render 'image-element', image: article.image, alt: article.image.alt, stretch_width: true %}
               </p>
             {% endif %}
 
             {{ article.content }}
           </div>
         </div>
+        {% render 'social-share-buttons' context: article %}
       {% endpaginate %}
-    </section>
+    </div>
   </div>
 </section>
 
@@ -331,6 +312,12 @@
       "type": "checkbox",
       "id": "article_breadcrumb",
       "label": "Show breadcrumbs",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_excerpt",
+      "label": "Show Excerpt",
       "default": true
     },
     {
