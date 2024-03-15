@@ -121,10 +121,84 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "index_collection_list_9YHbCd": {
+      "type": "index__collection-list",
+      "blocks": {
+        "collection_cq6jAB": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "",
+            "custom_link": "",
+            "custom_heading": "",
+            "custom_subheading": ""
+          }
+        },
+        "collection_Ud4Kpm": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "",
+            "custom_link": "",
+            "custom_heading": "",
+            "custom_subheading": ""
+          }
+        },
+        "collection_ip3qpn": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "",
+            "custom_link": "",
+            "custom_heading": "",
+            "custom_subheading": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_cq6jAB",
+        "collection_Ud4Kpm",
+        "collection_ip3qpn"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "top_heading": "",
+        "top_heading_preset": "is-h1",
+        "top_heading_alignment": "center",
+        "items_per_row": 3,
+        "align_height": false,
+        "collection_height": 400,
+        "enable_zoom": true,
+        "button_label": "View products",
+        "button_style": "button--secondary",
+        "heading_preset": "is-h5",
+        "subheading_preset": "is-text",
+        "text_align": "center",
+        "align_items": "center",
+        "justify_items": "center",
+        "overlay": "",
+        "collection_heading_below_image": false,
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
     "main",
-    "index_slideshow_classic_mBU469"
+    "index_slideshow_classic_mBU469",
+    "index_collection_list_9YHbCd"
   ]
 }
