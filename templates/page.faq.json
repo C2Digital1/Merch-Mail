@@ -60,10 +60,104 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "index_faq_hGi8Jh": {
+      "type": "index__faq",
+      "blocks": {
+        "heading_TiGJMR": {
+          "type": "heading",
+          "settings": {
+            "expand_heading": false,
+            "heading": "Shipping"
+          }
+        },
+        "faq_aYmDWc": {
+          "type": "faq",
+          "settings": {
+            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
+            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
+          }
+        },
+        "faq_AbQtCH": {
+          "type": "faq",
+          "settings": {
+            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
+            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
+          }
+        },
+        "faq_CN8zCX": {
+          "type": "faq",
+          "settings": {
+            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
+            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
+          }
+        },
+        "heading_EehQQG": {
+          "type": "heading",
+          "settings": {
+            "expand_heading": false,
+            "heading": "Printing"
+          }
+        },
+        "faq_RT8JMr": {
+          "type": "faq",
+          "settings": {
+            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
+            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
+          }
+        },
+        "faq_QGU6wB": {
+          "type": "faq",
+          "settings": {
+            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
+            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
+          }
+        },
+        "faq_dqKkt9": {
+          "type": "faq",
+          "settings": {
+            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
+            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TiGJMR",
+        "faq_aYmDWc",
+        "faq_AbQtCH",
+        "faq_CN8zCX",
+        "heading_EehQQG",
+        "faq_RT8JMr",
+        "faq_QGU6wB",
+        "faq_dqKkt9"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "enable_tags": false,
+        "question_preset": "is-h4",
+        "answer_preset": "is-text",
+        "width": "standard",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
     "main",
-    "index_heading_VpMBbn"
+    "index_heading_VpMBbn",
+    "index_faq_hGi8Jh"
   ]
 }
