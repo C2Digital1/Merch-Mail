@@ -726,8 +726,61 @@ a.prevNxtBtn.prevPostBtn svg {
     transform: scalex(-1);
 }
 
-
 /* article page css code end  */
+
+/* faq page css code start  */
+section.section.faqSection.is-width-small {
+    max-width: 1094px !important;
+}
+
+.faqSection h3.faq__block-title {
+    margin-bottom: 16px;
+}
+
+.faqSection .faq__item {
+    border: 1px solid #0C0C0C !important;
+    margin-bottom: 32px;
+}
+
+.faqSection .faq__item h6.title.faq__item-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px;
+    min-height: 80px;
+    cursor: pointer;
+}
+
+.faqSection .faq__item h6.title.faq__item-question span.faq__item-symbol {
+    position: relative;
+    transform: none !important;
+    padding: 0;
+    margin: 0 0 0 40px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+}
+
+.faqSection .faq__item h6.title.faq__item-question span.faq__item-symbol::before {
+    width: 16px !important;
+}
+
+.faqSection .faq__item h6.title.faq__item-question span.faq__item-symbol::after {
+    height: 16px !important;
+}
+
+section.faq__item-answer {
+    padding: 0 16px 16px 16px !important;
+    width: 100%;
+    max-width: 100% !important;
+}
+
+/* faq page css code end  */
+
 /* media query start  */
 @media only screen and (max-width: 1380px) {
 

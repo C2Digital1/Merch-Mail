@@ -2,53 +2,51 @@
   ** FAQs Section - static **
 {% endcomment %}
 
-
 {%- liquid
-  assign id = section.id 
-  assign enable_tags = section.settings.enable_tags 
-  assign question_preset = section.settings.question_preset 
-  assign answer_preset = section.settings.answer_preset 
+  assign id = section.id
+  assign enable_tags = section.settings.enable_tags
+  assign question_preset = section.settings.question_preset
+  assign answer_preset = section.settings.answer_preset
   assign question_color = section.settings.color_scheme.settings.scheme_heading
   assign answer_color = section.settings.color_scheme.settings.scheme_text
 -%}
 {% comment %}Spacing{% endcomment %}
 {%- liquid
-  assign padding_top = section.settings.padding_top 
-  assign padding_bottom = section.settings.padding_bottom 
-  assign padding_left = section.settings.padding_left 
-  assign padding_right = section.settings.padding_right 
-  assign margin_top = section.settings.margin_top 
-  assign margin_bottom = section.settings.margin_bottom 
-  assign padding_top_m = section.settings.padding_top_m 
-  assign padding_bottom_m = section.settings.padding_bottom_m 
-  assign padding_left_m = section.settings.padding_left_m 
-  assign padding_right_m = section.settings.padding_right_m 
-  assign margin_top_m = section.settings.margin_top_m 
-  assign margin_bottom_m = section.settings.margin_bottom_m 
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign padding_left = section.settings.padding_left
+  assign padding_right = section.settings.padding_right
+  assign margin_top = section.settings.margin_top
+  assign margin_bottom = section.settings.margin_bottom
+  assign padding_top_m = section.settings.padding_top_m
+  assign padding_bottom_m = section.settings.padding_bottom_m
+  assign padding_left_m = section.settings.padding_left_m
+  assign padding_right_m = section.settings.padding_right_m
+  assign margin_top_m = section.settings.margin_top_m
+  assign margin_bottom_m = section.settings.margin_bottom_m
 -%}
 {% comment %}General{% endcomment %}
 {%- liquid
-  assign width = section.settings.width 
+  assign width = section.settings.width
   assign section_bg = section.settings.color_scheme.settings.scheme_background
   if section.settings.color_scheme.settings.scheme_background_gradient != empty
     assign section_bg = section.settings.color_scheme.settings.scheme_background_gradient
   endif
-  assign animation = section.settings.animation | default: 'none' 
+  assign animation = section.settings.animation | default: 'none'
 -%}
 {% comment %}Advanced{% endcomment %}
 {%- liquid
-  assign css_class = section.settings.css_class 
-  assign custom_css = section.settings.custom_css 
+  assign css_class = section.settings.css_class
+  assign custom_css = section.settings.custom_css
 -%}
-
 
 {% comment %} Section specific CSS {% endcomment %}
 {% capture section_css %}
-  .faq__item-question{
+  .faq__block-title{
     color:{{ question_color }};
   }
-  .faq__item-symbol{
-    background:{{ question_color }};
+  .faq__item-question{
+    color:{{ answer_color }};
   }
   .faq__item-answer{
     color:{{ answer_color }};
@@ -118,42 +116,48 @@
   %}
 {% endstyle %}
 
-
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'faq' -%}
-        {
-          "@type": "Question",
-          "name": "{{ block.settings.question | escape }}",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "{{ block.settings.answer | strip_html }}"
-          }
-        }{%- unless forloop.last -%},{%- endunless -%}
-      {%- endif -%}
-    {%- endfor -%}
-  ]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'faq' -%}
+          {
+            "@type": "Question",
+            "name": "{{ block.settings.question | escape }}",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "{{ block.settings.answer | strip_html }}"
+            }
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endif -%}
+      {%- endfor -%}
+    ]
+  }
 </script>
 {% comment %} HTML markup {% endcomment %}
-<section class="section
-                {{ css_class }}
-                is-width-{{ width }} scheme_color-{{section.settings.color_scheme}}
-                "
-                {% if animation != "none" %}
-                  data-scroll-class="{{ animation }}"
-                {% endif %}>
-  
+<section
+  class="
+    section
+    faqSection
+    {{ css_class }}
+    is-width-{{ width }} scheme_color-{{section.settings.color_scheme}}
+  "
+  {% if animation != 'none' %}
+    data-scroll-class="{{ animation }}"
+  {% endif %}
+>
   {% if enable_tags == true %}
     <div class="container">
       <div class="faq__tags">
         {% for block in section.blocks %}
           {% if block.type == 'heading' %}
-            <a class="faq__tags-tag" data-tag="{{ block.settings.heading | append: block.id | handleize}}" href="#{{ block.settings.heading | handleize | append:block.id }}">
+            <a
+              class="faq__tags-tag"
+              data-tag="{{ block.settings.heading | append: block.id | handleize}}"
+              href="#{{ block.settings.heading | handleize | append:block.id }}"
+            >
               <h6 class="title">{{ block.settings.heading }}</h6>
             </a>
           {% endif %}
@@ -161,43 +165,37 @@
       </div>
     </div>
   {% endif %}
-  
-  
-  
+
   <div class="container has-limit has-no-side-gutter">
     {% for block in section.blocks %}
       {% if block.type == 'heading' %}
-        {% if current_heading %}
-          </div>
-          </div>
-        {% endif %}
-        {% assign current_heading = block.settings.heading|append:block.id %}
-          <div class="faq__block-main column  text-center one-whole"
-            id="{{ current_heading |handleize }}"
-            data-heading="{{ current_heading |handleize }}">
-            <h3 class="faq__block-title is-h3">
-              {{ block.settings.heading }}
-              <span class="faq__block-title-symbol"></span>
-            </h3>
-            <div class="faq__block-main__questions {% unless block.settings.expand_heading %} expand {% endunless %}">
+        <h3 class="faq__block-title is-h4">
+          {{ block.settings.heading }}
+        </h3>
       {% elsif block.type == 'faq' %}
-        <div class="faq__block-faq column one-whole"
-            data-heading="{{ current_heading |handleize }}">
-            <div class="faq__item">
-                <h6 class="title faq__item-question {{ question_preset }}">
-                  {{ block.settings.question }}
-                  <span class="faq__item-symbol"></span>
-                </h6>
-                <section  class="faq__item-answer {{ answer_preset }}">
-                    {{ block.settings.answer |replace:'[BR]','<br/>' }}
-                    {% if block.settings.image and block.settings.image != blank %}
-                    <div class="is-relative">
-                        {% render 'image-element', image: block.settings.image, alt: block.settings.image.alt, back_to_basics: true %}
-                    </div>   
-                    {% endif %}
-                </section>
-            </div>
+        <div
+          class="faq__block-faq column one-whole"
+          data-heading="{{ current_heading |handleize }}"
+        >
+          <div class="faq__item">
+            <h6 class="title faq__item-question {{ question_preset }}">
+              {{ block.settings.question }}
+              <span class="faq__item-symbol"></span>
+            </h6>
+            <section class="faq__item-answer {{ answer_preset }}">
+              {{ block.settings.answer | replace: '[BR]', '<br/>' }}
+              {% if block.settings.image and block.settings.image != blank %}
+                <div class="is-relative">
+                  {% render 'image-element',
+                    image: block.settings.image,
+                    alt: block.settings.image.alt,
+                    back_to_basics: true
+                  %}
+                </div>
+              {% endif %}
+            </section>
           </div>
+        </div>
       {% endif %}
     {% endfor %}
   </div>
@@ -207,18 +205,18 @@
 <script
   type="application/json"
   data-section-id="{{ id }}"
-  data-section-data >
+  data-section-data
+>
   {
     "enable_tags":{{ enable_tags | json }}
   }
 </script>
 <script data-theme-editor-load-script src="{{ 'z__jsFAQ.js' | asset_url }}"></script>
 
-
 {% schema %}
 {
   "name": "FAQ",
-  "class":"jsFAQ faq-section",
+  "class": "jsFAQ faq-section",
   "settings": [
     {
       "type": "color_scheme",
@@ -488,7 +486,7 @@
           "type": "richtext",
           "id": "answer",
           "label": "Answer",
-          "info":"Use [BR] for line breaks"
+          "info": "Use [BR] for line breaks"
         },
         {
           "type": "image_picker",
@@ -514,158 +512,153 @@
       ]
     }
   ],
-  "presets":[{
-      "name":"FAQ Section",
-      "category":"FAQ"
-  }]
+  "presets": [
+    {
+      "name": "FAQ Section",
+      "category": "FAQ"
+    }
+  ]
 }
 {% endschema %}
 
 {% stylesheet %}
-.faq__block-main {
-  margin-bottom: 10px;
-}
-.faq__tags {
-  display: flex;
-  margin-bottom: 16px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-.faq__tags .faq__tags-tag {
-  border: 1px solid;
-  padding: 10px;
-  margin: 0 8px;
-  border-radius: 4px;
-}
-.faq__block-main .faq__block-title {
-  cursor: pointer;
-  font-weight: 500;
-  text-align: left;
-  padding: 26px 40px;
-  background: #e6e6e6;
-  position: relative;
-  text-transform: uppercase;
-}
-.faq__block-main .faq__block-title .faq__block-title-symbol {
-  justify-content: center;
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  background: none;
-}
-.faq__block-main .faq__block-title .faq__block-title-symbol:before {
-  content: "";
-  width: 10px;
-  height: 2px;
-  transition: 0.3s;
-  background: black;
-}
-.faq__block-main .faq__block-title .faq__block-title-symbol:after {
-  content: "";
-  width: 2px;
-  height: 10px;
-  transition: 0.3s;
-  background: black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.faq__block-main .faq__block-title .faq__block-title-symbol:before {
-  width: 20px;
-  height: 4px;
-}
-.faq__block-main .faq__block-title .faq__block-title-symbol:after {
-  height: 20px;
-  width: 4px;
-}
-.faq__block-main.tab--open .faq__block-title .faq__block-title-symbol:before {
-  transform: translateY(-50%) rotate(180deg);
-}
-.faq__block-main.tab--open .faq__block-title .faq__block-title-symbol:after {
-  display: none;
-}
-.faq__block-main__questions:not(.expand) {
-  display: none;
-}
-.faq__block-faq .faq__item {
-  position: relative;
-  cursor: pointer;
-  border: 1px solid #dedede;
-  border-bottom: none;
-  text-align: left;
-}
-.faq__block-faq .faq__item .faq__item-answer {
-  padding: 18px 40px;
-  padding-top: 0;
-  display: none;
-  text-align: left;
-  font-weight: 400;
-  display: none;
-}
-.faq__block-faq .faq__item .faq__item-answer p:not(:last-child) {
-  margin-bottom: 20px;
-}
-.faq__block-faq .faq__item .faq__item-question {
-  padding: 18px 40px;
-  padding-right: 60px;
-  position: relative;
-  margin: 0;
-}
-.faq__block-faq .faq__item .faq__item-question .faq__item-symbol {
-  justify-content: center;
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  background: none;
-}
-.faq__block-faq .faq__item .faq__item-question .faq__item-symbol:before {
-  content: "";
-  width: 10px;
-  height: 2px;
-  transition: 0.3s;
-  background: black;
-}
-.faq__block-faq .faq__item .faq__item-question .faq__item-symbol:after {
-  content: "";
-  width: 2px;
-  height: 10px;
-  transition: 0.3s;
-  background: black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.faq__block-faq
-  .faq__item.tab--open
-  .faq__item-question
-  .faq__item-symbol:before {
-  transform: translateY(-50%) rotate(180deg);
-}
-.faq__block-faq
-  .faq__item.tab--open
-  .faq__item-question
-  .faq__item-symbol:after {
-  display: none;
-}
-.faq__block-faq:last-child .faq__item {
-  border-bottom: 1px solid #dedede;
-}
-
+  .faq__block-main {
+    margin-bottom: 10px;
+  }
+  .faq__tags {
+    display: flex;
+    margin-bottom: 16px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .faq__tags .faq__tags-tag {
+    border: 1px solid;
+    padding: 10px;
+    margin: 0 8px;
+    border-radius: 4px;
+  }
+  .faq__block-main .faq__block-title {
+    cursor: pointer;
+    font-weight: 500;
+    text-align: left;
+    padding: 26px 40px;
+    background: #e6e6e6;
+    position: relative;
+    text-transform: uppercase;
+  }
+  .faq__block-main .faq__block-title .faq__block-title-symbol {
+    justify-content: center;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    background: none;
+  }
+  .faq__block-main .faq__block-title .faq__block-title-symbol:before {
+    content: '';
+    width: 10px;
+    height: 2px;
+    transition: 0.3s;
+    background: black;
+  }
+  .faq__block-main .faq__block-title .faq__block-title-symbol:after {
+    content: '';
+    width: 2px;
+    height: 10px;
+    transition: 0.3s;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .faq__block-main .faq__block-title .faq__block-title-symbol:before {
+    width: 20px;
+    height: 4px;
+  }
+  .faq__block-main .faq__block-title .faq__block-title-symbol:after {
+    height: 20px;
+    width: 4px;
+  }
+  .faq__block-main.tab--open .faq__block-title .faq__block-title-symbol:before {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  .faq__block-main.tab--open .faq__block-title .faq__block-title-symbol:after {
+    display: none;
+  }
+  .faq__block-main__questions:not(.expand) {
+    display: none;
+  }
+  .faq__block-faq .faq__item {
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #dedede;
+    border-bottom: none;
+    text-align: left;
+  }
+  .faq__block-faq .faq__item .faq__item-answer {
+    padding: 18px 40px;
+    padding-top: 0;
+    display: none;
+    text-align: left;
+    font-weight: 400;
+    display: none;
+  }
+  .faq__block-faq .faq__item .faq__item-answer p:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  .faq__block-faq .faq__item .faq__item-question {
+    padding: 18px 40px;
+    padding-right: 60px;
+    position: relative;
+    margin: 0;
+  }
+  .faq__block-faq .faq__item .faq__item-question .faq__item-symbol {
+    justify-content: center;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    background: none;
+  }
+  .faq__block-faq .faq__item .faq__item-question .faq__item-symbol:before {
+    content: '';
+    width: 10px;
+    height: 2px;
+    transition: 0.3s;
+    background: black;
+  }
+  .faq__block-faq .faq__item .faq__item-question .faq__item-symbol:after {
+    content: '';
+    width: 2px;
+    height: 10px;
+    transition: 0.3s;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .faq__block-faq .faq__item.tab--open .faq__item-question .faq__item-symbol:before {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  .faq__block-faq .faq__item.tab--open .faq__item-question .faq__item-symbol:after {
+    display: none;
+  }
+  .faq__block-faq:last-child .faq__item {
+    border-bottom: 1px solid #dedede;
+  }
 {% endstylesheet %}
 
 {% javascript %}
