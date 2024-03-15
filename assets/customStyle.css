@@ -779,6 +779,14 @@ section.faq__item-answer {
     max-width: 100% !important;
 }
 
+.btnsContainer a.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    min-width: 190px;
+}
+
 /* faq page css code end  */
 
 /* media query start  */
