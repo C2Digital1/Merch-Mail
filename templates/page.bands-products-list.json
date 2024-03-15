@@ -57,10 +57,39 @@
             "color_scheme_mobile": "",
             "mobile_image_crop": "none"
           }
+        },
+        "image_6Rh3zj": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "scheme-27f0274f-ec98-4921-9bec-179906da6ceb",
+            "link": "",
+            "preheading": "",
+            "heading": "Merch Categories",
+            "subheading": "",
+            "preheading_preset": "is-h6",
+            "heading_preset": "is-h3",
+            "subheading_preset": "is-text",
+            "text_alignment": "left",
+            "text_horizontal_position": "left",
+            "text_vertical_position": "center",
+            "background_color": "",
+            "border_color": "#FFFFFF",
+            "border_width": 0,
+            "text_width": 100,
+            "button_1": "Shop All",
+            "button_1_link": "",
+            "button_1_style": "button--secondary",
+            "button_2": "",
+            "button_2_link": "",
+            "button_2_style": "button--secondary",
+            "color_scheme_mobile": "scheme-27f0274f-ec98-4921-9bec-179906da6ceb",
+            "mobile_image_crop": "none"
+          }
         }
       },
       "block_order": [
-        "image_LGyEw7"
+        "image_LGyEw7",
+        "image_6Rh3zj"
       ],
       "settings": {
         "image_transition": "slide",
