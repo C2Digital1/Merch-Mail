@@ -26,6 +26,35 @@
         "custom_css": ""
       }
     },
+    "index_heading_VpMBbn": {
+      "type": "index__heading",
+      "settings": {
+        "color_scheme": "background-1",
+        "preheading": "",
+        "heading": "{{ page.title }}",
+        "subheading": "",
+        "preheading_preset": "is-h6",
+        "heading_preset": "is-h3",
+        "subheading_preset": "is-text",
+        "heading_alignment": "center",
+        "width": "standard",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
     "351c7a30-c1d8-4606-a69d-aab9a70f1cf1": {
       "type": "index__faq",
       "blocks": {
@@ -74,6 +103,7 @@
   },
   "order": [
     "main",
+    "index_heading_VpMBbn",
     "351c7a30-c1d8-4606-a69d-aab9a70f1cf1"
   ]
 }
