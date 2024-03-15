@@ -2,6 +2,7 @@
   "sections": {
     "main": {
       "type": "page-content__main",
+      "disabled": true,
       "settings": {
         "show_heading": true,
         "heading_preset": "is-h1",
@@ -48,6 +49,7 @@
         "8494762a-7c6e-4ec7-babb-ff4161a1dda5"
       ],
       "settings": {
+        "color_scheme": "",
         "enable_tags": true,
         "question_preset": "is-h4",
         "answer_preset": "is-text",
