@@ -148,8 +148,9 @@
         "collection_ip3qpn": {
           "type": "collection",
           "settings": {
-            "feature_collection": "",
+            "feature_collection": "tank-tops",
             "custom_link": "",
+            "custom_image": "shopify:\/\/shop_images\/Desktop_15.png",
             "custom_heading": "",
             "custom_subheading": ""
           }
