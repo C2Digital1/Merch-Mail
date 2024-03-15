@@ -31,21 +31,21 @@
       "settings": {
         "color_scheme": "background-1",
         "preheading": "",
-        "heading": "{{ page.title }}",
+        "heading": "How Merch Mail works",
         "subheading": "",
-        "button_1_label": "Bands",
-        "button_1_link": "shopify:\/\/pages\/faq",
+        "button_1_label": "",
+        "button_1_link": "",
         "button_1_style": "button--primary",
-        "button_2_label": "Fans",
-        "button_2_link": "shopify:\/\/pages\/fans-faq",
+        "button_2_label": "",
+        "button_2_link": "",
         "button_2_style": "button--secondary",
         "preheading_preset": "is-h6",
         "heading_preset": "is-h3",
         "subheading_preset": "is-text",
         "heading_alignment": "center",
         "width": "standard",
-        "padding_top": 51,
-        "padding_bottom": 51,
+        "padding_top": 91,
+        "padding_bottom": 91,
         "padding_left": 0,
         "padding_right": 0,
         "margin_top": 0,
@@ -60,128 +60,10 @@
         "css_class": "",
         "custom_css": ""
       }
-    },
-    "index_faq_hGi8Jh": {
-      "type": "index__faq",
-      "blocks": {
-        "heading_TiGJMR": {
-          "type": "heading",
-          "settings": {
-            "expand_heading": false,
-            "heading": "Shipping"
-          }
-        },
-        "faq_aYmDWc": {
-          "type": "faq",
-          "settings": {
-            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
-            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
-          }
-        },
-        "faq_AbQtCH": {
-          "type": "faq",
-          "settings": {
-            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
-            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
-          }
-        },
-        "faq_CN8zCX": {
-          "type": "faq",
-          "settings": {
-            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
-            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
-          }
-        },
-        "heading_EehQQG": {
-          "type": "heading",
-          "settings": {
-            "expand_heading": false,
-            "heading": "Printing"
-          }
-        },
-        "faq_RT8JMr": {
-          "type": "faq",
-          "settings": {
-            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
-            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
-          }
-        },
-        "faq_QGU6wB": {
-          "type": "faq",
-          "settings": {
-            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
-            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
-          }
-        },
-        "faq_dqKkt9": {
-          "type": "faq",
-          "settings": {
-            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
-            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
-          }
-        },
-        "heading_fiHgGq": {
-          "type": "heading",
-          "settings": {
-            "expand_heading": false,
-            "heading": "Returns policy"
-          }
-        },
-        "faq_Wj67WQ": {
-          "type": "faq",
-          "settings": {
-            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
-            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
-          }
-        },
-        "faq_gGKKyD": {
-          "type": "faq",
-          "settings": {
-            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
-            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_TiGJMR",
-        "faq_aYmDWc",
-        "faq_AbQtCH",
-        "faq_CN8zCX",
-        "heading_EehQQG",
-        "faq_RT8JMr",
-        "faq_QGU6wB",
-        "faq_dqKkt9",
-        "heading_fiHgGq",
-        "faq_Wj67WQ",
-        "faq_gGKKyD"
-      ],
-      "settings": {
-        "color_scheme": "scheme-8a16c616-abc9-4c2a-b48a-c26d30fdeddf",
-        "enable_tags": false,
-        "question_preset": "is-h6",
-        "answer_preset": "is-text",
-        "width": "small",
-        "padding_top": 32,
-        "padding_bottom": 40,
-        "padding_left": 0,
-        "padding_right": 0,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_top_m": 24,
-        "padding_bottom_m": 32,
-        "padding_left_m": 0,
-        "padding_right_m": 0,
-        "margin_top_m": 0,
-        "margin_bottom_m": 0,
-        "animation": "none",
-        "css_class": "",
-        "custom_css": ""
-      }
     }
   },
   "order": [
     "main",
-    "index_heading_VpMBbn",
-    "index_faq_hGi8Jh"
+    "index_heading_VpMBbn"
   ]
 }
