@@ -154,12 +154,23 @@
             "custom_heading": "",
             "custom_subheading": ""
           }
+        },
+        "collection_JNQYB4": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "t-shirts",
+            "custom_link": "",
+            "custom_image": "shopify:\/\/shop_images\/Desktop_16.png",
+            "custom_heading": "",
+            "custom_subheading": ""
+          }
         }
       },
       "block_order": [
         "collection_cq6jAB",
         "collection_Ud4Kpm",
-        "collection_ip3qpn"
+        "collection_ip3qpn",
+        "collection_JNQYB4"
       ],
       "settings": {
         "color_scheme": "",
