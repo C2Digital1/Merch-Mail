@@ -164,13 +164,24 @@
             "custom_heading": "",
             "custom_subheading": ""
           }
+        },
+        "collection_iUWwEk": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "hoodies",
+            "custom_link": "",
+            "custom_image": "shopify:\/\/shop_images\/Desktop_17.png",
+            "custom_heading": "",
+            "custom_subheading": ""
+          }
         }
       },
       "block_order": [
         "collection_cq6jAB",
         "collection_Ud4Kpm",
         "collection_ip3qpn",
-        "collection_JNQYB4"
+        "collection_JNQYB4",
+        "collection_iUWwEk"
       ],
       "settings": {
         "color_scheme": "",
