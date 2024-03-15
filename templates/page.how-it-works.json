@@ -60,10 +60,66 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "index_image_with_text_ACy8ip": {
+      "type": "index__image-with-text",
+      "blocks": {
+        "image_rGnPkF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Desktop_7.png",
+            "image_crop": "none",
+            "image_link": ""
+          }
+        },
+        "text_RRJQJW": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "",
+            "heading": "Heading text here",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+            "heading_preset": "is-h2",
+            "text_preset": "is-text",
+            "button_label": "View all",
+            "link": "",
+            "button_style": "button--primary",
+            "alignment": "left",
+            "vertical_position": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_rGnPkF",
+        "text_RRJQJW"
+      ],
+      "settings": {
+        "useCustomStyle": false,
+        "width": "standard",
+        "show_gutter": true,
+        "desktop_height": 0,
+        "mobile_height": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
     "main",
-    "index_heading_VpMBbn"
+    "index_heading_VpMBbn",
+    "index_image_with_text_ACy8ip"
   ]
 }
