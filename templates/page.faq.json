@@ -1,0 +1,77 @@
+{
+    "sections": {
+      "main": {
+        "type": "page-content__main",
+        "settings": {
+          "show_heading": true,
+          "heading_preset": "is-h1",
+          "heading_alignment": "left",
+          "width": "standard",
+          "padding_top": 0,
+          "padding_bottom": 0,
+          "padding_left": 0,
+          "padding_right": 0,
+          "margin_top": 0,
+          "margin_bottom": 0,
+          "padding_top_m": 0,
+          "padding_bottom_m": 0,
+          "padding_left_m": 0,
+          "padding_right_m": 0,
+          "margin_top_m": 0,
+          "margin_bottom_m": 0,
+          "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+          "animation": "none",
+          "css_class": "",
+          "custom_css": ""
+        }
+      },
+      "351c7a30-c1d8-4606-a69d-aab9a70f1cf1": {
+        "type": "index__faq",
+        "blocks": {
+          "138d4c0a-cbc0-4fbb-aff2-c8f44bb4670e": {
+            "type": "heading",
+            "settings": {
+              "expand_heading": true,
+              "heading": "Heading"
+            }
+          },
+          "8494762a-7c6e-4ec7-babb-ff4161a1dda5": {
+            "type": "faq",
+            "settings": {
+              "question": "Question Here",
+              "answer": "<p>Answer Here<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "138d4c0a-cbc0-4fbb-aff2-c8f44bb4670e",
+          "8494762a-7c6e-4ec7-babb-ff4161a1dda5"
+        ],
+        "settings": {
+          "enable_tags": true,
+          "question_preset": "is-h4",
+          "answer_preset": "is-text",
+          "width": "standard",
+          "padding_top": 0,
+          "padding_bottom": 0,
+          "padding_left": 0,
+          "padding_right": 0,
+          "margin_top": 0,
+          "margin_bottom": 0,
+          "padding_top_m": 0,
+          "padding_bottom_m": 0,
+          "padding_left_m": 0,
+          "padding_right_m": 0,
+          "margin_top_m": 0,
+          "margin_bottom_m": 0,
+          "animation": "none",
+          "css_class": "",
+          "custom_css": ""
+        }
+      }
+    },
+    "order": [
+      "main",
+      "351c7a30-c1d8-4606-a69d-aab9a70f1cf1"
+    ]
+  }
