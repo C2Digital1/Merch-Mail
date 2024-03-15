@@ -33,6 +33,12 @@
         "preheading": "",
         "heading": "{{ page.title }}",
         "subheading": "",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_1_style": "button--secondary",
+        "button_2_label": "",
+        "button_2_link": "",
+        "button_2_style": "button--secondary",
         "preheading_preset": "is-h6",
         "heading_preset": "is-h3",
         "subheading_preset": "is-text",
@@ -54,34 +60,10 @@
         "css_class": "",
         "custom_css": ""
       }
-    },
-    "custom_liquid_hHh7Ui": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "",
-        "width": "wide",
-        "padding_top": 400,
-        "padding_bottom": 400,
-        "padding_left": 0,
-        "padding_right": 0,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_top_m": 300,
-        "padding_bottom_m": 300,
-        "padding_left_m": 0,
-        "padding_right_m": 0,
-        "margin_top_m": 0,
-        "margin_bottom_m": 0,
-        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
-        "animation": "none",
-        "css_class": "",
-        "custom_css": ""
-      }
     }
   },
   "order": [
     "main",
-    "index_heading_VpMBbn",
-    "custom_liquid_hHh7Ui"
+    "index_heading_VpMBbn"
   ]
 }
