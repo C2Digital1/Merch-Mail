@@ -137,6 +137,7 @@
         "image_9RrcPt": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Desktop_8.png",
             "image_crop": "none",
             "image_link": ""
           }
