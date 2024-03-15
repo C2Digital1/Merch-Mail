@@ -807,6 +807,36 @@ h2.preHeadingTxt {
 
 /* how it work page css code end  */
 
+/* select product section css code start  */
+.list-collection--align-height .image-element__wrap {
+    max-height: none !important;
+    max-width: 100% !important;
+}
+
+.list-collection--align-height .image-element__wrap img {
+    height: auto !important;
+    max-height: none !important;
+}
+
+.list-collection__thumbnail {
+    margin-bottom: 40px;
+}
+
+.one-third.column.thumbnail.list-collection--align-height.list-collection__thumbnail.medium-down--one-half.small-down--one-whole {
+    width: calc(33.33% - 20px);
+    margin-right: 30px;
+    margin-left: 0;
+}
+
+.one-third.column.thumbnail.list-collection--align-height.list-collection__thumbnail.medium-down--one-half.small-down--one-whole:nth-child(3n) {
+    margin-right: 0;
+}
+
+.collection-info__caption .title {
+    margin-bottom: 26px;
+}
+
+/* select product section css code end  */
 
 /* media query start  */
 @media only screen and (max-width: 1500px) {
