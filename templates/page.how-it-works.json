@@ -225,6 +225,61 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "index_image_with_text_ARhkFw": {
+      "type": "index__image-with-text",
+      "blocks": {
+        "text_Bbjm3m": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "",
+            "heading": "Tour with fewer boxes, more fan options and never have merch left over",
+            "text": "<p>Varius vel pharetra vel turpis nunc eget lorem. Posuere sollicitudin aliquam ultrices sagittis. Dolor morbi non arcu risus quis varius quam. Vel facilisis volutpat est velit egestas. Nunc id cursus metus aliquam eleifend mi in. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. Elementum facilisis leo vel fringilla.<\/p>",
+            "heading_preset": "is-h4",
+            "text_preset": "is-text",
+            "button_label": "",
+            "link": "",
+            "button_style": "button--primary",
+            "alignment": "left",
+            "vertical_position": "center"
+          }
+        },
+        "image_3itrEF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Desktop_10.png",
+            "image_crop": "none",
+            "image_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_Bbjm3m",
+        "image_3itrEF"
+      ],
+      "settings": {
+        "useCustomStyle": false,
+        "width": "standard",
+        "show_gutter": true,
+        "desktop_height": 0,
+        "mobile_height": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
@@ -232,6 +287,7 @@
     "index_heading_VpMBbn",
     "index_image_with_text_ACy8ip",
     "index_image_with_text_7KxADg",
-    "index_image_with_text_YQRA6P"
+    "index_image_with_text_YQRA6P",
+    "index_image_with_text_ARhkFw"
   ]
 }
