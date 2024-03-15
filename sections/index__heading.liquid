@@ -17,6 +17,13 @@
   assign subheading_color = section.settings.color_scheme.settings.scheme_text
 
   assign heading_alignment = section.settings.heading_alignment
+
+  assign button_1 = section.settings.button_1
+  assign button_1_link = section.settings.button_1_link
+  assign button_1_style = section.settings.button_1_style
+  assign button_2 = section.settings.button_2
+  assign button_2_link = section.settings.button_2_link
+  assign button_2_style = section.settings.button_2_style
 -%}
 {% comment %}Spacing{% endcomment %}
 {%- liquid
@@ -33,6 +40,16 @@
   assign margin_top_m = section.settings.margin_top_m
   assign margin_bottom_m = section.settings.margin_bottom_m
 -%}
+
+{%- liquid
+  if button_1 != blank or button_2 != blank
+    assign buttons = true
+  else
+    assign buttons = false
+  endif
+
+-%}
+
 {% comment %}Layout{% endcomment %}
 {%- liquid
   assign width = section.settings.width
@@ -185,6 +202,18 @@
               {{ subheading }}
             </div>
           {% endif %}
+          {% if buttons %}
+            <div class="btnsContainer buttons is-{{ heading_alignment }}">
+              {% if button_1 != blank %}
+                {% render 'button', label: button_1, href: button_1_link, type: 'link', style: button_1_style %}
+              {% endif %}
+              {% if button_2 != blank %}
+                {% render 'button', label: button_2, href: button_2_link, type: 'link', style: button_2_style %}
+              {% endif %}
+            </div>
+          {% endif %}
+
+
         </div>
       </div>
     </div>
@@ -219,6 +248,72 @@
       "id": "subheading",
       "label": "Subheading",
       "default": "<p>Additional text or description of section</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_1",
+      "label": "Button 1 label",
+      "default": "Button 1"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 link"
+    },
+    {
+      "type": "select",
+      "id": "button_1_style",
+      "label": "Button 1 style",
+      "options": [
+        {
+          "value": "button--primary",
+          "label": "Primary"
+        },
+        {
+          "value": "button--secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "button--link-style",
+          "label": "Link style"
+        }
+      ],
+      "default": "button--secondary"
+    },
+    {
+      "type": "header",
+      "content": "Button 2"
+    },
+    {
+      "type": "text",
+      "id": "button_2",
+      "label": "Button 2 label",
+      "default": "Button 2"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 link"
+    },
+    {
+      "type": "select",
+      "id": "button_2_style",
+      "label": "Button 2 style",
+      "options": [
+        {
+          "value": "button--primary",
+          "label": "Primary"
+        },
+        {
+          "value": "button--secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "button--link-style",
+          "label": "Link style"
+        }
+      ],
+      "default": "button--secondary"
     },
     {
       "type": "header",
