@@ -70,18 +70,28 @@
     },
     "main": {
       "type": "collection__main",
+      "blocks": {
+        "faceted_filtering_AypVMc": {
+          "type": "faceted_filtering",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "faceted_filtering_AypVMc"
+      ],
       "settings": {
-        "show_heading": true,
+        "show_heading": false,
         "heading_preset": "is-h1",
         "heading_alignment": "left",
-        "collection_breadcrumb": true,
-        "collection_tags": true,
+        "collection_breadcrumb": false,
+        "collection_tags": false,
         "collection_sort": true,
         "items_per_row": 3,
-        "mobile_items_per_row": "1",
-        "pagination_limit": 48,
-        "pagination_type": "basic_pagination",
-        "show_sidebar": false,
+        "mobile_items_per_row": "2",
+        "pagination_limit": 15,
+        "pagination_type": "load_more",
+        "show_sidebar": true,
         "sidebar_heading_preset": "is-h5",
         "sidebar_position": "left",
         "show_promo_banner": false,
