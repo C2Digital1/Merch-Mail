@@ -112,6 +112,9 @@
         {% if block.type != 'image' %}
           {% comment %} Content settings {% endcomment %}
           {%- liquid
+            assign preHeading = block.settings.preHeading
+            assign preHeadingPreset = block.settings.preHeadingPreset
+            
             assign heading = block.settings.heading
             assign heading_preset = block.settings.heading_preset
             assign text = block.settings.text
@@ -149,6 +152,7 @@
 
           <div
             class="
+              imgTxtCol-{{forloop.index}}
               image-with-text__text-column
               image-with-text__column scheme_color-{{block.settings.color_scheme}}
               {% render 'column-width', value: forloop.length %}
@@ -165,6 +169,11 @@
             id="shopify-section-{{ block.id }}"
           >
             <div class="image-with-text__wrapper">
+              {%  if preHeading != blank %}
+                <h2 class="preHeadingTxt {{ preHeadingPreset }}">
+                  {{ preHeading }}
+                </h2>
+              {% endif %}
               {% if heading != blank %}
                 <h3 class="image-with-text__heading text-align-{{ alignment }} {{ heading_preset }}">
                   {{ heading }}
@@ -490,6 +499,11 @@
         {
           "type": "header",
           "content": "Content"
+        },        
+        {
+          "type": "text",
+          "id": "preHeading",
+          "label": "Pre Heading"
         },
         {
           "type": "text",
@@ -506,6 +520,46 @@
         {
           "type": "header",
           "content": "Presets"
+        },
+        {
+          "type": "select",
+          "id": "preHeadingPreset",
+          "label": "Pre Heading Preset",
+          "options": [
+            {
+              "value": "is-h1",
+              "label": "H1"
+            },
+            {
+              "value": "is-h2",
+              "label": "H2"
+            },
+            {
+              "value": "is-h3",
+              "label": "H3"
+            },
+            {
+              "value": "is-h4",
+              "label": "H4"
+            },
+            {
+              "value": "is-h5",
+              "label": "H5"
+            },
+            {
+              "value": "is-h6",
+              "label": "H6"
+            },
+            {
+              "value": "is-text",
+              "label": "Regular"
+            },
+            {
+              "value": "is-text-small",
+              "label": "Small"
+            }
+          ],
+          "default": "is-h6"
         },
         {
           "type": "select",
