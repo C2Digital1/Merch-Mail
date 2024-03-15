@@ -790,6 +790,20 @@ section.faq__item-answer {
 /* faq page css code end  */
 
 /* how it work page css code start  */
+h2.preHeadingTxt {
+    margin-bottom: 16px;
+}
+
+.image-with-text__wrapper .buttons a.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    max-width: 100%;
+    min-width: 190px;
+    min-height: 48px;
+    padding: 10px;
+}
 
 /* how it work page css code end  */
 
