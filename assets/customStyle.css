@@ -644,11 +644,11 @@ a.backBtn.button {
     text-align: center;
     font-family: 'Cubano-Regular';
 }
-
 a.backBtn.button svg {
     width: 20px;
     height: 20px;
-    margin-right: 4px;
+    margin-right: 10px;
+    transform: scalex(-1);
 }
 
 /* article page css code end  */
