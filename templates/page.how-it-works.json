@@ -190,7 +190,7 @@
           "type": "text",
           "settings": {
             "color_scheme": "",
-            "preHeading": "",
+            "preHeading": "Step 3",
             "heading": "Pick date for orders toprint (usually after tour)",
             "text": "<p>Varius vel pharetra vel turpis nunc eget lorem. Posuere sollicitudin aliquam ultrices sagittis. Dolor morbi non arcu risus quis varius quam. Vel facilisis volutpat est velit egestas. Nunc id cursus metus aliquam eleifend mi in. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. Elementum facilisis leo vel fringilla.<\/p><p>Varius vel pharetra vel turpis nunc eget lorem. Posuere sollicitudin aliquam ultrices sagittis. Dolor morbi non arcu risus quis varius quam. Vel facilisis volutpat est velit egestas.<\/p>",
             "preHeadingPreset": "is-h6",
@@ -239,7 +239,7 @@
           "type": "text",
           "settings": {
             "color_scheme": "",
-            "preHeading": "",
+            "preHeading": "Step 4",
             "heading": "Tour with fewer boxes, more fan options and never have merch left over",
             "text": "<p>Varius vel pharetra vel turpis nunc eget lorem. Posuere sollicitudin aliquam ultrices sagittis. Dolor morbi non arcu risus quis varius quam. Vel facilisis volutpat est velit egestas. Nunc id cursus metus aliquam eleifend mi in. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. Elementum facilisis leo vel fringilla.<\/p>",
             "preHeadingPreset": "is-h6",
