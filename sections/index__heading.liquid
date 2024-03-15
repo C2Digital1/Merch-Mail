@@ -18,10 +18,10 @@
 
   assign heading_alignment = section.settings.heading_alignment
 
-  assign button_1 = section.settings.button_1
+  assign button_1 = section.settings.button_1_label
   assign button_1_link = section.settings.button_1_link
   assign button_1_style = section.settings.button_1_style
-  assign button_2 = section.settings.button_2
+  assign button_2 = section.settings.button_2_label
   assign button_2_link = section.settings.button_2_link
   assign button_2_style = section.settings.button_2_style
 -%}
@@ -251,9 +251,8 @@
     },
     {
       "type": "text",
-      "id": "button_1",
-      "label": "Button 1 label",
-      "default": "Button 1"
+      "id": "button_1_label",
+      "label": "Button 1 label"
     },
     {
       "type": "url",
@@ -286,9 +285,8 @@
     },
     {
       "type": "text",
-      "id": "button_2",
-      "label": "Button 2 label",
-      "default": "Button 2"
+      "id": "button_2_label",
+      "label": "Button 2 label"
     },
     {
       "type": "url",
