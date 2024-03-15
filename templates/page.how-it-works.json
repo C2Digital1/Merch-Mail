@@ -258,7 +258,7 @@
         "image_3itrEF"
       ],
       "settings": {
-        "useCustomStyle": false,
+        "useCustomStyle": true,
         "width": "standard",
         "show_gutter": true,
         "desktop_height": 0,
