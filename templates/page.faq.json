@@ -119,6 +119,27 @@
             "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
             "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
           }
+        },
+        "heading_fiHgGq": {
+          "type": "heading",
+          "settings": {
+            "expand_heading": false,
+            "heading": "Returns policy"
+          }
+        },
+        "faq_Wj67WQ": {
+          "type": "faq",
+          "settings": {
+            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
+            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
+          }
+        },
+        "faq_gGKKyD": {
+          "type": "faq",
+          "settings": {
+            "question": "Platea dictumst vestibulum rhoncus est pellentesque elit",
+            "answer": "<p>Sed turpis tincidunt id aliquet risus feugiat in ante. Commodo viverra maecenas accumsan lacus vel facilisis. Ultrices mi tempus imperdiet nulla. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum.<\/p>"
+          }
         }
       },
       "block_order": [
@@ -129,16 +150,19 @@
         "heading_EehQQG",
         "faq_RT8JMr",
         "faq_QGU6wB",
-        "faq_dqKkt9"
+        "faq_dqKkt9",
+        "heading_fiHgGq",
+        "faq_Wj67WQ",
+        "faq_gGKKyD"
       ],
       "settings": {
         "color_scheme": "",
         "enable_tags": false,
         "question_preset": "is-h4",
         "answer_preset": "is-text",
-        "width": "standard",
-        "padding_top": 0,
-        "padding_bottom": 0,
+        "width": "small",
+        "padding_top": 32,
+        "padding_bottom": 40,
         "padding_left": 0,
         "padding_right": 0,
         "margin_top": 0,
