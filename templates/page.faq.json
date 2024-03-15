@@ -158,7 +158,7 @@
       "settings": {
         "color_scheme": "",
         "enable_tags": false,
-        "question_preset": "is-h4",
+        "question_preset": "is-h6",
         "answer_preset": "is-text",
         "width": "small",
         "padding_top": 32,
