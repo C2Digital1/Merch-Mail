@@ -205,7 +205,7 @@
         "enable_zoom": false,
         "button_label": "",
         "button_style": "button--secondary",
-        "heading_preset": "is-h5",
+        "heading_preset": "is-h4",
         "subheading_preset": "is-text",
         "text_align": "center",
         "align_items": "end",
