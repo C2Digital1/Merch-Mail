@@ -174,16 +174,10 @@
     "index_image_with_text_YQRA6P": {
       "type": "index__image-with-text",
       "blocks": {
-        "image_73zUEy": {
-          "type": "image",
-          "settings": {
-            "image_crop": "none",
-            "image_link": ""
-          }
-        },
         "image_HX8iAt": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Desktop_9.png",
             "image_crop": "none",
             "image_link": ""
           }
@@ -192,11 +186,11 @@
           "type": "text",
           "settings": {
             "color_scheme": "",
-            "heading": "Heading text here",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
-            "heading_preset": "is-h2",
+            "heading": "Pick date for orders toprint (usually after tour)",
+            "text": "<p>Varius vel pharetra vel turpis nunc eget lorem. Posuere sollicitudin aliquam ultrices sagittis. Dolor morbi non arcu risus quis varius quam. Vel facilisis volutpat est velit egestas. Nunc id cursus metus aliquam eleifend mi in. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. Elementum facilisis leo vel fringilla.<\/p><p>Varius vel pharetra vel turpis nunc eget lorem. Posuere sollicitudin aliquam ultrices sagittis. Dolor morbi non arcu risus quis varius quam. Vel facilisis volutpat est velit egestas.<\/p>",
+            "heading_preset": "is-h4",
             "text_preset": "is-text",
-            "button_label": "View all",
+            "button_label": "",
             "link": "",
             "button_style": "button--primary",
             "alignment": "left",
@@ -205,7 +199,6 @@
         }
       },
       "block_order": [
-        "image_73zUEy",
         "image_HX8iAt",
         "text_RcprHU"
       ],
