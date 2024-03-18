@@ -10,22 +10,6 @@
     assign alt_text = product.featured_media.preview_image.alt
   endif
 -%}
-
-{% if align_height == true %}
-  {% style %}
-    .product-{{ product.id }}.thumbnail .image__container img,
-    .product-{{ product.id }}.thumbnail .product-thumbnail__video .plyr {
-      max-width: 100%;
-      width: {{ height }}px;
-      margin: 0 auto;
-    }
-
-    .shopify-model-viewer-ui model-viewer {
-      --progress-bar-height: 2px;
-      --progress-bar-color: {{ settings.regular_color }};
-    }
-  {% endstyle %}
-{% endif %}
 <div
   class="
     {%
@@ -59,13 +43,27 @@
     data-load-more--grid-item
   {% endif %}
 >
+  {% if align_height == true %}
+    {% style %}
+      .product-{{ product.id }}.thumbnail .image__container img,
+      .product-{{ product.id }}.thumbnail .product-thumbnail__video .plyr {
+        max-width: 100%;
+        width: {{ height }}px;
+        margin: 0 auto;
+      }
+
+      .shopify-model-viewer-ui model-viewer {
+        --progress-bar-height: 2px;
+        --progress-bar-color: {{ settings.regular_color }};
+      }
+    {% endstyle %}
+  {% endif %}
   <div class="product-wrap">
     <div class="product-image__wrapper">
       <div class="image__container product__imageContainer">
         <a href="{{ product.url | within: collection }}">
           {% if settings.stickers_enabled %}
-            {%
-              render 'product-thumbnail__sticker',
+            {% render 'product-thumbnail__sticker',
               product: product,
               context: 'product',
               collection_handles: collection_handles
@@ -73,8 +71,7 @@
           {% endif %}
 
           {% comment %} Primary image {% endcomment %}
-          {%
-            render 'image-element',
+          {% render 'image-element',
             image: product.featured_media.preview_image,
             alt: alt_text,
             object_fit: align_height,
@@ -94,8 +91,7 @@
                 {{ secondary_image | video_tag: controls: false }}
               </div>
             {% else %}
-              {%
-                render 'image-element',
+              {% render 'image-element',
                 image: secondary_image,
                 alt: alt_text,
                 object_fit: align_height,
@@ -119,7 +115,9 @@
                     <span class="product-thumbnail__vendor is-text-small is-uppercase">{{ product.vendor }}</span>
                   {% endif %}
 
-                  <p class="product-thumbnail__title  {{ settings.thumbnail_title_preset }}">{{ product.title | escape }}</p>
+                  <p class="product-thumbnail__title  {{ settings.thumbnail_title_preset }}">
+                    {{ product.title | escape }}
+                  </p>
 
                   {% if collection_handles contains 'coming-soon' %}
                     <span>{{ 'collections.general.coming_soon' | t }}</span>
@@ -132,10 +130,7 @@
                       {% endif %}
                       {% if product.price_min > 0 %}
                         <span class="money">
-                          {%
-                            render 'price-element',
-                            price: product.price_min
-                          %}
+                          {% render 'price-element', price: product.price_min %}
                         </span>
                       {% else %}
                         {{ settings.free_price_text }}
@@ -144,21 +139,14 @@
                       {% if product.compare_at_price_max > product.price_min %}
                         <span class="product-thumbnail__was-price compare-at-price">
                           <span class="money">
-                            {%
-                              render 'price-element',
-                              price: product.compare_at_price_max
-                            %}
+                            {% render 'price-element', price: product.compare_at_price_max %}
                           </span>
                         </span>
                       {% endif %}
                     </span>
                     {% if settings.select_first_available_variant %}
                       {%- assign variant_for_unit_price = product.variants | sort: 'price' | first -%}
-                      {%
-                        render 'unit-price',
-                        item: variant_for_unit_price,
-                        class: 'product-thumbnail__unit-price'
-                      %}
+                      {% render 'unit-price', item: variant_for_unit_price, class: 'product-thumbnail__unit-price' %}
                     {% endif %}
                   {% endif %}
                 </div>
@@ -167,10 +155,7 @@
           {% endif %}
 
           {% if settings.enable_quickshop %}
-            {%
-              render 'product-thumbnail__quick-shop-button',
-              product: product
-            %}
+            {% render 'product-thumbnail__quick-shop-button', product: product %}
           {% endif %}
 
           {% if hover_enabled %}
@@ -183,18 +168,11 @@
     </div>
 
     <div class="thumbnail__caption text-align-{{ settings.thumbnail_text_alignment }}">
-      {%
-        render 'product-thumbnail__product-info',
-        product: product,
-        collection_handles: collection_handles
-      %}
+      {% render 'product-thumbnail__product-info', product: product, collection_handles: collection_handles %}
     </div>
   </div>
 
-  {%
-    render 'product-thumbnail__swatch',
-    product: product
-  %}
+  {% render 'product-thumbnail__swatch', product: product %}
 
   {% if hover_enabled == false %}
     {% if settings.enable_shopify_collection_badges %}

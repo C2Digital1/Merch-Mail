@@ -18,17 +18,7 @@
   endfor
 -%}
 
-{% style %}
-  .product__thumbnail .product-thumbnail .product-thumbnail__vendor{
-    color: {{ settings.color_scheme_product.settings.scheme_pre_text }};
-  }
-  .product__thumbnail .product-thumbnail .product-thumbnail__title{
-    color: {{ settings.color_scheme_product.settings.scheme_heading }};
-  }
-  .product__thumbnail .product-thumbnail .product-thumbnail__price{
-    color: {{ settings.color_scheme_product.settings.scheme_text }};
-  }
-{% endstyle %}
+
 
 {% comment %}  Loop over products and Skip product if we're on its product page {% endcomment %}
 {% for product in products limit: for_limit %}
