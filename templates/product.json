@@ -57,6 +57,12 @@
             "enable_giftCard_recipient": false
           }
         },
+        "size_chart_BBDhQm": {
+          "type": "size-chart",
+          "settings": {
+            "size_chart": ""
+          }
+        },
         "fe5c419e-6ab6-4634-9af9-466b64d23c3a": {
           "type": "share",
           "disabled": true,
@@ -70,6 +76,7 @@
         "price",
         "description",
         "form",
+        "size_chart_BBDhQm",
         "fe5c419e-6ab6-4634-9af9-466b64d23c3a"
       ],
       "settings": {
