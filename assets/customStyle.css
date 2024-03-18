@@ -338,6 +338,17 @@ h2.slideshow-classic__heading.banner__heading.title.is-h1 {
     padding: 12px 56px;
 }
 
+.slideShowSec.showNavOnLeft li.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+}
+
+.slideShowSec.showNavOnLeft ol.flickity-page-dots {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 15px 92px;
+}
 
 /* home page section end  */
 /* footer section css code start  */
