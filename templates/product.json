@@ -94,7 +94,7 @@
         "slideshow_speed": 0,
         "slideshow_transition": "slide",
         "display_thumbnails": true,
-        "thumbnail_position": "bottom-thumbnails",
+        "thumbnail_position": "left-thumbnails",
         "enable_thumbnail_slider": true,
         "width": "standard",
         "padding_top": 48,
