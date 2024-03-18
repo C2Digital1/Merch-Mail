@@ -23,10 +23,11 @@
     "main": {
       "type": "product__main",
       "blocks": {
-        "9f108169-afd0-4c26-9b66-5c2cd4287bcb": {
-          "type": "vendor",
+        "text_Dxckf6": {
+          "type": "text",
           "settings": {
-            "preset": "is-h6"
+            "text": "<p>Free Shipping on orders $75+<\/p>",
+            "preset": "is-text"
           }
         },
         "title": {
@@ -64,7 +65,7 @@
         }
       },
       "block_order": [
-        "9f108169-afd0-4c26-9b66-5c2cd4287bcb",
+        "text_Dxckf6",
         "title",
         "price",
         "description",
