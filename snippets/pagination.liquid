@@ -23,7 +23,7 @@ context: <string>
         or pagination_type == 'infinite_load_more' %}
 
         {% if load_more_text == blank %}
-          {% assign load_more_text = 'general.pagination.pagination_button' | t %}
+          {% assign load_more_text = 'Load More' %}
         {% endif %}
 
       {% if paginate.next.url %}
@@ -31,7 +31,7 @@ context: <string>
         {% if pagination_type == 'load_more' %}
           {% comment %} Incremental load more button {% endcomment %}
           {% render 'button',
-                  label: load_more_text,
+                  label: "Load More",
                   type: "link",
                   href: next_url,
                   attribute: 'data-load-more data-custom-pagination',

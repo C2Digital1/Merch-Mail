@@ -1071,6 +1071,14 @@ span.product-thumbnail__price.price.sale span.product-thumbnail__was-price.compa
     opacity: 1 !important;
 }
 
+a.button.pagination-button__load-more {
+    min-width: 158px;
+    padding: 10px;
+    min-height: 48px;
+    margin: 0px auto;
+    border: 1px solid;
+}
+
 /* collection page css code end  */
 
 /* media query start  */
