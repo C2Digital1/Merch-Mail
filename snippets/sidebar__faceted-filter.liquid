@@ -1,6 +1,4 @@
-<h2 class="sideBarFilterHeading">
-  Filters {% render 'filterIcon' %}
-</h2>
+<h2 class="sideBarFilterHeading">Filters {% render 'filterIcon' %}</h2>
 <form class="faceted-filter-form" data-faceted-filter-form>
   {% assign has_active_filters = false %}
 
@@ -30,31 +28,34 @@
     <div>
       <div class="faceted-active-filters">
         {%- assign label = 'collections.sidebar.clear_all' | t -%}
-        {% render 'button',
-              label: label,
-              type: "link",
-              class: "faceted-active-filters__clear",
-              href: collection.url %}
+        {% render 'button', label: label, type: 'link', class: 'faceted-active-filters__clear', href: collection.url %}
         {{ faceted_active_filters }}
       </div>
     </div>
   {% endif %}
-
+  
   {%- for filter in collection.filters -%}
-    <div id="shopify-section-{{ block.id }}"
-      class="sidebar__block
-            block__{{ block.type | downcase | replace: '_', '-' }}
-            has-padding-top
-            has-padding-bottom
-            {% if settings.toggle_sidebar %}sidebar-toggle-active{% endif %}"
-            {{ block.shopify_attributes }}>
+    <div
+      id="shopify-section-{{ block.id }}"
+      class="
+        sidebar__block
+        block__{{ block.type | downcase | replace: '_', '-' }}
+        has-padding-top
+        has-padding-bottom
+        {% if settings.toggle_sidebar %}sidebar-toggle-active{% endif %}
+      "
+      {{ block.shopify_attributes }}
+    >
       <div data-has-toggle-option>
-        <h3 class="sidebar-block__heading {{ section.settings.sidebar_heading_preset }}"
-                  {% if settings.toggle_sidebar %}
-                    data-sidebar-block__toggle="
-                      {%- if filter.active_values.size > 0 or filter.min_value.value != blank or filter.max_value.value != blank -%}open{%- else -%}closed{%- endif -%}"
-                    aria-label="toggle"
-                  {% endif %}>
+        <h3
+          class="sidebar-block__heading {{ section.settings.sidebar_heading_preset }}"
+          {% if settings.toggle_sidebar %}
+            data-sidebar-block__toggle="
+                                    {%- if filter.active_values.size > 0 or filter.min_value.value != blank or filter.max_value.value != blank -%}open{%- else -%}closed{%- endif -%}
+            "
+            aria-label="toggle"
+          {% endif %}
+        >
           {{ filter.label }}
           {%- if filter.active_values.size > 0 -%}
             <span class="faceted-filter-group-summary__active-count">({{ filter.active_values.size }})</span>
@@ -62,26 +63,28 @@
           {% if settings.toggle_sidebar %}
             <button class="sidebar-block__toggle-icon icon-style--{{ settings.toggle_icon_style }}">
               {% if settings.toggle_icon_style == 'plus_and_minus' %}
-                {% render 'icon',
-                        name: 'plus',
-                        icon_class: 'icon--active'
-                %}
+                {% render 'icon', name: 'plus', icon_class: 'icon--active' %}
                 {% render 'icon', name: 'minus' %}
               {% else %}
-                {% render 'icon',
-                        name: 'down-caret',
-                        icon_class: 'icon--active'
-                %}
+                {% render 'icon', name: 'down-caret', icon_class: 'icon--active' %}
               {% endif %}
             </button>
           {% endif %}
         </h3>
       </div>
-      <div class="sidebar-block__content content" {% if settings.toggle_sidebar %}data-sidebar-block__content--collapsible{% endif %}>
+      <div
+        class="sidebar-block__content content"
+        {% if settings.toggle_sidebar %}
+          data-sidebar-block__content--collapsible
+        {% endif %}
+      >
         <div class="faceted-filter-group-display">
           <div class="faceted-filter-group-display__header">
             {%- if filter.active_values.size > 0 -%}
-              <a href="{{ filter.url_to_remove }}" class="faceted-filter-group-display__header-clear">{% render 'icon', name: 'x', icon_class: 'clear-filter' %}<span>{{ 'collections.sidebar.clear' | t }}</span></a>
+              <a href="{{ filter.url_to_remove }}" class="faceted-filter-group-display__header-clear">
+                {%- render 'icon', name: 'x', icon_class: 'clear-filter' -%}
+                <span>{{ 'collections.sidebar.clear' | t }}</span></a
+              >
             {%- endif -%}
           </div>
 
@@ -101,10 +104,23 @@
                         name="{{ filter_value.param_name | escape }}"
                         value="{{ filter_value.value | escape }}"
                         id="{{ input_id }}"
-                        {% if filter_value.active -%}checked{%- endif %}
-                        {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}
+                        {% if filter_value.active -%}
+                          checked
+                        {%- endif %}
+                        {% if filter_value.count == 0 and filter_value.active == false -%}
+                          disabled
+                        {%- endif %}
                       >
-                      <svg class="faceted-filter-group-display__checkmark" aria-hidden="true" focusable="false" role="presentation" width="14" height="14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+                      <svg
+                        class="faceted-filter-group-display__checkmark"
+                        aria-hidden="true"
+                        focusable="false"
+                        role="presentation"
+                        width="14"
+                        height="14"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 14 14"
+                      >
                         <path class="faceted-filter-group-display__checkmark-check" fill="none" d="M2.5 7L5.5 10L11.5 4"></path>
                       </svg>
                       <span class="faceted-filter-group-display__list-item-label-text">{{ filter_value.label }}</span>
@@ -115,10 +131,7 @@
 
               <div class="faceted-filter-group-display__submit faceted-filter-group-display__list-submit">
                 {%- assign label = 'collections.sidebar.apply_filter' | t | escape -%}
-                {% render 'button',
-                      label: label,
-                      type: 'submit',
-                      style: 'button--primary' %}
+                {% render 'button', label: label, type: 'submit', style: 'button--primary' %}
               </div>
             {%- when 'price_range' -%}
               <div class="faceted-filter-group-display__price-range">
@@ -168,14 +181,14 @@
 
               <div class="faceted-filter-group-display__submit">
                 {%- assign label = 'collections.sidebar.apply_filter' | t | escape -%}
-                {% render 'button',
-                      label: label,
-                      type: 'submit',
-                      style: 'button--primary' %}
+                {% render 'button', label: label, type: 'submit', style: 'button--primary' %}
               </div>
           {%- endcase -%}
         </div>
       </div>
     </div>
   {%- endfor -%}
+
 </form>
+
+<a href="{{collection.url}}" class="resetFilterBtn button button--primary"> RESET </a>

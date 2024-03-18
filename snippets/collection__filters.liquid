@@ -24,7 +24,7 @@
     {% endif %}
 
     <div class="collection__sort-by-filter select">
-      <select class="sort_by" id="sort-by" data-default-sort="{{ collection.sort_by | default: collection.default_sort_by  }}">
+      <select class="sort_by is-text" id="sort-by" data-default-sort="{{ collection.sort_by | default: collection.default_sort_by  }}">
         <option value="manual">{{ 'collections.sorting.featured' | t }}</option>
         <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
         <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>

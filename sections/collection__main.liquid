@@ -149,7 +149,34 @@
       </div>
     </div>
   {% endif %}
+  <div class="container topCollectionContainer">
+    {% comment %} Breadcrumb {% endcomment %}
+    {% if collection_breadcrumb %}
+      <div class="one-whole column has-padding-bottom">
+        {% render 'breadcrumb', context: 'collection' %}
+      </div>
+    {% endif %}
 
+    <div class="{% if has_dropdowns %}two-fifths{% else %}one-whole{% endif %} medium-down--one-whole column has-no-side-gutter hide-when-banner-enabled">
+      {%- if show_heading != blank -%}
+        {% comment %} Collection title {% endcomment %}
+        {%
+          render 'heading',
+          title: collection.title,
+          heading_tag: 'h1',
+          context: 'collection',
+          text_alignment: heading_alignment,
+          preset: heading_preset
+        %}
+      {% endif %}
+    </div>
+    {% if has_dropdowns %}
+      <div class="collection__filters three-fifths medium-down--one-whole column">
+        {% comment %} Collection filters {% endcomment %}
+        {% render 'collection__filters' %}
+      </div>
+    {% endif %}
+  </div>
   {% comment %} Collection sidebar and main content area {% endcomment %}
   <div class="container collectionMainContainer">
 
@@ -286,35 +313,7 @@
       <div
         class="collection__main {% if section.blocks.size > 0 and show_sidebar %} hasSideBar three-fourths has-sidebar medium-down--one-whole equal-columns--outside-trim{% endif %}"
         data-collection-main
-      >
-        <div class="container topCollectionContainer">
-          {% comment %} Breadcrumb {% endcomment %}
-          {% if collection_breadcrumb %}
-            <div class="one-whole column has-padding-bottom">
-              {% render 'breadcrumb', context: 'collection' %}
-            </div>
-          {% endif %}
-      
-          <div class="{% if has_dropdowns %}two-fifths{% else %}one-whole{% endif %} medium-down--one-whole column has-no-side-gutter hide-when-banner-enabled">
-            {%- if show_heading != blank -%}
-              {% comment %} Collection title {% endcomment %}
-              {%
-                render 'heading',
-                title: collection.title,
-                heading_tag: 'h1',
-                context: 'collection',
-                text_alignment: heading_alignment,
-                preset: heading_preset
-              %}
-            {% endif %}
-          </div>
-          {% if has_dropdowns %}
-            <div class="collection__filters three-fifths medium-down--one-whole column">
-              {% comment %} Collection filters {% endcomment %}
-              {% render 'collection__filters' %}
-            </div>
-          {% endif %}
-        </div>
+      >        
         {% if show_promo_banner %}
           <div class="container">
             <div class="
