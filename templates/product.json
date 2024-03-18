@@ -40,7 +40,7 @@
           "type": "price",
           "settings": {
             "display_savings": true,
-            "preset": "is-h6"
+            "preset": "is-h4"
           }
         },
         "description": {
