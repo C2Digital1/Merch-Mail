@@ -1,50 +1,56 @@
 {% comment %}
-    Product snippet
+  Product snippet
 
-    @param product
-    @param selected_variant
-    @param width
-    @param css_class
-    @param display_social_buttons
-    @param display_thumbnails
-    @param enable_product_lightbox
-    @param enable_shopify_review_comments
-    @param enable_thumbnail_slider
-    @param enable_zoom
-    @param gallery_arrows
-    @param product_description_position
-    @param product_height
-    @param set_product_height
-    @param slideshow_transition
-    @param stickers_enabled
-    @param tag_style
-    @param thumbnail_position
-    @param video_looping
-    @param section_onboarding
-  {% endcomment %}
+  @param product
+  @param selected_variant
+  @param width
+  @param css_class
+  @param display_social_buttons
+  @param display_thumbnails
+  @param enable_product_lightbox
+  @param enable_shopify_review_comments
+  @param enable_thumbnail_slider
+  @param enable_zoom
+  @param gallery_arrows
+  @param product_description_position
+  @param product_height
+  @param set_product_height
+  @param slideshow_transition
+  @param stickers_enabled
+  @param tag_style
+  @param thumbnail_position
+  @param video_looping
+  @param section_onboarding
+{% endcomment %}
 
 {% comment %} HTML markup {% endcomment %}
 
-<div class="product_section
-            js-product_section
-            container
-            is-justify-space-between
-            has-padding-bottom
-            {% if product_images_position == 'right' %}
-              is-flex-row-reverse
-            {% endif %}">
-
-  <div class="product__images
-              one-half
-              column
-              medium-down--one-whole">
+<div
+  class="
+    product_section
+    js-product_section
+    container
+    is-justify-space-between
+    has-padding-bottom
+    {% if product_images_position == 'right' %}
+      is-flex-row-reverse
+    {% endif %}
+  "
+>
+  <div
+    class="
+      product__images
+      one-half
+      column
+      medium-down--one-whole
+    "
+  >
     {% if section_onboarding %}
       <div class="featured-product__images">
         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
       </div>
     {% else %}
-      {%
-        render 'product__images',
+      {% render 'product__images',
         product: product,
         display_thumbnails: display_thumbnails,
         thumbnail_position: thumbnail_position,
@@ -60,30 +66,32 @@
     {% endif %}
   </div>
 
-  <div class="product__information
-              has-product-sticker
-              one-half
-              column
-              medium-down--one-whole">
-
+  <div
+    class="
+      product__information
+      has-product-sticker
+      one-half
+      column
+      medium-down--one-whole
+    "
+  >
     {% comment %} Sale sticker {% endcomment %}
     {% if stickers_enabled %}
       {% assign collection_handles = product.collections | map: 'handle' %}
-      {%
-        render 'product-thumbnail__sticker',
-        context: 'product',
-        collection_handles: collection_handles,
-      %}
+      {% render 'product-thumbnail__sticker', context: 'product', collection_handles: collection_handles %}
     {% endif %}
 
     {%- for block in section.blocks -%}
-      <div class="product-block
-                  product-block--{{ block.type | downcase | replace: '_', '-' }}
-                  {% if forloop.first == true %}
-                    product-block--first
-                  {% endif %}"
-                  {{ block.shopify_attributes }}>
-
+      <div
+        class="
+          product-block
+          product-block--{{ block.type | downcase | replace: '_', '-' }}
+          {% if forloop.first == true %}
+            product-block--first
+          {% endif %}
+        "
+        {{ block.shopify_attributes }}
+      >
         {%- if block.type == 'vendor' -%}
           {% comment %} Vendor {% endcomment %}
           <p class="vendor">
@@ -128,18 +136,49 @@
 
           {% comment %} Size chart Mobile {% endcomment %}
           {% if block.settings.size_chart != blank or meta-size-chart %}
-            <a href="javascript:;" class="product__size-chart size-chart--medium-down" data-fancybox data-src="#size-chart{{ product.id }}" data-type="inline">{{ 'products.product.size_chart' | t }} {% render 'icon', name: 'right-caret' %}</a>
+            <a
+              href="javascript:;"
+              class="product__size-chart size-chart--medium-down"
+              data-fancybox
+              data-src="#size-chart{{ product.id }}"
+              data-type="inline"
+            >
+              {{- 'products.product.size_chart' | t }}
+              {% render 'icon', name: 'right-caret' -%}
+            </a>
             {% render 'popup-size-chart', product_id: product.id %}
           {% endif %}
           {% comment %} Size chart {% endcomment %}
           {% if block.settings.size_chart != blank or meta-size-chart %}
-            <a href="javascript:;" class="product__size-chart medium-down--hidden" data-fancybox data-src="#size-chart{{ product.id }}" data-type="inline">{{ 'products.product.size_chart' | t }} {% render 'icon', name: 'right-caret' %}</a>
+            <a
+              href="javascript:;"
+              class="product__size-chart medium-down--hidden"
+              data-fancybox
+              data-src="#size-chart{{ product.id }}"
+              data-type="inline"
+            >
+              {{- 'products.product.size_chart' | t }}
+              {% render 'icon', name: 'right-caret' -%}
+            </a>
             {% render 'popup-size-chart', product_id: product.id %}
           {% endif %}
 
+        {%- elsif block.type == 'tabs' -%}
+          {% render 'accordianTabs',
+            product: product,
+            tabHeading: block.settings.tabHeading,
+            tabContent: block.settings.tabContent,
+            showTopBdr: block.settings.showTopBdr,
+            contentPreset: block.settings.contentPreset,
+            headingPreset: block.settings.headingPreset,         
+          %}
+
         {%- elsif block.type == 'price' -%}
           {% comment %} Price {% endcomment %}
-          <div class="modal_price subtitle {{ block.settings.preset }}" data-display-savings="{{ block.settings.display_savings }}">
+          <div
+            class="modal_price subtitle {{ block.settings.preset }}"
+            data-display-savings="{{ block.settings.display_savings }}"
+          >
             {% if section_onboarding %}
               <span class="money">$49.00</span>
             {% else %}
@@ -154,7 +193,7 @@
                   </style>
                 </noscript>
                 {% assign compare_at_price = false %}
-              
+
                 {% if product.compare_at_price and product.compare_at_price != product.price %}
                   {% if product.compare_at_price_varies %}
                     {%- capture price_min -%}
@@ -164,7 +203,7 @@
                         value: product.compare_at_price_min,
                       -%}
                     {%- endcapture -%}
-              
+
                     {%- capture price_max -%}
                       {%-
                         render 'price-ui-templates',
@@ -172,8 +211,10 @@
                         value: product.compare_at_price_max,
                       -%}
                     {%- endcapture -%}
-              
-                    {%- assign compare_at_price = 'product.price.range_html' | t: price_min: price_min, price_max: price_max -%}
+
+                    {%- assign compare_at_price = 'product.price.range_html'
+                      | t: price_min: price_min, price_max: price_max
+                    -%}
                   {% else %}
                     {%- capture compare_at_price -%}
                       {%-
@@ -184,7 +225,7 @@
                     {%- endcapture -%}
                   {% endif %}
                 {% endif %}
-              
+
                 {% if product.price_varies %}
                   {%- capture price_min -%}
                     {%-
@@ -193,7 +234,7 @@
                       value: product.price_min,
                     -%}
                   {%- endcapture -%}
-              
+
                   {%- capture price_max -%}
                     {%-
                       render 'price-ui-templates',
@@ -201,7 +242,7 @@
                       value: product.price_max,
                     -%}
                   {%- endcapture -%}
-              
+
                   {%- assign price = 'product.price.range_html' | t: price_min: price_min, price_max: price_max -%}
                 {% else %}
                   {%- capture price -%}
@@ -212,17 +253,15 @@
                     -%}
                   {%- endcapture -%}
                 {% endif %}
-              
-                {%-
-                  render 'price-ui-templates',
+
+                {%- render 'price-ui-templates',
                   template: 'price-ui',
                   compare_at_price: compare_at_price,
                   price: price,
-                  unit_pricing: false,
+                  unit_pricing: false
                 -%}
               </div>
               {% comment %}Inject @pixelunion/shopify-price-ui/price-ui end{% endcomment %}
-
             {% endif %}
           </div>
 
@@ -252,20 +291,24 @@
             <div class="product-form-container has-padding-top">
               <div class="purchase-details">
                 <div class="purchase-details__buttons purchase-details__spb--false">
-                  <button name="add" class="action_button button button--add-to-cart add_to_cart" data-label={{ add_to_cart_label | json }}><span class="text">{{ 'products.product.add_to_cart' | t }}</span></button>
+                  <button
+                    name="add"
+                    class="action_button button button--add-to-cart add_to_cart"
+                    data-label="{{ add_to_cart_label | json }}"
+                  >
+                    <span class="text">{{ 'products.product.add_to_cart' | t }}</span>
+                  </button>
                 </div>
               </div>
             </div>
           {% else %}
             <div class="product-form-container has-padding-top">
-
               {% comment %} Notify form {% endcomment %}
               {% render 'product__notify-me-form', product: product %}
 
               {% comment %} Product form {% endcomment %}
               {% unless collection_handles contains 'coming-soon' %}
-                {%
-                  render 'product__form',
+                {% render 'product__form',
                   context: 'product',
                   product: product,
                   sold_out_options: sold_out_options,
@@ -306,7 +349,12 @@
                   {% for tag in product.tags %}
                     {% unless tag contains 'meta-' %}
                       <span class="tag tag--{{ tag_style }}">
-                        <a href="{{ routes.collections_url }}/{% if collection %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handle }}" title="{{ 'products.product.products_tagged' | t: tag: tag }}">{{ tag }}</a>
+                        <a
+                          href="{{ routes.collections_url }}/{% if collection %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handle }}"
+                          title="{{ 'products.product.products_tagged' | t: tag: tag }}"
+                        >
+                          {{- tag -}}
+                        </a>
                       </span>
                     {% endunless %}
                   {% endfor %}
@@ -332,8 +380,6 @@
           </div>
         {%- endif -%}
       </div>
-
     {%- endfor -%}
-
   </div>
 </div>
