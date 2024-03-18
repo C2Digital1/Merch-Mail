@@ -114,54 +114,31 @@
         "custom_css": ""
       }
     },
-    "1639524110ac79222c": {
-      "type": "product__description-split",
-      "settings": {
-        "preset": "is-text",
-        "width": "standard",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_left": 0,
-        "padding_right": 0,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_top_m": 0,
-        "padding_bottom_m": 0,
-        "padding_left_m": 0,
-        "padding_right_m": 0,
-        "margin_top_m": 0,
-        "margin_bottom_m": 0,
-        "section_bg": "linear-gradient(#ffffff, #ffffff)",
-        "animation": "none",
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
     "recommendations": {
       "type": "product__recommendations",
       "settings": {
         "show_product_recommendations": true,
-        "heading": "Featured collection",
-        "heading_preset": "is-h1",
-        "heading_alignment": "center",
-        "items_per_row": 3,
+        "heading": "You may also like",
+        "heading_preset": "is-h4",
+        "heading_alignment": "left",
+        "items_per_row": 4,
         "mobile_items_per_row": "1",
         "products_limit": 6,
         "product_recommendations_style": "grid",
-        "width": "wide",
+        "width": "standard",
         "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_bottom": 56,
         "padding_left": 0,
         "padding_right": 0,
         "margin_top": 0,
         "margin_bottom": 0,
         "padding_top_m": 0,
-        "padding_bottom_m": 0,
+        "padding_bottom_m": 30,
         "padding_left_m": 0,
         "padding_right_m": 0,
         "margin_top_m": 0,
         "margin_bottom_m": 0,
-        "section_bg": "linear-gradient(#ffffff, #ffffff)",
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
         "animation": "none",
         "css_class": "",
         "custom_css": ""
@@ -172,7 +149,6 @@
     "breadcrumbs",
     "sidebar",
     "main",
-    "1639524110ac79222c",
     "recommendations"
   ]
 }
