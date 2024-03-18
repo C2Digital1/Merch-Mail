@@ -857,6 +857,72 @@ h2.preHeadingTxt {
 }
 
 /* select product section css code end  */
+/* collection page css code start  */
+h2.sideBarFilterHeading {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 24px !important;
+    letter-spacing: 0;
+    line-height: 30px !important;
+    text-align: center;
+    color: #2B5597;
+    margin-bottom: 8px;
+}
+
+h2.sideBarFilterHeading svg {
+    height: 24px;
+    width: 24px;
+    margin-left: 8px;
+}
+
+.container.collectionMainContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.container.collectionMainContainer aside.sidebar-section {
+    width: 300px;
+    margin: 0 30px 0 0 !important;
+}
+
+.collection__main.hasSideBar {
+    width: calc(100% - 330px);
+    max-width: 100%;
+    margin: 0 !important;
+}
+
+.collection__main {
+    width: 100%;
+}
+
+
+form.faceted-filter-form .sidebar__block.block__faceted-filtering {
+    padding: 16px 0 !important;
+    border-top: 1px solid #0c0c0c;
+}
+
+form.faceted-filter-form .sidebar__block.block__faceted-filtering:last-child {
+    border-bottom: 1px solid #0c0c0c;
+}
+
+h3.sidebar-block__heading {
+    cursor: pointer;
+}
+
+.faceted-filter-group-display__submit button.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    min-height: 50px;
+}
+
+/* collection page css code end  */
 
 /* media query start  */
 @media only screen and (max-width: 1500px) {
