@@ -52,6 +52,12 @@
             "preset": "is-text"
           }
         },
+        "size_chart_BBDhQm": {
+          "type": "size-chart",
+          "settings": {
+            "size_chart": ""
+          }
+        },
         "form": {
           "type": "form",
           "settings": {
@@ -59,16 +65,24 @@
             "enable_giftCard_recipient": false
           }
         },
-        "size_chart_BBDhQm": {
-          "type": "size-chart",
+        "tabs_Xpw6DH": {
+          "type": "tabs",
           "settings": {
-            "size_chart": ""
+            "tabHeading": "Product Details",
+            "tabContent": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<\/p>",
+            "showTopBdr": true,
+            "headingPreset": "is-h6",
+            "contentPreset": "is-text"
           }
         },
-        "fe5c419e-6ab6-4634-9af9-466b64d23c3a": {
-          "type": "share",
-          "disabled": true,
+        "tabs_cLJM3Y": {
+          "type": "tabs",
           "settings": {
+            "tabHeading": "Shipping Details",
+            "tabContent": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<\/p>",
+            "showTopBdr": false,
+            "headingPreset": "is-h6",
+            "contentPreset": "is-text"
           }
         }
       },
@@ -77,9 +91,10 @@
         "title",
         "price",
         "description",
-        "form",
         "size_chart_BBDhQm",
-        "fe5c419e-6ab6-4634-9af9-466b64d23c3a"
+        "form",
+        "tabs_Xpw6DH",
+        "tabs_cLJM3Y"
       ],
       "settings": {
         "color_scheme": "",
