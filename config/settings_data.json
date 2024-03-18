@@ -59,6 +59,7 @@
     "dropdown_link_spacing": "small",
     "use_placeholders": true,
     "display_heading_divider": false,
+    "toggle_sidebar": true,
     "qty_box_style": "box",
     "qty_border_radius": 6,
     "mega_menu_1": false,
