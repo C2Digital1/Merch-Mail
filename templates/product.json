@@ -45,7 +45,7 @@
         "description": {
           "type": "description",
           "settings": {
-            "custom_description": "<p>Example Description<\/p>",
+            "custom_description": "",
             "preset": "is-text"
           }
         },
