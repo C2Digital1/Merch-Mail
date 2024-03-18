@@ -330,6 +330,15 @@ h2.slideshow-classic__heading.banner__heading.title.is-h1 {
     width: 100% !important;
 }
 
+
+.caption.is-justify-left {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 12px 56px;
+}
+
+
 /* home page section end  */
 /* footer section css code start  */
 a.footer__logo-wrapper.has-padding-bottom.is-small {
@@ -817,7 +826,7 @@ h2.preHeadingTxt {
     height: auto !important;
     max-height: none !important;
 }
- 
+
 .list-collection__thumbnail {
     margin-bottom: 40px;
 }

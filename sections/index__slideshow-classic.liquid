@@ -12,6 +12,7 @@
   assign show_nav_buttons = section.settings.show_nav_buttons
   assign dotsColor = section.settings.dotsColor
   assign mobile_text_below_image = section.settings.mobile_text_below_image
+  assign showNavOnLeft = section.settings.showNavOnLeft
 -%}
 {% comment %}Spacing{% endcomment %}
 {%- liquid
@@ -114,6 +115,8 @@
 <section
   class="
     section
+    slideShowSec
+    {% if showNavOnLeft %}showNavOnLeft{% endif %}
     {{ css_class }}
     is-width-{{ width }}
     under-overlay-menu
@@ -223,6 +226,12 @@
       "id": "show_nav_buttons",
       "label": "Show navigation dots",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "showNavOnLeft",
+      "label": "Show Nav On Left?",
+      "default": false
     },
     {
       "type": "color",
