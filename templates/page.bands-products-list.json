@@ -101,6 +101,7 @@
         "mobile_height": 0,
         "show_arrows": false,
         "show_nav_buttons": true,
+        "showNavOnLeft": true,
         "dotsColor": "#ffffff",
         "mobile_text_below_image": true,
         "width": "standard",
