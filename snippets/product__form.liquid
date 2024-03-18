@@ -192,7 +192,9 @@
     </variant-selection>
     {% comment %}Inject @pixelunion/shopify-variants-ui/variant-selection end{% endcomment %}
 
-
+    {% if product.metafields.custom.printing_date != blank %}
+      <input type="text" id="printDateInfo" class="hiddenInputField" name="properties[Print Date:]" value="{{ product.metafields.custom.printing_date  | date: "%b %d"  }}">
+    {% endif %}
     {% if product.available %}
       {% if settings.display_inventory_left %}
         <p class="items_left">
