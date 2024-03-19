@@ -164,6 +164,7 @@
 <section
   class="
     section
+    prodDetailSection
     {{ css_class }}
     is-width-{{ width }} scheme_color-{{section.settings.color_scheme}}
   "
@@ -171,7 +172,7 @@
     data-scroll-class="{{ animation }}"
   {% endif %}
 >
-  <div class="product-{{ product.id }}">
+  <div class="prodInfoContainer product-{{ product.id }}">
     {% render 'product',
       product: product,
       sold_out_options: settings.sold_out_options,
@@ -192,7 +193,8 @@
       tag_style: settings.tag_style,
       thumbnail_position: section.settings.thumbnail_position,
       video_looping: section.settings.video_looping,
-      gift_card_recipient_feature_active: gift_card_recipient_feature_active
+      gift_card_recipient_feature_active: gift_card_recipient_feature_active,
+      showStickersRow: section.settings.showStickersRow
     %}
   </div>
 </section>
@@ -381,6 +383,12 @@
       "id": "enable_thumbnail_slider",
       "label": "Enable thumbnail slider",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "showStickersRow",
+      "label": "Show Stickers",
+      "default": false
     },
     {
       "type": "header",

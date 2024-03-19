@@ -75,128 +75,129 @@
       medium-down--one-whole
     "
   >
-    {% comment %} Sale sticker {% endcomment %}
-    {% if stickers_enabled %}
-      {% assign collection_handles = product.collections | map: 'handle' %}
-      {% render 'product-thumbnail__sticker', context: 'product', collection_handles: collection_handles %}
-    {% endif %}
+    <div class="prodInfoInnerContainer">
+      {% comment %} Sale sticker {% endcomment %}
+      {% if showStickersRow %}
+        {% assign collection_handles = product.collections | map: 'handle' %}
+        {% render 'product-thumbnail__sticker', context: 'product', collection_handles: collection_handles %}
+      {% endif %}
 
-    {%- for block in section.blocks -%}
-      <div
-        class="
-          product-block
-          product-block--{{ block.type | downcase | replace: '_', '-' }}
-          {% if forloop.first == true %}
-            product-block--first
-          {% endif %}
-        "
-        {{ block.shopify_attributes }}
-      >
-        {%- if block.type == 'vendor' -%}
-          {% comment %} Vendor {% endcomment %}
-          <p class="vendor">
-            <span class="vendor {{ block.settings.preset }}">
+      {%- for block in section.blocks -%}
+        <div
+          class="
+            product-block
+            product-block--{{ block.type | downcase | replace: '_', '-' }}
+            {% if forloop.first == true %}
+              product-block--first
+            {% endif %}
+          "
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.type == 'vendor' -%}
+            {% comment %} Vendor {% endcomment %}
+            <p class="vendor">
+              <span class="vendor {{ block.settings.preset }}">
+                {% if section_onboarding %}
+                  Vendor name
+                {% else %}
+                  {{ product.vendor | link_to_vendor }}
+                {% endif %}
+              </span>
+            </p>
+
+          {%- elsif block.type == 'sku' -%}
+            {% comment %} Sku {% endcomment %}
+            <p class="sku {{ block.settings.preset }}">
               {% if section_onboarding %}
-                Vendor name
+                1234567890
               {% else %}
-                {{ product.vendor | link_to_vendor }}
+                {{ selected_variant.sku }}
               {% endif %}
-            </span>
-          </p>
+            </p>
 
-        {%- elsif block.type == 'sku' -%}
-          {% comment %} Sku {% endcomment %}
-          <p class="sku {{ block.settings.preset }}">
-            {% if section_onboarding %}
-              1234567890
-            {% else %}
-              {{ selected_variant.sku }}
+          {%- elsif block.type == 'title' -%}
+            {% comment %} Name {% endcomment %}
+            <h1 class="product_name title {{ block.settings.preset }}">
+              {% if section_id == 'quickshop' %}
+                <a href="{{ product.url }}">{{ product.title }}</a>
+              {% elsif section_onboarding %}
+                {{ 'homepage.onboarding.product_title' | t }}
+              {% else %}
+                {{ product.title }}
+              {% endif %}
+            </h1>
+
+          {%- elsif block.type == 'size-chart' -%}
+            {% comment %} Size chart {% endcomment %}
+            {% for tag in product.tags %}
+              {% if tag contains 'meta-size-chart-' %}
+                {% assign meta-size-chart = true %}
+              {% endif %}
+            {% endfor %}
+
+            {% comment %} Size chart Mobile {% endcomment %}
+            {% if block.settings.size_chart != blank or meta-size-chart %}
+              <a
+                href="javascript:;"
+                class="product__size-chart size-chart--medium-down"
+                data-fancybox
+                data-src="#size-chart{{ product.id }}"
+                data-type="inline"
+              >
+                {{- 'products.product.size_chart' | t }}
+                {% render 'icon', name: 'right-caret' -%}
+              </a>
+              {% render 'popup-size-chart', product_id: product.id %}
             {% endif %}
-          </p>
-
-        {%- elsif block.type == 'title' -%}
-          {% comment %} Name {% endcomment %}
-          <h1 class="product_name title {{ block.settings.preset }}">
-            {% if section_id == 'quickshop' %}
-              <a href="{{ product.url }}">{{ product.title }}</a>
-            {% elsif section_onboarding %}
-              {{ 'homepage.onboarding.product_title' | t }}
-            {% else %}
-              {{ product.title }}
+            {% comment %} Size chart {% endcomment %}
+            {% if block.settings.size_chart != blank or meta-size-chart %}
+              <a
+                href="javascript:;"
+                class="product__size-chart medium-down--hidden"
+                data-fancybox
+                data-src="#size-chart{{ product.id }}"
+                data-type="inline"
+              >
+                {{- 'products.product.size_chart' | t }}
+                {% render 'icon', name: 'right-caret' -%}
+              </a>
+              {% render 'popup-size-chart', product_id: product.id %}
             {% endif %}
-          </h1>
 
-        {%- elsif block.type == 'size-chart' -%}
-          {% comment %} Size chart {% endcomment %}
-          {% for tag in product.tags %}
-            {% if tag contains 'meta-size-chart-' %}
-              {% assign meta-size-chart = true %}
-            {% endif %}
-          {% endfor %}
+          {%- elsif block.type == 'tabs' -%}
+            {% render 'accordianTabs',
+              product: product,
+              tabHeading: block.settings.tabHeading,
+              tabContent: block.settings.tabContent,
+              showTopBdr: block.settings.showTopBdr,
+              contentPreset: block.settings.contentPreset,
+              headingPreset: block.settings.headingPreset
+            %}
 
-          {% comment %} Size chart Mobile {% endcomment %}
-          {% if block.settings.size_chart != blank or meta-size-chart %}
-            <a
-              href="javascript:;"
-              class="product__size-chart size-chart--medium-down"
-              data-fancybox
-              data-src="#size-chart{{ product.id }}"
-              data-type="inline"
+          {%- elsif block.type == 'price' -%}
+            {% comment %} Price {% endcomment %}
+            <div
+              class="modal_price subtitle {{ block.settings.preset }}"
+              data-display-savings="{{ block.settings.display_savings }}"
             >
-              {{- 'products.product.size_chart' | t }}
-              {% render 'icon', name: 'right-caret' -%}
-            </a>
-            {% render 'popup-size-chart', product_id: product.id %}
-          {% endif %}
-          {% comment %} Size chart {% endcomment %}
-          {% if block.settings.size_chart != blank or meta-size-chart %}
-            <a
-              href="javascript:;"
-              class="product__size-chart medium-down--hidden"
-              data-fancybox
-              data-src="#size-chart{{ product.id }}"
-              data-type="inline"
-            >
-              {{- 'products.product.size_chart' | t }}
-              {% render 'icon', name: 'right-caret' -%}
-            </a>
-            {% render 'popup-size-chart', product_id: product.id %}
-          {% endif %}
+              {% if section_onboarding %}
+                <span class="money">$49.00</span>
+              {% else %}
+                {% comment %}Inject @pixelunion/shopify-price-ui/price-ui begin{% endcomment %}
+                <div class="price-ui price-ui--loading" data-price-ui>
+                  <noscript>
+                    <style>
+                      .price-ui--loading {
+                        display: block !important;
+                        opacity: 1 !important;
+                      }
+                    </style>
+                  </noscript>
+                  {% assign compare_at_price = false %}
 
-        {%- elsif block.type == 'tabs' -%}
-          {% render 'accordianTabs',
-            product: product,
-            tabHeading: block.settings.tabHeading,
-            tabContent: block.settings.tabContent,
-            showTopBdr: block.settings.showTopBdr,
-            contentPreset: block.settings.contentPreset,
-            headingPreset: block.settings.headingPreset,         
-          %}
-
-        {%- elsif block.type == 'price' -%}
-          {% comment %} Price {% endcomment %}
-          <div
-            class="modal_price subtitle {{ block.settings.preset }}"
-            data-display-savings="{{ block.settings.display_savings }}"
-          >
-            {% if section_onboarding %}
-              <span class="money">$49.00</span>
-            {% else %}
-              {% comment %}Inject @pixelunion/shopify-price-ui/price-ui begin{% endcomment %}
-              <div class="price-ui price-ui--loading" data-price-ui>
-                <noscript>
-                  <style>
-                    .price-ui--loading {
-                      display: block !important;
-                      opacity: 1 !important;
-                    }
-                  </style>
-                </noscript>
-                {% assign compare_at_price = false %}
-
-                {% if product.compare_at_price and product.compare_at_price != product.price %}
-                  {% if product.compare_at_price_varies %}
-                    {%- capture price_min -%}
+                  {% if product.compare_at_price and product.compare_at_price != product.price %}
+                    {% if product.compare_at_price_varies %}
+                      {%- capture price_min -%}
                       {%-
                         render 'price-ui-templates',
                         template: 'price-min',
@@ -204,7 +205,7 @@
                       -%}
                     {%- endcapture -%}
 
-                    {%- capture price_max -%}
+                      {%- capture price_max -%}
                       {%-
                         render 'price-ui-templates',
                         template: 'price-max',
@@ -212,22 +213,22 @@
                       -%}
                     {%- endcapture -%}
 
-                    {%- assign compare_at_price = 'product.price.range_html'
-                      | t: price_min: price_min, price_max: price_max
-                    -%}
-                  {% else %}
-                    {%- capture compare_at_price -%}
+                      {%- assign compare_at_price = 'product.price.range_html'
+                        | t: price_min: price_min, price_max: price_max
+                      -%}
+                    {% else %}
+                      {%- capture compare_at_price -%}
                       {%-
                         render 'price-ui-templates',
                         template: 'price',
                         value: product.compare_at_price,
                       -%}
                     {%- endcapture -%}
+                    {% endif %}
                   {% endif %}
-                {% endif %}
 
-                {% if product.price_varies %}
-                  {%- capture price_min -%}
+                  {% if product.price_varies %}
+                    {%- capture price_min -%}
                     {%-
                       render 'price-ui-templates',
                       template: 'price-min',
@@ -235,7 +236,7 @@
                     -%}
                   {%- endcapture -%}
 
-                  {%- capture price_max -%}
+                    {%- capture price_max -%}
                     {%-
                       render 'price-ui-templates',
                       template: 'price-max',
@@ -243,143 +244,144 @@
                     -%}
                   {%- endcapture -%}
 
-                  {%- assign price = 'product.price.range_html' | t: price_min: price_min, price_max: price_max -%}
-                {% else %}
-                  {%- capture price -%}
+                    {%- assign price = 'product.price.range_html' | t: price_min: price_min, price_max: price_max -%}
+                  {% else %}
+                    {%- capture price -%}
                     {%-
                       render 'price-ui-templates',
                       template: 'price',
                       value: product.price,
                     -%}
                   {%- endcapture -%}
-                {% endif %}
+                  {% endif %}
 
-                {%- render 'price-ui-templates',
-                  template: 'price-ui',
-                  compare_at_price: compare_at_price,
-                  price: price,
-                  unit_pricing: false
-                -%}
-              </div>
-              {% comment %}Inject @pixelunion/shopify-price-ui/price-ui end{% endcomment %}
-            {% endif %}
-          </div>
-
-        {%- elsif block.type == 'description' -%}
-          {% comment %} Description {% endcomment %}
-          {% if block.settings.custom_description != blank %}
-            <div class="description content has-padding-top">
-              {{ block.settings.custom_description }}
+                  {%- render 'price-ui-templates',
+                    template: 'price-ui',
+                    compare_at_price: compare_at_price,
+                    price: price,
+                    unit_pricing: false
+                  -%}
+                </div>
+                {% comment %}Inject @pixelunion/shopify-price-ui/price-ui end{% endcomment %}
+              {% endif %}
             </div>
-          {% elsif section_onboarding %}
-            <div class="description content has-padding-top {{ block.settings.preset }}">
-              <p>
-                {{ 'homepage.onboarding.product_description' | t }}
-              </p>
-            </div>
-          {% else %}
-            {% if product.description != blank %}
-              <div class="description content has-padding-top  {{ block.settings.preset }}">
-                {{ product.description | split: '<!-- split -->' | first }}
-              </div>
-            {% endif %}
-          {% endif %}
 
-        {%- elsif block.type == 'form' -%}
-          {% comment %} Purchase form {% endcomment %}
-          {% if section_onboarding %}
-            <div class="product-form-container has-padding-top">
-              <div class="purchase-details">
-                <div class="purchase-details__buttons purchase-details__spb--false">
-                  <button
-                    name="add"
-                    class="action_button button button--add-to-cart add_to_cart"
-                    data-label="{{ add_to_cart_label | json }}"
-                  >
-                    <span class="text">{{ 'products.product.add_to_cart' | t }}</span>
-                  </button>
+          {%- elsif block.type == 'description' -%}
+            {% comment %} Description {% endcomment %}
+            {% if block.settings.custom_description != blank %}
+              <div class="description content has-padding-top">
+                {{ block.settings.custom_description }}
+              </div>
+            {% elsif section_onboarding %}
+              <div class="description content has-padding-top {{ block.settings.preset }}">
+                <p>
+                  {{ 'homepage.onboarding.product_description' | t }}
+                </p>
+              </div>
+            {% else %}
+              {% if product.description != blank %}
+                <div class="description content has-padding-top  {{ block.settings.preset }}">
+                  {{ product.description | split: '<!-- split -->' | first }}
+                </div>
+              {% endif %}
+            {% endif %}
+
+          {%- elsif block.type == 'form' -%}
+            {% comment %} Purchase form {% endcomment %}
+            {% if section_onboarding %}
+              <div class="product-form-container has-padding-top">
+                <div class="purchase-details">
+                  <div class="purchase-details__buttons purchase-details__spb--false">
+                    <button
+                      name="add"
+                      class="action_button button button--add-to-cart add_to_cart"
+                      data-label="{{ add_to_cart_label | json }}"
+                    >
+                      <span class="text">{{ 'products.product.add_to_cart' | t }}</span>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          {% else %}
-            <div class="product-form-container has-padding-top">
-              {% comment %} Notify form {% endcomment %}
-              {% render 'product__notify-me-form', product: product %}
+            {% else %}
+              <div class="product-form-container has-padding-top">
+                {% comment %} Notify form {% endcomment %}
+                {% render 'product__notify-me-form', product: product %}
 
-              {% comment %} Product form {% endcomment %}
-              {% unless collection_handles contains 'coming-soon' %}
-                {% render 'product__form',
-                  context: 'product',
-                  product: product,
-                  sold_out_options: sold_out_options,
-                  selected_variant: selected_variant,
-                  show_payment_button: block.settings.show_payment_button,
-                  collection_handles: collection_handles,
-                  gift_card_recipient_feature_active: gift_card_recipient_feature_active
-                %}
-              {% endunless %}
-            </div>
-          {% endif %}
+                {% comment %} Product form {% endcomment %}
+                {% unless collection_handles contains 'coming-soon' %}
+                  {% render 'product__form',
+                    context: 'product',
+                    product: product,
+                    sold_out_options: sold_out_options,
+                    selected_variant: selected_variant,
+                    show_payment_button: block.settings.show_payment_button,
+                    collection_handles: collection_handles,
+                    gift_card_recipient_feature_active: gift_card_recipient_feature_active
+                  %}
+                {% endunless %}
+              </div>
+            {% endif %}
 
-        {%- elsif block.type == 'product-links' -%}
-          {% comment %} Collections, type, tags {% endcomment %}
-          {% if block.settings.show_collections or block.settings.show_tags or block.settings.show_type %}
-            <div class="product__classification-links has-padding-top">
-              {% if block.settings.show_collections %}
-                <p class="product__collections-list tags">
-                  <span class="product__classification-title">{{ 'products.product.collections' | t }}:</span>
-                  {% for col in product.collections %}
-                    <span class="tag tag--{{ tag_style }}">
-                      <a href="{{ col.url }}" title="{{ col.title }}">{{ col.title }}</a>
-                    </span>
-                  {% endfor %}
-                </p>
-              {% endif %}
-
-              {% if block.settings.show_type %}
-                <p class="product__type-list tags">
-                  <span class="product__classification-title">{{ 'products.product.product_types' | t }}:</span>
-                  <span class="tag tag--{{ tag_style }}">{{ product.type | link_to_type }}</span>
-                </p>
-              {% endif %}
-
-              {% if block.settings.show_tags and product.tags.size > 0 %}
-                <p class="product__tags-list tags">
-                  <span class="product__classification-title">{{ 'products.product.tags' | t }}:</span>
-                  {% for tag in product.tags %}
-                    {% unless tag contains 'meta-' %}
+          {%- elsif block.type == 'product-links' -%}
+            {% comment %} Collections, type, tags {% endcomment %}
+            {% if block.settings.show_collections or block.settings.show_tags or block.settings.show_type %}
+              <div class="product__classification-links has-padding-top">
+                {% if block.settings.show_collections %}
+                  <p class="product__collections-list tags">
+                    <span class="product__classification-title">{{ 'products.product.collections' | t }}:</span>
+                    {% for col in product.collections %}
                       <span class="tag tag--{{ tag_style }}">
-                        <a
-                          href="{{ routes.collections_url }}/{% if collection %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handle }}"
-                          title="{{ 'products.product.products_tagged' | t: tag: tag }}"
-                        >
-                          {{- tag -}}
-                        </a>
+                        <a href="{{ col.url }}" title="{{ col.title }}">{{ col.title }}</a>
                       </span>
-                    {% endunless %}
-                  {% endfor %}
-                </p>
-              {% endif %}
+                    {% endfor %}
+                  </p>
+                {% endif %}
+
+                {% if block.settings.show_type %}
+                  <p class="product__type-list tags">
+                    <span class="product__classification-title">{{ 'products.product.product_types' | t }}:</span>
+                    <span class="tag tag--{{ tag_style }}">{{ product.type | link_to_type }}</span>
+                  </p>
+                {% endif %}
+
+                {% if block.settings.show_tags and product.tags.size > 0 %}
+                  <p class="product__tags-list tags">
+                    <span class="product__classification-title">{{ 'products.product.tags' | t }}:</span>
+                    {% for tag in product.tags %}
+                      {% unless tag contains 'meta-' %}
+                        <span class="tag tag--{{ tag_style }}">
+                          <a
+                            href="{{ routes.collections_url }}/{% if collection %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handle }}"
+                            title="{{ 'products.product.products_tagged' | t: tag: tag }}"
+                          >
+                            {{- tag -}}
+                          </a>
+                        </span>
+                      {% endunless %}
+                    {% endfor %}
+                  </p>
+                {% endif %}
+              </div>
+            {% endif %}
+
+          {%- elsif block.type == 'share' -%}
+            {% comment %} Social share icons {% endcomment %}
+            <div class="product__social-share has-padding-top">
+              {% render 'social-share-buttons' %}
             </div>
-          {% endif %}
 
-        {%- elsif block.type == 'share' -%}
-          {% comment %} Social share icons {% endcomment %}
-          <div class="product__social-share has-padding-top">
-            {% render 'social-share-buttons' %}
-          </div>
-
-        {%- elsif block.type == 'text' -%}
-          {% comment %} Text {% endcomment %}
-          <div class="product-text {{ block.settings.preset }}">
-            {{ block.settings.text }}
-          </div>
-        {% elsif block.type == '@app' %}
-          <div class="product-app">
-            {% render block %}
-          </div>
-        {%- endif -%}
-      </div>
-    {%- endfor -%}
+          {%- elsif block.type == 'text' -%}
+            {% comment %} Text {% endcomment %}
+            <div class="product-text {{ block.settings.preset }}">
+              {{ block.settings.text }}
+            </div>
+          {% elsif block.type == '@app' %}
+            <div class="product-app">
+              {% render block %}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
   </div>
 </div>
