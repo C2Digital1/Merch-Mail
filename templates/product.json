@@ -52,12 +52,6 @@
             "preset": "is-text"
           }
         },
-        "size_chart_BBDhQm": {
-          "type": "size-chart",
-          "settings": {
-            "size_chart": "band-products-list"
-          }
-        },
         "form": {
           "type": "form",
           "settings": {
@@ -93,7 +87,6 @@
         "title",
         "price",
         "description",
-        "size_chart_BBDhQm",
         "form",
         "tabs_Xpw6DH",
         "tabs_cLJM3Y"
