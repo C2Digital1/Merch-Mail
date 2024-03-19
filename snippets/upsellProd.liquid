@@ -1,1 +1,28 @@
-{{ product.title }}
+<div class="upsellItemContainer">
+  <div class="itemRow">
+    <div class="prodImg">
+      <img
+        class="boxImg lazyload"
+        src="{{ product.featured_image | img_url:'master' }}"
+        alt="img"
+        width="200"
+        height="200"
+        loading="lazy"
+      >
+    </div>
+    <div class="prodSideInfo">
+      <div class="titleAndPrice">
+        <span class="is-text prodTitle">
+          {{ product.title }}
+        </span>
+        <span class="is-text prodPrice">
+          {{ product.price | money_without_currency }}
+        </span>
+      </div>
+      {% liquid
+        assign selected_variant = product.selected_or_first_available_variant
+      %}
+      {% render 'quickAddBtn', product: product, selected_variant: selected_variant %}
+    </div>
+  </div>
+</div>
