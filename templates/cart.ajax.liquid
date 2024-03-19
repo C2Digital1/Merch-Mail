@@ -179,25 +179,28 @@
 
       {% comment %} UPSELLS {% endcomment %}
       {% if settings.showUpsells %}
-        <div class="upsellContainer">
-          {% for i in (1..4) %}
-            {% if i == 1 %}
-              {% assign prod = settings.upsellProd1 %}
-            {% endif %}
-            {% if i == 2 %}
-              {% assign prod = settings.upsellProd2 %}
-            {% endif %}
-            {% if i == 3 %}
-              {% assign prod = settings.upsellProd3 %}
-            {% endif %}
-            {% if i == 4 %}
-              {% assign prod = settings.upsellProd4 %}
-            {% endif %}
+        <div class="cartDrawerUpsells">
+          <h2 class="upsellsHeadings is-h6">You May also like</h2>
+          <div class="upsellContainer">
+            {% for i in (1..4) %}
+              {% if i == 1 %}
+                {% assign prod = settings.upsellProd1 %}
+              {% endif %}
+              {% if i == 2 %}
+                {% assign prod = settings.upsellProd2 %}
+              {% endif %}
+              {% if i == 3 %}
+                {% assign prod = settings.upsellProd3 %}
+              {% endif %}
+              {% if i == 4 %}
+                {% assign prod = settings.upsellProd4 %}
+              {% endif %}
 
-            {% if prod != blank %}
-              {% render 'upsellProd', product: prod %}
-            {% endif %}
-          {% endfor %}
+              {% if prod != blank %}
+                {% render 'upsellProd', product: prod %}
+              {% endif %}
+            {% endfor %}
+          </div>
         </div>
       {% endif %}
 
