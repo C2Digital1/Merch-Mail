@@ -29,7 +29,7 @@
           "type": "text",
           "settings": {
             "text": "<p>Free Shipping on orders $75+<\/p>",
-            "preset": "is-text"
+            "preset": "is-text-small"
           }
         },
         "title": {
@@ -111,6 +111,7 @@
         "display_thumbnails": true,
         "thumbnail_position": "left-thumbnails",
         "enable_thumbnail_slider": true,
+        "showStickersRow": false,
         "width": "standard",
         "padding_top": 48,
         "padding_bottom": 40,
