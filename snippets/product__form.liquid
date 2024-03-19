@@ -213,12 +213,17 @@
         </p>
       {% endif %}
 
-      <div class="purchase-details {% if settings.display_product_quantity %}has-quantity-box{% endif %}">
-        {% if settings.display_product_quantity %}
-          <div class="purchase-details__quantity product-quantity-box quantity-box--{{ settings.qty_box_style }}">
-            {% render 'quantity-box' %}
-          </div>
-        {% endif %}
+      {% if settings.display_product_quantity %}
+        <span class="qtyLabel is-h6">
+          Quantity
+        </span>
+        <div class="purchase-details__quantity product-quantity-box quantity-box--{{ settings.qty_box_style }}">
+          {% render 'quantity-box' %}
+        </div>
+      {% endif %}
+
+      <div class="purchase-details">
+     
         {% comment %} Render Gift Card Form  {% endcomment %}
         {%  if gift_card_recipient_feature_active %}
           {%  render 'purchase-details__recipient-form', 

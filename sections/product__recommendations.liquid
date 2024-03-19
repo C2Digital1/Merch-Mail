@@ -78,7 +78,17 @@
     assign layout = 'grid'
   endif
 -%}
-
+{% style %}
+.product__thumbnail .product-thumbnail .product-thumbnail__vendor{
+  color: {{ settings.color_scheme_product.settings.scheme_pre_text }};
+}
+.product__thumbnail .product-thumbnail .product-thumbnail__title{
+  color: {{ settings.color_scheme_product.settings.scheme_heading }};
+}
+.product__thumbnail .product-thumbnail .product-thumbnail__price{
+  color: {{ settings.color_scheme_product.settings.scheme_text }};
+}
+{% endstyle %}
 {% style %}
   #shopify-section-{{ id }} {
     padding-top: {{ padding_top }}px;
@@ -114,6 +124,7 @@
 <section
   class="
     section
+    recommendedProdSec
     {{ css_class }}
     is-width-{{ width }}
   "

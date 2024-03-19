@@ -17,16 +17,27 @@
 <fieldset class="swatch is-flex is-flex-wrap" data-option-index="{{ option_index }}">
   <legend class="option-title label">
     <span
-      class="options-selection__option-name"
-      data-variant-option-name="{{ 'product.variants.chosen_option_html' | t: option: option.name, value: option.selected_value | escape }}"
-      data-variant-option-choose-name="{{ 'product.variants.choose_option' | t: option: option.name }}"
+      class="options-selection__option-name is-h6"
     >
       {% if selected_variant %}
-        {{ 'product.variants.chosen_option_html' | t: option: option.name, value: option.selected_value }}
+        {{ 'product.variants.choose_option' | t: option: option.name }}
       {% else %}
         {{ 'product.variants.choose_option' | t: option: option.name }}
       {% endif %}
     </span>
+    {% comment %}
+      <span
+        class="options-selection__option-name"
+        data-variant-option-name="{{ 'product.variants.chosen_option_html' | t: option: option.name, value: option.selected_value | escape }}"
+        data-variant-option-choose-name="{{ 'product.variants.choose_option' | t: option: option.name }}"
+      >
+        {% if selected_variant %}
+          {{ 'product.variants.chosen_option_html' | t: option: option.name, value: option.selected_value }}
+        {% else %}
+          {{ 'product.variants.choose_option' | t: option: option.name }}
+        {% endif %}
+      </span>
+    {% endcomment %}
   </legend>
   <div
     class="swatch__options"
@@ -35,7 +46,6 @@
     data-variant-option-chosen-value="{% if selected_variant %}{{ option.selected_value }}{% else %}false{% endif %}"
   >
     {% for value in option.values %}
-
       {% if downcased_option contains 'color' or downcased_option contains 'colour' %}
         {% assign swatch_search_color = value | downcase %}
         {% for variant in product.variants %}
@@ -54,10 +64,12 @@
           tabindex="0"
           name="option-{{ option_index }}"
           value="{{ value | escape }}"
-          {% if selected_variant and option.selected_value == value %}checked{% endif %}
+          {% if selected_variant and option.selected_value == value %}
+            checked
+          {% endif %}
           data-variant-option-value
           data-variant-option-value-index="{{ option_index }}"
-        />
+        >
         <div
           aria-label="{{ value | escape }}"
           tabindex="0"
@@ -80,31 +92,46 @@
               data-variant-option-value-label
               data-variant-image="{% if settings.swatches_option_style == 'variant_image' and product.variants[forloop.index0].image != blank %}true{% endif %}"
             >
-
-              {% if product.variants[forloop.index0].image == blank or settings.swatches_option_style != 'variant_image' %}
+              {% if product.variants[forloop.index0].image == blank
+                or settings.swatches_option_style != 'variant_image'
+              %}
                 {% assign image_name = value | handle | append: '.' | append: file_extension %}
                 {% assign swatch = images[image_name] %}
               {% endif %}
 
-              <img class="swatch__image {% if swatch == empty %}swatch__image--empty{% endif %}" src="{{ swatch | img_url: '50x' }}" alt="">
+              <img
+                class="swatch__image {% if swatch == empty %}swatch__image--empty{% endif %}"
+                src="{{ swatch | img_url: '50x' }}"
+                alt=""
+              >
 
-              <span class="crossed-out" aria-label="{{ 'products.product.sold_out' | t }}" alt="{{ 'products.product.sold_out' | t }}"></span>
+              <span
+                class="crossed-out"
+                aria-label="{{ 'products.product.sold_out' | t }}"
+                alt="{{ 'products.product.sold_out' | t }}"
+              ></span>
             </label>
           {% else %}
             <label
               data-variant-option-value-label
             >
               {{ value }}
-              <span class="crossed-out" aria-label="{{ 'products.product.sold_out' | t }}" alt="{{ 'products.product.sold_out' | t }}"></span>
+              <span
+                class="crossed-out"
+                aria-label="{{ 'products.product.sold_out' | t }}"
+                alt="{{ 'products.product.sold_out' | t }}"
+              ></span>
             </label>
           {% endif %}
           <script class="id-script">
-            (function() {
+            (function () {
               const idScriptEl = document.querySelector('.id-script:not(.id-script--processed)');
               const idScriptsProcessed = document.querySelectorAll('.id-script.id-script--processed').length;
               const variantOptionValueWrapper = idScriptEl.closest('[data-variant-option-value-wrapper]');
               const variantOptionValue = variantOptionValueWrapper.querySelector('[data-variant-option-value]');
-              const variantOptionValueLabel = variantOptionValueWrapper.querySelector('[data-variant-option-value-label]');
+              const variantOptionValueLabel = variantOptionValueWrapper.querySelector(
+                '[data-variant-option-value-label]'
+              );
               variantOptionValue.id = `{{ product.id }}-${idScriptsProcessed}`;
               variantOptionValueLabel.setAttribute('for', `{{ product.id }}-${idScriptsProcessed}`);
               idScriptEl.classList.add('id-script--processed');
