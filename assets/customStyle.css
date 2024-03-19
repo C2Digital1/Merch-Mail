@@ -1785,6 +1785,30 @@ h2.upsellsHeadings.is-h6 {
     color: #0C0C0C;
 }
 
+.quickAddBtnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.quickAddBtnContainer button.button.quickAddBtn.customQuickAddBtn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: max-content !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    min-height: 32px !important;
+    min-width: 68px !important;
+    font-size: 16px !important;
+    letter-spacing: 0 !important;
+    line-height: 19px !important;
+    border: 1px solid;
+    padding: 8px;
+}
+
 /* cart drawer and page css code end  */
 /* media query start  */
 @media only screen and (max-width: 1500px) {

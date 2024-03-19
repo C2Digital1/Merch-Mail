@@ -36,6 +36,14 @@
         return false;
       });
 
+      $(document).on('click', '.customQuickAddBtn', function (e) {
+        e.preventDefault();
+        const $addToCartForm = $(this).closest('form');
+        Shopify.theme.jsAjaxCart.addToCart($addToCartForm);
+
+        return false;
+      });
+
       $(document).on('click', '[data-ajax-cart-delete]', function (e) {
         e.preventDefault();
         const lineID = $(this).parents('[data-line-item]').data('line-item');
