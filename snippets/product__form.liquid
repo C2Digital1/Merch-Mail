@@ -241,45 +241,50 @@
       {% endif %} 
 
       {% if showSizeChart and sizeChartImg != blank %}
-        <a
-          href="javascript:;"
-          class="product__size-chart size-chart--medium-down"
+        <span 
+          class="sizeChartButton"
           data-fancybox
           data-src="#size-chart{{ product.id }}"
           data-type="inline"
         >
           {{- 'products.product.size_chart' | t }}
-        </a>        
+        </span>        
         {% render 'popup-size-chart', product_id: product.id, sizeChartImg: sizeChartImg %}
       {% endif %}
 
       <div class="purchase-details">
         {% comment %} Render Gift Card Form  {% endcomment %}
-        {% if gift_card_recipient_feature_active %}
-          {% render 'purchase-details__recipient-form', form: form, product: product, section: section %}
-        {% endif %}
+        {%  if gift_card_recipient_feature_active %}
+          {%  render 'purchase-details__recipient-form', 
+            form: form, 
+            product: product, 
+            section: section 
+          %}
+      {%  endif %}
         {% comment %} Error message for add to cart action {% endcomment %}
         <div class="purchase-details__buttons purchase-details__spb--{{ show_payment_button }}">
           {% if settings.cart_action == 'reload_page' %}
-            <input type="hidden" name="return_to" value="back">
+            <input type="hidden" name="return_to" value="back" />
           {% elsif settings.cart_action == 'redirect_cart' %}
-            <input type="hidden" name="return_to" value="{{ routes.cart_url }}">
+            <input type="hidden" name="return_to" value="{{ routes.cart_url }}" />
           {% endif %}
 
           {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
-          <button
-            type="submit"
-            name="add"
-            class="button {% if settings.cart_action == 'mini_cart' or settings.cart_action == 'drawer' %} ajax-submit {% endif %}action_button button--add-to-cart {% if show_payment_button %} action_button--secondary {% endif %}"
-            data-label="{{ add_to_cart_label | json }}"
-            data-add-to-cart-trigger
-          >
-            {% if settings.button_cart_icon != blank and settings.button_cart_icon_position == 'left' %}
-              {% render 'icon', name: settings.button_cart_icon, icon_class: 'icon--cart' %}
+          <button type="submit" name="add" class="button {% if settings.cart_action == 'mini_cart' or settings.cart_action == 'drawer' %} ajax-submit {% endif %}action_button button--add-to-cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }} data-add-to-cart-trigger>
+            {% if  settings.button_cart_icon != blank and settings.button_cart_icon_position == 'left' %}
+              {%
+                render 'icon',
+                name: settings.button_cart_icon,
+                icon_class: 'icon--cart'
+              %}
             {% endif %}
             <span class="text">{{ add_to_cart_label }}</span>
-            {% if settings.button_cart_icon != blank and settings.button_cart_icon_position == 'right' %}
-              {% render 'icon', name: settings.button_cart_icon, icon_class: 'icon--cart icon--right' %}
+            {% if  settings.button_cart_icon != blank and settings.button_cart_icon_position == 'right' %}
+              {%
+                render 'icon',
+                name: settings.button_cart_icon,
+                icon_class: 'icon--cart icon--right'
+              %}
             {% endif %}
             <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
               <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
@@ -290,6 +295,7 @@
           {% endif %}
         </div>
         <div class="cart-warning"></div>
+
       </div>
     {% endif %}
   {% endform %}

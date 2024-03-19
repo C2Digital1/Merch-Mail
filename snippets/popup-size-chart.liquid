@@ -1,7 +1,7 @@
 <div class="size-chart" id="size-chart{{ product_id }}">
   <div class="size-chart-wrap content container {% if settings.table_styles_enabled %} table is-striped is-bordered {% endif %}">
     <div class="one-whole column">
-      {% if != blank %}
+      {% if sizeChartImg != blank %}
         <img
           class="boxImg lazyload"
           src="{{ sizeChartImg | img_url:'master' }}"

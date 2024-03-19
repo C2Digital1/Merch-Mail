@@ -1420,7 +1420,20 @@ button.button.button--add-to-cart {
     height: auto;
     display: block;
 }
-
+.sizeChartButton{
+    display: flex;
+    align-items: center;
+    font-family: "Arial Narrow";
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 16px;
+    margin-top: 16px;
+    text-decoration: underline;
+    position: relative;
+    float: none !important;
+    padding: 0 !important;
+}
 /* product page css code end  */
 
 
