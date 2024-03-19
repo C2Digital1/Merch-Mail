@@ -241,7 +241,9 @@ span.iconTxt {
     width: 100%;
     margin: 0px auto !important;
 }
-
+header.header  {
+    border-bottom: 1px solid #D8D8D8;
+}
 /* header css code end  */
 
 /* home page section start  */
