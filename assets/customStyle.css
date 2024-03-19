@@ -1415,6 +1415,12 @@ button.button.button--add-to-cart {
     margin-right: 0 !important;
 }
 
+.boxImg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* product page css code end  */
 
 
