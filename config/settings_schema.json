@@ -3154,6 +3154,36 @@
         "label": "Free shipping indicator success message",
         "default": "You got free shipping",
         "info": "use [[rem_amt]] for remaining amount to meet free shipping"
+      },
+      {
+        "type": "header",
+        "content": "Upsell Products"
+      },
+      {
+        "type": "checkbox",
+        "id": "showUpsells",
+        "label": "Show Upsells?",
+        "default": true
+      },
+      {
+        "type": "product",
+        "id": "upsellProd1",
+        "label": "Choose Product 1"
+      },
+      {
+        "type": "product",
+        "id": "upsellProd2",
+        "label": "Choose Product 2"
+      },      
+      {
+        "type": "product",
+        "id": "upsellProd3",
+        "label": "Choose Product 3"
+      },            
+      {
+        "type": "product",
+        "id": "upsellProd4",
+        "label": "Choose Product 4"
       }
     ]
   },
