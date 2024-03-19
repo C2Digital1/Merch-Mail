@@ -3174,12 +3174,12 @@
         "type": "product",
         "id": "upsellProd2",
         "label": "Choose Product 2"
-      },      
+      },
       {
         "type": "product",
         "id": "upsellProd3",
         "label": "Choose Product 3"
-      },            
+      },
       {
         "type": "product",
         "id": "upsellProd4",
