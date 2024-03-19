@@ -177,7 +177,7 @@
     "freeshipping_remaining_msg": "You are just [[rem_amt]] away from free shipping",
     "upsellProd1": "baseball-tee",
     "upsellProd2": "lorem-ipsum-dolor",
-    "upsellProd3": "",
+    "upsellProd3": "tank-top",
     "upsellProd4": "pullover-hoodie",
     "currency_format": "money_format",
     "show_multiple_currencies": false,
