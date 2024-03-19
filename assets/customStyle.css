@@ -1809,6 +1809,10 @@ h2.upsellsHeadings.is-h6 {
     padding: 8px;
 }
 
+.ajax-cart__empty-cart-message {
+    padding: 0 20px;
+}
+
 /* cart drawer and page css code end  */
 /* media query start  */
 @media only screen and (max-width: 1500px) {

@@ -8,7 +8,7 @@
 <template data-html="content">
   {% comment %} No items in the cart message {% endcomment %}
   <div class="ajax-cart__empty-cart-message text-align-center {% if cart.item_count > 0 %}is-hidden {% endif %}">
-    <p class="ajax-cart__cart-title has-margin-bottom">
+   <p class="ajax-cart__cart-title is-h5">
       {{ 'cart.general.title' | t }}
       <span class="cart__count--text" data-bind="itemCount">{{ cart.item_count }}</span>
     </p>
