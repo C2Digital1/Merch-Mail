@@ -62,10 +62,45 @@
         "css_class": "",
         "custom_css": ""
       }
+    },
+    "index_featured_collection_q6Uiwm": {
+      "type": "index__featured-collection",
+      "settings": {
+        "heading": "You may also like",
+        "heading_preset": "is-h4",
+        "heading_alignment": "center",
+        "collection": "all",
+        "items_per_row": 4,
+        "mobile_items_per_row": "1",
+        "products_limit": 4,
+        "button_label_view": "",
+        "button_link_view": "",
+        "button_alignment_view": "center",
+        "button_style_view": "button--primary",
+        "collection_style": "grid",
+        "width": "wide",
+        "padding_top": 0,
+        "padding_bottom": 64,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 32,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
     }
   },
   "order": [
     "banner",
-    "main"
+    "main",
+    "index_featured_collection_q6Uiwm"
   ]
 }
