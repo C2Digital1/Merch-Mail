@@ -210,8 +210,8 @@
         readonly
         id="printDateInfo"
         class="hiddenInputField"
-        name="properties[Print Date:]"
-        value="{{ product.metafields.custom.printing_date  | date: "%b %d"  }}"
+        name="properties[Print Date]"
+        value="{{ product.metafields.custom.printing_date  | date: "%b %d, %Y"  }}"
       >
     {% endif %}
     {% if product.available %}
