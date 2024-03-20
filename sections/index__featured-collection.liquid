@@ -18,7 +18,7 @@
   assign button_link_view = section.settings.button_link_view
   assign button_alignment_view = section.settings.button_alignment_view
   assign button_style_view = section.settings.button_style_view
-  
+
   assign showSliderInMobile = section.settings.showSliderInMobile
 -%}
 {% comment %}Spacing{% endcomment %}
@@ -58,6 +58,10 @@
     endif
   else
     assign layout = 'grid'
+  endif
+
+  if layout = 'slider' and showSliderInMobile
+    assign layout = 'slider'
   endif
 -%}
 {% style %}
