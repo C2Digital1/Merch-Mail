@@ -2169,11 +2169,20 @@ a.button.cartContinueShoppingBtn {
     margin-right: 0;
 }
 
+a.continue-button.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    max-width: 250px;
+    padding: 5px;
+    margin: 0px auto;
+}
+
 /* cart drawer and page css code end  */
 .showSliderInMobile:after {
     content: '';
 }
-
 
 /* media query start  */
 @media only screen and (max-width: 1500px) {
@@ -2200,6 +2209,7 @@ a.button.cartContinueShoppingBtn {
 }
 
 @media only screen and (max-width: 991px) {
+
     .is-width-standard,
     .caption.is-justify-center.is-align-center {
         padding: 0 20px !important;

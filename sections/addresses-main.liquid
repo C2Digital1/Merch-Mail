@@ -92,8 +92,7 @@
       %}
     </header>
   {% endif %}
-
-  <div class="container">
+  <div class="container">    
     <aside class="one-fourth column account-sidebar">
       <a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
       <div class="account-sidebar__content has-padding-top">
@@ -302,7 +301,6 @@
           </p>
         {% endform %}
       </div>
-
       <div id="address_tables" class="container">
         {% paginate customer.addresses by 10 %}
           {% if customer.addresses.size > 0 %}
