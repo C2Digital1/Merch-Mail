@@ -18,12 +18,8 @@
         products_per_slide: this.products_per,
         products_available: this.products_available,
         products_limit: this.products_limit,
-        showSliderInMobile: this.showSliderInMobile,
       }
-      console.log("slideData.showSliderInMobile");
-      console.log(typeof(slideData.showSliderInMobile));
-      console.log("slideData.showSliderInMobile"+ slideData.showSliderInMobile);
-      console.log(typeof(slideData.showSliderInMobile));
+
       const slider = $sliderEl.flickity({
         lazyLoad: 2,
         freeScroll: true,
@@ -35,8 +31,7 @@
         contain: true,
         prevNextButtons: slideData.products_limit > slideData.products_per_slide ? true : false,
         initialIndex: 0,
-        arrowShape: arrowShape,
-        watchCSS: slideData.showSliderInMobile
+        arrowShape: arrowShape
       });
       slider.on('settle.flickity', function () {
         slider.flickity('resize');
