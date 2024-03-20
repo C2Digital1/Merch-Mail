@@ -103,7 +103,7 @@
   {% if animation != 'none' %}
     data-scroll-class="{{ animation }}"
   {% endif %}
-  >
+>
   {% if heading != blank %}
     <div class="container">
       {% render 'heading',
@@ -152,7 +152,7 @@
     "products_per": {{ items_per_row | json}},
     "products_available": {{ collection.all_products_count | json }},
     "products_limit": {{ products_limit | json }},
-    showSliderInMobile: {{ showSliderInMobile | json }}
+    "showSliderInMobile": {{ showSliderInMobile | json }}
   }
 </script>
 <script data-theme-editor-load-script src="{{ 'z__jsFeaturedCollection.js' | asset_url }}"></script>
@@ -351,7 +351,7 @@
     {
       "type": "checkbox",
       "id": "showSliderInMobile",
-      "label": "Show Slider In Mobile Only?",      
+      "label": "Show Slider In Mobile Only?",
       "info": "If this will be true then only on mobile slider layout will work but for this you need to select Slider Layout in above option.",
       "default": false
     },
