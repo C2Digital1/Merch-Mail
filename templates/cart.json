@@ -68,7 +68,7 @@
       "settings": {
         "heading": "You may also like",
         "heading_preset": "is-h4",
-        "heading_alignment": "center",
+        "heading_alignment": "left",
         "collection": "all",
         "items_per_row": 4,
         "mobile_items_per_row": "1",
