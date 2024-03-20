@@ -148,7 +148,7 @@
         </div>
       {% endif %}
 
-      <div class="container">
+      <div class="container cartItemsContainer">
         <div class="cart__item-list one-whole column medium-down--one-whole">
           {% assign total_saving = 0 %}
           {% for item in cart.items %}
@@ -285,64 +285,47 @@
               </div>
             </div>
           {% endfor %}
+        </div>
+      </div>
 
-          <div class="container has-no-side-gutter has-padding-top">
-            <div class="two-thirds column medium-down--one-whole has-padding-bottom">
-              {% if settings.display_special_instructions %}
-                <span class="cart__notes">
-                  <div class="field">
-                    <label
-                      for="note"
+      <div class="cartPageFooterArea">
+        <div class="container has-no-side-gutter has-padding-top">
+          <div class="two-thirds column medium-down--one-whole has-padding-bottom">
+            {% if settings.display_special_instructions %}
+              <span class="cart__notes">
+                <div class="field">
+                  <label
+                    for="note"
+                    {% if settings.use_placeholders %}
+                      class="is-sr-only"
+                    {% endif %}
+                  >
+                    {{ 'cart.general.note' | t: shop_name: shop.name }}:
+                  </label>
+                  <div class="control">
+                    <textarea
+                      class="textarea"
+                      id="note"
+                      name="note"
+                      rows="3"
                       {% if settings.use_placeholders %}
-                        class="is-sr-only"
+                        placeholder="{{ 'cart.general.note_detailed' | t: shop_name: shop.name }}"
                       {% endif %}
-                    >
-                      {{ 'cart.general.note' | t: shop_name: shop.name }}:
-                    </label>
-                    <div class="control">
-                      <textarea
-                        class="textarea"
-                        id="note"
-                        name="note"
-                        rows="3"
-                        {% if settings.use_placeholders %}
-                          placeholder="{{ 'cart.general.note_detailed' | t: shop_name: shop.name }}"
-                        {% endif %}
-                      >{{ cart.note }}</textarea>
-                    </div>
+                    >{{ cart.note }}</textarea>
                   </div>
-                </span>
-              {% endif %}
-            </div>
+                </div>
+              </span>
+            {% endif %}
+          </div>
 
-            <div class="cart__footer one-third column medium-down--one-whole">
-              <div class="cart__row cart__subtotal is-h6 is-font-bold is-uppercase">
-                <div class="cart__subtotal__label">{{ 'cart.general.subtotal' | t }}:</div>
-                <p class="cart__subtotal__price">
-                  <span class="money">
-                    {% render 'price-element', price: cart.total_price %}
-                  </span>
-                </p>
+          <div class="cart__footer one-third column medium-down--one-whole">
+            {% if cart_message != blank %}
+              <div class="cart__row cart__cart-message is-flex is-justify-end is-text">
+                {{ cart_message }}
               </div>
+            {% endif %}
 
-              {% if display_savings and total_saving > 0 %}
-                <div class="cart__row cart__savings is-h6 is-font-bold is-uppercase">
-                  <div class="cart__savings__label">{{ 'layout.general.savings' | t }}:</div>
-                  <p class="cart__savings__price">
-                    <span class="money">
-                      {% assign total_savings = total_saving | plus: cart.total_discount %}
-                      {% render 'price-element', price: total_savings %}
-                    </span>
-                  </p>
-                </div>
-              {% endif %}
-
-              {% if cart_message != blank %}
-                <div class="cart__row cart__cart-message is-flex is-justify-end is-text">
-                  {{ cart_message }}
-                </div>
-              {% endif %}
-
+            {% comment %}
               <div class="cart__row is-flex is-align-right cart__taxes-shipping text-align-right">
                 {%- capture taxes_shipping_checkout -%}
                   {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
@@ -358,69 +341,90 @@
 
                 <p class="cart__taxes-shipping-message">{{ taxes_shipping_checkout }}</p>
               </div>
+            {% endcomment %}
 
-              {% if settings.display_tos_checkbox %}
-                <div class="cart__row is-flex is-align-center cart__checkout-elements">
-                  <div class="cart__tos">
-                    <div class="field">
-                      <label class="tos_label" for="cart_agree">
-                        <input type="checkbox" class="tos_agree" id="cart_agree" required>
-                        {{ 'cart.general.agree_to_terms_html' | t }}
-                      </label>
-                      {% if settings.tos_page != blank %}
-                        <div class="cart__view-terms-container">
-                          <a
-                            href="{{ pages[settings.tos_page].url }}"
-                            class="text-align-right"
-                            target="_blank"
-                            rel="noopener"
-                          >
-                            {{- 'cart.general.view_terms' | t -}}
-                          </a>
-                        </div>
-                      {% endif %}
-                    </div>
+            {% if settings.display_tos_checkbox %}
+              <div class="cart__row is-flex is-align-center cart__checkout-elements">
+                <div class="cart__tos">
+                  <div class="field">
+                    <label class="tos_label" for="cart_agree">
+                      <input type="checkbox" class="tos_agree" id="cart_agree" required>
+                      {{ 'cart.general.agree_to_terms_html' | t }}
+                    </label>
+                    {% if settings.tos_page != blank %}
+                      <div class="cart__view-terms-container">
+                        <a
+                          href="{{ pages[settings.tos_page].url }}"
+                          class="text-align-right"
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          {{- 'cart.general.view_terms' | t -}}
+                        </a>
+                      </div>
+                    {% endif %}
                   </div>
                 </div>
-              {% endif %}
-
-              {% if settings.enable_freeshipping_indicator %}
-                <div class="cart__row cart__free-shipping is-flex is-align-center text-right">
-                  {% include 'include-free-shipping-indicator' %}
-                </div>
-              {% endif %}
-
-              <div class="cart__row is-flex is-align-center is-justify-end cart__checkout">
-                <button
-                  type="submit"
-                  class="button add_to_cart checkout"
-                  id="checkout"
-                  name="checkout"
-                  value="{{ 'cart.general.checkout' | t }}"
-                >
-                  {% if settings.show_lock_icon %}
-                    {% render 'icon', name: 'lock' %}
-                  {% endif %}
-                  {{ 'cart.general.checkout' | t }}
-                </button>
-                {% if content_for_additional_checkout_buttons %}
-                  <div class="additional-checkout-buttons">
-                    {{ content_for_additional_checkout_buttons }}
-                  </div>
-                {% endif %}
               </div>
+            {% endif %}
 
-              {% if cart.item_count > 0 %}
-                <div class="cart__row is-flex is-align-center is-justify-center cart__additional">
-                  <a
-                    class="button button--link-style"
-                    href="{% if cart.items.first.product.collections != blank %}{{ cart.items.first.product.collections.last.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}"
-                  >
-                    {{- 'cart.general.continue_shopping_link_html' | t -}}
-                  </a>
+            {% if settings.enable_freeshipping_indicator %}
+              <div class="cart__row cart__free-shipping is-flex is-align-center text-right">
+                {% include 'include-free-shipping-indicator' %}
+              </div>
+            {% endif %}
+
+            <div class="cart__row cart__subtotal is-h6 is-font-bold is-uppercase">
+              <div class="cart__subtotal__label">{{ 'cart.general.subtotal' | t }}:</div>
+              <p class="cart__subtotal__price">
+                <span class="money">
+                  {% render 'price-element', price: cart.total_price %}
+                </span>
+              </p>
+            </div>
+
+            {% if display_savings and total_saving > 0 %}
+              <div class="cart__row cart__savings is-h6 is-font-bold is-uppercase">
+                <div class="cart__savings__label">{{ 'layout.general.savings' | t }}:</div>
+                <p class="cart__savings__price">
+                  <span class="money">
+                    {% assign total_savings = total_saving | plus: cart.total_discount %}
+                    {% render 'price-element', price: total_savings %}
+                  </span>
+                </p>
+              </div>
+            {% endif %}
+
+            <div class="cart__row is-flex is-align-center is-justify-end cart__checkout">
+              <button
+                type="submit"
+                class="button checkout cartPageCheckout button--secondary"
+                id="checkout"
+                name="checkout"
+                value="{{ 'cart.general.checkout' | t }}"
+              >
+                {% if settings.show_lock_icon %}
+                  {% render 'icon', name: 'lock' %}
+                {% endif %}
+                {{ 'cart.general.checkout' | t }}
+              </button>
+              {% if content_for_additional_checkout_buttons %}
+                <div class="additional-checkout-buttons">
+                  {{ content_for_additional_checkout_buttons }}
                 </div>
               {% endif %}
             </div>
+
+            {% if cart.item_count > 0 %}
+              <div class="cart__row is-flex is-align-center is-justify-center cart__additional">
+                <a
+                  class="button cartContinueShoppingBtn"
+                  href="{% if cart.items.first.product.collections != blank %}{{ cart.items.first.product.collections.last.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}"
+                >
+                  {{- 'cart.general.continue_shopping_link_html' | t -}}
+                </a>
+              </div>
+            {% endif %}
           </div>
         </div>
       </div>
