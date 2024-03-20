@@ -213,7 +213,7 @@
      
 
       {% comment %} Subtotal {% endcomment %}
-      <div class="ajax-cart__subtotal ajax-cart__details-row is-flex is-justify-space-between">
+      <div class="ajax-cart__subtotal ajax-cart__details-row is-flex is-justify-space-between is-h6">
         <div class="ajax-cart__row-description">
           <span>{{ 'layout.general.subtotal' | t }}:</span>
         </div>
@@ -290,13 +290,13 @@
       {% comment %} Checkout {% endcomment %}
       <div class="ajax-cart__button-wrapper text-align-center">
         {% if settings.go_to_checkout %}
-          <button type="submit" name="checkout" class="ajax-cart__button button--add-to-cart button">
+          <button type="submit" name="checkout" class="checkoutBtn button--secondary button">
             {% if settings.show_lock_icon %}
               {% render 'icon', name: 'lock' %}
             {% endif %}
             {{ 'layout.general.checkout' | t }}
           </button>
-          <a class="ajax-cart__cart-link" href="{{ routes.cart_url }}">{{ 'layout.general.go_to_cart' | t }}</a>
+          <button type="button" class="continueShoppingBtn button" data-ajax-cart-close href="{{ routes.cart_url }}">Continue Shopping</button>
         {% else %}
           <a href="{{ routes.cart_url }}" class="ajax-cart__button button--add-to-cart button">
             {% if settings.show_lock_icon %}

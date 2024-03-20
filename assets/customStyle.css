@@ -1493,6 +1493,26 @@ p.ajax-cart__cart-title {
 
 form.ajax-cart__form {
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100% !important;
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+.ajax-cart__cart-count.text-align-center {
+    width: 100%;
+}
+
+.ajax-cart__list {
+    width: 100%;
+    flex: 1;
+}
+
+.ajax-cart__details-wrapper {
+    width: 100%;
 }
 
 .ajax-cart__close-icon {
@@ -1735,7 +1755,11 @@ a.ajax-cart__delete svg {
 }
 
 .cartDrawerUpsells {
+    position: relative;
     text-align: center;
+    padding-bottom: 72px;
+    margin-top: 52px;
+    border-bottom: 1px solid #000000;
 }
 
 h2.upsellsHeadings.is-h6 {
@@ -1811,6 +1835,93 @@ h2.upsellsHeadings.is-h6 {
 
 .ajax-cart__empty-cart-message {
     padding: 0 20px;
+}
+
+.cartDrawerUpsells button.flickity-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 20px;
+    width: 20px;
+    opacity: 1 !important;
+    background: #2B5597 !important;
+    color: #fff !important;
+    cursor: pointer;
+    box-shadow: none !important;
+    outline: none !important;
+    border: 0px solid !important;
+}
+
+.cartDrawerUpsells button.flickity-button svg {
+    width: 8px;
+    height: 8px;
+}
+
+.cartDrawerUpsells button.flickity-button.previous svg {
+    transform: scaleX(-1);
+}
+
+.cartDrawerUpsells button.flickity-button.next {
+    left: unset;
+    right: -12px;
+}
+
+.cartDrawerUpsells button.flickity-button.previous {
+    left: -12px;
+}
+
+.cartDrawerUpsells button.flickity-button[disabled] {
+    opacity: 0 !important;
+}
+
+.cartDrawerUpsells ol.flickity-page-dots {
+    bottom: -20px;
+}
+
+.cartDrawerUpsells ol.flickity-page-dots li.dot {
+    height: 8px;
+    width: 8px;
+    border: 1px solid #0C0C0C;
+    margin: 0 4px;
+    background: transparent;
+}
+
+.cartDrawerUpsells ol.flickity-page-dots li.dot.is-selected {
+    background: #0C0C0C !important;
+}
+
+p.ajax-cart__taxes-shipping-message.has-padding-top {
+    display: none;
+}
+
+button.checkoutBtn.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 5px;
+    border: 1px solid;
+    margin-bottom: 16px;
+}
+
+button.continueShoppingBtn.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px solid !important;
+    text-align: center;
+    margin: 0px auto 24px auto;
+    color: #2B5597;
+}
+
+button.continueShoppingBtn.button:hover {
+    color: #0C0C0C;
+}
+
+.ajax-cart__subtotal.ajax-cart__details-row.is-flex.is-justify-space-between {
+    padding: 24px 0 16px 0;
 }
 
 /* cart drawer and page css code end  */
