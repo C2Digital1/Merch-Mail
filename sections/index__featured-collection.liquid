@@ -20,6 +20,7 @@
   assign button_style_view = section.settings.button_style_view
 
   assign showSliderInMobile = section.settings.showSliderInMobile
+  assign centerMode = section.settings.centerMode
 -%}
 {% comment %}Spacing{% endcomment %}
 {%- liquid
@@ -171,7 +172,9 @@
     "collection_style": {{ layout | json }},
     "products_per": {{ items_per_row | json}},
     "products_available": {{ collection.all_products_count | json }},
-    "products_limit": {{ products_limit | json }}
+    "products_limit": {{ products_limit | json }},
+    "showSliderInMobile": {{ showSliderInMobile | json }},
+    "centerMode": {{ centerMode | json }}
   }
 </script>
 <script data-theme-editor-load-script src="{{ 'z__jsFeaturedCollection.js' | asset_url }}"></script>
@@ -366,6 +369,12 @@
           "label": "Grid"
         }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "centerMode",
+      "label": "Center Mode?",
+      "default": true
     },
     {
       "type": "checkbox",

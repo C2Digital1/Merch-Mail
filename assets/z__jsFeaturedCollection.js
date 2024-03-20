@@ -19,14 +19,18 @@
         products_available: this.products_available,
         products_limit: this.products_limit,
         showSliderInMobile: this.showSliderInMobile,
+        centerMode: this.centerMode
       }
-      
+      var mode = "left";
+      if(slideData.centerMode){
+         mode = "center";
+      }
       const slider = $sliderEl.flickity({
         lazyLoad: 2,
         freeScroll: true,
         imagesLoaded: true,
         draggable: true,
-        cellAlign: 'center',
+        cellAlign: mode,
         wrapAround: true,
         pageDots: false,
         contain: true,
