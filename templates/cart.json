@@ -79,7 +79,7 @@
         "button_alignment_view": "center",
         "button_style_view": "button--primary",
         "collection_style": "slider",
-        "showSliderInMobile": true,
+        "showSliderInMobile": false,
         "width": "standard",
         "padding_top": 0,
         "padding_bottom": 64,
