@@ -73,7 +73,7 @@
         "collection": "all",
         "items_per_row": 4,
         "mobile_items_per_row": "1",
-        "products_limit": 4,
+        "products_limit": 7,
         "button_label_view": "",
         "button_link_view": "",
         "button_alignment_view": "center",
