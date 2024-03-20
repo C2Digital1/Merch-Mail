@@ -18,6 +18,7 @@
         products_per_slide: this.products_per,
         products_available: this.products_available,
         products_limit: this.products_limit,
+        showSliderInMobile: this.showSliderInMobile,
       }
 
       const slider = $sliderEl.flickity({
@@ -31,7 +32,8 @@
         contain: true,
         prevNextButtons: slideData.products_limit > slideData.products_per_slide ? true : false,
         initialIndex: 0,
-        arrowShape: arrowShape
+        arrowShape: arrowShape,
+        watchCSS: slideData.showSliderInMobile
       });
       slider.on('settle.flickity', function () {
         slider.flickity('resize');

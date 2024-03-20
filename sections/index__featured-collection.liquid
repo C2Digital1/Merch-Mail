@@ -18,6 +18,8 @@
   assign button_link_view = section.settings.button_link_view
   assign button_alignment_view = section.settings.button_alignment_view
   assign button_style_view = section.settings.button_style_view
+
+  assign showSliderInMobile = section.settings.showSliderInMobile
 -%}
 {% comment %}Spacing{% endcomment %}
 {%- liquid
@@ -115,7 +117,7 @@
     </div>
   {% endif %}
   <div
-    class="container has-column-padding-bottom featured-collection layout--{{ layout }} is-justify-center"
+    class="container has-column-padding-bottom featured-collection layout--{{ layout }} is-justify-center {%  if showSliderInMobile %}showSliderInMobile{%  endif %}"
     {% if layout == 'slider' %}
       data-slider
     {% endif %}
@@ -149,7 +151,8 @@
     "collection_style": {{ layout | json }},
     "products_per": {{ items_per_row | json}},
     "products_available": {{ collection.all_products_count | json }},
-    "products_limit": {{ products_limit | json }}
+    "products_limit": {{ products_limit | json }},
+    showSliderInMobile: {{ showSliderInMobile | json }}
   }
 </script>
 <script data-theme-editor-load-script src="{{ 'z__jsFeaturedCollection.js' | asset_url }}"></script>
@@ -344,6 +347,13 @@
           "label": "Grid"
         }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "showSliderInMobile",
+      "label": "Show Slider In Mobile Only?",      
+      "info": "If this will be true then only on mobile slider layout will work but for this you need to select Slider Layout in above option.",
+      "default": false
     },
     {
       "type": "select",

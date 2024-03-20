@@ -2155,6 +2155,9 @@ a.button.cartContinueShoppingBtn {
 }
 
 /* cart drawer and page css code end  */
+.showSliderInMobile:after {
+    content: '';
+}
 
 
 /* media query start  */
@@ -2190,6 +2193,10 @@ a.button.cartContinueShoppingBtn {
 }
 
 @media only screen and (max-width: 798px) {
+    .showSliderInMobile:after {
+        content: 'flickity';
+        display: none;
+    }
 
     .is-width-standard,
     .caption.is-justify-center.is-align-center {
