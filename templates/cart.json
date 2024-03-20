@@ -42,7 +42,7 @@
         "display_cart_headings": true,
         "cart_headings_preset": "is-h6",
         "display_product_quantity_cart": true,
-        "display_savings": true,
+        "display_savings": false,
         "cart_message": "",
         "width": "small",
         "padding_top": 64,
