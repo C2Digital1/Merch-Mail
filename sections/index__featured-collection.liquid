@@ -59,11 +59,14 @@
   else
     assign layout = 'grid'
   endif
+-%}
 
-  if layout = 'slider' and showSliderInMobile
+{% liquid
+  if collection_style == 'slider' and showSliderInMobile == true
     assign layout = 'slider'
   endif
--%}
+%}
+
 {% style %}
   .product__thumbnail .product-thumbnail .product-thumbnail__vendor{
     color: {{ settings.color_scheme_product.settings.scheme_pre_text }};
@@ -109,6 +112,7 @@
 {% endstyle %}
 
 {% comment %} HTML markup {% endcomment %}
+
 <section
   class="
     section
