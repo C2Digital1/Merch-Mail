@@ -2111,12 +2111,13 @@ p.item__properties.is-text-small.itemProdOptions {
 .cartPageFooterArea .container .two-thirds.column.medium-down--one-whole {
     padding: 0 !important;
     margin: 0 !important;
-    width: 100% !IMPORTANT;
+    width: 100% !important;
 }
 
 .cartPageFooterArea .cart__row.cart__subtotal {
     color: #0C0C0C;
     padding-bottom: 16px !important;
+    font-weight: normal !important;
 }
 
 .cartPageFooterArea .cart__row.cart__free-shipping.is-flex.is-align-center {
