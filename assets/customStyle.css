@@ -1889,6 +1889,7 @@ h2.upsellsHeadings.is-h6 {
     left: -12px;
 }
 
+button.flickity-button.flickity-prev-next-button[disabled],
 .cartDrawerUpsells button.flickity-button[disabled] {
     opacity: 0 !important;
 }
@@ -2179,11 +2180,47 @@ a.continue-button.button {
     margin: 0px auto;
 }
 
+.cartPageSec .heading-wrapper--cart-page.heading-wrapper.heading-wrapper--short.one-whole {
+    margin: 0 auto 40px auto;
+    width: 100%;
+}
+
+.featured-collection button.flickity-button.flickity-prev-next-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    padding: 0 !important;
+    background: #2B5597 !important;
+    color: #fff !important;
+    top: calc(50% - 40px);
+}
+
+.featured-collection button.flickity-button.flickity-prev-next-button svg {
+    width: 10px !important;
+    height: 10px !important;
+}
+
+
+.featured-collection button.flickity-button.flickity-prev-next-button.next {
+    right: -4px;
+}
+
+.featured-collection button.flickity-button.flickity-prev-next-button.previous {
+    left: -4px;
+}
+
+.featured-collection button.flickity-button.flickity-prev-next-button.previous svg {
+    transform: scaleX(-1);
+}
+
 /* cart drawer and page css code end  */
 
 .showSliderInMobile:after {
     content: '';
 }
+
 /* media query start  */
 @media only screen and (max-width: 1500px) {
     .useCustomStyle .image-with-text__text-column.image-with-text__column.scheme_color-default.one-half.medium-down--one-whole.column.has-padding-left .image-with-text__wrapper {
@@ -2217,7 +2254,7 @@ a.continue-button.button {
 }
 
 @media only screen and (max-width: 798px) {
-  
+
     .showSliderInMobile:after {
         content: 'flickity';
         display: none;
@@ -2367,6 +2404,10 @@ a.continue-button.button {
 
     .container.featured-collection .one-fourth.medium-down--one-half.small-down--one-whole.column.thumbnail.product__thumbnail:nth-child(2n) {
         margin-right: 0 !important;
+    }
+
+    .container.featured-collection.layout--slider .one-fourth.medium-down--one-half.small-down--one-whole.column.thumbnail.product__thumbnail:nth-child(2n) {
+        margin-right: 14px !important;
     }
 
 }

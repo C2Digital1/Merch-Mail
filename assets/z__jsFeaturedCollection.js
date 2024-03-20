@@ -22,8 +22,12 @@
         centerMode: this.centerMode
       }
       var mode = "left";
-      if(slideData.centerMode){
-         mode = "center";
+      var showArrows = false;
+      if (slideData.centerMode) {
+        mode = "center";
+      }
+      if (slideData.products_limit > slideData.products_per_slide || slideData.showSliderInMobile) {
+        showArrows = true;
       }
       const slider = $sliderEl.flickity({
         lazyLoad: 2,
@@ -31,10 +35,10 @@
         imagesLoaded: true,
         draggable: true,
         cellAlign: mode,
-        wrapAround: true,
+        wrapAround: false,
         pageDots: false,
         contain: true,
-        prevNextButtons: slideData.products_limit > slideData.products_per_slide ? true : false,
+        prevNextButtons: showArrows,
         initialIndex: 0,
         arrowShape: arrowShape,
         watchCSS: slideData.showSliderInMobile
