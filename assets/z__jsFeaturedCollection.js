@@ -20,7 +20,10 @@
         products_limit: this.products_limit,
         showSliderInMobile: this.showSliderInMobile,
       }
-
+      console.log("slideData.showSliderInMobile");
+      console.log(typeof(slideData.showSliderInMobile));
+      console.log("slideData.showSliderInMobile"+ slideData.showSliderInMobile);
+      console.log(typeof(slideData.showSliderInMobile));
       const slider = $sliderEl.flickity({
         lazyLoad: 2,
         freeScroll: true,

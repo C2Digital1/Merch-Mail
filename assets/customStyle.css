@@ -2180,10 +2180,10 @@ a.continue-button.button {
 }
 
 /* cart drawer and page css code end  */
+
 .showSliderInMobile:after {
     content: '';
 }
-
 /* media query start  */
 @media only screen and (max-width: 1500px) {
     .useCustomStyle .image-with-text__text-column.image-with-text__column.scheme_color-default.one-half.medium-down--one-whole.column.has-padding-left .image-with-text__wrapper {
@@ -2217,6 +2217,7 @@ a.continue-button.button {
 }
 
 @media only screen and (max-width: 798px) {
+  
     .showSliderInMobile:after {
         content: 'flickity';
         display: none;
