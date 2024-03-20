@@ -1502,8 +1502,25 @@ form.ajax-cart__form {
     min-height: 100vh;
 }
 
+div#ajax-cart__content {
+    width: 100%;
+    height: max-content;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+
 .ajax-cart__cart-count.text-align-center {
     width: 100%;
+}
+
+.ajax-cart__cart-count {
+
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #fff;
 }
 
 .ajax-cart__list {
@@ -1525,6 +1542,7 @@ form.ajax-cart__form {
     top: 25px;
     right: 20px;
     left: unset;
+    z-index: 10;
 }
 
 .ajax-cart__close-icon span.icon {
