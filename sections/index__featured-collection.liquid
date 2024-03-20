@@ -93,10 +93,23 @@
   %}
 {% endstyle %}
 
+{% style %}
+.product__thumbnail .product-thumbnail .product-thumbnail__vendor{
+  color: {{ settings.color_scheme_product.settings.scheme_pre_text }};
+}
+.product__thumbnail .product-thumbnail .product-thumbnail__title{
+  color: {{ settings.color_scheme_product.settings.scheme_heading }};
+}
+.product__thumbnail .product-thumbnail .product-thumbnail__price{
+  color: {{ settings.color_scheme_product.settings.scheme_text }};
+}
+{% endstyle %}
+
 {% comment %} HTML markup {% endcomment %}
 <section
   class="
     section
+    featuredCollectionSec
     {{ css_class }}
     is-width-{{ width }}
   "
