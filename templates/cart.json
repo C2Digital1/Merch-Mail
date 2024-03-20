@@ -78,7 +78,7 @@
         "button_alignment_view": "center",
         "button_style_view": "button--primary",
         "collection_style": "grid",
-        "width": "wide",
+        "width": "standard",
         "padding_top": 0,
         "padding_bottom": 64,
         "padding_left": 0,
