@@ -469,7 +469,7 @@
             <input type="hidden" name="challenge" value="false">
             <div class="buttons is-{{ text_alignment }} column one-whole has-margin-top">
               {%- assign submit_label = 'contact.form.send' | t -%}
-              {% render 'button', label: submit_label, style: "button--secondary", class: 'is-within-form' %}
+              {% render 'button', label: submit_label, style: settings.form_button_style, class: 'is-within-form' %}
             </div>
           {% endform %}
         </div>

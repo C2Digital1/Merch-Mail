@@ -2225,7 +2225,7 @@ a.continue-button.button {
     content: '';
 }
 
-/* contatc page css code start  */
+/* contact page css code start  */
 .container.contact-form.showEveythingInStack {
     display: flex;
     flex-direction: column;
@@ -2312,7 +2312,7 @@ a.customSocialIcon span {
     color: #0C0C0C;
 }
 
-.custom-contact-form__block label.label span.required {
+label.label span.required {
     color: #A12B2F;
 }
 
@@ -2341,7 +2341,124 @@ a.customSocialIcon span {
     min-height: 144px;
 }
 
-/* contatc page css code end  */
+/* contact page css code end  */
+/* login signup page css code start  */
+.secContainer {
+    width: 100%;
+}
+
+.pageHeadingContainer {
+    width: 100%;
+    background: #A12B2F;
+    padding: 75px 12px;
+    text-align: center;
+}
+
+.pageHeadingContainer h1.title {
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.pageHeadingContainer .subtitle {
+    margin-top: 0;
+    color: #fff;
+}
+
+.pageHeadingContainer .subtitle a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.container.loginFormInnerContainer {
+    display: block;
+}
+
+.formContainer {
+    width: 100%;
+    border: 1px solid #0C0C0C;
+    padding: 24px;
+    max-width: 410px;
+    margin: 0px auto;
+}
+
+.formContainer label.label {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 18px;
+    color: #0c0c0c;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}
+
+.account__form {
+    width: 100%;
+}
+
+.account__form form {
+    width: 100%;
+}
+
+.account__form form input.input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0C0C0C !important;
+    color: #0C0C0C;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 18px;
+    padding: 5px 16px;
+    min-height: 48px;
+}
+
+.account__form form input.input::placeholder {
+    color: #0C0C0C;
+}
+
+.account__form form.field {
+    margin-bottom: 24px;
+}
+
+.account__form form .buttons {
+    margin-top: 0 !important;
+}
+
+.account__form form .buttons .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    min-width: 150px;
+    padding: 5px 10px !important;
+    margin: 0 !important;
+}
+
+.innerContent {
+    width: 100%;
+}
+
+p.cancelForgotPass,
+p.forgotPassLabel {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: center;
+    margin: 16px auto;
+    cursor: pointer;
+    width: max-content;
+}
+
+.account-page__header.one-whole {
+    width: 100%;
+    margin: 0 !important;
+}
+
+.account__form form .buttons.recoverPassBtnContainer {
+    margin-top: 24px !important;
+}
+
+/* login signup page css code end  */
 
 /* media query start  */
 @media only screen and (max-width: 1500px) {

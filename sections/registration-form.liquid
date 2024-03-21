@@ -41,7 +41,7 @@
 {% comment %} Section specific CSS {% endcomment %}
 {% capture section_css %}{% endcapture %}
 {% style %}
-  #shopify-section-{{ id }} {
+  #shopify-section-{{ id }} .secContainer{
     padding-top: {{ padding_top }}px;
     padding-bottom: {{ padding_bottom }}px;
     padding-left: {{ padding_left }}px;
@@ -51,7 +51,7 @@
     margin-bottom: {{ margin_bottom }}px;
   }
   @media screen and (max-width:798px){
-    #shopify-section-{{ id }} {
+    #shopify-section-{{ id }} .secContainer {
       padding-top: {{ padding_top_m }}px;
       padding-bottom: {{ padding_bottom_m }}px;
       padding-left:{{ padding_left_m }}px;
@@ -60,7 +60,6 @@
       margin-bottom: {{ margin_bottom_m }}px;
     }
   }
-
   {% render 'css-loop',
           css: section_css,
           id: id
@@ -71,33 +70,34 @@
   %}
 {% endstyle %}
 {% comment %} HTML markup {% endcomment %}
+{% if show_heading == true %}
+  <div class="pageHeadingContainer">
+    <header class="account-page__header one-whole">
+      {%- capture subheading -%}
+        {{ 'customer.register.returning_customer_label' | t }}
+        <a href="{{ routes.account_login_url }}" class="hoverButton">{{ 'customer.register.sign_in_html' | t }}</a>
+      {%- endcapture -%}
+      {%- capture heading -%}{{ 'customer.register.title' | t }}{%- endcapture -%}
 
+      {% render 'heading',
+        title: heading,
+        heading_tag: 'h1',
+        context: 'account',
+        text_alignment: heading_alignment,
+        preset: heading_preset,
+        subheading: subheading
+      %}
+    </header>
+  </div>
+{% endif %}
+
+<div class="secContainer">
 <section
   class="section is-width-{{ width }} {{ css_class }}"
   {% if animation != 'none' %}
     data-scroll-class="{{ animation }}"
   {% endif %}
 >
-  {% if show_heading == true %}
-    <div class="container has-no-side-gutter">
-      <header class="account-page__header one-whole">
-        {%- capture subheading -%}
-          {{ 'customer.register.returning_customer_label' | t }}
-          <a href="{{ routes.account_login_url }}" class="hoverButton">{{ 'customer.register.sign_in_html' | t }}</a>
-        {%- endcapture -%}
-        {%- capture heading -%}{{ 'customer.register.title' | t }}{%- endcapture -%}
-
-        {% render 'heading',
-          title: heading,
-          heading_tag: 'h1',
-          context: 'account',
-          text_alignment: heading_alignment,
-          preset: heading_preset,
-          subheading: subheading
-        %}
-      </header>
-    </div>
-  {% endif %}
 
   <div class="container {% if image == blank %} is-justify-center {% endif %} {% if image_position == 'right' %} is-flex-row-reverse {% endif %}">
     {% if image %}
@@ -182,7 +182,7 @@
     </div>
   </div>
 </section>
-
+</div>
 {% schema %}
 {
   "name": "Register",

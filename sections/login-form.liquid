@@ -41,7 +41,7 @@
 {% comment %} Section specific CSS {% endcomment %}
 {% capture section_css %}{% endcapture %}
 {% style %}
-  #shopify-section-{{ id }} {
+  #shopify-section-{{ id }} .secContainer{
     padding-top: {{ padding_top }}px;
     padding-bottom: {{ padding_bottom }}px;
     padding-left: {{ padding_left }}px;
@@ -51,7 +51,7 @@
     margin-bottom: {{ margin_bottom }}px;
   }
   @media screen and (max-width:798px){
-    #shopify-section-{{ id }} {
+    #shopify-section-{{ id }} .secContainer {
       padding-top: {{ padding_top_m }}px;
       padding-bottom: {{ padding_bottom_m }}px;
       padding-left:{{ padding_left_m }}px;
@@ -71,160 +71,166 @@
   %}
 {% endstyle %}
 {% comment %} HTML markup {% endcomment %}
-<section
-  class="section is-width-{{ width }} {{ css_class }}"
-  {% if animation != 'none' %}
-    data-scroll-class="{{ animation }}"
-  {% endif %}
->
-  {% if show_heading == true %}
-    <div class="container">
-      <header class="account-page__header one-whole">
-        {%- capture subheading -%}
-          {{ 'customer.login.new_customer_label' | t }}
-          {{ 'customer.login.sign_up_html' | t | customer_register_link }}
-        {%- endcapture -%}
-        {%- capture heading -%}{{ 'customer.login.title' | t }}{%- endcapture -%}
-        {% render 'heading',
-          title: heading,
-          heading_tag: 'h1',
-          context: 'account',
-          text_alignment: heading_alignment,
-          preset: heading_preset,
-          subheading: subheading
-        %}
-      </header>
-    </div>
-  {% endif %}
-
-  <div class="container {% if image == blank %} is-justify-center {% endif %} {% if image_position == 'right' %} is-flex-row-reverse {% endif %}">
-    {% if image %}
-      <div class="account__image one-half medium-down--one-whole column">
-        {% render 'image-element', image: image, alt: image.alt %}
-      </div>
+{% if show_heading == true %}
+  <div class="pageHeadingContainer">
+    <header class="account-page__header one-whole login__form">
+      {%- capture subheading -%}
+        {{ 'customer.login.new_customer_label' | t }}
+        {{ 'customer.login.sign_up_html' | t | customer_register_link }}
+      {%- endcapture -%}
+      {%- capture heading -%}{{ 'customer.login.title' | t }}{%- endcapture -%}
+      {% render 'heading',
+        title: heading,
+        heading_tag: 'h1',
+        context: 'account',
+        text_alignment: heading_alignment,
+        preset: heading_preset,
+        subheading: subheading
+      %}
+    </header>
+    <header class="account-page__header one-whole reset_form" style="display:none;">
+      {%- capture subheading -%}
+       {{ 'customer.recover_password.subtext' | t }}
+      {%- endcapture -%}
+      {%- capture heading -%}  {{ 'customer.recover_password.title' | t }}{%- endcapture -%}
+      {% render 'heading',
+        title: heading,
+        heading_tag: 'h1',
+        context: 'account',
+        text_alignment: heading_alignment,
+        preset: heading_preset,
+        subheading: subheading
+      %}
+    </header>
+  </div>
+{% endif %}
+<div class="secContainer">
+  <section
+    class="section is-width-{{ width }} {{ css_class }}"
+    {% if animation != 'none' %}
+      data-scroll-class="{{ animation }}"
     {% endif %}
+  >
+    <div class="container loginFormInnerContainer {% if image == blank %} is-justify-center {% endif %} {% if image_position == 'right' %} is-flex-row-reverse {% endif %}">
+      {% if image %}
+        <div class="account__image one-half medium-down--one-whole column">
+          {% render 'image-element', image: image, alt: image.alt %}
+        </div>
+      {% endif %}
 
-    <div class="one-half medium-down--one-whole column">
-      <div class="account__form reset_form" style="display:none" id="recover">
-        <div class="animated fadeInUp">
-          <h2 class="has-small-padding-bottom is-h5 text-align-{{ heading_alignment }}">
-            {{ 'customer.recover_password.title' | t }}
-          </h2>
+      <div class="formContainer">
+        <div class="account__form reset_form" style="display:none" id="recover">
+          <div class="innerContent animated fadeInUp">
+            {% form 'recover_customer_password' %}
+              {{ form.errors | default_errors }}
 
-          {% form 'recover_customer_password' %}
-            {{ form.errors | default_errors }}
+              {% if form.posted_successfully? %}
+                {% assign reset_success = true %}
+              {% endif %}
 
-            {% if form.posted_successfully? %}
-              {% assign reset_success = true %}
-            {% endif %}
+              <div id="recover_email">
+                <div class="field">
+                  <label class="label" for="email">{{ 'customer.recover_password.email' | t }}<span class="required">*</span></label>
+                  <div class="control">
+                    <input
+                      type="email"
+                      value=""
+                      size="30"
+                      name="email"
+                      id="recover-email"
+                      class="input"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      placeholder="Enter your email adress"
+                    >
+                  </div>
+                </div>
+              </div>
 
-            <div id="recover_email">
+              <div class="buttons is-center recoverPassBtnContainer">
+                <input
+                  class="button button--secondary"
+                  type="submit"
+                  value="{{ 'customer.recover_password.submit' | t }}"
+                >
+              </div>
+            {% endform %}
+          </div>
+        </div>
+        <div class="account__form login__form" id="login">
+          <div class="innerContent animated fadeInUp">
+            {% form 'customer_login' %}
+              {{ form.errors | default_errors }}
+
               <div class="field">
-                <label class="label" for="email">{{ 'customer.recover_password.email' | t }}</label>
+                <label class="label" for="{{ label | replace: ' ', '_' }}">{{ 'customer.login.email' | t }}<span class="required">*</span></label>
                 <div class="control">
                   <input
                     type="email"
                     value=""
-                    size="30"
-                    name="email"
-                    id="recover-email"
+                    name="customer[email]"
+                    id="customer_email"
                     class="input"
+                    size="30"
                     autocorrect="off"
                     autocapitalize="off"
-                    placeholder="{{ 'customer.login.email' | t }}"
+                    tabindex="1"
+                    placeholder="Enter your email adress"
                   >
                 </div>
               </div>
-            </div>
 
-            <p class="recover-note is-text-small">
-              {{ 'customer.recover_password.subtext' | t }}
-            </p>
-            <div class="buttons is-center has-margin-top">
-              <input
-                class="button button--secondary"
-                type="submit"
-                value="{{ 'customer.recover_password.submit' | t }}"
-              >
-              <a href="#" class="button button--link-style cancel-recover-password is-justify-center">
-                {{- 'customer.recover_password.cancel' | t -}}
-              </a>
-            </div>
-          {% endform %}
+              {% if form.password_needed %}
+                {% comment %}
+                  Customer Account Login
+                {% endcomment %}
+              {% endif %}
+              <div class="field">
+                <label class="label" for="{{ label | replace: ' ', '_' }}">{{ 'customer.login.password' | t }}<span class="required">*</span></label>
+                <div class="control">
+                  <input
+                    type="password"
+                    value=""
+                    name="customer[password]"
+                    id="customer_password"
+                    class="input"
+                    size="16"
+                    tabindex="2"
+                    placeholder="Enter your password"
+                  >
+                </div>
+              </div>
+
+              <div class="buttons is-center has-margin-top">
+                <input
+                  class="button {{ settings.form_button_style }} is-within-form"
+                  type="submit"
+                  value="{{ 'customer.login.sign_in' | t }}"
+                  style="margin-bottom: 5px !important"
+                  tabindex="3"
+                >
+              </div>
+            {% endform %}
+            {% if shop.checkout.guest_login %}
+              <span class="has-padding-top"> {{ 'customer.login.or' | t }} </span>
+              {% form 'guest_login' %}
+                <input
+                  class="button {{ settings.form_button_style }} is-within-form"
+                  type="submit"
+                  value="{{ 'customer.login.guest_title_html' | t }}"
+                >
+              {% endform %}
+            {% endif %}
+          </div>
         </div>
       </div>
-      <div class="account__form login__form" id="login">
-        {% form 'customer_login' %}
-          {{ form.errors | default_errors }}
 
-          <div class="field">
-            <label class="label" for="{{ label | replace: ' ', '_' }}">{{ 'customer.login.email' | t }}*</label>
-            <div class="control">
-              <input
-                type="email"
-                value=""
-                name="customer[email]"
-                id="customer_email"
-                class="input"
-                size="30"
-                autocorrect="off"
-                autocapitalize="off"
-                tabindex="1"
-                placeholder="{{ 'customer.login.email' | t }}"
-              >
-            </div>
-          </div>
+      <p class="forgotPassLabel login__form">Forgot your password?</p>
 
-          {% if form.password_needed %}
-            {% comment %}
-              Customer Account Login
-            {% endcomment %}
-          {% endif %}
-          <div class="field">
-            <label class="label" for="{{ label | replace: ' ', '_' }}">{{ 'customer.login.password' | t }}*</label>
-            <div class="control">
-              <input
-                type="password"
-                value=""
-                name="customer[password]"
-                id="customer_password"
-                class="input"
-                size="16"
-                tabindex="2"
-                placeholder="{{ 'customer.login.password' | t }}"
-              >
-            </div>
-            <a class="js-recover-password footer-text button button--link-style" href="#">
-              {{- 'customer.login.forgot_password' | t -}}
-            </a>
-          </div>
-
-          <div class="buttons is-center has-margin-top">
-            <input
-              class="button {{ settings.form_button_style }} is-within-form"
-              type="submit"
-              value="{{ 'customer.login.sign_in' | t }}"
-              style="margin-bottom: 5px !important"
-              tabindex="3"
-            >
-          </div>
-        {% endform %}
-        {% if shop.checkout.guest_login %}
-          <span class="has-padding-top"> {{ 'customer.login.or' | t }} </span>
-          {% form 'guest_login' %}
-            <input
-              class="button {{ settings.form_button_style }} is-within-form"
-              type="submit"
-              value="{{ 'customer.login.guest_title_html' | t }}"
-            >
-          {% endform %}
-        {% endif %}
-      </div>
+      <p class="cancelForgotPass reset_form" style="display:none">Cancel</p>
     </div>
-
-  </div>
-</section>
-
+  </section>
+</div>
 {% comment %}JavaScript{% endcomment %}
 <script src="{{ 'z__jsAccounts.js' | asset_url }}"></script>
 
@@ -494,24 +500,22 @@
 {% endschema %}
 
 <script type="text/javascript">
-  function showRecoverPasswordForm(e) {
-    e.preventDefault();
-    document.getElementById('recover-password').style.display = 'block';
-    document.getElementById('customer_login').style.display='none';
-    return false;
-  }
+    $(document).ready(function () {
+    function showRecoverPasswordForm() {
+      $(".login__form").hide();
+          $(".reset_form").fadeIn(200);
+    }
 
-  function hideRecoverPasswordForm(e) {
-    e.preventDefault();
-    document.getElementById('recover-password').style.display = 'none';
-    document.getElementById('customer_login').style.display = 'block';
-    return false;
-  }
+    function hideRecoverPasswordForm(e) {
+      $(".reset_form").hide();
+          $(".login__form").fadeIn(200);
+    }
 
-  if (window.location.hash == '#recover-password') { showRecoverPasswordForm() }
+    if (window.location.hash == '#recover-password') { showRecoverPasswordForm() }
 
-  // reset_success is only true when the reset form is
-  {% if reset_success %}
-    hideRecoverPasswordForm();
-  {% endif %}
+    // reset_success is only true when the reset form is
+    {% if reset_success %}
+      hideRecoverPasswordForm();
+    {% endif %}
+  });
 </script>
