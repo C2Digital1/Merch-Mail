@@ -2215,6 +2215,10 @@ a.continue-button.button {
     transform: scaleX(-1);
 }
 
+.ajax-cart__empty-cart-message p.ajax-cart__cart-title {
+    margin-bottom: 25px;
+}
+
 /* cart drawer and page css code end  */
 
 .showSliderInMobile:after {
