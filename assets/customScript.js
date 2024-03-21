@@ -19,8 +19,7 @@ $(document).ready(function () {
         $(".flickity-button").html(arrowIcon);
     }
 
-    $('#create_customer').submit(function(event) {
-        event.preventDefault();
+    $('.checkPass').click(function() {
         var password = $('#password').val();
         var confirmPassword = $('#confirmPassField').val();
         if (password !== confirmPassword) {
@@ -29,7 +28,7 @@ $(document).ready(function () {
         } else {
           $('#confirmPass').removeClass('has-error');
           $('#confirmPass').find('.help').remove();
-          this.submit();
+          $(".mainSubmitBtn").click();
         }
       });
 });

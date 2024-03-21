@@ -190,7 +190,13 @@
 
             <div class="buttons has-margin-top is-center">
               <input
-                class="button {{ settings.form_button_style }} is-within-form"
+                class="button checkPass {{ settings.form_button_style }} is-within-form"
+                type="button"
+                value="{{ 'customer.register.sign_up' | t }}"
+              >
+              <input
+                style="diplay:none;"
+                class="button mainSubmitBtn {{ settings.form_button_style }} is-within-form"
                 type="submit"
                 value="{{ 'customer.register.sign_up' | t }}"
               >
