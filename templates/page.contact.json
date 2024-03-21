@@ -68,6 +68,7 @@
           "type": "textfield",
           "settings": {
             "width": "one-whole",
+            "mainLabel": "",
             "label": "Enter your name",
             "required": true
           }
@@ -76,6 +77,7 @@
           "type": "email",
           "settings": {
             "width": "one-whole",
+            "mainLabel": "",
             "label": "Enter your email address"
           }
         },
@@ -83,6 +85,7 @@
           "type": "textarea",
           "settings": {
             "width": "one-whole",
+            "mainLabel": "",
             "label": "Enter your message",
             "required": true
           }
@@ -95,12 +98,16 @@
       ],
       "settings": {
         "color_scheme": "",
+        "showEveythingInStack": false,
         "heading": "",
         "subheading": "",
         "heading_preset": "is-h2",
         "subheading_preset": "is-text",
         "form_position": "right",
         "social_enable": false,
+        "customFbUrl": "https:\/\/www.facebook.com\/",
+        "customInstaIcon": "https:\/\/instagram.com\/",
+        "customEmailUrl": "#",
         "text_alignment": "left",
         "width": "standard",
         "padding_top": 40,
