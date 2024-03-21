@@ -349,7 +349,7 @@
       "or": "or"
     },
     "login": {
-      "title": "Customer Login",
+      "title": "Login",
       "returning_customers": "Returning Customers",
       "new_customers": "New Customers",
       "forgot_password": "Forgot your password?",
