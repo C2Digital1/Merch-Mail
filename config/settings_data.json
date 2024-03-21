@@ -58,6 +58,7 @@
     "dropdown_position": "below-parent",
     "dropdown_link_spacing": "small",
     "use_placeholders": true,
+    "form_button_style": "button--secondary",
     "display_heading_divider": false,
     "toggle_sidebar": true,
     "qty_box_style": "box",
