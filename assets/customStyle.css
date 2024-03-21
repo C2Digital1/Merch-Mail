@@ -2225,6 +2225,124 @@ a.continue-button.button {
     content: '';
 }
 
+/* contatc page css code start  */
+.container.contact-form.showEveythingInStack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 410px;
+    margin: 0px auto;
+}
+
+.customSocialIcons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    column-gap: 45px;
+}
+
+a.customSocialIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 18px;
+    text-align: center;
+    color: #2B5597;
+    margin: 0 10px;
+}
+
+a.customSocialIcon svg {
+    height: 60px;
+    width: 60px;
+}
+
+a.customSocialIcon span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.container.contact-form.showEveythingInStack .contactFomDetailArea {
+    width: 100%;
+    margin: 0px auto 40px auto !important;
+}
+
+.buttons.is-center.column.one-whole.has-margin-top {
+    margin: 0px auto !important;
+}
+
+.contact-form__form button.button.is-within-form {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 5px 13px;
+    min-width: 150px;
+}
+
+.container.contact-form.showEveythingInStack .contactFomBox {
+    width: 100% !important;
+    margin: 0px auto !important;
+}
+
+.contactFomBox {
+    border: 1px solid #0C0C0C;
+    padding: 24px;
+}
+
+.contactFomBox .custom-contact-form__block.one-whole.medium-down--one-whole.column {
+    width: 100% !important;
+    margin: 0 auto 24px auto !important;
+}
+
+
+.custom-contact-form__block label.label {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 18px;
+    margin-bottom: 8px;
+    color: #0C0C0C;
+}
+
+.custom-contact-form__block label.label span.required {
+    color: #A12B2F;
+}
+
+.custom-contact-form__block input.input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 16px !important;
+    min-height: 48px !important;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 18px;
+}
+
+.custom-contact-form__block textarea.textarea::placeholder,
+.custom-contact-form__block input.input::placeholder {
+    color: #0C0C0C;
+    opacity: 1;
+}
+
+.custom-contact-form__block textarea.textarea {
+    padding: 15px 16px;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 18px;
+    min-height: 144px;
+}
+
+/* contatc page css code end  */
+
 /* media query start  */
 @media only screen and (max-width: 1500px) {
     .useCustomStyle .image-with-text__text-column.image-with-text__column.scheme_color-default.one-half.medium-down--one-whole.column.has-padding-left .image-with-text__wrapper {

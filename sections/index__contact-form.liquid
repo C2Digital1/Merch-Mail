@@ -175,7 +175,7 @@
     "
   >
     {% if has_content == true %}
-      <div class="contactFomDetailArea{% if section.blocks.size > 0 %}one-half{% else %}two-thirds offset-by-three{% endif %} medium-down--one-whole column">
+      <div class="contactFomDetailArea {% if section.blocks.size > 0 %}one-half{% else %}two-thirds offset-by-three{% endif %} medium-down--one-whole column">
         <div class="text-align-{{ text_alignment }}">
           {% if heading != blank %}
             <h2 class="contact-form__heading title {{ heading_preset }}">{{ heading }}</h2>
@@ -205,7 +205,7 @@
                 <span>Facebook</span>
               </a>
             {% endif %}
-            {% if customFbUrl != blank %}
+            {% if customInstaIcon != blank %}
               <a href="{{customInstaIcon}}" class="customSocialIcon fbIcon">
                 {% render 'instaRoundIcon' %}
                 <span>Instagram</span>
@@ -223,7 +223,7 @@
     {% endif %}
 
     {% if section.blocks.size > 0 %}
-      <div class="one-half medium-down--one-whole column">
+      <div class="contactFomBox one-half medium-down--one-whole column">
         <div class="contact-form__form">
           {% form 'contact', class: 'custom-contact-form' %}
             {% if form.posted_successfully? %}
@@ -469,7 +469,7 @@
             <input type="hidden" name="challenge" value="false">
             <div class="buttons is-{{ text_alignment }} column one-whole has-margin-top">
               {%- assign submit_label = 'contact.form.send' | t -%}
-              {% render 'button', label: submit_label, style: settings.form_button_style, class: 'is-within-form' %}
+              {% render 'button', label: submit_label, style: "button--secondary", class: 'is-within-form' %}
             </div>
           {% endform %}
         </div>
