@@ -2469,8 +2469,17 @@ p.forgotPassLabel {
 div#g-recaptcha {
     margin: 20px auto;
 }
-.mainSubmitBtn{
+
+.mainSubmitBtn {
     display: none !important;
+}
+
+p.errorLabel {
+    text-align: center;
+    margin: 10px auto;
+    color: #a12b2f;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 /* login signup page css code end  */
