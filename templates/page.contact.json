@@ -26,6 +26,41 @@
         "custom_css": ""
       }
     },
+    "index_heading_3PtLAQ": {
+      "type": "index__heading",
+      "settings": {
+        "color_scheme": "",
+        "preheading": "<p>Add a preheading<\/p>",
+        "heading": "Section heading",
+        "subheading": "<p>Additional text or description of section<\/p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_1_style": "button--secondary",
+        "button_2_label": "",
+        "button_2_link": "",
+        "button_2_style": "button--secondary",
+        "preheading_preset": "is-h6",
+        "heading_preset": "is-h3",
+        "subheading_preset": "is-text",
+        "heading_alignment": "center",
+        "width": "standard",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 0,
+        "padding_bottom_m": 0,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
     "contact": {
       "type": "index__contact-form",
       "settings": {
@@ -58,6 +93,7 @@
   },
   "order": [
     "main",
+    "index_heading_3PtLAQ",
     "contact"
   ]
 }
