@@ -281,19 +281,29 @@
                   {{ block.shopify_attributes }}
                 >
                   {% if block.type == 'textfield' %}
-                    <label
-                      class="label{% if settings.use_placeholders %} is-sr-only{% endif %}"
-                      for="textfield{{ suffix }}"
-                    >
-                      {{ block.settings.label | escape }}
-                      {{ required_highlight }}
-                    </label>
+                    {% if block.settings.mainLabel != blank %}
+                      <label
+                        class="label"
+                        for="email"
+                      >
+                        {{ block.settings.mainLabel }}
+                        <span class="required">*</span>
+                      </label>
+                      {% else %}
+                      <label
+                        class="label{% if settings.use_placeholders %} is-sr-only{% endif %}"
+                        for="email"
+                      >
+                        {{ block.settings.label | escape }}
+                        <span class="required">*</span>
+                      </label>
+                    {% endif %}
                     <input
                       id="textfield{{ suffix }}"
                       class="input is-{{ field_input_style }} is-{{ field_input_size }}"
                       type="text"
                       {% if settings.use_placeholders %}
-                        placeholder="{{ block.settings.label | escape }}{% if block.settings.required %}*{% endif %}"
+                        placeholder="{{ block.settings.label | escape }}{% if block.settings.required %}{% endif %}"
                       {% endif %}
                       name="contact[{{ block.settings.label | escape }}{{ suffix }}]"
                       {% if block.settings.required %}
@@ -301,6 +311,15 @@
                       {% endif %}
                     >
                   {% elsif block.type == 'email' %}
+                  {% if block.settings.mainLabel != blank %}
+                    <label
+                      class="label"
+                      for="email"
+                    >
+                      {{ block.settings.mainLabel }}
+                      <span class="required">*</span>
+                    </label>
+                    {% else %}
                     <label
                       class="label{% if settings.use_placeholders %} is-sr-only{% endif %}"
                       for="email"
@@ -308,12 +327,13 @@
                       {{ block.settings.label | escape }}
                       <span class="required">*</span>
                     </label>
+                  {% endif %}                  
                     <input
                       id="email"
                       class="input is-{{ field_input_style }} is-{{ field_input_size }}"
                       type="email"
                       {% if settings.use_placeholders %}
-                        placeholder="{{ block.settings.label | escape }}*"
+                        placeholder="{{ block.settings.label | escape }}"
                       {% endif %}
                       name="contact[email]"
                       autocorrect="off"
@@ -322,18 +342,28 @@
                       required="required"
                     >
                   {% elsif block.type == 'textarea' %}
+                  {% if block.settings.mainLabel != blank %}
+                    <label
+                      class="label"
+                      for="email"
+                    >
+                      {{ block.settings.mainLabel }}
+                      <span class="required">*</span>
+                    </label>
+                    {% else %}
                     <label
                       class="label{% if settings.use_placeholders %} is-sr-only{% endif %}"
-                      for="textarea{{ suffix }}"
+                      for="email"
                     >
                       {{ block.settings.label | escape }}
-                      {{ required_highlight }}
+                      <span class="required">*</span>
                     </label>
+                  {% endif %}
                     <textarea
                       id="textarea{{ suffix }}"
                       class="textarea is-{{ field_input_style }} is-{{ field_input_size }}"
                       {% if settings.use_placeholders %}
-                        placeholder="{{ block.settings.label | escape }}{% if block.settings.required %}*{% endif %}"
+                        placeholder="{{ block.settings.label | escape }}{% if block.settings.required %}{% endif %}"
                       {% endif %}
                       name="contact[{{ block.settings.label | escape }}{{ suffix }}]"
                       {% if block.settings.required %}
@@ -926,6 +956,11 @@
         },
         {
           "type": "text",
+          "id": "mainLabel",
+          "label": "Main Label"
+        },
+        {
+          "type": "text",
           "id": "label",
           "label": "Label",
           "default": "Title"
@@ -1191,6 +1226,11 @@
             }
           ],
           "default": "one-whole"
+        },        
+        {
+          "type": "text",
+          "id": "mainLabel",
+          "label": "Main Label"
         },
         {
           "type": "text",
@@ -1224,6 +1264,11 @@
             }
           ],
           "default": "one-whole"
+        },        
+        {
+          "type": "text",
+          "id": "mainLabel",
+          "label": "Main Label"
         },
         {
           "type": "text",
