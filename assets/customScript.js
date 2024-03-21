@@ -6,11 +6,11 @@ $(document).ready(function () {
         $(this).toggleClass("active");
         $(this).next(".tabContent ").slideToggle(300);
     });
-    $(".forgotPassLabel").click(function(){
+    $(".forgotPassLabel").click(function () {
         $(".login__form").hide();
         $(".reset_form").fadeIn(200);
     });
-    $(".cancelForgotPass").click(function(){
+    $(".cancelForgotPass").click(function () {
         $(".reset_form").hide();
         $(".login__form").fadeIn(200);
     });
@@ -19,16 +19,19 @@ $(document).ready(function () {
         $(".flickity-button").html(arrowIcon);
     }
 
-    $('.checkPass').click(function() {
+    $('.checkPass').click(function () {
         var password = $('#password').val();
         var confirmPassword = $('#confirmPassField').val();
         if (password !== confirmPassword) {
-          $('#confirmPass').addClass('has-error');
-          $('#confirmPass').append('<p class="help is-danger">Passwords do not match</p>');
+            if ($(".errorLabel").length > 0) {
+                $('#confirmPass').find('.errorLabel').remove();
+            }
+            $('#confirmPass').addClass('has-error');
+            $('#confirmPass').append('<p class="errorLabel">Passwords do not match</p>');
         } else {
-          $('#confirmPass').removeClass('has-error');
-          $('#confirmPass').find('.help').remove();
-          $(".mainSubmitBtn").click();
+            $('#confirmPass').removeClass('has-error');
+            $('#confirmPass').find('.errorLabel').remove();
+            $(".mainSubmitBtn").click();
         }
-      });
+    });
 });
