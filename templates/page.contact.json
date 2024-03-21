@@ -2,6 +2,7 @@
   "sections": {
     "main": {
       "type": "page-content__main",
+      "disabled": true,
       "settings": {
         "show_heading": true,
         "heading_preset": "is-h1",
@@ -28,6 +29,7 @@
     "contact": {
       "type": "index__contact-form",
       "settings": {
+        "color_scheme": "",
         "heading": "Get in touch today",
         "subheading": "<p>Customize your contact form to suit your business! Add custom fields like a dropdown menu, checkbox, text fields and more, so that you can gather pertinent info from shoppers right from the get-go, to help answer their inquiries more effectively.<\/p>",
         "heading_preset": "is-h2",
