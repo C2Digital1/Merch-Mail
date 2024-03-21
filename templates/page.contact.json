@@ -63,10 +63,40 @@
     },
     "contact": {
       "type": "index__contact-form",
+      "blocks": {
+        "textfield_QEm8GY": {
+          "type": "textfield",
+          "settings": {
+            "width": "one-whole",
+            "label": "Enter your name",
+            "required": true
+          }
+        },
+        "email_pLq4aY": {
+          "type": "email",
+          "settings": {
+            "width": "one-whole",
+            "label": "Enter your email address"
+          }
+        },
+        "textarea_NAiEGy": {
+          "type": "textarea",
+          "settings": {
+            "width": "one-whole",
+            "label": "Enter your message",
+            "required": true
+          }
+        }
+      },
+      "block_order": [
+        "textfield_QEm8GY",
+        "email_pLq4aY",
+        "textarea_NAiEGy"
+      ],
       "settings": {
         "color_scheme": "",
         "heading": "",
-        "subheading": "<p>Customize your contact form to suit your business! Add custom fields like a dropdown menu, checkbox, text fields and more, so that you can gather pertinent info from shoppers right from the get-go, to help answer their inquiries more effectively.<\/p>",
+        "subheading": "",
         "heading_preset": "is-h2",
         "subheading_preset": "is-text",
         "form_position": "right",
