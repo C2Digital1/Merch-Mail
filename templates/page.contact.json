@@ -31,8 +31,8 @@
       "settings": {
         "color_scheme": "background-1",
         "preheading": "",
-        "heading": "{{ page.title }}",
-        "subheading": "",
+        "heading": "{{ page.title }} Us",
+        "subheading": "<p>Have a question? Feel Free to get in touch with us.<\/p>",
         "button_1_label": "",
         "button_1_link": "",
         "button_1_style": "button--secondary",
