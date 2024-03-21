@@ -100,7 +100,7 @@
         "heading_preset": "is-h2",
         "subheading_preset": "is-text",
         "form_position": "right",
-        "social_enable": true,
+        "social_enable": false,
         "text_alignment": "left",
         "width": "standard",
         "padding_top": 40,
