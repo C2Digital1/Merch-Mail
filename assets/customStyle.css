@@ -2369,7 +2369,7 @@ label.label span.required {
     text-decoration: underline;
 }
 
-.container.loginFormInnerContainer {
+.container.customerFormContainer {
     display: block;
 }
 
@@ -2456,6 +2456,18 @@ p.forgotPassLabel {
 
 .account__form form .buttons.recoverPassBtnContainer {
     margin-top: 24px !important;
+}
+
+.shopify-challenge__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+div#g-recaptcha {
+    margin: 20px auto;
 }
 
 /* login signup page css code end  */

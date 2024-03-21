@@ -111,7 +111,7 @@
       data-scroll-class="{{ animation }}"
     {% endif %}
   >
-    <div class="container loginFormInnerContainer {% if image == blank %} is-justify-center {% endif %} {% if image_position == 'right' %} is-flex-row-reverse {% endif %}">
+    <div class="container customerFormContainer {% if image == blank %} is-justify-center {% endif %} {% if image_position == 'right' %} is-flex-row-reverse {% endif %}">
       {% if image %}
         <div class="account__image one-half medium-down--one-whole column">
           {% render 'image-element', image: image, alt: image.alt %}
