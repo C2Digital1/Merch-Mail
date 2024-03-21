@@ -15,6 +15,12 @@
   assign content_image = section.settings.content_image
   assign form_position = section.settings.form_position
   assign text_alignment = section.settings.text_alignment
+
+  assign customFbUrl = section.settings.customFbUrl
+  assign customInstaIcon = section.settings.customInstaIcon
+  assign customEmailUrl = section.settings.customEmailUrl
+
+  assign showEveythingInStack = section.settings.showEveythingInStack
 -%}
 {% comment %}Spacing{% endcomment %}
 {%- liquid
@@ -51,6 +57,11 @@
     assign has_content = true
   else
     assign has_content = false
+  endif
+
+  if customFbUrl != blank or customInstaIcon != blank or customEmailUrl != blank
+    assign showCustomSocialIcons = true
+    assign has_content = true
   endif
 -%}
 
@@ -144,7 +155,7 @@
 {% endstyle %}
 
 <section
-  class="section {{ css_class }} is-width-{{ width }} scheme_color-{{section.settings.color_scheme}}"
+  class="section contactFormSec {{ css_class }} is-width-{{ width }} scheme_color-{{section.settings.color_scheme}}"
   {% if animation != 'none' %}
     data-scroll-class="{{ animation }}"
   {% endif %}
@@ -153,6 +164,9 @@
     class="
       container
       contact-form
+      {% if showEveythingInStack %}
+        showEveythingInStack
+      {% endif %}
       {% if has_content == true %}
       contact-form--{{ form_position }}
       {% else %}
@@ -161,7 +175,7 @@
     "
   >
     {% if has_content == true %}
-      <div class="{% if section.blocks.size > 0 %}one-half{% else %}two-thirds offset-by-three{% endif %} medium-down--one-whole column">
+      <div class="contactFomDetailArea{% if section.blocks.size > 0 %}one-half{% else %}two-thirds offset-by-three{% endif %} medium-down--one-whole column">
         <div class="text-align-{{ text_alignment }}">
           {% if heading != blank %}
             <h2 class="contact-form__heading title {{ heading_preset }}">{{ heading }}</h2>
@@ -173,7 +187,7 @@
             </div>
           {% endif %}
         </div>
-        {% if social_enable %}
+        {% if social_enable and showCustomSocialIcons != true %}
           <div class="contact-form__social has-padding-top has-padding-bottom">
             {% render 'social-icons', flex_alignment: text_alignment %}
           </div>
@@ -181,6 +195,28 @@
         {% if content_image != null %}
           <div class="contact-form__image">
             {% render 'image-element', image: content_image, alt: content_image.alt, stretch_width: true %}
+          </div>
+        {% endif %}
+        {% if showCustomSocialIcons %}
+          <div class="customSocialIcons">
+            {% if customFbUrl != blank %}
+              <a href="{{customFbUrl}}" class="customSocialIcon fbIcon">
+                {% render 'fbRoundIcon' %}
+                <span>Facebook</span>
+              </a>
+            {% endif %}
+            {% if customFbUrl != blank %}
+              <a href="{{customInstaIcon}}" class="customSocialIcon fbIcon">
+                {% render 'instaRoundIcon' %}
+                <span>Instagram</span>
+              </a>
+            {% endif %}
+            {% if customEmailUrl != blank %}
+              <a href="{{customEmailUrl}}" class="customSocialIcon fbIcon">
+                {% render 'emailRoundIcon' %}
+                <span>Email</span>
+              </a>
+            {% endif %}
           </div>
         {% endif %}
       </div>
@@ -408,7 +444,7 @@
           {% endform %}
         </div>
 
-        {% if social_enable and has_content == false %}
+        {% if social_enable and has_content == false and showCustomSocialIcons != true %}
           <div class="contact-form__social has-padding-top has-padding-bottom one-whole column">
             {% render 'social-icons', flex_alignment: text_alignment %}
           </div>
@@ -439,6 +475,12 @@
       "id": "color_scheme",
       "label": "Color Scheme",
       "default": "default"
+    },
+    {
+      "type": "checkbox",
+      "id": "showEveythingInStack",
+      "label": "Show Everything In Single Column?",
+      "default": false
     },
     {
       "type": "header",
@@ -571,6 +613,21 @@
       "id": "social_enable",
       "label": "Display social media icons",
       "default": true
+    },
+    {
+      "type": "url",
+      "id": "customFbUrl",
+      "label": "Custom Facebook Icon Url"
+    },
+    {
+      "type": "url",
+      "id": "customInstaIcon",
+      "label": "Custom Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "customEmailUrl",
+      "label": "Custom Email Icon URL"
     },
     {
       "type": "select",
