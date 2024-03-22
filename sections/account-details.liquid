@@ -139,7 +139,7 @@
         <div class="tabContentInner" id="deliveryAddressSec" style="display:none;">
           <div class="contentDetailTxtCol">
             <h3 class="tabContentHeading is-h5">Delivery Address</h3>
-            <p class="addressOwnerInfo">{{ customer.name }} (Default)</p>
+           
             <div class="addressesLoopContainer">
               {% paginate customer.addresses by 10 %}
                 {% if customer.addresses.size > 0 %}
