@@ -43,4 +43,13 @@ $(document).ready(function () {
         $(".tabContentInner").hide();
         $(activeTabId).fadeIn(300);
     });
+
+    $(".showNewAddressForm").click(function () {
+       $(this).hide();
+       $("#add_address").show();
+    });
+    $(".cancelAddressForm").click(function () {
+        $(".showNewAddressForm").show();
+        $("#add_address").hide();
+     });
 });
