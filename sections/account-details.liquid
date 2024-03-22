@@ -139,27 +139,20 @@
         <div class="tabContentInner" id="deliveryAddressSec" style="display:none;">
           <div class="contentDetailTxtCol">
             <h3 class="tabContentHeading is-h5">Delivery Address</h3>
-            <p class="addressOwnerInfo">
-              {{ customer.name }} (Default)
-            </p>
+            <p class="addressOwnerInfo">{{ customer.name }} (Default)</p>
             <div class="primaryAddressInfo">
-              {% if customer.default_address != null %}
-                <p>{{ customer.default_address.address1 }}</p>
-                {% if customer.default_address.address2 != '' %}
-                  <p>{{ customer.default_address.address2 }}</p>
+              {% paginate customer.addresses by 10 %}
+                {% if customer.addresses.size > 0 %}
+                  {% render 'address-loop' %}
+
+                  <br class="clear">
+                {% else %}
+                  <p>{{ 'customer.addresses.no_addresses' | t }}</p>
                 {% endif %}
-                <p>
-                  {{ customer.default_address.city -}}
-                  {%- if customer.default_address.province_code -%}
-                    , {{ customer.default_address.province_code -}}
-                  {%- endif %}
-                  {{ customer.default_address.zip }}
-                </p>
-                <p>{{ customer.default_address.country }}</p>
-              {% else %}
-                <p>{{ 'customer.addresses.no_addresses' | t }}</p>
-              {% endif %}
-            </div>            
+
+                <div id="address_pagination">{{ paginate | default_pagination }}</div>
+              {% endpaginate %}
+            </div>
           </div>
         </div>
       </div>
