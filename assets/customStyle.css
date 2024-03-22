@@ -2516,7 +2516,7 @@ p.simpleLabel {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     width: 286px;
     max-width: 100%;
     margin-right: 24px;
@@ -2630,6 +2630,27 @@ h3.tabContentHeading.is-h5 {
     display: flex !important;
     align-items: center;
     justify-content: center;
+    min-height: 48px;
+}
+
+p.address_actions span.action_edit {
+    display: inline-flex;
+    margin-top: 16px;
+}
+
+h4.is-text.addressCustomerName {
+    font-size: 16px !important;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+
+button.showNewAddressForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 252px;
+    padding: 5px;
     min-height: 48px;
 }
 
