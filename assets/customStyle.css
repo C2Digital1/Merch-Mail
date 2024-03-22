@@ -2597,6 +2597,7 @@ h3.tabContentHeading.is-h5 {
 h2#add_address_title,
 .addressesLoopContainer .address_table h4 {
     font-size: 24px !important;
+    margin-bottom: 20px;
 }
 
 .addressesLoopContainer .address_table .field {
