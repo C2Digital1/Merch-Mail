@@ -107,13 +107,6 @@
             <h3 class="profileName is-h5">
               {{ customer.name }}
             </h3>
-          </div>
-        </div>
-        <div class="tabContentInner" id="myOrdersSec" style="display:none;">
-          <div class="contentDetailTxtCol">
-            <h3 class="profileName is-h5">
-              {{ customer.name }}
-            </h3>
             <p class="simpleLabel">Your Information</p>
             <div class="primaryAddressInfo"> 
               {% if customer.default_address != null %}
@@ -141,6 +134,8 @@
               <p>{{ customer.email }}</p>
             </div>
           </div>
+        </div>
+        <div class="tabContentInner" id="myOrdersSec" style="display:none;">
         </div>
       </div>
     </div>
