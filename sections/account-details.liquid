@@ -94,43 +94,56 @@
 
     <div class="profileMainContainer">
       <div class="profileSideNav">
-        <button type="button" class="button sideProfileBtn active" data-TabId="#profileSec">
-          Profile 
-        </button>
-        <button type="button" class="button sideProfileBtn" data-TabId="#myOrdersSec">
-          My Orders 
-        </button>
-        <button type="button" class="button sideProfileBtn" data-TabId="#deliveryAddressSec">
-          Delivery Address
-        </button>
-        <button type="button" class="button sideProfileBtn" data-TabId="#bandPortalSec">
-          Band Portal
-        </button>
-        <button type="button" class="button sideProfileBtn" data-TabId="#changePassWordSec">
-          Change Password
-        </button>
-        <a href="{{ routes.account_logout_url }}" class="button sideProfileBtn">
-          Log Out
-        </a>
+        <button type="button" class="button sideProfileBtn active" data-TabId="#profileSec">Profile</button>
+        <button type="button" class="button sideProfileBtn" data-TabId="#myOrdersSec">My Orders</button>
+        <button type="button" class="button sideProfileBtn" data-TabId="#deliveryAddressSec">Delivery Address</button>
+        <button type="button" class="button sideProfileBtn" data-TabId="#bandPortalSec">Band Portal</button>
+        <button type="button" class="button sideProfileBtn" data-TabId="#changePassWordSec">Change Password</button>
+        <a href="{{ routes.account_logout_url }}" class="button sideProfileBtn"> Log Out </a>
       </div>
       <div class="sideProfileTabContentContainer">
         <div class="tabContentInner" id="profileSec">
           <div class="contentDetailTxtCol">
             <h3 class="profileName is-h5">
-              {{  customer.name }}
+              {{ customer.name }}
             </h3>
           </div>
         </div>
         <div class="tabContentInner" id="myOrdersSec" style="display:none;">
           <div class="contentDetailTxtCol">
             <h3 class="profileName is-h5">
-              {{  customer.name }}
+              {{ customer.name }}
             </h3>
+            <p class="simpleLabel">Your Information</p>
+            <div class="primaryAddressInfo">
+              {% if customer.default_address != null %}
+                <p>{{ customer.default_address.address1 }}</p>
+                {% if customer.default_address.address2 != '' %}
+                  <p>{{ customer.default_address.address2 }}</p>
+                {% endif %}
+                <p>
+                  {{ customer.default_address.city -}}
+                  {%- if customer.default_address.province_code -%}
+                    , {{ customer.default_address.province_code -}}
+                  {%- endif %}
+                  {{ customer.default_address.zip }}
+                </p>
+                <p>{{ customer.default_address.country }}</p>
+              {% else %}
+                <p>{{ 'customer.addresses.no_addresses' | t }}</p>
+              {% endif %}
+            </div>
+
+            <div class="customerEmailAndPhone">
+              {% if customer.default_address.phone != null %}
+                <p>{{ customer.default_address.phone }}</p>
+              {% endif %}
+              <p>{{ customer.email }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
 
     <div class="container">
       <aside class="one-fourth medium-down--one-whole column account-sidebar">
