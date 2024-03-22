@@ -2482,6 +2482,23 @@ p.errorLabel {
     font-weight: 600;
 }
 
+.contentDetailTxtCol p {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 22px;
+    color: #282828;
+}
+
+p.simpleLabel {
+    margin-bottom: 8px;
+}
+
+
+.customerEmailAndPhone {
+    margin-top: 16px;
+}
+
+
 /* login signup page css code end  */
 
 /* profile and account page css code start  */
