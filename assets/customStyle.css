@@ -2571,6 +2571,68 @@ h3.tabContentHeading.is-h5 {
     margin-bottom: 16px;
 }
 
+.addressesLoopContainer .address_table .field .select select,
+.contentDetailTxtCol .field input.input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0C0C0C !important;
+    color: #0c0c0c;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 18px;
+    padding: 5px 16px;
+    min-height: 48px;
+}
+
+.addressesLoopContainer {
+    width: 100%;
+}
+
+.addressesLoopContainer .address_table.one-third.column {
+    width: 100% !important;
+    margin: 20px auto !important;
+}
+
+.addressesLoopContainer .address_table h4 {
+    font-size: 24px !important;
+}
+
+.addressesLoopContainer .address_table .field {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.addressesLoopContainer .address_table .field .select {
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+
+.addressesLoopContainer .address_table .field .control {
+    width: 100%;
+}
+
+.addressesLoopContainer .address_table .field .select::after {
+    position: absolute;
+    right: 11px !important;
+    top: 50%;
+    transform: translateY(-50%) !important;
+}
+
+.address_table input.button {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+}
+
 /* profile and account page css code end  */
 /* media query start  */
 @media only screen and (max-width: 1500px) {
