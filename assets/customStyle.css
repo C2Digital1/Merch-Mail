@@ -2484,6 +2484,62 @@ p.errorLabel {
 
 /* login signup page css code end  */
 
+/* profile and account page css code start  */
+.profileMainContainer {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1090px;
+}
+
+
+.profileSideNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 286px;
+    max-width: 100%;
+    margin-right: 24px;
+    background-color: #E9E9E9;
+    padding: 12px;
+}
+
+.sideProfileTabContentContainer {
+    width: calc(100% - 310px);
+    margin: 0 !important;
+    max-width: 100%;
+    background-color: #E9E9E9;
+}
+
+.button.sideProfileBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px !important;
+    letter-spacing: 0;
+    line-height: 22px !important;
+    background: transparent;
+    color: #0C0C0C;
+    border: 0px solid !important;
+    font-family: 'Cubano-Regular' !important;
+    min-height: 0;
+    padding: 0;
+}
+
+.profileSideNav .button.sideProfileBtn {
+    margin-bottom: 16px;
+}
+
+button.button.sideProfileBtn.active {
+    min-height: 54px;
+    background-color: #2B5597;
+    width: 100%;
+    color: #fff;
+}
+
+/* profile and account page css code end  */
 /* media query start  */
 @media only screen and (max-width: 1500px) {
     .useCustomStyle .image-with-text__text-column.image-with-text__column.scheme_color-default.one-half.medium-down--one-whole.column.has-padding-left .image-with-text__wrapper {
