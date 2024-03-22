@@ -115,7 +115,7 @@
               {{ customer.name }}
             </h3>
             <p class="simpleLabel">Your Information</p>
-            <div class="primaryAddressInfo">
+            <div class="primaryAddressInfo"> 
               {% if customer.default_address != null %}
                 <p>{{ customer.default_address.address1 }}</p>
                 {% if customer.default_address.address2 != '' %}
