@@ -74,7 +74,7 @@
 {% comment %} HTML markup {% endcomment %}
 {% paginate customer.orders by 20 %}
   <section
-    class="section is-width-{{ width }} {{ css_class }}"
+    class="section accountPageSec is-width-{{ width }} {{ css_class }}"
     {% if animation != 'none' %}
       data-scroll-class="{{ animation }}"
     {% endif %}
@@ -91,6 +91,47 @@
         %}
       </header>
     {% endif %}
+
+    <div class="profileMainContainer">
+      <div classs="profileSideNav">
+        <button type="button" class="button sideProfileBtn active" data-TabId="#profileSec">
+          Profile 
+        </button>
+        <button type="button" class="button sideProfileBtn" data-TabId="#myOrdersSec">
+          My Orders 
+        </button>
+        <button type="button" class="button sideProfileBtn" data-TabId="#deliveryAddressSec">
+          Delivery Address
+        </button>
+        <button type="button" class="button sideProfileBtn" data-TabId="#bandPortalSec">
+          Band Portal
+        </button>
+        <button type="button" class="button sideProfileBtn" data-TabId="#changePassWordSec">
+          Change Password
+        </button>
+        <a href="{{ routes.account_logout_url }}" class="button sideProfileBtn">
+          Log Out
+        </a>
+      </div>
+      <div class="sideProfileTabContentContainer">
+        <div class="tabContentInner" id="profileSec">
+          <div class="contentDetailTxtCol">
+            <h3 class="profileName is-h5">
+              {{  customer.name }}
+            </h3>
+          </div>
+        </div>
+        <div class="tabContentInner" id="myOrdersSec" style="display:none;">
+          <div class="contentDetailTxtCol">
+            <h3 class="profileName is-h5">
+              {{  customer.name }}
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <div class="container">
       <aside class="one-fourth medium-down--one-whole column account-sidebar">
         <div class="account-sidebar__content has-padding-top">
