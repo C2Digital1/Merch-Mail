@@ -3,7 +3,7 @@
     {% if address == customer.default_address %}
       <div class="address_table">
         <div id="view_address_{{ address.id }}" class="customer_address">
-          {% if dontShowName != blank %}
+          {% if dontShowName != true %}
             <h4 class="address_title">
               {{ address.first_name | capitalize }}
               {{ address.last_name | capitalize }}
