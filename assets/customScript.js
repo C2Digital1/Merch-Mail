@@ -20,8 +20,10 @@ $(document).ready(function () {
     }
 
     $('.checkPass').click(function () {
-        var password = $('#password').val();
+        var password = $('input#password').val();
         var confirmPassword = $('#confirmPassField').val();
+        console.log(password);
+        console.log(confirmPassword);
         if (password !== confirmPassword) {
             if ($(".errorLabel").length > 0) {
                 $('#confirmPass').find('.errorLabel').remove();
