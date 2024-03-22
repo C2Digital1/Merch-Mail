@@ -3,11 +3,13 @@
     {% if address == customer.default_address %}
       <div class="address_table">
         <div id="view_address_{{ address.id }}" class="customer_address">
-          <h4 class="address_title">
-            {{ address.first_name | capitalize }}
-            {{ address.last_name | capitalize }}
-            {% if address == customer.default_address %}({{ 'customer.addresses.default' | t }}){% endif %}
-          </h4>
+          {% if dontShowName != blank %}
+            <h4 class="address_title">
+              {{ address.first_name | capitalize }}
+              {{ address.last_name | capitalize }}
+              {% if address == customer.default_address %}({{ 'customer.addresses.default' | t }}){% endif %}
+            </h4>
+          {% endif %}
           <p class="view_address">
             {{ address.company -}}
             <br>

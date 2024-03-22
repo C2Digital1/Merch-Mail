@@ -140,16 +140,15 @@
           <div class="contentDetailTxtCol">
             <h3 class="tabContentHeading is-h5">Delivery Address</h3>
             <p class="addressOwnerInfo">{{ customer.name }} (Default)</p>
-            <div class="primaryAddressInfo">
+            <div class="addressesLoopContainer">
               {% paginate customer.addresses by 10 %}
                 {% if customer.addresses.size > 0 %}
-                  {% render 'address-loop' %}
+                  {% render 'address-loop', dontShowName: true%}
 
                   <br class="clear">
                 {% else %}
                   <p>{{ 'customer.addresses.no_addresses' | t }}</p>
                 {% endif %}
-
                 <div id="address_pagination">{{ paginate | default_pagination }}</div>
               {% endpaginate %}
             </div>
