@@ -2565,7 +2565,7 @@ button.button.sideProfileBtn.active {
     width: 100%;
 }
 
-h3.profileName.is-h5 {
+h3.tabContentHeading.is-h5 {
     font-size: 24px !important;
     line-height: 30px;
     margin-bottom: 16px;
