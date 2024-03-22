@@ -2571,7 +2571,7 @@ h3.tabContentHeading.is-h5 {
     margin-bottom: 16px;
 }
 
-.addressesLoopContainer .address_table .field .select select,
+.contentDetailTxtCol .field .select select,
 .contentDetailTxtCol .field input.input {
     width: 100%;
     display: flex;
@@ -2585,7 +2585,7 @@ h3.tabContentHeading.is-h5 {
     padding: 5px 16px;
     min-height: 48px;
 }
-
+.addNewAddressContainer,
 .addressesLoopContainer {
     width: 100%;
 }
@@ -2594,7 +2594,7 @@ h3.tabContentHeading.is-h5 {
     width: 100% !important;
     margin: 20px auto !important;
 }
-
+h2#add_address_title,
 .addressesLoopContainer .address_table h4 {
     font-size: 24px !important;
 }
@@ -2608,18 +2608,18 @@ h3.tabContentHeading.is-h5 {
     width: 100%;
 }
 
-.addressesLoopContainer .address_table .field .select {
+.contentDetailTxtCol .field .select {
     height: auto;
     width: 100%;
     position: relative;
 }
 
 
-.addressesLoopContainer .address_table .field .control {
+.contentDetailTxtCol .field .control {
     width: 100%;
 }
 
-.addressesLoopContainer .address_table .field .select::after {
+.contentDetailTxtCol.field .select::after {
     position: absolute;
     right: 11px !important;
     top: 50%;
