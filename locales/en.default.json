@@ -308,7 +308,7 @@
     },
     "orders": {
       "title": "Order History",
-      "order_number": "Order",
+      "order_number": "Order number",
       "date": "Date",
       "payment_status": "Payment Status",
       "fulfillment_status": "Fulfillment Status",
