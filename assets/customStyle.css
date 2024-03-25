@@ -2550,6 +2550,7 @@ p.simpleLabel {
 .profileSideNav .button.sideProfileBtn {
     margin-bottom: 16px;
 }
+
 .button.sideProfileBtn.active {
     min-height: 54px;
     background-color: #2B5597;
@@ -2725,6 +2726,52 @@ button.showNewAddressForm {
 
 .contentDetailTxtCol .account__form.reset_form input.button {
     width: 100%;
+}
+
+.orderDetailSecPage {
+    margin: 50px auto !important;
+}
+
+.orderDetailSecPage h1.account-details__title.title {
+    font-size: 30px !IMPORTANT;
+    margin: 0 !important;
+}
+
+.orderDetailSecPage .heading-wrapper--account-details.heading-wrapper {
+    width: 100% !important;
+    margin: 0 auto 20px auto !important;
+}
+
+.orderDetailSecPage aside.one-fourth.column {
+    width: 100% !important;
+    margin: 0px auto 20px auto !important;
+}
+
+.orderDetailSecPage aside.one-fourth.column a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    min-height: 50px;
+    color: #fff;
+    border: 1px solid #2B5597;
+    background: #2B5597;
+    font-family: 'Cubano-Regular';
+    font-size: 16px !important;
+    padding: 5px;
+}
+
+.orderDetailSecPage .one-whole.column {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 10px auto !important;
+}
+
+.orderDetailSecPage main.container.three-fourths.column {
+    max-width: 100% !important;
+    margin: 0 !important;
+    width: 100% !important;
 }
 
 /* profile and account page css code end  */
