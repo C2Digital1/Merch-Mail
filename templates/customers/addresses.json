@@ -35,8 +35,34 @@
         "custom_css": ""
       }
     },
-    "main": { "type": "addresses-main", "settings": {} }
+    "main": {
+      "type": "addresses-main",
+      "settings": {
+        "show_heading": false,
+        "heading_preset": "is-h1",
+        "heading_alignment": "center",
+        "width": "standard",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top_m": 16,
+        "padding_bottom_m": 56,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
   },
-
-  "order": ["index_heading_i7T6ik", "main"]
+  "order": [
+    "index_heading_i7T6ik",
+    "main"
+  ]
 }
