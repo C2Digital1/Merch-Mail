@@ -28,7 +28,7 @@
         "text_Dxckf6": {
           "type": "text",
           "settings": {
-            "text": "<p>Free Shipping on orders $75+</p>",
+            "text": "<p>Free Shipping on orders $75+<\/p>",
             "preset": "is-text-small"
           }
         },
@@ -58,11 +58,17 @@
             "show_payment_button": false,
             "enable_giftCard_recipient": false,
             "showSizeChart": true,
-            "sizeChartImg": "shopify://shop_images/sample.png"
+            "sizeChartImg": "shopify:\/\/shop_images\/sample.png"
           }
         }
       },
-      "block_order": ["text_Dxckf6", "title", "price", "description", "form"],
+      "block_order": [
+        "text_Dxckf6",
+        "title",
+        "price",
+        "description",
+        "form"
+      ],
       "settings": {
         "color_scheme": "",
         "set_smaller_side_sticky": true,
@@ -104,9 +110,9 @@
           "type": "logo_image",
           "settings": {
             "icon_label": "",
-            "text_image": "shopify://shop_images/Desktop_Icon_3.png",
+            "text_image": "shopify:\/\/shop_images\/Desktop_Icon_3.png",
             "heading": "Step 1",
-            "text": "<p>Design Merch / Create Store</p>",
+            "text": "<p>Design Merch \/ Create Store<\/p>",
             "button_label": "",
             "link": ""
           }
@@ -115,9 +121,9 @@
           "type": "logo_image",
           "settings": {
             "icon_label": "",
-            "text_image": "shopify://shop_images/Desktop_Icon_4.png",
+            "text_image": "shopify:\/\/shop_images\/Desktop_Icon_4.png",
             "heading": "Step 2",
-            "text": "<p>Print traditional orders and or single Merch Mail pieces for tour</p>",
+            "text": "<p>Print traditional orders and or single Merch Mail pieces for tour<\/p>",
             "button_label": "",
             "link": ""
           }
@@ -126,9 +132,9 @@
           "type": "logo_image",
           "settings": {
             "icon_label": "",
-            "text_image": "shopify://shop_images/Desktop_Icon_5.png",
+            "text_image": "shopify:\/\/shop_images\/Desktop_Icon_5.png",
             "heading": "Step 3",
-            "text": "<p>Pick date for orders to<br/>print (usually after tour)</p>",
+            "text": "<p>Pick date for orders to<br\/>print (usually after tour)<\/p>",
             "button_label": "",
             "link": ""
           }
@@ -137,9 +143,9 @@
           "type": "logo_image",
           "settings": {
             "icon_label": "",
-            "text_image": "shopify://shop_images/Desktop_Icon_6.png",
+            "text_image": "shopify:\/\/shop_images\/Desktop_Icon_6.png",
             "heading": "Step 4",
-            "text": "<p>Tour with fewer boxes, more fan options and never have merch left over</p>",
+            "text": "<p>Tour with fewer boxes, more fan options and never have merch left over<\/p>",
             "button_label": "",
             "link": ""
           }
@@ -148,9 +154,9 @@
           "type": "logo_image",
           "settings": {
             "icon_label": "",
-            "text_image": "shopify://shop_images/Desktop_Icon_7.png",
+            "text_image": "shopify:\/\/shop_images\/Desktop_Icon_7.png",
             "heading": "Step 5",
-            "text": "<p>Profit on every Merch Mail item without dealing with any item</p>",
+            "text": "<p>Profit on every Merch Mail item without dealing with any item<\/p>",
             "button_label": "",
             "link": ""
           }
@@ -180,7 +186,7 @@
         "icon_color": "#000000",
         "background": "",
         "align_text": "center",
-        "width": "standard",
+        "width": "wide",
         "show_gutter": true,
         "padding_top": 80,
         "padding_bottom": 80,
@@ -195,7 +201,7 @@
         "margin_top_m": 0,
         "margin_bottom_m": 0,
         "animation": "none",
-        "sectionBg": "shopify://shop_images/Rectangle_Copy.png",
+        "sectionBg": "shopify:\/\/shop_images\/Rectangle_Copy.png",
         "css_class": "",
         "custom_css": ""
       }
@@ -231,5 +237,11 @@
       }
     }
   },
-  "order": ["breadcrumbs", "sidebar", "main", "index_icon_with_text_column_Q4wytD", "recommendations"]
+  "order": [
+    "breadcrumbs",
+    "sidebar",
+    "main",
+    "index_icon_with_text_column_Q4wytD",
+    "recommendations"
+  ]
 }
