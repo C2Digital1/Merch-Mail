@@ -85,7 +85,7 @@
         "thumbnail_position": "left-thumbnails",
         "enable_thumbnail_slider": true,
         "showStickersRow": false,
-        "width": "wide",
+        "width": "standard",
         "padding_top": 48,
         "padding_bottom": 56,
         "padding_left": 0,
