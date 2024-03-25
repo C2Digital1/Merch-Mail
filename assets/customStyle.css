@@ -2585,6 +2585,7 @@ h3.tabContentHeading.is-h5 {
     padding: 5px 16px;
     min-height: 48px;
 }
+
 .addNewAddressContainer,
 .addressesLoopContainer {
     width: 100%;
@@ -2594,6 +2595,7 @@ h3.tabContentHeading.is-h5 {
     width: 100% !important;
     margin: 20px auto !important;
 }
+
 h2#add_address_title,
 .addressesLoopContainer .address_table h4 {
     font-size: 24px !important;
@@ -2653,6 +2655,15 @@ button.showNewAddressForm {
     max-width: 252px;
     padding: 5px;
     min-height: 48px;
+}
+
+.noOrderLabel {
+    margin-top: 24px;
+}
+
+.customerOrderTable {
+    margin-top: 24px;
+
 }
 
 /* profile and account page css code end  */
