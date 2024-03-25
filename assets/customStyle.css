@@ -2860,6 +2860,90 @@ button.showNewAddressForm {
     color: #F9E530 !important;
 }
 
+.inkybay_size_card_title,
+.inkybay_color_card_header {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    color: #0C0C0C;
+    font-family: 'Cubano-Regular';
+    font-weight: normal !important;
+    margin-bottom: 20px !important;
+}
+
+.inkybay_default_color_swatch_cover {
+    display: flex !important;
+    align-items: center;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    background: #fff;
+    border: 0px solid !important;
+}
+
+.inkybay_default_color_swatch_cover .inkybay_default_color_swatch {
+    margin: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center !important;
+    background: #fff;
+    padding: 6px;
+    box-shadow: none !important;
+    border: 1px solid #d1d1d1 !important;
+}
+
+.inkybay_default_color_swatch_cover .inkybay_default_color_swatch.idcs_sel {
+    border: 3px solid #A12B2F !important;
+}
+
+.idcs_sel::after {
+    display: none !important;
+}
+
+
+.inkybay_size_card_type_title {
+    display: none !important;
+}
+
+
+input.efl_size_qty_box[type="number"],
+.efl_size_qty_box {
+    height: 40px;
+    width: 96px !important;
+    border: 1px solid #0C0C0C;
+    max-width: 96px !IMPORTANT;
+}
+
+.inkybay_size_card_body {
+    text-align: center !important;
+    margin-bottom: 16px !important;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+
+.inkybay_size_card_body div {
+    max-width: 96px !important;
+}
+
+div#EFOLI_CUSTOMIZE_IT_BUTTON {
+    background: #A12B2F !important;
+    border: 1px solid #A12B2F !important;
+    margin: 16px auto !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    letter-spacing: 0;
+    line-height: 24px !important;
+    color: #FFFFFF;
+    font-family: 'Cubano-Regular' !important;
+    font-weight: normal !important;
+}
+
 /* custom product page css code end  */
 
 /* media query start  */
