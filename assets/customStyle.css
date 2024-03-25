@@ -2871,6 +2871,12 @@ button.showNewAddressForm {
     margin-bottom: 20px !important;
 }
 
+.inkybay_size_card_title strong,
+.inkybay_color_card_header strong {
+    font-weight: normal !important;
+
+}
+
 .inkybay_default_color_swatch_cover {
     display: flex !important;
     align-items: center;
