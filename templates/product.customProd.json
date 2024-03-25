@@ -28,7 +28,7 @@
         "text_Dxckf6": {
           "type": "text",
           "settings": {
-            "text": "<p>Free Shipping on orders $75+<\/p>",
+            "text": "<p>Free Shipping on orders $75+</p>",
             "preset": "is-text-small"
           }
         },
@@ -58,17 +58,11 @@
             "show_payment_button": false,
             "enable_giftCard_recipient": false,
             "showSizeChart": true,
-            "sizeChartImg": "shopify:\/\/shop_images\/sample.png"
+            "sizeChartImg": "shopify://shop_images/sample.png"
           }
         }
       },
-      "block_order": [
-        "text_Dxckf6",
-        "title",
-        "price",
-        "description",
-        "form"
-      ],
+      "block_order": ["text_Dxckf6", "title", "price", "description", "form"],
       "settings": {
         "color_scheme": "",
         "set_smaller_side_sticky": true,
@@ -85,7 +79,7 @@
         "thumbnail_position": "left-thumbnails",
         "enable_thumbnail_slider": true,
         "showStickersRow": false,
-        "width": "standard",
+        "width": "wide",
         "padding_top": 48,
         "padding_bottom": 40,
         "padding_left": 0,
@@ -99,6 +93,109 @@
         "margin_top_m": 0,
         "margin_bottom_m": 0,
         "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "index_icon_with_text_column_Q4wytD": {
+      "type": "index__icon-with-text-column",
+      "blocks": {
+        "logo_image_6Dt377": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "",
+            "text_image": "shopify://shop_images/Desktop_Icon_3.png",
+            "heading": "Step 1",
+            "text": "<p>Design Merch / Create Store</p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "logo_image_7gfrCT": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "",
+            "text_image": "shopify://shop_images/Desktop_Icon_4.png",
+            "heading": "Step 2",
+            "text": "<p>Print traditional orders and or single Merch Mail pieces for tour</p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "logo_image_R8FT9H": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "",
+            "text_image": "shopify://shop_images/Desktop_Icon_5.png",
+            "heading": "Step 3",
+            "text": "<p>Pick date for orders to<br/>print (usually after tour)</p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "logo_image_4CTRAG": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "",
+            "text_image": "shopify://shop_images/Desktop_Icon_6.png",
+            "heading": "Step 4",
+            "text": "<p>Tour with fewer boxes, more fan options and never have merch left over</p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "logo_image_7AMVqf": {
+          "type": "logo_image",
+          "settings": {
+            "icon_label": "",
+            "text_image": "shopify://shop_images/Desktop_Icon_7.png",
+            "heading": "Step 5",
+            "text": "<p>Profit on every Merch Mail item without dealing with any item</p>",
+            "button_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_image_6Dt377",
+        "logo_image_7gfrCT",
+        "logo_image_R8FT9H",
+        "logo_image_4CTRAG",
+        "logo_image_7AMVqf"
+      ],
+      "settings": {
+        "color_scheme": "scheme-8a16c616-abc9-4c2a-b48a-c26d30fdeddf",
+        "top_heading": "How Merch Mail works",
+        "top_heading_preset": "is-h2",
+        "top_heading_alignment": "center",
+        "secBtnTxt": "Learn More",
+        "secBtnUrl": "#",
+        "secBtnStyle": "button--primary",
+        "icons_per_row": 5,
+        "icon_size": "medium",
+        "image_size": 120,
+        "button_style": "button--primary",
+        "heading_preset": "is-h6",
+        "text_preset": "is-text",
+        "icon_color": "#000000",
+        "background": "",
+        "align_text": "center",
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_left": 0,
+        "padding_right": 0,
+        "margin_top": 0,
+        "margin_bottom": 64,
+        "padding_top_m": 32,
+        "padding_bottom_m": 32,
+        "padding_left_m": 0,
+        "padding_right_m": 0,
+        "margin_top_m": 0,
+        "margin_bottom_m": 0,
+        "animation": "none",
+        "sectionBg": "shopify://shop_images/Rectangle_Copy.png",
         "css_class": "",
         "custom_css": ""
       }
@@ -134,10 +231,5 @@
       }
     }
   },
-  "order": [
-    "breadcrumbs",
-    "sidebar",
-    "main",
-    "recommendations"
-  ]
+  "order": ["breadcrumbs", "sidebar", "main", "index_icon_with_text_column_Q4wytD", "recommendations"]
 }
