@@ -138,6 +138,7 @@
           <div class="contentDetailTxtCol">
             <h3 class="tabContentHeading is-h6">Order History</h3>
             {% if customer.orders.size != 0 %}
+             <div class="orderDetailsTableContainer">
               <table class="table is-bordered customerOrderTable" width="100%">
                 <thead class="text-align-left">
                   <tr>
@@ -146,6 +147,7 @@
                     <th>{{ 'customer.orders.payment_status' | t }}</th>
                     <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
                     <th>{{ 'customer.orders.total' | t }}</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -161,10 +163,16 @@
                           {{ order.currency -}}
                         </span>
                       </td>
+                      <td>
+                        <a href="{{ order.url }}" class="viewOrderBtn">
+                          View
+                        </a>
+                      </td>
                     </tr>
                   {% endfor %}
                 </tbody>
               </table>
+             </div>
             {% else %}
               <p class="is-text noOrderLabel">{{ 'customer.orders.none' | t }}</p>
             {% endif %}

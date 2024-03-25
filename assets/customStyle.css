@@ -2661,10 +2661,15 @@ button.showNewAddressForm {
     margin-top: 24px;
 }
 
-.customerOrderTable {
+.orderDetailsTableContainer {
     margin-top: 24px;
+    width: 100%;
+    overflow-x: auto;
 }
-
+.customerOrderTable{
+    width: 100%;
+    max-width: 100%;
+}
 /* profile and account page css code end  */
 /* media query start  */
 @media only screen and (max-width: 1500px) {
