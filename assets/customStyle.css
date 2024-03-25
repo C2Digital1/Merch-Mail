@@ -2620,7 +2620,7 @@ h2#add_address_title,
     width: 100%;
 }
 
-.contentDetailTxtCol.field .select::after {
+.contentDetailTxtCol .field .select::after {
     position: absolute;
     right: 11px !important;
     top: 50%;
