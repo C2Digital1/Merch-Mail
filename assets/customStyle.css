@@ -2808,6 +2808,29 @@ button.showNewAddressForm {
     align-items: flex-end;
 }
 
+.jdgm-btn {
+    font-size: 20px !important;
+    letter-spacing: 0;
+    line-height: 24px !important;
+    text-transform: uppercase !important;
+    font-family: 'Cubano-Regular' !important;
+    padding: 8px !important;
+    min-height: 48px !important;
+    max-width: 200px !important;
+    margin: 0 !important;
+    font-weight: normal !important;
+    display: flex !important;
+    align-items: center;
+}
+
+.jdgm-form__fieldset.jdgm-form__fieldset-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
 .reviewWidget .jdgm-widget-actions-wrapper a.jdgm-write-rev-link {
     display: flex;
     align-items: center;
