@@ -2944,6 +2944,14 @@ div#EFOLI_CUSTOMIZE_IT_BUTTON {
     font-weight: normal !important;
 }
 
+.customProdSec .description.content {
+    border-bottom: 0px solid !important;
+}
+
+.customProdSec div#INKYBAY_COLOR_CARD {
+    margin-bottom: 20px;
+}
+
 /* custom product page css code end  */
 
 /* media query start  */

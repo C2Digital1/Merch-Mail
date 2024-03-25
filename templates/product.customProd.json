@@ -23,7 +23,7 @@
       }
     },
     "main": {
-      "type": "product__main",
+      "type": "customProductMain",
       "blocks": {
         "text_Dxckf6": {
           "type": "text",
