@@ -2670,6 +2670,24 @@ button.showNewAddressForm {
     width: 100%;
     max-width: 100%;
 }
+
+.orderDetailsTableContainer th {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+.orderDetailsTableContainer td, .orderDetailsTableContainer td a {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
+.table.is-bordered td, .table.is-bordered th {
+    border: 1px solid #D3D3D3;
+    padding: 12px;
+}
 /* profile and account page css code end  */
 /* media query start  */
 @media only screen and (max-width: 1500px) {
