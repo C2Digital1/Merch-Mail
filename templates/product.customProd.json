@@ -41,7 +41,7 @@
         "price": {
           "type": "price",
           "settings": {
-            "display_savings": true,
+            "display_savings": false,
             "preset": "is-h4"
           }
         },
