@@ -2919,7 +2919,7 @@ input.efl_size_qty_box[type="number"],
     height: 40px;
     width: 96px !important;
     border: 1px solid #0C0C0C;
-    max-width: 96px !IMPORTANT;
+    max-width: 96px !important;
 }
 
 .inkybay_size_card_body {
@@ -2957,6 +2957,24 @@ div#EFOLI_CUSTOMIZE_IT_BUTTON {
 
 .customProdSec div#INKYBAY_COLOR_CARD {
     margin-bottom: 20px;
+}
+
+.productCustomizer {}
+
+.productCustomizer .page__content.content.container {
+    width: 100% !important;
+    max-width: 1290px !important;
+    margin: 0px auto !important;
+}
+
+.productCustomizer .page__content.content.container .one-whole.column {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.productCustomizer .page__content div#EFOLI_DESIGNER_ROOT {
+    left: 0 !important;
+    width: 100% !important;
 }
 
 /* custom product page css code end  */
