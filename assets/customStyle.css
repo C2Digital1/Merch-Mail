@@ -2508,7 +2508,7 @@ p.simpleLabel {
     justify-content: space-between;
     width: 100%;
     max-width: 1090px;
-    margin: 0px auto;
+    margin: 0px auto 90px auto;
 }
 
 
@@ -2666,7 +2666,8 @@ button.showNewAddressForm {
     width: 100%;
     overflow-x: auto;
 }
-.customerOrderTable{
+
+.customerOrderTable {
     width: 100%;
     max-width: 100%;
 }
@@ -2678,16 +2679,54 @@ button.showNewAddressForm {
     line-height: 22px;
 }
 
-.orderDetailsTableContainer td, .orderDetailsTableContainer td a {
+.orderDetailsTableContainer td,
+.orderDetailsTableContainer td a {
     font-size: 14px;
     letter-spacing: 0;
     line-height: 20px;
 }
 
-.table.is-bordered td, .table.is-bordered th {
+.table.is-bordered td,
+.table.is-bordered th {
     border: 1px solid #D3D3D3;
     padding: 12px;
 }
+
+.sideProfileTabContentContainer a.button.continueShopBtn {
+    position: absolute;
+    bottom: -64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 230px;
+    padding: 5px;
+    min-height: 48px;
+    right: 0;
+}
+
+.sideProfileTabContentContainer a.button.continueShopBtn {
+    position: absolute;
+    bottom: -64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 250px;
+    padding: 5px;
+    min-height: 48px;
+    right: 0;
+}
+
+.contentDetailTxtCol .account__form.reset_form {
+    max-width: 200px;
+    margin: 20px 0;
+}
+
+.contentDetailTxtCol .account__form.reset_form input.button {
+    width: 100%;
+}
+
 /* profile and account page css code end  */
 /* media query start  */
 @media only screen and (max-width: 1500px) {
