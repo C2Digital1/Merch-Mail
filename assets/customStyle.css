@@ -2549,8 +2549,7 @@ p.simpleLabel {
 .profileSideNav .button.sideProfileBtn {
     margin-bottom: 16px;
 }
-
-button.button.sideProfileBtn.active {
+.button.sideProfileBtn.active {
     min-height: 54px;
     background-color: #2B5597;
     width: 100%;
