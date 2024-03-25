@@ -133,56 +133,55 @@
             </div>
           </div>
         </div>
-
         <div class="tabContentInner" id="myOrdersSec" style="display:none;">
           <div class="contentDetailTxtCol">
             <h3 class="tabContentHeading is-h6">Order History</h3>
             {% if customer.orders.size != 0 %}
-             <div class="orderDetailsTableContainer">
-              <table class="table is-bordered customerOrderTable" width="100%">
-                <thead class="text-align-left">
-                  <tr>
-                    <th>{{ 'customer.orders.order_number' | t }}</th>
-                    <th>{{ 'customer.orders.date' | t }}</th>
-                    <th>{{ 'customer.orders.payment_status' | t }}</th>
-                    <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
-                    <th>{{ 'customer.orders.total' | t }}</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for order in customer.orders %}
-                    <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
-                      <td>{{ order.name | link_to: order.customer_url }}</td>
-                      <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
-                      <td>{{ order.financial_status_label }}</td>
-                      <td>{{ order.fulfillment_status_label }}</td>
-                      <td>
-                        <span>
-                          {%- render 'price-element', price: order.total_price %}
-                          {{ order.currency -}}
-                        </span>
-                      </td>
-                      <td>
-                        <a href="{{ order.customer_url }}" class="viewOrderBtn">
-                          View
-                        </a>
-                      </td>
+              <div class="orderDetailsTableContainer">
+                <table class="table is-bordered customerOrderTable" width="100%">
+                  <thead class="text-align-left">
+                    <tr>
+                      <th>{{ 'customer.orders.order_number' | t }}</th>
+                      <th>{{ 'customer.orders.date' | t }}</th>
+                      <th>{{ 'customer.orders.payment_status' | t }}</th>
+                      <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                      <th>{{ 'customer.orders.total' | t }}</th>
+                      <th></th>
                     </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-             </div>
+                  </thead>
+                  <tbody>
+                    {% for order in customer.orders %}
+                      <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
+                        <td>{{ order.name | link_to: order.customer_url }}</td>
+                        <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
+                        <td>{{ order.financial_status_label }}</td>
+                        <td>{{ order.fulfillment_status_label }}</td>
+                        <td>
+                          <span>
+                            {%- render 'price-element', price: order.total_price %}
+                            {{ order.currency -}}
+                          </span>
+                        </td>
+                        <td>
+                          <a href="{{ order.customer_url }}" class="viewOrderBtn"> View </a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
             {% else %}
               <p class="is-text noOrderLabel">{{ 'customer.orders.none' | t }}</p>
             {% endif %}
           </div>
-          </div>
-
+          <a href="/collections/all" class="button button--secondary continueShopBtn">
+            Continue Shopping
+          </a>
+        </div>
         <div class="tabContentInner" id="deliveryAddressSec" style="display:none;">
           <div class="contentDetailTxtCol">
             <h3 class="tabContentHeading is-h5">Delivery Address</h3>
-           
+
             <div class="addressesLoopContainer">
               {% paginate customer.addresses by 10 %}
                 {% if customer.addresses.size > 0 %}
@@ -196,9 +195,53 @@
             </div>
             <div class="addNewAddressContainer">
               {% render 'newAddressForm' %}
-              <button type="button" class="button button--secondary showNewAddressForm">
-                Add a new address
-              </button>
+              <button type="button" class="button button--secondary showNewAddressForm">Add a new address</button>
+            </div>
+          </div>
+        </div>
+        <div class="tabContentInner" id="changePassWordSec" style="display:none;">
+          <div class="contentDetailTxtCol">
+            <h3 class="tabContentHeading is-h6">Change Password</h3>
+            <div class="account__form reset_form">
+              <div class="innerContent animated fadeInUp">
+                {% form 'recover_customer_password' %}
+                  {{ form.errors | default_errors }}
+
+                  {% if form.posted_successfully? %}
+                    {% assign reset_success = true %}
+                  {% endif %}
+
+                  <div id="recover_email">
+                    <div class="field">
+                      <label class="label" for="email">
+                        {{- 'customer.recover_password.email' | t -}}
+                        <span class="required">*</span></label
+                      >
+                      <div class="control">
+                        <input
+                          type="email"
+                          value=""
+                          size="30"
+                          name="email"
+                          id="recover-email"
+                          class="input"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          placeholder="Enter your email adress"
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="buttons is-center recoverPassBtnContainer">
+                    <input
+                      class="button button--secondary"
+                      type="submit"
+                      value="{{ 'customer.recover_password.submit' | t }}"
+                    >
+                  </div>
+                {% endform %}
+              </div>
             </div>
           </div>
         </div>
