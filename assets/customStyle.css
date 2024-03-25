@@ -2946,6 +2946,7 @@ div#EFOLI_CUSTOMIZE_IT_BUTTON {
 
 .customProdSec .description.content {
     border-bottom: 0px solid !important;
+    padding-bottom: 0 !important;
 }
 
 .customProdSec div#INKYBAY_COLOR_CARD {
