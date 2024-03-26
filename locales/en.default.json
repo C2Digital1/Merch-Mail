@@ -382,7 +382,7 @@
       "password_confirm": "Confirm Password"
     },
     "order": {
-      "title": "Order {{ name }}",
+      "title": "Orders\/Order Number {{ name }}",
       "date": "Placed on {{ date }}",
       "note": "Order notes",
       "note_placeholder": "No order notes were provided.",
