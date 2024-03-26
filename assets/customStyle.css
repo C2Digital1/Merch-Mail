@@ -462,6 +462,44 @@ p.footer__heading {
     margin: 0 !important;
 }
 
+.footer__block.block__newsletter.medium-down--one-whole.column.four {
+    max-width: 300px !important;
+    margin: 0 !important;
+}
+
+.footer__block.block__newsletter p.footer__heading.is-text {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 18px;
+}
+
+.footer__block.block__newsletter p.footer__heading {
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.footer__block.block__newsletter input.input.is-secondary-btn-style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #FFFFFF;
+    min-height: 48px;
+    padding: 2px 14px;
+    background: transparent !important;
+    color: #fff !important;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    font-family: 'Arial-Narrow-Regular' !important;
+}
+
+.footer__block.block__newsletter input.input.is-secondary-btn-style::placeholder {
+    color: #fff !important;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
 /* footer section css code end  */
 
 /* about us page css code start  */
