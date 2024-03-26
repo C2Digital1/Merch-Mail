@@ -231,7 +231,7 @@
       ],
       "settings": {
         "image_transition": "fade",
-        "image_slideshow_speed": 4,
+        "image_slideshow_speed": 3,
         "desktop_height": 0,
         "mobile_height": 0,
         "show_arrows": false,
