@@ -151,6 +151,8 @@
               </div>
             </div>
 
+            <input type="hidden" name="return_to" class="submissionRedirectInput" value="/pages/mvm">   
+                  
             <div class="buttons is-center has-margin-top">
               <input
                 class="button {{ settings.form_button_style }} is-within-form"
@@ -162,19 +164,6 @@
           {% endform %}
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="galleryMainContainer">
-    <div class="galRow">
-      <div class="galSidImgCol">
-        {% if section.settings.galSideImg != blank %}
-          <img src="{{ section.settings.galSideImg | img_url:'master' }}" alt="">
-        {% else %}
-          {{ 'product-1' | placeholder_svg_tag }}
-        {% endif %}
-      </div>
-      <div class="galMultImgColo"></div>
     </div>
   </div>
 </section>
