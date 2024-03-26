@@ -382,8 +382,8 @@
       "password_confirm": "Confirm Password"
     },
     "order": {
-      "title": "Order {{ name }}",
-      "date": "Placed on {{ date }}",
+      "title": "Orders\/Order Number {{ name }}",
+      "date": "Order Placed {{ date }}",
       "note": "Order notes",
       "note_placeholder": "No order notes were provided.",
       "cancelled": "Order Cancelled on {{ date }}",
