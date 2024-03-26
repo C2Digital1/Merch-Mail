@@ -1,5 +1,10 @@
 $(document).ready(function () {
     $(".popupBtn").click(function () {
+        var currentTime = new Date().getTime();
+        localStorage.setItem("dontShowBanner", JSON.stringify({
+            value: true,
+            timestamp: currentTime
+        }));
         $("body, html").addClass("enableScroll");
     });
     $(".tabHeading").click(function () {
@@ -45,11 +50,11 @@ $(document).ready(function () {
     });
 
     $(".showNewAddressForm").click(function () {
-       $(this).hide();
-       $("#add_address").show();
+        $(this).hide();
+        $("#add_address").show();
     });
     $(".cancelAddressForm").click(function () {
         $(".showNewAddressForm").show();
         $("#add_address").hide();
-     });
+    });
 });

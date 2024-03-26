@@ -190,6 +190,7 @@
     data-shop-url="{{ shop.url }}"
     data-current-lang="{{ request.locale.iso_code }}"
   >
+      {% render 'checkPopupExpireTime' %}
     {% comment %}Inject css-variables begin{% endcomment %}
     {% style %}
       :root {

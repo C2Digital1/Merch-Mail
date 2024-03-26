@@ -1,0 +1,15 @@
+<script>
+  var dontShowBanner = localStorage.getItem('dontShowBanner');
+  if (dontShowBanner) {
+    var storedData = JSON.parse(dontShowBanner);
+    var currentTime = new Date().getTime();
+    var fiveHoursInMillis = 5 * 60 * 60 * 1000;
+    //var fiveHoursInMillis =  30 * 1000;  
+    if (currentTime - storedData.timestamp >= fiveHoursInMillis) {
+      localStorage.removeItem('dontShowBanner');
+      $('body, html').removeClass('enableScroll');
+    } else {
+      $('body, html').addClass('enableScroll');
+    }
+  }
+</script>
