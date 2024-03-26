@@ -500,6 +500,10 @@ p.footer__heading {
     line-height: 20px;
 }
 
+li.footer__menu-link {
+    text-transform: uppercase;
+}
+
 /* footer section css code end  */
 
 /* about us page css code start  */
