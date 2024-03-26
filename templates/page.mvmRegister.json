@@ -1,0 +1,97 @@
+{
+    "sections": {
+      "main": {
+        "type": "page-content__main",
+        "disabled": true,
+        "settings": {
+          "show_heading": true,
+          "heading_preset": "is-h1",
+          "heading_alignment": "left",
+          "width": "standard",
+          "padding_top": 0,
+          "padding_bottom": 0,
+          "padding_left": 0,
+          "padding_right": 0,
+          "margin_top": 0,
+          "margin_bottom": 0,
+          "padding_top_m": 0,
+          "padding_bottom_m": 0,
+          "padding_left_m": 0,
+          "padding_right_m": 0,
+          "margin_top_m": 0,
+          "margin_bottom_m": 0,
+          "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+          "animation": "none",
+          "css_class": "",
+          "custom_css": ""
+        }
+      },
+      "index_heading_VpMBbn": {
+        "type": "index__heading",
+        "settings": {
+          "color_scheme": "background-1",
+          "preheading": "",
+          "heading": "Login",
+          "subheading": "<p>Don’t have a Multivendor Marketplace account? <a href=\"#\" title=\"#\">Create an account<\/a><\/p>",
+          "button_1_label": "",
+          "button_1_link": "",
+          "button_1_style": "button--secondary",
+          "button_2_label": "",
+          "button_2_link": "",
+          "button_2_style": "button--secondary",
+          "preheading_preset": "is-h6",
+          "heading_preset": "is-h3",
+          "subheading_preset": "is-text",
+          "heading_alignment": "center",
+          "width": "standard",
+          "padding_top": 75,
+          "padding_bottom": 75,
+          "padding_left": 0,
+          "padding_right": 0,
+          "margin_top": 0,
+          "margin_bottom": 0,
+          "padding_top_m": 55,
+          "padding_bottom_m": 55,
+          "padding_left_m": 0,
+          "padding_right_m": 0,
+          "margin_top_m": 0,
+          "margin_bottom_m": 0,
+          "animation": "none",
+          "css_class": "sectionHeadingBanner",
+          "custom_css": ""
+        }
+      },
+      "mvmLogin": {
+        "type": "mvmLogin",
+        "settings": {
+          "heading": "Lorem Ipsum Dolor",
+          "heading_preset": "is-h3",
+          "subText": "<p>Varius vel pharetra vel turpis nunc eget lorem. Posuere sollicitudin aliquam ultrices sagittis. Dolor morbi non arcu risus quis varius quam. Vel facilisis volutpat est velit egestas. Nunc id cursus metus aliquam eleifend mi in.<\/p>",
+          "subTextPreset": "is-text",
+          "width": "standard",
+          "padding_top": 56,
+          "padding_bottom": 56,
+          "padding_left": 0,
+          "padding_right": 0,
+          "margin_top": 0,
+          "margin_bottom": 0,
+          "padding_top_m": 32,
+          "padding_bottom_m": 32,
+          "padding_left_m": 0,
+          "padding_right_m": 0,
+          "margin_top_m": 0,
+          "margin_bottom_m": 0,
+          "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+          "animation": "none",
+          "css_class": "",
+          "custom_css": ""
+        }
+      }
+    },
+    "order": [
+      "main",
+      "index_heading_VpMBbn",
+      "mvmLogin"
+    ]
+  }
+  
