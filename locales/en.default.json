@@ -383,7 +383,7 @@
     },
     "order": {
       "title": "Orders\/Order Number {{ name }}",
-      "date": "Placed on {{ date }}",
+      "date": "Order Placed {{ date }}",
       "note": "Order notes",
       "note_placeholder": "No order notes were provided.",
       "cancelled": "Order Cancelled on {{ date }}",
