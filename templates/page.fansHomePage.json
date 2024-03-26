@@ -1,42 +1,5 @@
 {
   "sections": {
-    "bands_and_fans_popup_4zKctw": {
-      "type": "BandsAndFansPopup",
-      "settings": {
-        "color_scheme": "",
-        "bgImg": "shopify:\/\/shop_images\/Desktop_1.png",
-        "logoImg": "shopify:\/\/shop_images\/Default_Logo_1x_7bde0214-67e7-4e08-b582-7581c340bfd3.png",
-        "bottomRightIcon": "shopify:\/\/shop_images\/Desktop_Icon_1.png",
-        "bottomLeftIcon": "shopify:\/\/shop_images\/Desktop_Icon_2.png",
-        "heading": "LOREM IPSUM DOLOR",
-        "button1Text": "BANDS",
-        "button1Url": "",
-        "showHomePageForBtn1": true,
-        "button2Text": "FANS",
-        "button2Url": "",
-        "showHomePageForBtn2": false,
-        "headingPreset": "is-h1",
-        "button1Style": "button--primary",
-        "button2Style": "button--secondary",
-        "width": "wide",
-        "padding_top": 25,
-        "padding_bottom": 25,
-        "padding_left": 25,
-        "padding_right": 25,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_top_m": 20,
-        "padding_bottom_m": 20,
-        "padding_left_m": 20,
-        "padding_right_m": 20,
-        "margin_top_m": 0,
-        "margin_bottom_m": 0,
-        "section_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
-        "animation": "none",
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
     "index_slideshow_classic_jax3mX": {
       "type": "index__slideshow-classic",
       "blocks": {
@@ -112,7 +75,8 @@
         "mobile_height": 0,
         "show_arrows": false,
         "show_nav_buttons": true,
-        "dotsColor": "#fff",
+        "showNavOnLeft": false,
+        "dotsColor": "#ffffff",
         "mobile_text_below_image": false,
         "width": "standard",
         "padding_top": 0,
@@ -135,7 +99,6 @@
     }
   },
   "order": [
-    "bands_and_fans_popup_4zKctw",
     "index_slideshow_classic_jax3mX"
   ]
 }
