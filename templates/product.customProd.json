@@ -51,13 +51,23 @@
             "custom_description": "",
             "preset": "is-text"
           }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "show_payment_button": false,
+            "enable_giftCard_recipient": false,
+            "showSizeChart": true,
+            "sizeChartImg": "shopify:\/\/shop_images\/sample.png"
+          }
         }
       },
       "block_order": [
         "text_Dxckf6",
         "title",
         "price",
-        "description"
+        "description",
+        "form"
       ],
       "settings": {
         "color_scheme": "",
