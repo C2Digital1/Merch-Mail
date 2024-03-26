@@ -63,6 +63,7 @@
     },
     "mvmLogin": {
       "type": "mvmLogin",
+      "disabled": true,
       "settings": {
         "heading": "Lorem Ipsum Dolor",
         "heading_preset": "is-h3",
