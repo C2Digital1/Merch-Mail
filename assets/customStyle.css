@@ -3332,6 +3332,7 @@ div#inkybay_opt_1710938926409 .inkybay_option_radio:nth-child(2) {
 .contentDetailTxtCol p.supportLink a:hover {
     color: #2B5597;
 }
+
 .orderProdItems {
     width: 100%;
     display: flex;
@@ -3340,6 +3341,53 @@ div#inkybay_opt_1710938926409 .inkybay_option_radio:nth-child(2) {
 }
 
 /* custom product page css code end  */
+/* mvm login page css code start  */
+.customLoginForm {
+    width: 100%;
+    max-width: 630px;
+    margin: 0px auto;
+    border: 1px solid #0C0C0C;
+    padding: 24px;
+}
+
+.custLoginContainer.hasSideInfo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1070px;
+    margin: 0px auto;
+    column-gap: 20px;
+}
+
+.sideHeadingAndTextSec {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 300px;
+}
+
+.custLoginContainer.hasSideInfo .customLoginForm {
+    margin: 0 !important;
+}
+
+.customLoginForm .field {
+    margin-bottom: 24px !important;
+}
+
+.sideInfoBottomTxt {
+    margin-top: 16px;
+}
+
+.sectionHeadingBanner .heading-section__subheading.subtitle a {
+    color: #fff !important;
+    text-decoration: underline;
+}
+
+/* mvm login page css code end  */
+
 
 /* media query start  */
 @media only screen and (max-width: 1500px) {
