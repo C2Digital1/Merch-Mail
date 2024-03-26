@@ -1,0 +1,225 @@
+{% assign id = section.id %}
+{% style %}
+#secid-{{id}} {
+    background: #fff;
+    width: 100%;
+    padding-top: 56px;
+    padding-bottom: 70px;
+}
+
+.orderDetailPageSection {
+    background: #fff;
+}
+
+@media screen and (max-width:798px) {
+    #secid-{{id}} {
+        background: #fff;
+        width: 100%;
+        padding-top: 16px;
+        padding-bottom: 56px;
+    }
+}
+{% endstyle %}
+<div id="secid-{{id}}">
+  <section class="section orderDetailPageSection accountPageSec is-width-standard">
+    <div class="profileMainContainer">
+      <div class="profileSideNav">
+        <a href="/account#profile" class="button sideProfileBtn">Profile</a>
+        <a href="/account#myOrder" class="button sideProfileBtn active">My Orders</a>
+        <a href="/account/addresses" class="button sideProfileBtn">Delivery Address</a>
+        <a href="/account#bandPortal" class="button sideProfileBtn">Band Portal</a>
+        <a href="/account#changePassWord" class="button sideProfileBtn">Change Password</a>
+        <a href="{{ routes.account_logout_url }}" class="button sideProfileBtn"> Log Out </a>
+      </div>
+      <div class="sideProfileTabContentContainer OrderContainerFullWidth">
+        <div class="tabContentInner" id="myOrdersSec">
+          <div class="contentDetailTxtCol">
+            <p class="orderNumber">
+              {{ 'customer.order.title' | t: name: order.name }}
+            </p>
+            <h2 class="orderStatus is-h6">Your ORder Has Been Received ({{ order.fulfillment_status_label }})</h2>
+            {% if order.cancelled %}
+              <div class="orderCancelabel errors">
+                {% assign cancelled_at = order.cancelled_at | date: '%B %d, %Y %I:%M%p' %}
+                <p>{{ 'customer.order.cancelled' | t: date: cancelled_at }}</p>
+                <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason }}</p>
+              </div>
+            {% endif %}
+            <div class="orderDetailInnerTable">
+              <div class="tableTitleRow">
+                <p>Order Number: {{ order.name }}</p>
+              </div>
+              <div class="tableContent">
+                <p class="orderPlacingDate is-text">
+                  Order Placed {{ 'customer.order.date' | t: date: order.created_at | date: '%B %d, %Y %I:%M%p' }}
+                </p>
+                <div class="orderProdItems">
+                  {% for line_item in order.line_items %}
+                    <div class="orderItemRow" id="{{ line_item.id }}">
+                      <div class="orderItemImg">
+                        <img
+                          src="{{ line_item.product.featured_media  | img_url:'master' }}"
+                          class="boxImg lazyload"
+                          width="200"
+                          height="200"
+                          alt=""
+                        >
+                      </div>
+                      <div class="orderLineItemProdDetail">
+                        {% if line_item.product.metafields.custom.component_ == true %}
+                          {{ line_item.title }}
+                        {% else %}
+                          {{ line_item.title | link_to: line_item.product.url }}
+                        {% endif %}
+
+                        <p class="orderProdPrice">
+                          {% render 'price-element', price: line_item.price %}
+                          {% if line_item.quantity > 1 %}
+                            X {{ line_item.quantity }} =
+                            {% render 'unit-price', item: line_item, class: 'order__unit-price' %}
+                          {% endif %}
+                        </p>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+
+            <div class="orderDetailInnerTable">
+              <div class="tableTitleRow">
+                <p>Summary</p>
+              </div>
+              <div class="tableContent">
+                <div class="summaryDetail">
+                  <div class="summaryLine">
+                    <span class="leftInfo">{{ 'customer.order.subtotal' | t }}</span>
+                    <span class="rightInfo">
+                      {% render 'price-element', price: order.subtotal_price %}
+                    </span>
+                  </div>
+                  {% for discount in order.discounts %}
+                    <div class="summaryLine orderDiscount">
+                      <span class="leftInfo"> {{ discount.code }} - {{ 'customer.order.discount' | t }}</span>
+                      <span class="rightInfo">
+                        {% render 'price-element', price: discount.savings %}
+                      </span>
+                    </div>
+                  {% endfor %}
+                  {% for shipping_method in order.shipping_methods %}
+                    <div class="summaryLine">
+                      <span class="leftInfo">{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})</span>
+                      <span class="rightInfo">
+                        {% render 'price-element', price: shipping_method.price %}
+                      </span>
+                    </div>
+                  {% endfor %}
+                  {% for tax_line in order.tax_lines %}
+                    <div class="summaryLine">
+                      <span class="leftInfo">
+                        {{- 'customer.order.tax' | t }} ({{ tax_line.title }}
+                        {{ tax_line.rate | times: 100 }}%)</span
+                      >
+                      <span class="rightInfo">
+                        {% render 'price-element', price: tax_line.price %}
+                      </span>
+                    </div>
+                  {% endfor %}
+                  <div class="summaryLine orderPaymentStatus">
+                    <span class="leftInfo"> Payment Status </span>
+                    <span class="rightInfo"> {{ order.financial_status_label }} </span>
+                  </div>
+                  <div class="summaryLine mainOrderTotal">
+                    <span class="leftInfo">
+                      {{ 'customer.order.total' | t }}
+                    </span>
+                    <span class="rightInfo">
+                      {% render 'price-element', price: order.total_price %}
+                      {{ order.currency -}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="orderDetailInnerTable">
+              <div class="tableTitleRow">
+                <p>Shipping Address</p>
+              </div>
+              <div class="tableContent">
+                <p class="orderAdressDetail">
+                  {{ order.shipping_address.name }}
+                  <br>
+                  {% if order.shipping_address.company != '' %}
+                    {{ order.shipping_address.company -}}
+                    <br>
+                  {% endif %}
+                  {{ order.shipping_address.street -}}
+                  <br>
+                  {{ order.shipping_address.city }},
+                  {% if order.shipping_address.province != '' %}
+                    {{ order.shipping_address.province -}}
+                    <br>
+                  {% endif %}
+                  {{ order.shipping_address.zip | upcase -}}
+                  <br>
+                  {{ order.shipping_address.country -}}
+                  <br>
+                  {{ order.shipping_address.phone }}
+                </p>
+              </div>
+            </div>
+
+            <div class="orderDetailInnerTable">
+              <div class="tableTitleRow">
+                <p>Billing Address</p>
+              </div>
+              <div class="tableContent">
+                <p class="orderAdressDetail">
+                  {{ order.billing_address.name }}
+                  {% if order.billing_address.company != '' %}
+                    {{ order.billing_address.company -}}
+                    <br>
+                  {% endif %}
+                  {{ order.billing_address.street -}}
+                  <br>
+                  {{ order.billing_address.city }},
+                  {% if order.billing_address.province != '' %}
+                    {{ order.billing_address.province -}}
+                    <br>
+                  {% endif %}
+                  {{ order.billing_address.zip | upcase -}}
+                  <br>
+                  {{ order.billing_address.country -}}
+                  <br>
+                  {{ order.billing_address.phone }}
+                </p>
+              </div>
+            </div>
+
+            <div class="orderDetailInnerTable">
+              <div class="tableTitleRow">
+                <p>Support</p>
+              </div>
+              <div class="tableContent">
+                <p class="supportLink">
+                  <a href="/pages/contact"> Client Services </a>
+                </p>
+                <p class="supportLink">
+                  <a href="/pages/contact"> Contact Us </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+  {
+    "name": "Order Detail Section",
+    "settings": []
+  }
+{% endschema %}
