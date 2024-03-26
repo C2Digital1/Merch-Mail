@@ -13,7 +13,7 @@
         "button1Url": "",
         "showHomePageForBtn1": true,
         "button2Text": "FANS",
-        "button2Url": "",
+        "button2Url": "shopify:\/\/pages\/fans-homepage",
         "showHomePageForBtn2": false,
         "headingPreset": "is-h1",
         "button1Style": "button--primary",
