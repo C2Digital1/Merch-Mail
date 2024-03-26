@@ -3204,6 +3204,137 @@ div#inkybay_opt_1710938926409 .inkybay_option_radio:nth-child(2) {
     color: #0C0C0C;
 }
 
+.orderDetailPageSection .profileMainContainer {
+    align-items: flex-start;
+}
+
+.sideProfileTabContentContainer.OrderContainerFullWidth {
+    background: #fff;
+    padding: 0 !important;
+}
+
+.sideProfileTabContentContainer.OrderContainerFullWidth .tabContentInner {
+    padding: 0 !important;
+}
+
+.contentDetailTxtCol p.orderNumber {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-bottom: 8px;
+}
+
+.contentDetailTxtCol h2.orderStatus.is-h6 {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    color: #0C0C0C;
+    margin-bottom: 18px;
+}
+
+.orderDetailInnerTable {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    border: 1px solid #0C0C0C;
+}
+
+.tableTitleRow {
+    padding: 8px 12px;
+    border-bottom: 1px solid #0C0C0C;
+}
+
+.tableContent {
+    padding: 12px;
+}
+
+.tableContent p.orderPlacingDate.is-text {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-bottom: 16px;
+}
+
+
+.orderItemRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.orderItemImg {
+    height: 80px;
+    width: 80px;
+    display: block;
+    margin-right: 8px;
+}
+
+.orderItemImg img.boxImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.orderLineItemProdDetail {
+    width: 100%;
+}
+
+.orderLineItemProdDetail a {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    color: #0C0C0C;
+    display: flex;
+    width: max-content;
+    max-width: 100%;
+    margin-bottom: 8px;
+}
+
+.orderLineItemProdDetail p.orderProdPrice {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    color: #0C0C0C;
+}
+
+.summaryLine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 6px;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    color: #0C0C0C;
+}
+
+.tableContent p.orderAdressDetail {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    color: #0C0C0C;
+}
+
+.contentDetailTxtCol p.supportLink {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-bottom: 6px;
+}
+
+.contentDetailTxtCol p.supportLink a {
+    color: #0C0C0C;
+}
+
+.contentDetailTxtCol p.supportLink a:hover {
+    color: #2B5597;
+}
+
+
+
 /* custom product page css code end  */
 
 /* media query start  */
