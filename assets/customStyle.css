@@ -3457,7 +3457,7 @@
     /* media query start  */
     @media only screen and (max-width: 1500px) {
         .useCustomStyle .image-with-text__text-column.image-with-text__column.scheme_color-default.one-half.medium-down--one-whole.column.has-padding-left .image-with-text__wrapper {
-            margin: 0;
+            margin: 0 20px;
         }
 
         .imgTxtCol-2.is-justify-left {
@@ -3827,6 +3827,11 @@
 
         .useCustomStyle .image-with-text__text-column .image-with-text__wrapper {
             max-width: 100%;
+        }
+
+        .useCustomStyle .image-with-text__text-column.image-with-text__column.scheme_color-default.one-half.medium-down--one-whole.column.has-padding-left .image-with-text__wrapper {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
         }
 
         .useCustomStyle .image-with-text__image-column,
