@@ -26,11 +26,7 @@
 {%- endstyle -%}
 
 {% comment %} HTML markup {% endcomment %}
-<div id="mobile-header" class="mobile-header">
-  <div
-    data-show-mobile-menu="false"
-    class="mobile-menu__toggle-button mobile-toggle__position--{{ settings.logo_menu_position }}"
-  ></div>
+<div id="mobile-header" class="mobile-header">  
   <div class="
       mobile-header__content
       mobile-layout--{{ settings.logo_menu_position }}
@@ -38,14 +34,11 @@
       header__icon-style-{{ settings.mobile_icon_style | replace: '_', '-' }}
     ">
     <div class="mobile-dropdown mobile-dropdown__position--{{ settings.logo_menu_position }}">
-      <div class="mobile-menu__toggle-icon">
-        <div class="mobile-header__open-menu">
-          {% render 'icon', name: 'menu' %}
-        </div>
-        <div class="mobile-header__close-menu">
-          {% render 'icon', name: 'x' %}
-        </div>
-      </div>
+      <button type="button" class="mobileToggleIcon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       {% render 'mobile-menu', nav_blocks: nav_blocks %}
     </div>
     <div class="mobile-logo">
@@ -81,10 +74,36 @@
       {% endif %}
 
       {% comment %} Cart icon {% endcomment %}
+      {% if shop.customer_accounts_enabled %}
+        {% comment %} Accounts {% endcomment %}
+      
+          {% if customer %}
+            {% comment %} Logout {% endcomment %}
+            <a class="header__link mobile-menu__item item-with-icon" href="{{ routes.account_url }}" >
+              {% if settings.icon_style != 'text' %}
+                {% render 'icon', name: 'avatar' %}
+              {% endif %}
+              <span class="icon-caption">
+                {{ 'layout.customer.my_account' | t | escape }}
+              </span>
+            </a>
+          {% else %}
+            {% comment %} Login {% endcomment %}
+            <a class="mobile-menu__item item-with-icon" href="{{ routes.account_login_url }}" >
+              {% if settings.icon_style != 'text' %}
+                {% render 'icon', name: 'avatar' %}
+              {% endif %}
+              <span class="icon-caption">
+                {{ 'layout.customer.log_in' | t | escape }}
+              </span>
+            </a>
+          {% endif %}
+      {% endif %}
       <div
         class="header-cart action-area__link {% if cart.item_count != 0 %}has-cart-count{% endif %}"
         data-ajax-cart-trigger
       >
+
         <a
           class="header__link"
           {% if settings.cart_action != 'mini_cart' or settings.cart_action != 'drawer' %}

@@ -23,44 +23,17 @@
         {% assign main_menu = linklists[section.settings.main_linklist] %}
         {% render 'mobile-menu-loop', main_menu: main_menu %}
       {% endif %}
-
-      {% if shop.customer_accounts_enabled %}
-        {% comment %} Accounts {% endcomment %}
+      {% if settings.show_currency_selector %}
         <li>
-          {% if customer %}
-            {% comment %} Logout {% endcomment %}
-            <a class="mobile-menu__item item-with-icon" href="{{ routes.account_url }}" >
-              {% if settings.icon_style != 'text' %}
-                {% render 'icon', name: 'avatar' %}
-              {% endif %}
-              <span class="icon-caption">
-                {{ 'layout.customer.my_account' | t | escape }}
-              </span>
-            </a>
-          {% else %}
-            {% comment %} Login {% endcomment %}
-            <a class="mobile-menu__item item-with-icon" href="{{ routes.account_login_url }}" >
-              {% if settings.icon_style != 'text' %}
-                {% render 'icon', name: 'avatar' %}
-              {% endif %}
-              <span class="icon-caption">
-                {{ 'layout.customer.log_in' | t | escape }}
-              </span>
-            </a>
-          {% endif %}
+          {% render 'localization-switcher-mobile',
+            id: 'selector-form--mobile',
+            additional_classes: 'selectors-form--mobile',
+            currency_selector: currency_selector,
+            locale_selector: locale_selector,
+            show_currency: settings.show_currency_selector
+          %}
         </li>
       {% endif %}
-
-      <li>
-        {%
-          render 'localization-switcher-mobile',
-          id: 'selector-form--mobile',
-          additional_classes: 'selectors-form--mobile',
-          currency_selector: currency_selector,
-          locale_selector: locale_selector,
-          show_currency: settings.show_currency_selector
-        %}
-      </li>
     </ul>
   </div>
 </div>

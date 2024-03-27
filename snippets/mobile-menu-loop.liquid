@@ -22,7 +22,7 @@
         <ul class="mobile-submenu__list mobile-menu__submenu has-dropdown" data-mobile-submenu-first-level-list>
           {% assign currentIndex = forloop.index %}
           {% for sub_link in link.links %}
-            <li class="mobile-menu__submenu-list-item">
+            <li class="mobile-menu__submenu-list-item is-text">
               {% if sub_link.links == blank %}
                 <a class="mobile-menu__item" href="{{ sub_link.url }}">{{ sub_link.title }}</a>
               {% else %}
