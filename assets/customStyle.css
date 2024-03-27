@@ -4093,6 +4093,11 @@
             margin: 0 !important;
         }
 
+        .heading-wrapper--article.heading-wrapper.heading-wrapper--short.one-whole.column {
+            width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
     }
 
     @media only screen and (max-width: 400px) {
