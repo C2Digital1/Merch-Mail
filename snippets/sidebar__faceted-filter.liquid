@@ -1,4 +1,9 @@
-<h2 class="sideBarFilterHeading">Filters {% render 'filterIcon' %}</h2>
+<h2 class="sideBarFilterHeading">
+  <span class="backIcon">
+    {% render 'backIcon' %}
+  </span>
+  <span class="filterTxtIcons">Filters {% render 'filterIcon' %}</span>
+</h2>
 <form class="faceted-filter-form" data-faceted-filter-form>
   {% assign has_active_filters = false %}
 
@@ -33,7 +38,7 @@
       </div>
     </div>
   {% endif %}
-  
+
   {%- for filter in collection.filters -%}
     <div
       id="shopify-section-{{ block.id }}"
@@ -51,7 +56,7 @@
           class="sidebar-block__heading {{ section.settings.sidebar_heading_preset }}"
           {% if settings.toggle_sidebar %}
             data-sidebar-block__toggle="
-                                    {%- if filter.active_values.size > 0 or filter.min_value.value != blank or filter.max_value.value != blank -%}open{%- else -%}closed{%- endif -%}
+                                                  {%- if filter.active_values.size > 0 or filter.min_value.value != blank or filter.max_value.value != blank -%}open{%- else -%}closed{%- endif -%}
             "
             aria-label="toggle"
           {% endif %}
@@ -188,7 +193,6 @@
       </div>
     </div>
   {%- endfor -%}
-
 </form>
 
 <a href="{{collection.url}}" class="resetFilterBtn button button--primary"> RESET </a>
