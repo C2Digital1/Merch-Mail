@@ -93,6 +93,7 @@
 <section
   class="
     section
+    searchPageSec
     {{ css_class }}
     is-width-{{ width }}
   "
@@ -196,7 +197,7 @@
     {% endif %}
 
     {% paginate search.results by pagination_limit %}
-      <div class="{% if section.blocks.size > 0 and show_sidebar %}three-fourths medium-down--one-whole column has-margin-top equal-columns--outside-trim{% endif %}">
+      <div class="{% if section.blocks.size > 0 and show_sidebar %}three-fourths medium-down--one-whole column has-margin-top equal-columns--outside-trim {% else %} searchPageContainer{% endif %}">
         {% if search.performed %}
           {% if search.results == empty %}
             {% comment %} No results {% endcomment %}

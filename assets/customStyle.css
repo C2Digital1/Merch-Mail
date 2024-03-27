@@ -3485,9 +3485,14 @@
 
     /* mvm login page css code end  */
 
-
-    .notFoundPage{
+    .searchPageSec,
+    .notFoundPage {
         min-height: 60vh;
+    }
+
+    .searchPageContainer {
+        width: 100%;
+        position: relative;
     }
 
     /* media query start  */
