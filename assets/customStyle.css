@@ -3882,7 +3882,7 @@
             width: 80px;
         }
 
-        section.section.iconWithTextSection.is-width-wide .sectionInnerContainer {
+        section.section.iconWithTextSection .sectionInnerContainer {
             padding-left: 16px !important;
             padding-right: 16px !important;
         }
@@ -3921,6 +3921,27 @@
 
         .jdgm-rev-widg__summary {
             width: 100% !important;
+        }
+
+        .profileMainContainer {
+            flex-direction: column;
+            max-width: 100%;
+        }
+
+        .profileSideNav {
+            width: 100%;
+            max-width: 348px;
+            margin: 0px auto;
+        }
+
+        .sideProfileTabContentContainer {
+            width: 100%;
+            max-width: 100%;
+            margin: 16px auto !important;
+        }
+
+        .tabContentInner {
+            padding: 24px 16px !important;
         }
 
     }
