@@ -103,7 +103,7 @@
         "show_nav_buttons": true,
         "showNavOnLeft": true,
         "dotsColor": "#ffffff",
-        "mobile_text_below_image": true,
+        "mobile_text_below_image": false,
         "width": "standard",
         "padding_top": 40,
         "padding_bottom": 40,
