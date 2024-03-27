@@ -3926,11 +3926,12 @@
         .profileMainContainer {
             flex-direction: column;
             max-width: 100%;
+            margin: 0px auto 50px auto;
         }
 
         .profileSideNav {
             width: 100%;
-            max-width: 348px;
+            max-width: 286px;
             margin: 0px auto;
         }
 
