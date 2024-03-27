@@ -3979,6 +3979,38 @@
             height: 100%;
         }
 
+        .footer__block.block__link-list.medium-down--one-half.column.four {
+            width: calc(50% - 20px);
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            margin-top: 20px;
+            margin-bottom: 32px;
+            padding-bottom: 0;
+        }
+
+        .footer__block.block__newsletter.medium-down--one-whole.column.four {
+            max-width: 100% !important;
+        }
+
+        .container.footerBottomRow.has-padding-top {
+            margin-top: 40px;
+            text-align: center;
+            padding-top: 16px;
+        }
+
+        .footer__credits.one-whole.column.small-down--one-whole {
+            width: 100%;
+            text-align: center;
+            margin: 0 !important;
+        }
+
+        .footer__credits p.footerCopyRightTxt {
+            justify-content: center;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 18px;
+        }
+
         /* mobile footer css code end  */
     }
 
