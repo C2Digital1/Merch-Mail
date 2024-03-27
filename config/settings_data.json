@@ -15,7 +15,7 @@
     "show_currency_selector": false,
     "mobile_sidebar_position": "below",
     "mobile_icon_style": "icons",
-    "mobile_menu_preset": "is-text",
+    "mobile_menu_preset": "is-h6",
     "mobile_menu_background_color": "#fff",
     "mobile_menu_link_color": "#0c0c0c",
     "mobile_menu_link_hover_color": "#a12b2f",
