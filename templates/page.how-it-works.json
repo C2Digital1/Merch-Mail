@@ -96,6 +96,7 @@
       ],
       "settings": {
         "useCustomStyle": true,
+        "reverseInMobile": false,
         "width": "standard",
         "show_gutter": true,
         "desktop_height": 0,
@@ -153,6 +154,7 @@
       ],
       "settings": {
         "useCustomStyle": true,
+        "reverseInMobile": true,
         "width": "standard",
         "show_gutter": true,
         "desktop_height": 0,
@@ -210,6 +212,7 @@
       ],
       "settings": {
         "useCustomStyle": true,
+        "reverseInMobile": false,
         "width": "standard",
         "show_gutter": true,
         "desktop_height": 0,
@@ -267,6 +270,7 @@
       ],
       "settings": {
         "useCustomStyle": true,
+        "reverseInMobile": false,
         "width": "standard",
         "show_gutter": true,
         "desktop_height": 0,
@@ -324,6 +328,7 @@
       ],
       "settings": {
         "useCustomStyle": true,
+        "reverseInMobile": false,
         "width": "standard",
         "show_gutter": true,
         "desktop_height": 0,
