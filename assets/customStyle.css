@@ -3486,6 +3486,10 @@
     /* mvm login page css code end  */
 
 
+    .notFoundPage{
+        min-height: 60vh;
+    }
+
     /* media query start  */
     @media only screen and (max-width: 1500px) {
         .useCustomStyle .image-with-text__text-column.image-with-text__column.scheme_color-default.one-half.medium-down--one-whole.column.has-padding-left .image-with-text__wrapper {
