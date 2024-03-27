@@ -266,7 +266,7 @@
       {% endfor %}
     </div>
 
-    <div class="container has-padding-top border-top">
+    <div class="container footerBottomRow has-padding-top">
       {% if locale_selector or currency_selector or settings.show_multiple_currencies == true %}
         <div class="one-whole column">
           <div class="footer-menu__disclosure footer-classic__disclosure">
@@ -289,9 +289,8 @@
       {% endif %}
 
       <div class="footer__credits is-text-small {% if display_payment_methods %}one-half {% else %} one-whole {% endif %} column small-down--one-whole">
-        <p>
-          &copy; {{ 'now' | date: '%Y' }}
-          {{ shop.name | link_to: '/' }}
+        <p class="footerCopyRightTxt">
+          {% render 'copyRightIcon' %} All rights reserved {{ shop.name | link_to: '/' }} {{ 'now' | date: '%Y' }}
         </p>
         {{ copyright_text }}
         {% if display_designed_by %}
