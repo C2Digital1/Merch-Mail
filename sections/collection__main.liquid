@@ -164,8 +164,16 @@
       {% endif %}
     </div>
     {% if has_dropdowns %}
-      <div class="collection__filters three-fifths medium-down--one-whole column">
-        {% comment %} Collection filters {% endcomment %}
+      <div class="collection__filters collectionFilterRow three-fifths medium-down--one-whole column">
+        {% for block in section.blocks %}
+          {% if block.type == 'faceted_filtering' %}
+            {% assign facetedFilterEnabled = true %}
+          {% endif %}
+        {% endfor %}
+        {% if facetedFilterEnabled %}
+          <button class="mobileFilterOpener">Filters {% render 'filterIcon' %}</button>
+        {% endif %}
+
         {% render 'collection__filters' %}
       </div>
     {% endif %}
@@ -176,6 +184,7 @@
       <aside
         class="
           sidebar-section
+          collectionPageSideBar
           one-fourth
           medium-down--one-whole
           column
@@ -256,7 +265,7 @@
 
     {% paginate collection.products by pagination_limit %}
       <div
-        class="collection__main {% if section.blocks.size > 0 and show_sidebar %} hasSideBar three-fourths has-sidebar medium-down--one-whole equal-columns--outside-trim{% endif %}"
+        class="collection__main collectionMainArea {% if section.blocks.size > 0 and show_sidebar %} hasSideBar three-fourths has-sidebar medium-down--one-whole equal-columns--outside-trim{% endif %}"
         data-collection-main
       >
         {% if show_promo_banner %}

@@ -1023,6 +1023,10 @@
         margin-bottom: 15px;
     }
 
+    button.mobileFilterOpener {
+        display: none;
+    }
+
     .collection__filters .select {
         display: flex;
         align-items: center;
