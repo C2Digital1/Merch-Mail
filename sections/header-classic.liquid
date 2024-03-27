@@ -61,6 +61,9 @@
 
 {% comment %} Section specific CSS {% endcomment %}
 {% capture section_css -%}
+#shopify-section-{{ id }}{
+  background: {{ background_color }};
+}
 .header__logo && 
 .logo__content {
   width: {{ logo_width }}px;
@@ -158,7 +161,7 @@
 
 {% comment %} HTML markup {% endcomment %}
 <div
-  class="is-relative {{ css_class }}"
+  class="is-relative headerSection {{ css_class }}"
   data-enable_overlay="{{ enable_overlay }}"
   data-enable_sticky="{{ enable_sticky }}"
 >

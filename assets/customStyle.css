@@ -3461,9 +3461,52 @@ div#inkybay_opt_1710938926409 .inkybay_option_radio:nth-child(2) {
     .caption.is-justify-center.is-align-center {
         padding: 0 20px !important;
     }
+
+    .message-header {
+        padding: 4px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 32px;
+    }
+
+    .announcement-bar__text .is-text {
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 24px;
+    }
+
+    header.header {
+        display: none;
+    }
+
+    div#header-sticky-wrapper {
+        display: none;
+    }
+
+    div#mobile-header {
+        display: block;
+        width: 100%;
+        padding: 5px 12px;
+    }
+
+    #shopify-section-header-classic {
+        position: sticky;
+        width: 100%;
+        top: 0;
+        z-index: 5555;
+        background: #fff;
+    }
 }
 
+
+
 @media only screen and (max-width: 798px) {
+
+    #shopify-section-header-classic {
+        position: relative;
+        width: 100%;
+    }
 
     .showSliderInMobile:after {
         content: 'flickity';
@@ -3633,6 +3676,16 @@ div#inkybay_opt_1710938926409 .inkybay_option_radio:nth-child(2) {
 @media only screen and (max-width: 400px) {
     a.popupBtn.button {
         min-width: 130px;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    a.popupBtn.button {
+        min-width: 100px;
+    }
+
+    h1.popupHeadingTxt {
+        font-size: 30px;
     }
 }
 
