@@ -3465,6 +3465,7 @@
 
         .useCustomStyle .image-with-text__text-column .image-with-text__wrapper {
             padding: 0;
+            margin: 0 20px;
         }
     }
 
@@ -3850,7 +3851,9 @@
         .useCustomStyle .image-with-text__text-column .image-with-text__wrapper {
             max-width: 100%;
         }
-
+        .useCustomStyle .image-with-text__text-column .image-with-text__wrapper{
+            margin: 0 !important;
+        }
         .useCustomStyle .image-with-text__text-column.image-with-text__column.scheme_color-default.one-half.medium-down--one-whole.column.has-padding-left .image-with-text__wrapper {
             margin-left: 0px !important;
             margin-right: 0px !important;
