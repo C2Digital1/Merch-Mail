@@ -1516,7 +1516,7 @@
         adaptiveHeight: true,
         dragThreshold: 10,
         imagesLoaded: true,
-        pageDots: false,
+        pageDots: true,
         prevNextButtons: $productGallery.data('media-count') > 1 || $slides.length > 1,
         autoPlay: slideshowSpeed * 1000,
         fade: slideshowTransition === 'fade',
