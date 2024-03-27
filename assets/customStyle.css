@@ -4098,6 +4098,37 @@
             margin-left: 0 !important;
             margin-right: 0 !important;
         }
+
+        .faqPageHeadingBanner .btnsContainer.buttons {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+        }
+
+        .faqPageHeadingBanner .btnsContainer.buttons a.button {
+            min-width: 0;
+            margin: 0 12px !important;
+            width: 100%;
+            max-width: 140px;
+            padding: 5px;
+        }
+
+        h3.faq__block-title.is-h4 {
+            font-size: 28px !important;
+            letter-spacing: 0;
+            line-height: 34px !important;
+        }
+
+        .faqSection .faq__item h6.title.faq__item-question span.faq__item-symbol {
+            margin-left: 29px;
+        }
+
+        .faqSection .faq__item h6.title.faq__item-question {
+            font-size: 18px !important;
+            letter-spacing: 0;
+            line-height: 22px !important;
+        }
     }
 
     @media only screen and (max-width: 400px) {
@@ -4113,6 +4144,18 @@
 
         h1.popupHeadingTxt {
             font-size: 30px;
+        }
+
+        h3.faq__block-title.is-h4 {
+            font-size: 22px !important;
+            letter-spacing: 0;
+            line-height: 25px !important;
+        }
+
+        .faqSection .faq__item h6.title.faq__item-question {
+            font-size: 16px !important;
+            letter-spacing: 0;
+            line-height: 18px !important;
         }
     }
 
