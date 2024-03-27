@@ -494,7 +494,7 @@
             "type": "link_list",
             "settings": {
               "width": "4",
-              "mobile_width": "one-whole",
+              "mobile_width": "one-half",
               "hideHeading": true,
               "menu": "company",
               "menu_preset": "is-text",
