@@ -6,6 +6,7 @@
   assign id = section.id
   assign blocks = section.blocks
   assign useCustomStyle = section.settings.useCustomStyle
+  assign reverseInMobile = section.settings.reverseInMobile
 -%}
 {% comment %}Spacing{% endcomment %}
 {%- liquid
@@ -106,7 +107,7 @@
     data-scroll-class="{{ animation }}"
   {% endif %}
 >
-  <div class="container {% if useCustomStyle %}useCustomStyle{% endif %}">
+  <div class="container{% if useCustomStyle %} useCustomStyle{% endif %}{% if reverseInMobile %} reverseInMobile{% endif %}">
     {% if blocks.size > 0 %}
       {% for block in blocks %}
         {% if block.type != 'image' %}
@@ -252,6 +253,12 @@
       "type": "checkbox",
       "id": "useCustomStyle",
       "label": "Use Custom Style",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "reverseInMobile",
+      "label": "Reverse Columns in Mobile",
       "default": false
     },
     {

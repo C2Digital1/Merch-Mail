@@ -534,6 +534,7 @@
         justify-content: space-between;
         width: 100%;
         flex-wrap: nowrap;
+        column-gap: 20px;
     }
 
     .useCustomStyle .image-with-text__image-column,
@@ -3499,7 +3500,6 @@
         }
 
 
-
         /* mobile header css code start  */
 
         header.header {
@@ -3819,6 +3819,27 @@
 
         .container.useCustomStyle {
             flex-direction: column;
+        }
+        .container.useCustomStyle.reverseInMobile
+        .container.reverseInMobile{
+            flex-direction: column-reverse !important;
+        }
+
+        .useCustomStyle .image-with-text__text-column .image-with-text__wrapper {
+            max-width: 100%;
+        }
+
+        .useCustomStyle .image-with-text__image-column,
+        .useCustomStyle .image-with-text__text-column {
+            margin-bottom: 12px !important;
+        }
+
+        h2.preHeadingTxt {
+            margin-bottom: 12px;
+        }
+
+        h3.image-with-text__heading {
+            margin-bottom: 12px;
         }
 
         .cart__card.container a.cart__image {
