@@ -270,7 +270,7 @@
       ],
       "settings": {
         "useCustomStyle": true,
-        "reverseInMobile": false,
+        "reverseInMobile": true,
         "width": "standard",
         "show_gutter": true,
         "desktop_height": 0,
